@@ -22,11 +22,15 @@ horizontal: false
 }
 
 /* The theme's default .category style is too faint against a dark background —
-   make the section subtitles stand out using the site's accent color. */
-.projects h2.category {
-  opacity: 1;
-  color: var(--global-theme-color, #a5279a);
-  font-weight: 600;
+   make the section subtitles stand out. !important because the gem's own
+   .category rule (likely a low-opacity/muted color meant for a light tab bar)
+   otherwise wins the cascade. */
+.projects a .category,
+.projects h2.category,
+.projects .category {
+  opacity: 1 !important;
+  color: #e91e8c !important;
+  font-weight: 700 !important;
 }
 </style>
 
