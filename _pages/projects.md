@@ -9,8 +9,6 @@ display_categories: [work, fun]
 horizontal: false
 ---
 
-## Extracurricular projects
-
 <style>
 /* Force 4:3 crop on the project cards (theme-rendered via projects.liquid).
    Bootstrap's card image class is normally card-img-top; scoped to .projects so it can't
@@ -29,6 +27,9 @@ horizontal: false
      and image cropping. -->
 
 <div class="projects">
+  <a id="extracurricular" href=".#extracurricular">
+    <h2 class="category">Extracurricular projects</h2>
+  </a>
   <div class="container">
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4">
     {% assign experience_projects = site.projects | where: "hide_from_grid", true | sort: "importance" %}
@@ -37,11 +38,10 @@ horizontal: false
     {% endfor %}
     </div>
   </div>
-</div>
 
-## Academic projects
-
-<div class="projects">
+  <a id="academic" href=".#academic">
+    <h2 class="category">Academic projects</h2>
+  </a>
   <div class="container">
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4">
     {% assign sorted_projects = site.projects | where_exp: "p", "p.hide_from_grid != true" | sort: "importance" %}
