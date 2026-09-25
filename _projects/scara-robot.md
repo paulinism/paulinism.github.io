@@ -11,6 +11,7 @@ featured: true
 Full perception-to-actuation loop on a physical 4-degree-of-freedom SCARA robot, validated first in Model-in-the-Loop before deployment on hardware.
 
 **My contribution**
+
 - ESP32 firmware under FreeRTOS (C++), communicating over MQTT
 - Vision pipeline: YOLOv11n object detection + HSV/contour segmentation for real-time coordinate handoff
 - Joint and Cartesian PID controller design and implementation in MATLAB/Simulink (Model-in-the-Loop)

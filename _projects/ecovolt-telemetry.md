@@ -8,9 +8,11 @@ category: PCB, Embedded, Electronics
 featured: true
 hide_from_grid: true # shown in the "Professional & lab experience" section instead of the academic grid
 ---
+
 Telemetry system for a Shell Eco-marathon energy-efficiency vehicle, from PCB to real-time data acquisition.
 
 **My contribution**
+
 - Designed two multilayer telemetry PCBs in Altium Designer (schematic, layout, BOM)
 - Integrated CAN/SPI/I2C/UART bus communication
 - Built ESP32 firmware in C++, with HiL simulation in Python and predictive C++ models for energy optimization

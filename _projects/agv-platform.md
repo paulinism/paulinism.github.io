@@ -12,6 +12,7 @@ featured: true
 Fourth-semester team challenge (5 students): an industrial scissor-lift platform for automated material handling, from CAD through structural analysis to physical fabrication.
 
 **My contribution**
+
 - Full assembly modeling in SolidWorks (not the final rendering/animation)
 - Design, validation, and 3D printing (ABS) of the lifting cam
 - Individual partial simulations in NX

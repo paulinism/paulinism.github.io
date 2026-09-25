@@ -25,13 +25,14 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-I am a Mechatronics Engineering student completing a DHIK double degree between *Tec de Monterrey* (Mexico) and *Hochschule Zittau/Görlitz* (Germany), specializing in Electrical Engineering, now based in Saxony.
+I am a Mechatronics Engineering student completing a DHIK double degree between _Tec de Monterrey_ (Mexico) and _Hochschule Zittau/Görlitz_ (Germany), specializing in Electrical Engineering, now based in Saxony.
 
 **I turn engineering concepts into working systems** — integrating electronics, embedded software, control, simulation, and physical testing from design to validation.
 
 During my studies I've led a 30-person engineering team at [EcoVolt CCM](/experience/), our university's team at Shell Eco-marathon, developed embedded telemetry and vehicle systems, fabricated semiconductor devices in [MIT Cleanrooms](/experience/), built vision-guided robotic systems and digital twins.
 
 **Focus areas:**
+
 - PCB design & instrumentation (Altium Designer)
 - Embedded firmware & microcontrollers (C/C++, ESP32, Python)
 - Control systems & model-based design (PID, MATLAB/Simulink/Simscape, HiL)
