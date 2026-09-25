@@ -2,7 +2,7 @@
 layout: page
 permalink: /contact/
 title: contact
-description: Currently looking for a Pflichtpraktikum / Werkstudent position.
+description: Currently looking for a Pflichtpraktikum & Abschlussarbeit position.
 nav: true
 nav_order: 5
 ---
@@ -11,7 +11,7 @@ nav_order: 5
   <img src="{{ 'assets/img/paulina-contact.jpg' | relative_url }}" alt="Paulina Ruíz Servín" style="width:260px; aspect-ratio:3/4; object-fit:cover; object-position:center 22%; border-radius:8px;">
   <div style="flex:1; min-width:260px;">
 
-  <p><strong>I'm currently looking for a Pflichtpraktikum (mandatory internship) or Werkstudent position in Germany</strong>, ideally starting in February/March 2027, in the areas of:</p>
+  <p><strong>I'm currently looking for a Pflichtpraktikum (mandatory internship) or Werkstudent position in Germany</strong>, ideally starting in <u>February/March 2027</u>, in the areas of:</p>
 
   <ul>
     <li>Embedded systems &amp; hardware</li>
