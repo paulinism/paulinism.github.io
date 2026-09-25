@@ -20,6 +20,16 @@ horizontal: false
   width: 100%;
   height: auto;
 }
+
+/* Match the academic grid's hover animation on the hand-built
+   "Professional & lab experience" cards above it. */
+.experience-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.experience-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
 </style>
 
 ## Professional & lab experience
@@ -31,7 +41,7 @@ horizontal: false
 <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:1.5rem; margin-top:1.5rem;">
 {% assign experience_projects = site.projects | where: "hide_from_grid", true | sort: "importance" %}
 {% for project in experience_projects %}
-  <a href="{{ project.url | relative_url }}" style="display:block; border:1px solid currentColor; border-radius:8px; overflow:hidden; text-decoration:none;">
+  <a href="{{ project.url | relative_url }}" class="experience-card" style="display:block; border:1px solid currentColor; border-radius:8px; overflow:hidden; text-decoration:none;">
     {% if project.img %}
     <img src="{{ project.img | relative_url }}" alt="{{ project.title }}" style="width:100%; aspect-ratio:4/3; object-fit:cover; display:block;">
     {% endif %}

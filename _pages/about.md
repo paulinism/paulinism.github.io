@@ -45,10 +45,20 @@ Seeking **Werkstudent / Praktikum / Thesis (Bachelorarbeit)** opportunities in e
 
 ## Featured projects
 
+<style>
+.experience-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.experience-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+</style>
+
 <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:1.5rem; margin-top:1.5rem;">
 {% assign featured = site.projects | where: "featured", true | sort: "importance" %}
 {% for project in featured %}
-  <a href="{{ project.url | relative_url }}" style="display:block; border:1px solid currentColor; border-radius:8px; overflow:hidden; text-decoration:none;">
+  <a href="{{ project.url | relative_url }}" class="experience-card" style="display:block; border:1px solid currentColor; border-radius:8px; overflow:hidden; text-decoration:none;">
     {% if project.img %}
     <img src="{{ project.img | relative_url }}" alt="{{ project.title }}" style="width:100%; aspect-ratio:4/3; object-fit:cover; display:block;">
     {% endif %}
