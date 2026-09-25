@@ -11,7 +11,7 @@ nav_order: 5
   <img src="{{ 'assets/img/paulina-contact.jpg' | relative_url }}" alt="Paulina Ruíz Servín" style="width:260px; aspect-ratio:3/4; object-fit:cover; object-position:center 22%; border-radius:8px;">
   <div style="flex:1; min-width:260px;">
 
-  <p><strong>I'm currently looking for a Pflichtpraktikum (mandatory internship) or Werkstudent position in Germany</strong>, ideally starting in <u>February/March 2027</u>, in the areas of:</p>
+  <p><strong>I am currently looking for a Pflichtpraktikum (mandatory internship) or Werkstudent position in Germany</strong>, ideally starting in <u>February/March 2027</u>, in the areas of:</p>
 
   <ul>
     <li>Embedded systems &amp; hardware</li>
@@ -19,7 +19,7 @@ nav_order: 5
     <li>PCB design / electronics</li>
   </ul>
 
-  <p>I'm based in Zittau, Saxony, and can relocate within all Germany.</p>
+  <p>Based in Zittau, Saxony, and can relocate within all Germany.</p>
 
 <div style="margin-top: 1.5rem;">
   <p><strong>Email:</strong> <a href="mailto:pruizservin27@gmail.com">pruizservin27@gmail.com</a></p>
