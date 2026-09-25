@@ -8,7 +8,7 @@ nav_order: 5
 ---
 
 <div style="display:flex; gap:2rem; flex-wrap:wrap; align-items:flex-start;">
-  <img src="{{ 'assets/img/paulina-contact.jpg' | relative_url }}" alt="Paulina Ruíz Servín" style="width:220px; aspect-ratio:4/3; object-fit:cover; border-radius:8px;">
+  <img src="{{ 'assets/img/paulina-contact.jpg' | relative_url }}" alt="Paulina Ruíz Servín" style="width:260px; aspect-ratio:3/4; object-fit:cover; object-position:center 22%; border-radius:8px;">
   <div style="flex:1; min-width:260px;">
 
   <p><strong>I'm currently looking for a Pflichtpraktikum (mandatory internship) or Werkstudent position in Germany</strong>, ideally starting in February/March 2027, in the areas of:</p>
