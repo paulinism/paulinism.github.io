@@ -23,7 +23,8 @@ nav_order: 5
 
 <div style="margin-top: 1.5rem;">
   <p><strong>Email:</strong> <a href="mailto:pruizservin27@gmail.com">pruizservin27@gmail.com</a></p>
-  <p><strong>Phone:</strong> <a href="tel:+525527107652">+52 55 2710 7652</a></p>
+  <p><strong>Phone (Germany):</strong> <a href="tel:+4915233878708">+49 1523 3878708</a></p>
+  <p><strong>Phone (Mexico):</strong> <a href="tel:+525527107652">+52 55 2710 7652</a></p>
   <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/pruizservin27/" target="_blank">linkedin.com/in/pruizservin27</a></p>
   <p><strong>GitHub:</strong> <a href="https://github.com/paulinism" target="_blank">github.com/paulinism</a></p>
 </div>
