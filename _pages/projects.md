@@ -20,6 +20,14 @@ horizontal: false
   width: 100%;
   height: auto;
 }
+
+/* The theme's default .category style is too faint against a dark background —
+   make the section subtitles stand out using the site's accent color. */
+.projects h2.category {
+  opacity: 1;
+  color: var(--global-theme-color, #a5279a);
+  font-weight: 600;
+}
 </style>
 
 <!-- Both sections below use the theme's own projects.liquid card include, so every
