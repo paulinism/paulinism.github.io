@@ -2,12 +2,22 @@
 layout: page
 title: projects
 permalink: /projects/
-description: A growing collection of your cool projects.
+description: Academic and hands-on engineering work, plus professional/lab experience.
 nav: true
-nav_order: 3
+nav_order: 1
 display_categories: [work, fun]
 horizontal: false
 ---
+
+## Professional & lab experience
+
+**Escudería EcoVolt CCM** (Shell Eco-marathon) — Team Captain & Electronics Lead. Led a 30-person engineering team, developed the vehicle's telemetry and energy-optimization system (PCB design, ESP32 firmware, HiL simulation). See the full write-up: [Telemetry & Energy-Optimization Platform](/projects/ecovolt-telemetry/).
+
+**MIT.nano Lab** — Visiting Student, semiconductor fabrication intensive (MIT, Cambridge, USA).
+- Hands-on device fabrication (semiconductors, solar cells, microfluidics) via thin-film deposition (PECVD/PVD) and chemical etching
+- Photolithography and characterization in cleanrooms (Class 100, 1K, 10K), under strict safety protocols
+
+## Academic projects
 
 <!-- pages/projects.md -->
 <div class="projects">
