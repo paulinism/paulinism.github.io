@@ -25,7 +25,7 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-I'm a Mechatronics Engineering student completing a DHIK double degree between *Tec de Monterrey* (Mexico) and *Hochschule Zittau/Görlitz* (Germany), specializing in Electrical Engineering, now based in Saxony.
+I am a Mechatronics Engineering student completing a DHIK double degree between *Tec de Monterrey* (Mexico) and *Hochschule Zittau/Görlitz* (Germany), specializing in Electrical Engineering, now based in Saxony.
 
 **I turn engineering concepts into working systems** — integrating electronics, embedded software, control, simulation, and physical testing from design to validation.
 
