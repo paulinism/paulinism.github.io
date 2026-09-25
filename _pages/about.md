@@ -41,15 +41,14 @@ During my studies I've led a 30-person engineering team at [EcoVolt CCM](/experi
 - Semiconductor fabrication (MIT.nano)
 
 Seeking **Werkstudent / Praktikum / Thesis (Bachelorarbeit)** opportunities in embedded systems, hardware, and industrial automation.
-
 ## Featured projects
 
-<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+<div style="display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; margin-top:1.5rem;">
 {% assign featured = site.projects | where: "featured", true | sort: "importance" %}
 {% for project in featured %}
-  <a href="{{ project.url | relative_url }}" class="block border rounded-lg p-4 hover:shadow-lg transition">
-    <h3 class="font-bold">{{ project.title }}</h3>
-    <p class="text-sm opacity-80">{{ project.description }}</p>
+  <a href="{{ project.url | relative_url }}" style="display:block; border:1px solid currentColor; border-radius:8px; padding:1rem; text-decoration:none;">
+    <h3 style="font-weight:bold; margin:0 0 0.5rem 0;">{{ project.title }}</h3>
+    <p style="font-size:0.9rem; opacity:0.8; margin:0;">{{ project.description }}</p>
   </a>
 {% endfor %}
 </div>
