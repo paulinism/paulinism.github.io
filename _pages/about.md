@@ -29,15 +29,16 @@ I'm a Mechatronics Engineering student completing a DHIK double degree between *
 
 **I turn engineering concepts into working systems** — integrating electronics, embedded software, control, simulation, and physical testing from design to validation.
 
-During my studies I've led a 30-person engineering team at [EcoVolt CCM](/experience/), our university's team at Shell Eco-marathon, developed embedded telemetry and vehicle systems, fabricated semiconductor devices in an MIT cleanroom, and built vision-guided robotic systems.
+During my studies I've led a 30-person engineering team at [EcoVolt CCM](/experience/), our university's team at Shell Eco-marathon, developed embedded telemetry and vehicle systems, fabricated semiconductor devices in [MIT Cleanrooms](/experience/),, built vision-guided robotic systems and digital twins.
 
 **Focus areas:**
 - PCB design & instrumentation (Altium Designer)
-- Embedded firmware & microcontrollers (C/C++, ESP32, FreeRTOS)
-- Control systems & model-based design (PID, MATLAB/Simulink/Simscape)
-- Industrial automation & digital twins (Siemens TIA Portal, UR cobots)
+- Embedded firmware & microcontrollers (C/C++, ESP32, Python)
+- Control systems & model-based design (PID, MATLAB/Simulink/Simscape, HiL)
+- Industrial automation & digital twins (Siemens PLC/HMI, UR cobots, Process Simulate, Rockwell Automation PLC/HMI)
 - Machine vision (OpenCV, YOLO, Cognex)
-- Mechanical design (SolidWorks, NX CAD)
+- Mechanical design (SolidWorks CAD/CAM, NX CAD)
+- Semiconductor fabrication (MIT.nano)
 
 Seeking **Werkstudent / Praktikum / Thesis (Bachelorarbeit)** opportunities in embedded systems, hardware, and industrial automation.
 
