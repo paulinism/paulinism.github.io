@@ -27,8 +27,3 @@ nav_order: 4
     </div>
   </div>
 </div>
-
-## Coming soon
-
-- **Escudería EcoVolt — vehicle code** (repo pendiente de publicar)
-- **Computer Vision — inventory/QR tracking** (repo pendiente de publicar)

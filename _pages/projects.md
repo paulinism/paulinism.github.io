@@ -9,6 +9,7 @@ display_categories: [work, fun]
 horizontal: false
 ---
 
+## Extracurricular projects
 <style>
 /* Force 4:3 crop on the academic project grid's cards (theme-rendered via projects.liquid).
    Bootstrap's card image class is normally card-img-top; scoped to .projects so it can't
@@ -31,12 +32,6 @@ horizontal: false
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
 }
 </style>
-
-## Professional & lab experience
-
-**Escudería EcoVolt CCM** (Shell Eco-marathon) — Team Captain & Electronics Lead. Led a 30-person engineering team, developed the vehicle's telemetry and energy-optimization system (PCB design, ESP32 firmware, HiL simulation), and built an automated PPE/inventory tracking system for paddock operations.
-
-**MIT.nano Lab** — Visiting Student, semiconductor fabrication intensive (MIT, Cambridge, USA). See the project card below for details.
 
 <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:1.5rem; margin-top:1.5rem;">
 {% assign experience_projects = site.projects | where: "hide_from_grid", true | sort: "importance" %}
