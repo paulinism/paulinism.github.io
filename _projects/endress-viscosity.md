@@ -5,6 +5,7 @@ description: Signal-conditioning PCB and multi-sensor control (correguir)
 img: assets/img/viscosity.png
 importance: 4
 category: PCB, Embedded
+featured: false
 ---
 
 (draft)
