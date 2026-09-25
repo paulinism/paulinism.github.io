@@ -6,6 +6,7 @@ img: assets/img/agv.png
 importance: 5
 category: Mechanical
 giscus_comments: true
+featured: false
 ---
 
 Fourth-semester team challenge (5 students): an industrial scissor-lift platform for automated material handling, from CAD through structural analysis to physical fabrication.
