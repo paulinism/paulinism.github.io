@@ -31,7 +31,7 @@ horizontal: false
     <h2 class="category">Extracurricular projects</h2>
   </a>
   <div class="container">
-    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4">
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
     {% assign experience_projects = site.projects | where: "hide_from_grid", true | sort: "importance" %}
     {% for project in experience_projects %}
       {% include projects.liquid %}
@@ -43,7 +43,7 @@ horizontal: false
     <h2 class="category">Academic projects</h2>
   </a>
   <div class="container">
-    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4">
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
     {% assign sorted_projects = site.projects | where_exp: "p", "p.hide_from_grid != true" | sort: "importance" %}
     {% for project in sorted_projects %}
       {% include projects.liquid %}

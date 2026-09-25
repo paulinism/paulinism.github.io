@@ -45,28 +45,19 @@ Seeking **Werkstudent / Praktikum / Thesis (Bachelorarbeit)** opportunities in e
 
 ## Featured projects
 
-<style>
-.projects img.card-img-top,
-.projects .card-img-top {
-  aspect-ratio: 4/3;
-  object-fit: cover;
-  width: 100%;
-  height: auto;
-}
-</style>
-
-<!-- Uses the theme's own projects.liquid card include, same as the /projects/ page,
-     so the cards match exactly (markup, hover animation, image cropping). -->
-
-<div class="projects">
-  <div class="container">
-    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4">
-    {% assign featured = site.projects | where: "featured", true | sort: "importance" %}
-    {% for project in featured %}
-      {% include projects.liquid %}
-    {% endfor %}
+<div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:1.5rem; margin-top:1.5rem;">
+{% assign featured = site.projects | where: "featured", true | sort: "importance" %}
+{% for project in featured %}
+  <a href="{{ project.url | relative_url }}" style="display:block; border:1px solid currentColor; border-radius:8px; overflow:hidden; text-decoration:none;">
+    {% if project.img %}
+    <img src="{{ project.img | relative_url }}" alt="{{ project.title }}" style="width:100%; aspect-ratio:4/3; object-fit:cover; display:block;">
+    {% endif %}
+    <div style="padding:1rem;">
+      <h3 style="font-weight:bold; margin:0 0 0.5rem 0;">{{ project.title }}</h3>
+      <p style="font-size:0.9rem; opacity:0.8; margin:0;">{{ project.description }}</p>
     </div>
-  </div>
+  </a>
+{% endfor %}
 </div>
 
 [See all projects →](/projects/)
