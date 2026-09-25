@@ -9,11 +9,9 @@ profile:
   image: Bewerbungsbild.jpg
   image_circular: false # crops the image to make it circular
   more_info: >
-    <p>tel:+4915233878708</p>
-    <p>mailto:pruizservin27@gmail.com</p>
-    <p>https://www.linkedin.com/in/pruizservin27/</p>
+    <p>Zittau, Sachsen</p>
 
-selected_papers: true # includes a list of papers marked as "selected={true}"
+selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 
 announcements:
@@ -22,13 +20,37 @@ announcements:
   limit: 5 # leave blank to include all the news in the `_news` folder
 
 latest_posts:
-  enabled: false
+  enabled: true
   scrollable: true # adds a vertical scroll bar if there are more than 3 new posts items
   limit: 3 # leave blank to include all the blog posts
 ---
 
-Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](https://www.reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
+I'm a Mechatronics Engineering student completing a DHIK double degree between *Tec de Monterrey* (Mexico) and *Hochschule Zittau/Görlitz* (Germany), specializing in Electrical Engineering, now based in Saxony.
 
-Put your address / P.O. box / other info right below your picture. You can also disable any of these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
+**I turn engineering concepts into working systems** — integrating electronics, embedded software, control, simulation, and physical testing from design to validation.
 
-Link to your social media connections, too. This theme is set up to use [Font Awesome icons](https://fontawesome.com/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
+During my studies I've led a 30-person engineering team at [EcoVolt CCM](/experience/), our university's team at Shell Eco-marathon, developed embedded telemetry and vehicle systems, fabricated semiconductor devices in an MIT cleanroom, and built vision-guided robotic systems.
+
+**Focus areas:**
+- PCB design & instrumentation (Altium Designer)
+- Embedded firmware & microcontrollers (C/C++, ESP32, FreeRTOS)
+- Control systems & model-based design (PID, MATLAB/Simulink/Simscape)
+- Industrial automation & digital twins (Siemens TIA Portal, UR cobots)
+- Machine vision (OpenCV, YOLO, Cognex)
+- Mechanical design (SolidWorks, NX CAD)
+
+Seeking **Werkstudent / Praktikum / Thesis (Bachelorarbeit)** opportunities in embedded systems, hardware, and industrial automation.
+
+## Featured projects
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+{% assign featured = site.projects | where: "featured", true | sort: "importance" %}
+{% for project in featured %}
+  <a href="{{ project.url | relative_url }}" class="block border rounded-lg p-4 hover:shadow-lg transition">
+    <h3 class="font-bold">{{ project.title }}</h3>
+    <p class="text-sm opacity-80">{{ project.description }}</p>
+  </a>
+{% endfor %}
+</div>
+
+[See all projects →](/projects/)
