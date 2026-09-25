@@ -6,7 +6,7 @@ img: assets/img/orza.png
 redirect: https://www.wikipedia.org/
 importance: 3
 category: Automation
-featured: false
+featured: true
 ---
 (draft)
 A digital twin of a flexible CNC manufacturing cell with Universal Robots cobots, built to analyze OEE, cycle time, and rejection rate before touching physical hardware. Virtual commissioning with PLCSIM Advanced and SCADA-style alarms over industrial Ethernet.
