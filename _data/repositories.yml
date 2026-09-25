@@ -1,7 +1,5 @@
-github_users:
-  - paulinism
-
 repo_description_lines_max: 2
 
 github_repos:
   - paulinism/Telemetry_Ecovolt
+  - paulinism/ScaraCV

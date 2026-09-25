@@ -4,7 +4,7 @@ permalink: /contact/
 title: contact
 description: Currently looking for a Pflichtpraktikum / Werkstudent position.
 nav: true
-nav_order: 4
+nav_order: 5
 ---
 
 **I'm currently looking for a Pflichtpraktikum (mandatory internship) or Werkstudent position in Germany**, ideally starting in [add your target start date/semester], in the areas of:

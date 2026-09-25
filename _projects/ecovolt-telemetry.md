@@ -10,6 +10,9 @@ hide_from_grid: true # shown in the "Professional & lab experience" section inst
 ---
 Telemetry system for a Shell Eco-marathon energy-efficiency vehicle, from PCB to real-time data acquisition.
 
+<img src="{{ 'assets/img/ecovolt-track.jpg' | relative_url }}" alt="EcoVolt CCM prototype vehicle on the track" style="width:100%; border-radius:8px; margin:1rem 0;">
+<p style="font-size:0.85rem; opacity:0.7; margin-top:-0.5rem;">EcoVolt CCM's prototype vehicle on track at Shell Eco-marathon.</p>
+
 **My contribution**
 - Designed two multilayer telemetry PCBs in Altium Designer (schematic, layout, BOM)
 - Integrated CAN/SPI/I2C/UART bus communication

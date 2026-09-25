@@ -8,11 +8,10 @@ category: Embedded
 featured: true
 ---
 
-Every project has a beautiful feature showcase page.
-It's easy to include images in a flexible 3-column grid format.
-Make your photos 1/3, 2/3, or full width.
-
 Full perception-to-actuation loop on a physical 4-degree-of-freedom SCARA robot, validated first in Model-in-the-Loop before deployment on hardware.
+
+<img src="{{ 'assets/img/scara-bench.jpg' | relative_url }}" alt="SCARA robot bench setup with vision markers" style="width:100%; border-radius:8px; margin:1rem 0;">
+<p style="font-size:0.85rem; opacity:0.7; margin-top:-0.5rem;">Bench setup: fiducial markers for the vision pipeline, breadboard wiring, and phone-as-camera streaming via droidcam.</p>
 
 **My contribution**
 - ESP32 firmware under FreeRTOS (C++), communicating over MQTT
