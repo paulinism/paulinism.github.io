@@ -2,7 +2,7 @@
 # Site settings
 # -----------------------------------------------------------------------------
 
-title: blank # the website title (if blank, full name will be used instead) DO NOT CHANGE
+title: # leave this EMPTY (no text after the colon) — Jekyll then shows your full name as the title. Typing the word "blank" here makes the site literally display "blank" as the title.
 first_name: Paulina
 middle_name: L.
 last_name: Ruíz Servín
