@@ -2,7 +2,7 @@
 layout: page
 title: Digital Twin of a Flexible CNC Manufacturing Cell
 description:  Digital twin with Process Simulate, UR cobots, and virtual commissioning
-img: assets/img/orza.jpg
+img: assets/img/orza.png
 redirect: https://www.wikipedia.org/
 importance: 3
 category: Automation
