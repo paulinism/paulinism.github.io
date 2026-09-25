@@ -5,7 +5,7 @@ description: 83% success rate — ESP32 firmware and real-time vision for a 4-DO
 img: assets/img/scara.jpg
 importance: 1
 category: Embedded
-related_publications: true
+featured: true
 ---
 
 Every project has a beautiful feature showcase page.
