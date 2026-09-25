@@ -2,7 +2,7 @@
 layout: page
 title: Industrial AGV & Scissor-Lift Platform
 description: Structural design, fabrication, and controls for a 5-person team's material-handling AGV
-img: assets/img/projects/agv.png
+img: assets/img/agv.png
 importance: 5
 category: Mechanical
 giscus_comments: true
