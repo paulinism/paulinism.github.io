@@ -21,15 +21,15 @@ horizontal: false
   height: auto;
 }
 
-/* The theme's default .category style is too faint against a dark background —
-   make the section subtitles stand out. !important because the gem's own
-   .category rule (likely a low-opacity/muted color meant for a light tab bar)
-   otherwise wins the cascade. */
+/* The theme's default .category style is too faint. Force full opacity but keep
+   the theme's own accent color (--global-theme-color), which already switches
+   between light/dark mode automatically — !important because the gem's own
+   .category rule otherwise wins the cascade. */
 .projects a .category,
 .projects h2.category,
 .projects .category {
   opacity: 1 !important;
-  color: #e91e8c !important;
+  color: var(--global-theme-color) !important;
   font-weight: 700 !important;
 }
 </style>
@@ -43,7 +43,7 @@ horizontal: false
     <h2 class="category">Extracurricular projects</h2>
   </a>
   <div class="container">
-    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+    <div class="row row-cols-1 row-cols-md-3">
     {% assign experience_projects = site.projects | where: "hide_from_grid", true | sort: "importance" %}
     {% for project in experience_projects %}
       {% include projects.liquid %}
@@ -55,7 +55,7 @@ horizontal: false
     <h2 class="category">Academic projects</h2>
   </a>
   <div class="container">
-    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+    <div class="row row-cols-1 row-cols-md-3">
     {% assign sorted_projects = site.projects | where_exp: "p", "p.hide_from_grid != true" | sort: "importance" %}
     {% for project in sorted_projects %}
       {% include projects.liquid %}
