@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Motto. Etc.
+subtitle: <a href='#'>Affiliations</a>. <a href='mailto:pruizservin27@gmail.com'>pruizservin27@gmail.com</a>. Contacts. Motto. Etc.
 
 profile:
   align: right
@@ -29,7 +29,7 @@ I am a Mechatronics Engineering student completing a DHIK double degree between 
 
 **I turn engineering concepts into working systems** — integrating electronics, embedded software, control, simulation, and physical testing from design to validation.
 
-During my studies I've led a 30-person engineering team at [EcoVolt CCM](/experience/), our university's team at Shell Eco-marathon, developed embedded telemetry and vehicle systems, fabricated semiconductor devices in [MIT Cleanrooms](/experience/),, built vision-guided robotic systems and digital twins.
+During my studies I've led a 30-person engineering team at [EcoVolt CCM](/experience/), our university's team at Shell Eco-marathon, developed embedded telemetry and vehicle systems, fabricated semiconductor devices in [MIT Cleanrooms](/experience/), built vision-guided robotic systems and digital twins.
 
 **Focus areas:**
 - PCB design & instrumentation (Altium Designer)
