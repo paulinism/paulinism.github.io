@@ -5,7 +5,6 @@ description: Structural design, fabrication, and controls for a 5-person team's 
 img: assets/img/agv.png
 importance: 5
 category: Mechanical
-giscus_comments: true
 featured: true
 ---
 
