@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: Mechatronics Engineering Student · <a href='mailto:pruizservin27@gmail.com'>pruizservin27@gmail.com</a>
+subtitle: Mechatronics Engineering Student · <a href='mailto:pruizservin27@gmail.com'>pruizservin27@gmail.com</a>. · <a href='https://www.linkedin.com/in/pruizservin27/'>LinkedIn</a>.
 
 profile:
   align: right
