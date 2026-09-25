@@ -60,3 +60,10 @@ Seeking **Werkstudent / Praktikum / Thesis (Bachelorarbeit)** opportunities in e
 </div>
 
 [See all projects →](/projects/)
+
+<div style="display:flex; gap:1.25rem; align-items:center; margin-top:2rem;">
+  <a href="mailto:pruizservin27@gmail.com" title="Email"><i class="fas fa-envelope fa-lg"></i></a>
+  <a href="https://www.linkedin.com/in/pruizservin27/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin fa-lg"></i></a>
+  <a href="https://github.com/paulinism" target="_blank" title="GitHub"><i class="fab fa-github fa-lg"></i></a>
+  <a href="https://wa.me/525527107652" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp fa-lg"></i></a>
+</div>
