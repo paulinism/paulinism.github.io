@@ -1,17 +1,23 @@
 ---
 layout: page
-title: project 5
-description: a project with a background image
-img: assets/img/1.jpg
-importance: 3
-category: fun
+title: Telemetry & Energy-Optimization Platform
+description: Two multilayer telemetry PCBs and ESP32 firmware with HiL simulation for energy optimization
+img: assets/img/ecovolt-telemetry.jpg
+importance: 2
+category: PCB, Embedded, Electronics
+featured: true
 ---
+(draft) 
+Telemetry system for a Shell Eco-marathon energy-efficiency vehicle, from PCB to real-time data acquisition.
 
-Every project has a beautiful feature showcase page.
-It's easy to include images in a flexible 3-column grid format.
-Make your photos 1/3, 2/3, or full width.
+**My contribution**
+- Designed two multilayer telemetry PCBs in Altium Designer (schematic, layout, BOM)
+- Integrated CAN/SPI/I2C/UART bus communication
+- Built ESP32 firmware in C++, with HiL simulation in Python and predictive C++ models for energy optimization
 
-To give your project a background in the portfolio page, just add the img tag to the front matter like so:
+**Context:** Escudería EcoVolt CCM, Shell Eco-marathon, Aug 2023–Jun 2026.
+**Result:** 1st place Data & Telemetry Award (2025); 2nd place (2026).
+**Stack:** Altium Designer, CAN/SPI/I2C/UART, ESP32, C++, Python (HiL)
 
     ---
     layout: page
