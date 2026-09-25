@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: Mechatronics Engineering Student · <a href='mailto:pruizservin27@gmail.com'>pruizservin27@gmail.com</a>. · <a href='https://www.linkedin.com/in/pruizservin27/'>LinkedIn</a>.
+subtitle: Mechatronics Engineering Student · <a href='mailto:pruizservin27@gmail.com'>pruizservin27@gmail.com</a> · <a href='https://www.linkedin.com/in/pruizservin27/'>LinkedIn</a>
 
 profile:
   align: right
@@ -29,10 +29,9 @@ I am a Mechatronics Engineering student completing a DHIK double degree between 
 
 **I turn engineering concepts into working systems** — integrating electronics, embedded software, control, simulation, and physical testing from design to validation.
 
-During my studies I've led a 30-person engineering team at [EcoVolt CCM](/experience/), our university's team at Shell Eco-marathon, developed embedded telemetry and vehicle systems, fabricated semiconductor devices in [MIT Cleanrooms](/experience/), built vision-guided robotic systems and digital twins.
+During my studies I've led a 30-person engineering team at <a href='https://www.instagram.com/ecovoltccm/'>EcoVolt CCM</a>, our university's team at Shell Eco-marathon, developed embedded telemetry and vehicle systems, fabricated semiconductor devices in <a href='https://global.mit.edu/news-stories/nanolab-workshop-builds-student-skills-and-strengthens-international-ties/'>MIT Cleanrooms/a>, built vision-guided robotic systems and digital twins.
 
 **Focus areas:**
-
 - PCB design & instrumentation (Altium Designer)
 - Embedded firmware & microcontrollers (C/C++, ESP32, Python)
 - Control systems & model-based design (PID, MATLAB/Simulink/Simscape, HiL)
