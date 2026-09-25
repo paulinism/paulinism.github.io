@@ -2,7 +2,7 @@
 layout: page
 title: Vision-Guided SCARA Pick-and-Place Robot (4 DoF)
 description: 83% success rate — ESP32 firmware and real-time vision for a 4-DOF SCARA robot
-img: assets/img/projects/scara.jpg
+img: assets/img/scara.jpg
 importance: 1
 category: Embedded
 related_publications: true
