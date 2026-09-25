@@ -1,18 +1,26 @@
 ---
 layout: page
-title: project 2
-description: a project with a background image and giscus comments
-img: assets/img/3.jpg
-importance: 2
-category: work
+title: Industrial AGV & Scissor-Lift Platform
+description: Structural design, fabrication, and controls for a 5-person team's material-handling AGV
+img: assets/img/projects/agv.png
+importance: 5
+category: Mechanical
 giscus_comments: true
 ---
 
-Every project has a beautiful feature showcase page.
-It's easy to include images in a flexible 3-column grid format.
-Make your photos 1/3, 2/3, or full width.
+Fourth-semester team challenge (5 students): an industrial scissor-lift platform for automated material handling, from CAD through structural analysis to physical fabrication.
 
-To give your project a background in the portfolio page, just add the img tag to the front matter like so:
+**My contribution**
+- Full assembly modeling in SolidWorks (not the final rendering/animation)
+- Design, validation, and 3D printing (ABS) of the lifting cam
+- Individual partial simulations in NX
+- Fabrication of the load-cell signal-conditioning PCB
+- LCD driver programming and testing of the lifting stepper motor
+- Manufacturing cost estimation via AI-assisted research
+
+**Context:** Tec de Monterrey, Feb–Jun 2025, team of 5.
+**Fabrication:** MIG and SMAW welding, CNC machining.
+**Stack:** SolidWorks, NX CAD, PCB signal conditioning, stepper motor control, LCD interfacing
 
     ---
     layout: page
