@@ -2,7 +2,7 @@
 layout: page
 title: Telemetry & Energy-Optimization Platform
 description: Two multilayer telemetry PCBs and ESP32 firmware with HiL simulation for energy optimization
-img: assets/img/ecovolt-telemetry.jpg
+img: assets/img/ecovolt-telemetry.png
 importance: 2
 category: PCB, Embedded, Electronics
 featured: true
