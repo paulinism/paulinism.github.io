@@ -1,18 +1,17 @@
 ---
 layout: page
-title: project 3 with very long name
-description: a project that redirects to another website
-img: assets/img/7.jpg
+title: Digital Twin of a Flexible CNC Manufacturing Cell
+description:  Digital twin with Process Simulate, UR cobots, and virtual commissioning
+img: assets/img/orza.jpg
 redirect: https://www.wikipedia.org/
 importance: 3
-category: work
+category: Automation
 ---
+(draft)
+A digital twin of a flexible CNC manufacturing cell with Universal Robots cobots, built to analyze OEE, cycle time, and rejection rate before touching physical hardware. Virtual commissioning with PLCSIM Advanced and SCADA-style alarms over industrial Ethernet.
 
-Every project has a beautiful feature showcase page.
-It's easy to include images in a flexible 3-column grid format.
-Make your photos 1/3, 2/3, or full width.
-
-To give your project a background in the portfolio page, just add the img tag to the front matter like so:
+**Context:** ORZA Tech / Tec de Monterrey, Feb–Jun 2026.
+**Stack:** Tecnomatix Process Simulate, UR5/PolyScope, TIA Portal, Siemens S7-1500, WinCC, Cognex vision
 
     ---
     layout: page
