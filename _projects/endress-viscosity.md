@@ -1,17 +1,17 @@
 ---
 layout: page
-title: project 4
-description: another without an image
-img:
-importance: 3
-category: fun
+title: Automated Viscosity Measurement System
+description: Signal-conditioning PCB and multi-sensor control (correguir)
+img: assets/img/viscosity.png
+importance: 4
+category: PCB, Embedded
 ---
 
-Every project has a beautiful feature showcase page.
-It's easy to include images in a flexible 3-column grid format.
-Make your photos 1/3, 2/3, or full width.
+(draft)
+Multi-sensor control system for automated viscosity measurement, with a current-to-voltage signal-conditioning PCB built around instrumentation amplifiers and PID control.
 
-To give your project a background in the portfolio page, just add the img tag to the front matter like so:
+**Context:** Academic collaboration with Endress+Hauser / Tec de Monterrey, Aug–Dec 2025.
+**Stack:** Altium Designer, instrumentation amplifiers, PID, C++, color/proximity/ultrasonic/IR sensors, DC motors with encoders, stepper motors
 
     ---
     layout: page
