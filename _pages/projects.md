@@ -9,6 +9,19 @@ display_categories: [work, fun]
 horizontal: false
 ---
 
+<style>
+/* Force 4:3 crop on the academic project grid's cards (theme-rendered via projects.liquid).
+   Bootstrap's card image class is normally card-img-top; scoped to .projects so it can't
+   affect anything outside this page. */
+.projects img.card-img-top,
+.projects .card-img-top {
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+}
+</style>
+
 ## Professional & lab experience
 
 **Escudería EcoVolt CCM** (Shell Eco-marathon) — Team Captain & Electronics Lead. Led a 30-person engineering team, developed the vehicle's telemetry and energy-optimization system (PCB design, ESP32 firmware, HiL simulation), and built an automated PPE/inventory tracking system for paddock operations.
@@ -22,7 +35,7 @@ horizontal: false
 {% for project in experience_projects %}
   <a href="{{ project.url | relative_url }}" style="display:block; border:1px solid currentColor; border-radius:8px; overflow:hidden; text-decoration:none;">
     {% if project.img %}
-    <img src="{{ project.img | relative_url }}" alt="{{ project.title }}" style="width:100%; height:150px; object-fit:cover; display:block;">
+    <img src="{{ project.img | relative_url }}" alt="{{ project.title }}" style="width:100%; aspect-ratio:4/3; object-fit:cover; display:block;">
     {% endif %}
     <div style="padding:1rem;">
       <h3 style="font-weight:bold; margin:0 0 0.5rem 0;">{{ project.title }}</h3>

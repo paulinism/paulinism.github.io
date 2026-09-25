@@ -49,7 +49,7 @@ Seeking **Werkstudent / Praktikum / Thesis (Bachelorarbeit)** opportunities in e
 {% for project in featured %}
   <a href="{{ project.url | relative_url }}" style="display:block; border:1px solid currentColor; border-radius:8px; overflow:hidden; text-decoration:none;">
     {% if project.img %}
-    <img src="{{ project.img | relative_url }}" alt="{{ project.title }}" style="width:100%; height:150px; object-fit:cover; display:block;">
+    <img src="{{ project.img | relative_url }}" alt="{{ project.title }}" style="width:100%; aspect-ratio:4/3; object-fit:cover; display:block;">
     {% endif %}
     <div style="padding:1rem;">
       <h3 style="font-weight:bold; margin:0 0 0.5rem 0;">{{ project.title }}</h3>
