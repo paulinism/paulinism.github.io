@@ -9,6 +9,7 @@ display_categories: [work, fun]
 horizontal: false
 ---
 
+## Extracurricular projects
 <style>
 /* Force 4:3 crop on the academic project grid's cards (theme-rendered via projects.liquid).
    Bootstrap's card image class is normally card-img-top; scoped to .projects so it can't
