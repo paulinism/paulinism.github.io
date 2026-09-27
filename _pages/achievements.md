@@ -18,7 +18,7 @@ nav_order: 2
 Co-authored: _"AI-Driven Data Analysis for Vehicle Energy Efficiency"_ with José Diego González Fernández (ITESM México), using Altair AI Studio on Shell Eco-marathon performance data to identify the strongest drivers of vehicle energy efficiency.
 
 **MIT.nano Lab, MIT** — _Micro/Nanofabrication Processing Technology_ (October 2025)
-Co-authored a technical report on n-type silicon solar cell fabrication, MEMS cantilever fabrication, and microfluidic diffusion mixer fabrication, with Ricardo Gálvez Vergara, under Dr. Javier Izquierdo Reyes and Dr. Arnoldo Salazar Soto (Tecnológico de Monterrey / MIT).
+Co-authored a technical report on n-type silicon solar cell fabrication, MEMS cantilever fabrication, and microfluidic diffusion mixer fabrication, in collaboration with a teammate, under Dr. Javier Izquierdo Reyes and Dr. Arnoldo Salazar Soto (Tecnológico de Monterrey / MIT).
 
 ## Certifications
 
