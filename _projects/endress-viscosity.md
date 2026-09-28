@@ -3,7 +3,7 @@ layout: page
 title: Automated Viscosity Measurement System
 description: Signal-conditioning PCB and multi-sensor control (correguir)
 img: assets/img/viscosity.png
-importance: 4
+importance: 5
 category: PCB, Embedded
 featured: true
 ---
