@@ -3,7 +3,7 @@ layout: page
 title: Semiconductor Microfabrication — MIT.nano
 description: Cleanroom device fabrication — solar cells, MEMS cantilevers, and microfluidic mixers
 img: assets/img/mitnano-cleanroom-equipment.jpg
-importance: 3
+importance: 4
 category: Fabrication, Electronics
 featured: true
 hide_from_grid: true # shown in the "Professional & lab experience" section instead of the academic grid
