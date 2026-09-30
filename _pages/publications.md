@@ -4,7 +4,7 @@ permalink: /publications/
 title: publications
 description: Conference papers and technical reports.
 nav: true
-nav_order: 6
+nav_order: 3
 ---
 
 <!-- _pages/publications.md -->

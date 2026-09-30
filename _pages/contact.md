@@ -4,7 +4,7 @@ permalink: /contact/
 title: contact
 description: Currently looking for a Pflichtpraktikum & Abschlussarbeit position.
 nav: true
-nav_order: 5
+nav_order: 6
 ---
 
 <div style="display:flex; gap:2rem; flex-wrap:wrap; align-items:flex-start;">
