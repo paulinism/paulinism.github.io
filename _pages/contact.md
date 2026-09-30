@@ -14,9 +14,11 @@ nav_order: 5
   <p><strong>I am currently looking for a Pflichtpraktikum (mandatory internship) or Werkstudent position in Germany</strong>, ideally starting in <u>February/March 2027</u>, in the areas of:</p>
 
   <ul>
-    <li>Embedded systems &amp; hardware</li>
-    <li>Industrial automation</li>
-    <li>PCB design / electronics</li>
+    <li>Embedded Systems &amp; PCB Design </li>
+    <li>Industrial Automation &amp; Virtual Commissioning</li>
+    <li>Model-Based Control &amp; Simulation</li>
+    <li>Computer Vision</li>
+    <li>Semiconductor &amp; Automotive Systems</li>
   </ul>
 
   <p>Based in Zittau, Saxony, and can relocate within all Germany.</p>
