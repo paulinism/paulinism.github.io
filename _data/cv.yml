@@ -61,6 +61,12 @@ cv:
           - "GPA: 93/100"
           - Merit scholarship (30%)
 
+    Publications:
+      - title: Real-Time Telemetry and Computational Intelligence Pipeline for Energy-Efficient Driving of an Electric Eco-Marathon Vehicle
+        publisher: SAIBOT 2026 (School on Computational Intelligence and Robotics)
+        date: "2026"
+        summary: Co-authored with José Diego González-Fernández, Aarón Flores-Mendoza, and Javier Izquierdo-Reyes. Submitted, under review.
+
     Skills:
       - name: Embedded Systems & Firmware
         icon: fa-solid fa-microchip
