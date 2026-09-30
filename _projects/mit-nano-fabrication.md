@@ -9,7 +9,7 @@ featured: true
 hide_from_grid: true # shown in the "Professional & lab experience" section instead of the academic grid
 ---
 
-Hands-on semiconductor device fabrication intensive at **MIT.nano** (MIT, Cambridge, USA), covering three full fabrication modules in Class 100/1K/10K cleanrooms under strict PPE/safety protocols.
+One-month visiting-student intensive in semiconductor device fabrication at **MIT.nano** (MIT, Cambridge, USA), October 2025, covering three full fabrication modules in Class 100/1K/10K cleanrooms under strict PPE/safety protocols.
 
 **Modules**
 
@@ -22,8 +22,9 @@ Hands-on semiconductor device fabrication intensive at **MIT.nano** (MIT, Cambri
 - Executed thin-film deposition (PECVD/PVD), photolithography, and wet/dry etching steps across all three modules
 - Calculated refractive index (n ≈ 2.02) from etch/interference data
 - Wore full cleanroom bunny-suit PPE for KOH and other hazardous chemical steps
+- Co-authored a technical report on the three modules' fabrication processes with a teammate, under Dr. Javier Izquierdo Reyes and Dr. Arnoldo Salazar Soto (Tecnológico de Monterrey / MIT)
 
-**Context:** MIT.nano, Cambridge, USA — visiting student, semiconductor fabrication intensive.
+**Context:** MIT.nano, Cambridge, USA — one-month visiting-student intensive, semiconductor fabrication (Oct 2025).
 **Stack:** LPCVD/PECVD, photolithography, RIE/KOH wet etching, PDMS soft lithography, cleanroom protocols (Class 100/1K/10K)
 
 <img src="{{ 'assets/img/mitnano-wafer.jpg' | relative_url }}" alt="Processed silicon wafer after thin-film deposition" style="max-width:320px; width:100%; border-radius:8px; margin-top:1rem;">
