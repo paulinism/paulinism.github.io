@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Viscosity Measurement & Sorting System
+title: Automated Viscosity Measurement System
 description: Current-based viscosity measurement and sorting system — PCB design, signal conditioning, ESP32/PLC control
 img: assets/img/viscosity.png
 importance: 5
