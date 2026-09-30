@@ -20,6 +20,29 @@ cv:
     [English (PDF)](/assets/pdf/CV_Paulina_EN.pdf)
 
   sections:
+    Experience:
+      - company: Escudería EcoVolt CCM (Shell Eco-marathon)
+        position: Team Captain, Electronics Lead & Mentor
+        location: Mexico City, Mexico
+        start_date: 2023-08
+        end_date: 2026-08
+        summary: Led and mentored a 30+ person multidisciplinary team across mechanical, electrical, telemetry, and data-analysis systems for Shell Eco-marathon Americas, Brazil, and United States 2025–2026.
+        highlights:
+          - Designed two multilayer telemetry PCBs in Altium Designer (schematic, layout, BOM) and built ESP32 firmware in C++, with HiL simulation in Python and predictive C++ models for energy optimization
+          - Integrated CAN/SPI/I2C/UART bus communication for real-time data acquisition
+          - Led ergonomic analysis of the driver position (virtual human model in Tecnomatix Process Simulate, RULA assessment) to validate cockpit layout and seating position
+          - Designed an automated tool/PPE tracking system for paddock operations using computer vision and QR codes
+          - "Results: 1st place Vehicle Design Award – Prototype (2026); 1st place (2025) and 2nd place (2026) Data & Telemetry Award; Honorable Mention, Altair Global Student Contest (2025)"
+
+      - company: MIT.nano Lab, Massachusetts Institute of Technology
+        position: Visiting Student — Semiconductor Fabrication Intensive
+        location: Cambridge, MA, USA
+        start_date: 2025-10
+        end_date: 2025-10
+        highlights:
+          - Hands-on device fabrication (semiconductors, solar cells, microfluidics) via thin-film deposition (PECVD/PVD) and chemical etching
+          - Ran photolithography and characterization processes in Class 100/1K/10K cleanrooms under strict safety protocols
+
     Education:
       - institution: Hochschule Zittau/Görlitz
         location: Zittau, Germany
