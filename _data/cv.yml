@@ -30,7 +30,7 @@ cv:
           - Integrated CAN/SPI/I2C/UART bus communication for real-time data acquisition
           - Led ergonomic analysis of the driver position (virtual human model in Tecnomatix Process Simulate, RULA assessment) to validate cockpit layout and seating position
           - Designed an automated tool/PPE tracking system for paddock operations using computer vision and QR codes
-          - "Results: 1st place Vehicle Design Award – Prototype (2026); 1st place (2025) and 2nd place (2026) Data & Telemetry Award; Honorable Mention, Altair Global Student Contest (2025)"
+          - "Results: 1st place Vehicle Design Award (2026), 1st/2nd place Data & Telemetry Award (2025/2026) — see Awards below"
 
       - company: MIT.nano Lab, Massachusetts Institute of Technology
         position: Visiting Student — Semiconductor Fabrication Intensive
@@ -59,6 +59,31 @@ cv:
           - English-taught degree program (Englischsprachiger Studiengang)
           - "GPA: 93/100"
           - Merit scholarship (30%)
+
+    Awards:
+      - title: "Vehicle Design Award – Prototype category"
+        awarder: Shell Eco-marathon (United States 2026), sponsored by Qatar Museums
+        date: "2026"
+        url: https://www.shellecomarathon.com/about/previous-seasons/2026-programme-shell-eco-marathon/united-states.html
+        summary: Awarded to EcoVolt CCM's prototype, recognizing in part the ergonomic driver-position analysis (virtual human model, RULA assessment) contributed to the entry.
+
+      - title: "Data & Telemetry Award — 1st place"
+        awarder: Shell Eco-marathon (Americas 2025), sponsored by Schmid Elektronik
+        date: "2025"
+        url: https://www.shellecomarathon.com/about/previous-seasons/2025-programme/regional-americas.html
+        summary: Recognized the telemetry PCBs and ESP32 firmware built for the team's real-time vehicle data acquisition and energy-efficiency analysis.
+
+      - title: "Data & Telemetry Award — 2nd place"
+        awarder: Shell Eco-marathon (United States 2026), sponsored by Schmid Elektronik
+        date: "2026"
+        url: https://www.shellecomarathon.com/about/previous-seasons/2026-programme-shell-eco-marathon/united-states.html
+        summary: Runner-up recognition for the team's continued telemetry and data-analysis system.
+
+      - title: Honorable Mention
+        awarder: Altair Global Student Contest 2025
+        date: "2025"
+        url: https://web.altair.com/global-student-contest-2025
+        summary: For the co-authored paper "AI-Driven Data Analysis for Vehicle Energy Efficiency," applying Altair AI Studio to Shell Eco-marathon performance data to identify the strongest drivers of vehicle energy efficiency.
 
     Publications:
       - title: Real-Time Telemetry and Computational Intelligence Pipeline for Energy-Efficient Driving of an Electric Eco-Marathon Vehicle
