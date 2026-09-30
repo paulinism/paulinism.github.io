@@ -15,9 +15,8 @@ nav_order: 5
 
   <ul>
     <li>Embedded Systems &amp; PCB Design </li>
-    <li>Industrial Automation &amp; Virtual Commissioning</li>
-    <li>Model-Based Control &amp; Simulation</li>
-    <li>Computer Vision</li>
+    <li>Industrial Automation, Virtual Commissioning &amp; Computer Vision</li>
+    <li>Model-Based Control &amp; Simulation</li> 
     <li>Semiconductor &amp; Automotive Systems</li>
   </ul>
 
