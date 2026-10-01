@@ -9,7 +9,7 @@ featured: true
 hide_from_grid: true # shown in the "Professional & lab experience" section instead of the academic grid
 ---
 
-One-month visiting-student intensive in semiconductor device fabrication at **MIT.nano** (MIT, Cambridge, USA), October 2025, covering three full fabrication modules in Class 100/1K/10K cleanrooms under strict PPE/safety protocols.
+One-week visiting-student intensive in semiconductor device fabrication at **MIT.nano** (MIT, Cambridge, USA), October 2025, covering three full fabrication modules in Class 100/1K/10K cleanrooms under strict PPE/safety protocols.
 
 **Modules**
 
