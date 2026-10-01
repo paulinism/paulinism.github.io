@@ -178,3 +178,28 @@ cv:
       - name: Educational PCB Basic Design
         issuer: Altium Designer
         icon: fa-solid fa-certificate
+
+    Languages:
+      - name: Spanish
+        icon: fa-solid fa-comments
+        summary: Native
+
+      - name: English
+        icon: fa-solid fa-comments
+        summary: Fluent (C1)
+
+      - name: French
+        icon: fa-solid fa-comments
+        summary: "B1 (DELF-certified)"
+
+      - name: German
+        icon: fa-solid fa-comments
+        summary: "A2, currently completing a B1 certificate course"
+
+    Interests:
+      - name: Interests
+        icon: fa-solid fa-heart
+        keywords:
+          - Motorsport (MotoGP, Formula 1)
+          - Aviation
+          - Intercultural exchange & travel
