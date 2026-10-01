@@ -190,16 +190,16 @@ cv:
 
       - name: French
         icon: fa-solid fa-comments
-        summary: "B1 (DELF-certified)"
+        summary: Intermediate (B1)
 
       - name: German
         icon: fa-solid fa-comments
-        summary: "A2, currently completing a B1 certificate course"
+        summary: "A2, currently completing B1 certification"
 
     Interests:
       - name: Interests
         icon: fa-solid fa-heart
         keywords:
           - Motorsport (MotoGP, Formula 1)
-          - Aviation
+          - Passionate about continuous learning
           - Intercultural exchange & travel
