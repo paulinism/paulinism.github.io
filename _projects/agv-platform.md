@@ -8,11 +8,23 @@ category: Mechanical, Electronics
 featured: true
 ---
 
+<style>
+  .agv-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; margin: 1.5rem 0; align-items: start; }
+  .agv-grid.single { grid-template-columns: minmax(0, 520px); justify-content: center; }
+  .agv-fig { margin: 0; border: 1px solid rgba(128, 128, 128, 0.25); border-radius: 12px; overflow: hidden; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08); }
+  .agv-fig img, .agv-fig video { display: block; width: 100%; height: 340px; object-fit: contain; background: rgba(128, 128, 128, 0.06); }
+  .agv-fig.photo img { object-fit: cover; }
+  .agv-fig.tall img { height: 400px; object-position: center 20%; }
+  .agv-fig.auto img { height: 300px; }
+  .agv-fig.auto video { height: auto; }
+  .agv-fig figcaption { padding: 0.6rem 0.9rem; font-size: 0.85rem; line-height: 1.4; opacity: 0.85; border-top: 1px solid rgba(128, 128, 128, 0.2); }
+</style>
+
 Fourth-semester integrative challenge (team of 5) at Tec de Monterrey: a scissor lift and line-following AGV for automated material handling, from mechanical design through embedded control and fabrication.
 
-<div style="display:flex; flex-wrap:wrap; gap:1rem; margin:1rem 0; align-items:flex-start;">
-  <figure style="flex:1 1 280px; margin:0;"><img src="{{ 'assets/img/agv-cover.jpg' | relative_url }}" alt="SolidWorks assembly of the scissor lift with tilting tray" style="width:100%; border-radius:8px;"><figcaption style="font-size:0.85rem; margin-top:0.4rem;">Full SolidWorks assembly of the scissor lift and tilting tray.</figcaption></figure>
-  <figure style="flex:1 1 280px; margin:0;"><img src="{{ 'assets/img/agv-prototype.jpg' | relative_url }}" alt="Assembled prototype with the tilting table and printed cam" style="width:100%; border-radius:8px;"><figcaption style="font-size:0.85rem; margin-top:0.4rem;">Assembled prototype: tilting table, ABS-printed cam and gearmotor.</figcaption></figure>
+<div class="agv-grid">
+  <figure class="agv-fig"><img src="{{ 'assets/img/agv-cover.jpg' | relative_url }}" alt="SolidWorks assembly of the scissor lift with tilting tray"><figcaption>Full SolidWorks assembly of the scissor lift and tilting tray.</figcaption></figure>
+  <figure class="agv-fig"><img src="{{ 'assets/img/agv-prototype.jpg' | relative_url }}" alt="Assembled prototype with the tilting table and printed cam"><figcaption>Assembled prototype: tilting table, ABS-printed cam and gearmotor.</figcaption></figure>
 </div>
 
 **Challenge**
@@ -26,29 +38,29 @@ Build a scissor lift that raises, weighs, and dumps a 1–5 kg load, carried bet
 - **Embedded:** proposed splitting control across three ESP32s; programmed the 16×2 LCD; brought up the stepper lift drive
 - **Manufacturing:** turned and milled the aluminum motor coupler and the connecting rod
 
-<div style="display:flex; flex-wrap:wrap; gap:1rem; margin:1rem 0; align-items:flex-start;">
-  <figure style="flex:0 1 320px; margin:0;"><img src="{{ 'assets/img/agv-lathe-2.jpg' | relative_url }}" alt="Paulina turning on the lathe" style="width:100%; border-radius:8px;"><figcaption style="font-size:0.85rem; margin-top:0.4rem;">Turning a part on the lathe, with the digital readout.</figcaption></figure>
+<div class="agv-grid single">
+  <figure class="agv-fig photo tall"><img src="{{ 'assets/img/agv-lathe-2.jpg' | relative_url }}" alt="Paulina turning on the lathe"><figcaption>Turning a part on the lathe, with the digital readout.</figcaption></figure>
 </div>
 
 Teammates led the AGV/lift control firmware, scale calibration, and base welding.
 
 **Electronics**
 
-<div style="display:flex; flex-wrap:wrap; gap:1rem; margin:1rem 0; align-items:flex-start;">
-  <figure style="flex:0 1 560px; margin:0;"><img src="{{ 'assets/img/agv-loadcell-circuit.png' | relative_url }}" alt="Load-cell signal conditioning circuit" style="width:100%; border-radius:8px;"><figcaption style="font-size:0.85rem; margin-top:0.4rem;">Load-cell conditioning chain: differential amplifier → non-inverting amplifier → RC low-pass → ESP32 ADC (102 kΩ feedback, 1 µF).</figcaption></figure>
+<div class="agv-grid single">
+  <figure class="agv-fig auto"><img src="{{ 'assets/img/agv-loadcell-circuit.png' | relative_url }}" alt="Load-cell signal conditioning circuit"><figcaption>Load-cell conditioning chain: differential amplifier → non-inverting amplifier → RC low-pass → ESP32 ADC (102 kΩ feedback, 1 µF).</figcaption></figure>
 </div>
 
 **Motion & structural analysis**
 
-<div style="display:flex; flex-wrap:wrap; gap:1rem; margin:1rem 0; align-items:flex-start;">
-  <figure style="flex:1 1 280px; margin:0;"><img src="{{ 'assets/img/agv-nx-motion.png' | relative_url }}" alt="Siemens NX motion simulation of the scissor mechanism" style="width:100%; border-radius:8px;"><figcaption style="font-size:0.85rem; margin-top:0.4rem;">Siemens NX motion simulation of the scissor linkage (pivots and sliders).</figcaption></figure>
-  <figure style="flex:1 1 280px; margin:0;"><img src="{{ 'assets/img/agv-displacement.png' | relative_url }}" alt="SolidWorks static displacement plot of one scissor arm" style="width:100%; border-radius:8px;"><figcaption style="font-size:0.85rem; margin-top:0.4rem;">SolidWorks Motion Study, static displacement of one scissor arm: maximum 0.28 mm at the free end.</figcaption></figure>
+<div class="agv-grid">
+  <figure class="agv-fig auto"><img src="{{ 'assets/img/agv-nx-motion.png' | relative_url }}" alt="Siemens NX motion simulation of the scissor mechanism"><figcaption>Siemens NX motion simulation of the scissor linkage (pivots and sliders).</figcaption></figure>
+  <figure class="agv-fig auto"><img src="{{ 'assets/img/agv-displacement.png' | relative_url }}" alt="SolidWorks static displacement plot of one scissor arm"><figcaption>SolidWorks Motion Study, static displacement of one scissor arm: maximum 0.28 mm at the free end.</figcaption></figure>
 </div>
 
-<figure style="margin:1rem 0; max-width:640px;">
-  <video src="{{ 'assets/img/agv-cam-tilt.mp4' | relative_url }}" autoplay loop muted playsinline controls style="width:100%; border-radius:8px;"></video>
-  <figcaption style="font-size:0.85rem; margin-top:0.4rem;">SolidWorks animation of the tilting tray: the cam lifts one side of the tray to dump the load.</figcaption>
-</figure>
+<div class="agv-grid single"><figure class="agv-fig auto">
+  <video src="{{ 'assets/img/agv-cam-tilt.mp4' | relative_url }}" autoplay loop muted playsinline controls></video>
+  <figcaption>SolidWorks animation of the tilting tray: the cam lifts one side of the tray to dump the load.</figcaption>
+</figure></div>
 
 **Tools & technologies**
 
@@ -71,13 +83,9 @@ Teammates led the AGV/lift control firmware, scale calibration, and base welding
 - **Outcome:** full autonomous integration was not completed — motor drivers failed from a short circuit and one AGV motor was defective
 - **Lesson:** treat electrical insulation as a design requirement, and size actuators by calculation, not recommendation
 
-<div style="display:flex; flex-wrap:wrap; gap:1rem; margin:1rem 0; align-items:flex-start;">
-  <figure style="flex:1 1 280px; margin:0;"><img src="{{ 'assets/img/agv-voltage-time.png' | relative_url }}" alt="Scale output voltage versus time in 1 kg steps" style="width:100%; border-radius:8px;"><figcaption style="font-size:0.85rem; margin-top:0.4rem;">Scale output over time, loaded in 1 kg steps (voltage in mV; the plot's axis label is a typo).</figcaption></figure>
-  <figure style="flex:1 1 280px; margin:0;"><img src="{{ 'assets/img/agv-force-voltage.png' | relative_url }}" alt="Force versus voltage for the scale" style="width:100%; border-radius:8px;"><figcaption style="font-size:0.85rem; margin-top:0.4rem;">Force (N) vs. voltage (mV) for 1–5 kg: monotonic and close to linear.</figcaption></figure>
-</div>
-
-<div style="display:flex; flex-wrap:wrap; gap:1rem; margin:1rem 0; align-items:flex-start;">
-  <figure style="flex:0 1 320px; margin:0;"><img src="{{ 'assets/img/agv-line-follower.jpg' | relative_url }}" alt="Line-following AGV test on a taped track" style="width:100%; border-radius:8px;"><figcaption style="font-size:0.85rem; margin-top:0.4rem;">Line-following AGV test on the taped track (breadboard wiring).</figcaption></figure>
+<div class="agv-grid">
+  <figure class="agv-fig auto"><img src="{{ 'assets/img/agv-voltage-time.png' | relative_url }}" alt="Scale output voltage versus time in 1 kg steps"><figcaption>Scale output over time, loaded in 1 kg steps (voltage in mV; the plot's axis label is a typo).</figcaption></figure>
+  <figure class="agv-fig auto"><img src="{{ 'assets/img/agv-force-voltage.png' | relative_url }}" alt="Force versus voltage for the scale"><figcaption>Force (N) vs. voltage (mV) for 1–5 kg: monotonic and close to linear.</figcaption></figure>
 </div>
 
 **Context:** Tec de Monterrey, Feb–Jun 2025, 4th-semester integrative challenge, team of 5.
