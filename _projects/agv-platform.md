@@ -45,6 +45,11 @@ Teammates led the AGV/lift control firmware, scale calibration, and base welding
   <figure style="flex:1 1 280px; margin:0;"><img src="{{ 'assets/img/agv-displacement.png' | relative_url }}" alt="SolidWorks static displacement plot of one scissor arm" style="width:100%; border-radius:8px;"><figcaption style="font-size:0.85rem; margin-top:0.4rem;">SolidWorks Motion Study, static displacement of one scissor arm: maximum 0.28 mm at the free end.</figcaption></figure>
 </div>
 
+<figure style="margin:1rem 0; max-width:640px;">
+  <video src="{{ 'assets/img/agv-cam-tilt.mp4' | relative_url }}" autoplay loop muted playsinline controls style="width:100%; border-radius:8px;"></video>
+  <figcaption style="font-size:0.85rem; margin-top:0.4rem;">SolidWorks animation of the tilting tray: the cam lifts one side of the tray to dump the load.</figcaption>
+</figure>
+
 **Tools & technologies**
 
 - **SolidWorks:** full assembly, cam modeling, motion study
