@@ -18,6 +18,7 @@ featured: true
   .agv-fig.auto img { height: 300px; }
   .agv-fig.auto video { height: auto; }
   .agv-fig.clip video { height: 300px; }
+  .agv-fig.tall video { height: 400px; }
   .agv-fig figcaption { padding: 0.6rem 0.9rem; font-size: 0.85rem; line-height: 1.4; opacity: 0.85; border-top: 1px solid rgba(128, 128, 128, 0.2); }
 </style>
 
@@ -26,6 +27,7 @@ Fourth-semester integrative challenge (team of 5) at Tec de Monterrey: a scissor
 <div class="agv-grid">
   <figure class="agv-fig"><img src="{{ 'assets/img/agv-cover.jpg' | relative_url }}" alt="SolidWorks assembly of the scissor lift with tilting tray"><figcaption>Full SolidWorks assembly of the scissor lift and tilting tray.</figcaption></figure>
   <figure class="agv-fig"><img src="{{ 'assets/img/agv-prototype.jpg' | relative_url }}" alt="Assembled prototype with the tilting table and printed cam"><figcaption>Assembled prototype: tilting table, ABS-printed cam and gearmotor.</figcaption></figure>
+  <figure class="agv-fig"><img src="{{ 'assets/img/agv-final-build.jpg' | relative_url }}" alt="Final lift build with load-cell scale and electronics on the tray"><figcaption>Final build: load-cell scale and electronics on the tray, welded base.</figcaption></figure>
 </div>
 
 **Challenge**
@@ -39,8 +41,12 @@ Build a scissor lift that raises, weighs, and dumps a 1–5 kg load, carried bet
 - **Embedded:** proposed splitting control across three ESP32s; programmed the 16×2 LCD; brought up the stepper lift drive
 - **Manufacturing:** turned and milled the aluminum motor coupler and the connecting rod
 
-<div class="agv-grid single">
+<div class="agv-grid">
   <figure class="agv-fig photo tall"><img src="{{ 'assets/img/agv-lathe-2.jpg' | relative_url }}" alt="Paulina turning on the lathe"><figcaption>Turning a part on the lathe, with the digital readout.</figcaption></figure>
+  <figure class="agv-fig clip tall">
+    <video src="{{ 'assets/img/agv-coupler.mp4' | relative_url }}" autoplay loop muted playsinline controls></video>
+    <figcaption>Machined aluminum coupler mounted on the NEMA 17 lift motor.</figcaption>
+  </figure>
 </div>
 
 Teammates led the AGV/lift control firmware, scale calibration, and base welding.
