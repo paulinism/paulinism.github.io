@@ -2,13 +2,18 @@
 layout: page
 title: Scissor Lift & AGV — Automated Material Handling Platform
 description: Scissor lift + line-following AGV for material handling — base load-tested at >100 kg
-img: assets/img/agv.png
+img: assets/img/agv-cover.jpg
 importance: 6
 category: Mechanical, Electronics
 featured: true
 ---
 
 Fourth-semester integrative challenge (team of 5) at Tec de Monterrey: a scissor lift and line-following AGV for automated material handling, from mechanical design through embedded control and fabrication.
+
+<div style="display:flex; flex-wrap:wrap; gap:1rem; margin:1rem 0; align-items:flex-start;">
+  <figure style="flex:1 1 280px; margin:0;"><img src="{{ 'assets/img/agv-cover.jpg' | relative_url }}" alt="SolidWorks assembly of the scissor lift with tilting tray" style="width:100%; border-radius:8px;"><figcaption style="font-size:0.85rem; margin-top:0.4rem;">Full SolidWorks assembly of the scissor lift and tilting tray.</figcaption></figure>
+  <figure style="flex:1 1 280px; margin:0;"><img src="{{ 'assets/img/agv-prototype.jpg' | relative_url }}" alt="Assembled prototype with the tilting table and printed cam" style="width:100%; border-radius:8px;"><figcaption style="font-size:0.85rem; margin-top:0.4rem;">Assembled prototype: tilting table, ABS-printed cam and gearmotor.</figcaption></figure>
+</div>
 
 **Challenge**
 
@@ -21,7 +26,24 @@ Build a scissor lift that raises, weighs, and dumps a 1–5 kg load, carried bet
 - **Embedded:** proposed splitting control across three ESP32s; programmed the 16×2 LCD; brought up the stepper lift drive
 - **Manufacturing:** turned and milled the aluminum motor coupler and the connecting rod
 
+<div style="display:flex; flex-wrap:wrap; gap:1rem; margin:1rem 0; align-items:flex-start;">
+  <figure style="flex:1 1 240px; margin:0;"><img src="{{ 'assets/img/agv-lathe-1.jpg' | relative_url }}" alt="Paulina drilling on the lathe" style="width:100%; border-radius:8px;"><figcaption style="font-size:0.85rem; margin-top:0.4rem;">Drilling the aluminum coupler on the lathe.</figcaption></figure>
+  <figure style="flex:1 1 240px; margin:0;"><img src="{{ 'assets/img/agv-lathe-2.jpg' | relative_url }}" alt="Paulina turning on the lathe" style="width:100%; border-radius:8px;"><figcaption style="font-size:0.85rem; margin-top:0.4rem;">Turning a part on the lathe, with the digital readout.</figcaption></figure>
+</div>
+
 Teammates led the AGV/lift control firmware, scale calibration, and base welding.
+
+**Electronics & wiring**
+
+<div style="display:flex; flex-wrap:wrap; gap:1rem; margin:1rem 0; align-items:flex-start;">
+  <figure style="flex:0 1 560px; margin:0;"><img src="{{ 'assets/img/agv-loadcell-circuit.png' | relative_url }}" alt="Load-cell signal conditioning circuit" style="width:100%; border-radius:8px;"><figcaption style="font-size:0.85rem; margin-top:0.4rem;">Load-cell conditioning chain: differential amplifier → non-inverting amplifier → RC low-pass → ESP32 ADC (102 kΩ feedback, 1 µF).</figcaption></figure>
+</div>
+
+<div style="display:flex; flex-wrap:wrap; gap:1rem; margin:1rem 0; align-items:flex-start;">
+  <figure style="flex:1 1 200px; margin:0;"><img src="{{ 'assets/img/agv-wiring-stepper.png' | relative_url }}" alt="Wiring: ESP32, DRV8825, NEMA 17 and ultrasonic sensor" style="width:100%; border-radius:8px;"><figcaption style="font-size:0.85rem; margin-top:0.4rem;">Lift drive: ESP32 → DRV8825 → NEMA 17, with HC-SR04.</figcaption></figure>
+  <figure style="flex:1 1 200px; margin:0;"><img src="{{ 'assets/img/agv-wiring-lcd.png' | relative_url }}" alt="Wiring: ESP32 with 16x2 LCD and buck converter" style="width:100%; border-radius:8px;"><figcaption style="font-size:0.85rem; margin-top:0.4rem;">ESP32 with the 16×2 LCD, contrast pot and 12 V → 5 V buck.</figcaption></figure>
+  <figure style="flex:1 1 200px; margin:0;"><img src="{{ 'assets/img/agv-wiring-dc.png' | relative_url }}" alt="Wiring: ESP32, L298N and DC gearmotor" style="width:100%; border-radius:8px;"><figcaption style="font-size:0.85rem; margin-top:0.4rem;">Cam gearmotor: ESP32 → L298N → DC gearmotor.</figcaption></figure>
+</div>
 
 **Tools & technologies**
 
@@ -43,6 +65,15 @@ Teammates led the AGV/lift control firmware, scale calibration, and base welding
 - **Scale:** output was linear from 0–5 kg to 0–3 V, measured in 1 kg steps, with no off-the-shelf conditioner — stays inside the ESP32's ADC range, and moving from breadboard to PCB removed shorts and loose connections
 - **Outcome:** full autonomous integration was not completed — motor drivers failed from a short circuit and one AGV motor was defective
 - **Lesson:** treat electrical insulation as a design requirement, and size actuators by calculation, not recommendation
+
+<div style="display:flex; flex-wrap:wrap; gap:1rem; margin:1rem 0; align-items:flex-start;">
+  <figure style="flex:1 1 280px; margin:0;"><img src="{{ 'assets/img/agv-voltage-time.png' | relative_url }}" alt="Scale output voltage versus time in 1 kg steps" style="width:100%; border-radius:8px;"><figcaption style="font-size:0.85rem; margin-top:0.4rem;">Scale output over time, loaded in 1 kg steps (voltage in mV; the plot's axis label is a typo).</figcaption></figure>
+  <figure style="flex:1 1 280px; margin:0;"><img src="{{ 'assets/img/agv-force-voltage.png' | relative_url }}" alt="Force versus voltage for the scale" style="width:100%; border-radius:8px;"><figcaption style="font-size:0.85rem; margin-top:0.4rem;">Force (N) vs. voltage (mV) for 1–5 kg: monotonic and close to linear.</figcaption></figure>
+</div>
+
+<div style="display:flex; flex-wrap:wrap; gap:1rem; margin:1rem 0; align-items:flex-start;">
+  <figure style="flex:0 1 320px; margin:0;"><img src="{{ 'assets/img/agv-line-follower.jpg' | relative_url }}" alt="Line-following AGV test on a taped track" style="width:100%; border-radius:8px;"><figcaption style="font-size:0.85rem; margin-top:0.4rem;">Line-following AGV test on the taped track (breadboard wiring).</figcaption></figure>
+</div>
 
 **Context:** Tec de Monterrey, Feb–Jun 2025, 4th-semester integrative challenge, team of 5.
 **Result:** functional scissor lift, 40 × 30 × 76 cm, base load-tested at >100 kg.
