@@ -17,6 +17,7 @@ featured: true
   .agv-fig.tall img { height: 400px; object-position: center 20%; }
   .agv-fig.auto img { height: 300px; }
   .agv-fig.auto video { height: auto; }
+  .agv-fig.clip video { height: 300px; }
   .agv-fig figcaption { padding: 0.6rem 0.9rem; font-size: 0.85rem; line-height: 1.4; opacity: 0.85; border-top: 1px solid rgba(128, 128, 128, 0.2); }
 </style>
 
@@ -46,8 +47,12 @@ Teammates led the AGV/lift control firmware, scale calibration, and base welding
 
 **Electronics**
 
-<div class="agv-grid single">
+<div class="agv-grid">
   <figure class="agv-fig auto"><img src="{{ 'assets/img/agv-loadcell-circuit.png' | relative_url }}" alt="Load-cell signal conditioning circuit"><figcaption>Load-cell conditioning chain: differential amplifier → non-inverting amplifier → RC low-pass → ESP32 ADC (102 kΩ feedback, 1 µF).</figcaption></figure>
+  <figure class="agv-fig clip">
+    <video src="{{ 'assets/img/agv-lcd.mp4' | relative_url }}" autoplay loop muted playsinline controls></video>
+    <figcaption>16×2 LCD bring-up on the breadboard with the ESP32.</figcaption>
+  </figure>
 </div>
 
 **Motion & structural analysis**
