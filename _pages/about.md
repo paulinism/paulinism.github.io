@@ -40,7 +40,7 @@ During my studies I've led a 30-person engineering team at <a href='https://www.
 - Mechanical design (SolidWorks CAD/CAM, NX CAD)
 - Semiconductor fabrication (MIT.nano)
 
-Seeking **Werkstudent / Praktikum / Thesis (Bachelorarbeit)** opportunities in embedded systems, hardware, and industrial automation.
+Seeking **Praktikum / Thesis (Bachelorarbeit)** opportunities in embedded systems, hardware, and industrial automation.
 
 ## Featured projects
 
