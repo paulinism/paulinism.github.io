@@ -58,7 +58,10 @@ Teammates led the AGV/lift control firmware, scale calibration, and base welding
 **Motion & structural analysis**
 
 <div class="agv-grid">
-  <figure class="agv-fig auto"><img src="{{ 'assets/img/agv-nx-motion.png' | relative_url }}" alt="Siemens NX motion simulation of the scissor mechanism"><figcaption>Siemens NX motion simulation of the scissor linkage (pivots and sliders).</figcaption></figure>
+  <figure class="agv-fig clip">
+    <video src="{{ 'assets/img/agv-nx-motion.mp4' | relative_url }}" autoplay loop muted playsinline controls></video>
+    <figcaption>Siemens NX motion simulation of the scissor linkage (pivots and sliders).</figcaption>
+  </figure>
   <figure class="agv-fig auto"><img src="{{ 'assets/img/agv-displacement.png' | relative_url }}" alt="SolidWorks static displacement plot of one scissor arm"><figcaption>SolidWorks Motion Study, static displacement of one scissor arm: maximum 0.28 mm at the free end.</figcaption></figure>
 </div>
 
