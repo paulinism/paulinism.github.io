@@ -206,7 +206,6 @@ cv:
       - name: Continuous learning
         icon: fa-solid fa-graduation-cap
         keywords:
-          - Ansys Maxwell
           - Ansys Electronics
           - FactoryTalk Optix
           - Fuzzy systems
@@ -214,5 +213,6 @@ cv:
       - name: Multicultural
         icon: fa-solid fa-earth-americas
         keywords:
-          - Learning languages
-          - Discovering new cultures and customs
+          - Languages
+          - New cultures & customs
+          - Travel
