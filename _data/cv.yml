@@ -197,9 +197,19 @@ cv:
         summary: "A2, currently completing B1 certification"
 
     Interests:
-      - name: Interests
-        icon: fa-solid fa-heart
+      - name: Motorsport
+        icon: fa-solid fa-flag-checkered
         keywords:
-          - Motorsport (MotoGP, Formula 1)
-          - Passionate about continuous learning
+          - MotoGP
+          - Formula 1
+
+      - name: Continuous learning
+        icon: fa-solid fa-graduation-cap
+        keywords:
+          - Ansys Maxwell
+
+      - name: Multicultural
+        icon: fa-solid fa-earth-americas
+        keywords:
           - Intercultural exchange & travel
+          - Studies and experience across Mexico, the USA, and Germany
