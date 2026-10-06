@@ -207,8 +207,8 @@ cv:
         icon: fa-solid fa-graduation-cap
         keywords:
           - Ansys Electronics
-          - FactoryTalk Optix
           - Fuzzy systems
+          - FactoryTalk Optix
 
       - name: Multicultural
         icon: fa-solid fa-earth-americas
