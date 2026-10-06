@@ -207,9 +207,12 @@ cv:
         icon: fa-solid fa-graduation-cap
         keywords:
           - Ansys Maxwell
+          - Ansys Electronics
+          - FactoryTalk Optix
+          - Fuzzy systems
 
       - name: Multicultural
         icon: fa-solid fa-earth-americas
         keywords:
-          - Intercultural exchange & travel
-          - Studies and experience across Mexico, the USA, and Germany
+          - Learning languages
+          - Discovering new cultures and customs
