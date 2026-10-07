@@ -29,7 +29,7 @@ Automate a full fluid-handling cycle: identify a sample by its color tag, measur
 
 - **PCB design:** designed all three boards of the measurement station — the ESP32 master and slave boards (two-layer, IPC-2221 trace sizing, manufactured by JLCPCB) and the op-amp board for viscosity measurement
 - **Signal conditioning:** co-developed the current-sensing chain (1 Ω shunt, two-stage UA741 amplification, about 400× gain), simulated it at 61 mA and 67 mA, and verified it on our own PCB
-- **Embedded** (co-developed with a teammate): homing and measuring routines, moving-average filtering of the current signal, color-tag reading over I²C, Bluetooth link to the LabVIEW HMI, UART between the two ESP32s, and the song the slave board's buzzer plays during homing
+- **Embedded** (co-developed with a teammate): homing and measuring routines, moving-average filtering of the current signal, color-tag reading over I²C, Bluetooth link to the LabVIEW HMI, UART between the two ESP32s, and the song the slave board's buzzer plays while the motors move (it stops during the cup, color and viscosity checks)
 - **PLC & manufacturing:** built the conveyor belts, programmed the ladder logic for some of them, and placed and calibrated the FC-51 sensors
 
 Teammates led the mechanical design of the stations, the PLC sequence design, and the LabVIEW HMI.
@@ -46,7 +46,7 @@ Teammates led the mechanical design of the stations, the PLC sequence design, an
 
 <div class="vis-grid">
   <figure class="vis-fig photo"><img src="{{ 'assets/img/visc-esp32-board-a.jpg' | relative_url }}" alt="ESP32 master board"><figcaption>ESP32 master board: drives the main motors, including the stepper of the carousel (stepper and encoder terminals, I²C connector, level shifter).</figcaption></figure>
-  <figure class="vis-fig photo"><img src="{{ 'assets/img/visc-esp32-board-b.jpg' | relative_url }}" alt="ESP32 slave board"><figcaption>ESP32 slave board: sensors and peripherals (PLC signals, fan and water pump), plus the buzzer that plays the song during measurement.</figcaption></figure>
+  <figure class="vis-fig photo"><img src="{{ 'assets/img/visc-esp32-board-b.jpg' | relative_url }}" alt="ESP32 slave board"><figcaption>ESP32 slave board: sensors and peripherals (PLC signals, fan and water pump), plus the buzzer that plays the song while the mechanisms move.</figcaption></figure>
 </div>
 
 <div class="vis-grid">
