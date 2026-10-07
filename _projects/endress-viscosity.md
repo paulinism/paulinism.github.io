@@ -8,6 +8,16 @@ category: PCB, Embedded, Automation
 featured: true
 ---
 
+<style>
+  .vis-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; margin: 1.5rem 0; align-items: start; }
+  .vis-grid.single { grid-template-columns: minmax(0, 560px); justify-content: center; }
+  .vis-fig { margin: 0; border: 1px solid rgba(128, 128, 128, 0.25); border-radius: 12px; overflow: hidden; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08); }
+  .vis-fig img { display: block; width: 100%; height: 340px; object-fit: contain; background: rgba(128, 128, 128, 0.06); }
+  .vis-fig.photo img { object-fit: cover; }
+  .vis-fig.auto img { height: auto; }
+  .vis-fig figcaption { padding: 0.6rem 0.9rem; font-size: 0.85rem; line-height: 1.4; opacity: 0.85; border-top: 1px solid rgba(128, 128, 128, 0.2); }
+</style>
+
 Industrial Automation challenge (team of 4) at Tec de Monterrey, with Endress+Hauser as industry partner: an automated fluid-handling cycle combining PLC and ESP32 control.
 
 **Challenge**
@@ -22,6 +32,38 @@ Automate a full fluid-handling cycle: identify a sample by its color tag, measur
 - **PLC & manufacturing:** built the conveyor belts, programmed the ladder logic for some of them, and placed and calibrated the FC-51 sensors
 
 Teammates led the mechanical design of the stations, the PLC sequence design, and the LabVIEW HMI.
+
+**System**
+
+<div class="vis-grid">
+  <figure class="vis-fig"><img src="{{ 'assets/img/viscosity.png' | relative_url }}" alt="SolidWorks render of the full system"><figcaption>Design: SolidWorks render of the carousel, measurement station and conveyors.</figcaption></figure>
+  <figure class="vis-fig photo"><img src="{{ 'assets/img/visc-system-test.jpg' | relative_url }}" alt="Integrated system during testing"><figcaption>Build: the integrated system during testing, with the control electronics laid out around it.</figcaption></figure>
+</div>
+
+**PCB design**
+
+<div class="vis-grid">
+  <figure class="vis-fig photo"><img src="{{ 'assets/img/visc-esp32-board-a.jpg' | relative_url }}" alt="ESP32 board with level shifter"><figcaption>ESP32 board A: stepper and encoder terminals, I²C connector and level shifter.</figcaption></figure>
+  <figure class="vis-fig photo"><img src="{{ 'assets/img/visc-esp32-board-b.jpg' | relative_url }}" alt="ESP32 board with buzzer and button"><figcaption>ESP32 board B: PLC signals, fan and water-pump outputs, UART, start button and buzzer.</figcaption></figure>
+</div>
+
+<div class="vis-grid">
+  <figure class="vis-fig"><img src="{{ 'assets/img/visc-opamp-layout.jpg' | relative_url }}" alt="Op-amp measurement board layout"><figcaption>Op-amp measurement board: PCB layout.</figcaption></figure>
+  <figure class="vis-fig photo"><img src="{{ 'assets/img/visc-opamp-board.jpg' | relative_url }}" alt="Fabricated and wired op-amp board"><figcaption>The same board, fabricated and wired.</figcaption></figure>
+</div>
+
+**Signal conditioning**
+
+<div class="vis-grid">
+  <figure class="vis-fig auto"><img src="{{ 'assets/img/visc-sim-61ma.jpg' | relative_url }}" alt="Multisim simulation at 61 mA"><figcaption>Multisim at 61 mA: 61 mV across the 1 Ω shunt becomes about 250 mV at the ADC input.</figcaption></figure>
+  <figure class="vis-fig auto"><img src="{{ 'assets/img/visc-sim-67ma.jpg' | relative_url }}" alt="Multisim simulation at 67 mA"><figcaption>Multisim at 67 mA: 67 mV becomes about 2.67 V, clamped by the 3.3 V Zener.</figcaption></figure>
+</div>
+
+**Conveyors**
+
+<div class="vis-grid single">
+  <figure class="vis-fig photo"><img src="{{ 'assets/img/visc-conveyors.jpg' | relative_url }}" alt="Conveyor belts with FC-51 sensors"><figcaption>The conveyor belts I built, with FC-51 sensors for cup detection.</figcaption></figure>
+</div>
 
 **Tools & technologies**
 
