@@ -15,6 +15,7 @@ featured: true
   .vis-fig img { display: block; width: 100%; height: 340px; object-fit: contain; background: rgba(128, 128, 128, 0.06); }
   .vis-fig.photo img { object-fit: cover; }
   .vis-fig.auto img { height: auto; }
+  .vis-fig.full img { height: auto; max-height: 460px; }
   .vis-fig video { display: block; width: 100%; height: 340px; object-fit: contain; background: rgba(128, 128, 128, 0.06); }
   .vis-fig figcaption { padding: 0.6rem 0.9rem; font-size: 0.85rem; line-height: 1.4; opacity: 0.85; border-top: 1px solid rgba(128, 128, 128, 0.2); }
 </style>
@@ -27,10 +28,10 @@ Automate a full fluid-handling cycle: identify a sample by its color tag, measur
 
 **My contribution**
 
-- **PCB design:** designed all three boards of the measurement station — the ESP32 master and slave boards (two-layer, IPC-2221 trace sizing, manufactured by JLCPCB) and the op-amp board for viscosity measurement
+- **PCB design:** designed all three boards of the measurement station in Altium Designer — the ESP32 master and slave boards (two-layer, IPC-2221 trace sizing, manufactured by JLCPCB) and the op-amp board for viscosity measurement, which I built on copper-clad laminate so the circuit could be debugged and tuned
 - **Signal conditioning:** co-developed the current-sensing chain (1 Ω shunt, two-stage UA741 amplification, about 400× gain), simulated it at 61 mA and 67 mA, and verified it on our own PCB
 - **Embedded** (co-developed with a teammate): homing and measuring routines, moving-average filtering of the current signal, color-tag reading over I²C, Bluetooth link to the LabVIEW HMI, UART between the two ESP32s, and the song the slave board's buzzer plays while the motors move (it stops during the cup, color and viscosity checks)
-- **PLC & manufacturing:** built the conveyor belts, programmed the ladder logic for some of them, and placed and calibrated the FC-51 sensors
+- **PLC & manufacturing:** co-built the conveyor belts, co-programmed the ladder logic, and placed and calibrated the FC-51 sensors
 
 Teammates led the mechanical design of the stations, the PLC sequence design, and the LabVIEW HMI.
 
@@ -38,20 +39,22 @@ Teammates led the mechanical design of the stations, the PLC sequence design, an
 
 <div class="vis-grid">
   <figure class="vis-fig"><img src="{{ 'assets/img/viscosity.png' | relative_url }}" alt="SolidWorks render of the full system"><figcaption>Design: SolidWorks render of the carousel, measurement station and conveyors.</figcaption></figure>
-  <figure class="vis-fig photo"><img src="{{ 'assets/img/visc-system-test.jpg' | relative_url }}" alt="Integrated system during testing"><figcaption>Build: the integrated system during testing, with the control electronics laid out around it.</figcaption></figure>
+  <figure class="vis-fig full"><img src="{{ 'assets/img/visc-system-test.jpg' | relative_url }}" alt="Integrated system during testing"><figcaption>Build: the integrated system during testing, with the control electronics laid out around it.</figcaption></figure>
   <figure class="vis-fig clip"><video src="{{ 'assets/img/visc-revolver.mp4' | relative_url }}" autoplay loop muted playsinline controls></video><figcaption>The revolver (rotating cup holder) turning with the sample cups loaded.</figcaption></figure>
 </div>
 
 **PCB design**
 
+All boards were designed in Altium Designer. The two ESP32 boards were manufactured by JLCPCB. The op-amp board was instead built on copper-clad laminate: for practicality and debugging, this let us test the conditioning circuit and modify component values with experimental results, which a fabricated board would not have allowed as quickly.
+
 <div class="vis-grid">
-  <figure class="vis-fig photo"><img src="{{ 'assets/img/visc-esp32-board-a.jpg' | relative_url }}" alt="ESP32 master board"><figcaption>ESP32 master board: drives the main motors, including the stepper of the carousel (stepper and encoder terminals, I²C connector, level shifter).</figcaption></figure>
-  <figure class="vis-fig photo"><img src="{{ 'assets/img/visc-esp32-board-b.jpg' | relative_url }}" alt="ESP32 slave board"><figcaption>ESP32 slave board: sensors and peripherals (PLC signals, fan and water pump), plus the buzzer that plays the song while the mechanisms move.</figcaption></figure>
+  <figure class="vis-fig full"><img src="{{ 'assets/img/visc-esp32-board-a.jpg' | relative_url }}" alt="ESP32 master board"><figcaption>ESP32 master board: drives the main motors, including the stepper of the carousel (stepper and encoder terminals, I²C connector, level shifter).</figcaption></figure>
+  <figure class="vis-fig full"><img src="{{ 'assets/img/visc-esp32-board-b.jpg' | relative_url }}" alt="ESP32 slave board"><figcaption>ESP32 slave board: sensors and peripherals (PLC signals, fan and water pump), plus the buzzer that plays the song while the mechanisms move.</figcaption></figure>
 </div>
 
 <div class="vis-grid">
   <figure class="vis-fig"><img src="{{ 'assets/img/visc-opamp-layout.jpg' | relative_url }}" alt="Op-amp measurement board layout"><figcaption>Op-amp measurement board: PCB layout.</figcaption></figure>
-  <figure class="vis-fig photo"><img src="{{ 'assets/img/visc-opamp-board.jpg' | relative_url }}" alt="Fabricated and wired op-amp board"><figcaption>The same board, fabricated on copper-clad laminate and wired.</figcaption></figure>
+  <figure class="vis-fig full"><img src="{{ 'assets/img/visc-opamp-board.jpg' | relative_url }}" alt="Fabricated and wired op-amp board"><figcaption>The same board, built on copper-clad laminate so values could be changed while debugging.</figcaption></figure>
 </div>
 
 <div class="vis-grid">
@@ -70,8 +73,10 @@ Viscosity was inferred from the motor's supply current through a 1 Ω shunt: abo
 
 **Conveyors**
 
+The original sorting idea (a vending-machine-style stepper, screw and spring) was dropped because exactly spaced springs were not available and the ladder logic was complex. For practicality and material feasibility, the final integration uses small conveyor belts instead, driven by an Arduino Mega running OpenPLC.
+
 <div class="vis-grid single">
-  <figure class="vis-fig photo"><img src="{{ 'assets/img/visc-conveyors.jpg' | relative_url }}" alt="Conveyor belts with FC-51 sensors"><figcaption>The conveyor belts I built, with FC-51 sensors for cup detection.</figcaption></figure>
+  <figure class="vis-fig full"><img src="{{ 'assets/img/visc-conveyors.jpg' | relative_url }}" alt="Conveyor belts with FC-51 sensors"><figcaption>The conveyor belts I co-built, with FC-51 sensors for cup detection.</figcaption></figure>
 </div>
 
 **Tools & technologies**
