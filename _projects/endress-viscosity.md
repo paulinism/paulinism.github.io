@@ -40,7 +40,17 @@ Teammates led the mechanical design of the stations, the PLC sequence design, an
 <div class="vis-grid">
   <figure class="vis-fig"><img src="{{ 'assets/img/viscosity.png' | relative_url }}" alt="SolidWorks render of the full system"><figcaption>Design: SolidWorks render of the carousel, measurement station and conveyors.</figcaption></figure>
   <figure class="vis-fig full"><img src="{{ 'assets/img/visc-system-test.jpg' | relative_url }}" alt="Integrated system during testing"><figcaption>Build: the integrated system during testing, with the control electronics laid out around it.</figcaption></figure>
-  <figure class="vis-fig full"><img src="{{ 'assets/img/visc-endress-visit.jpg' | relative_url }}" alt="Team at Endress+Hauser"><figcaption>The team at Endress+Hauser, in front of their process instrumentation.</figcaption></figure>
+</div>
+
+**Integration**
+
+The full bench integration, with most of the automatic sequence running: the carousel, measurement station and control electronics working together.
+
+<div class="vis-grid single">
+  <figure class="vis-fig clip"><video src="{{ 'assets/img/visc-integration-demo.mp4' | relative_url }}" muted playsinline controls preload="metadata"></video><figcaption>Integration demo (no audio): most of the automatic sequence running on the bench.</figcaption></figure>
+</div>
+
+<div class="vis-grid single">
   <figure class="vis-fig clip"><video src="{{ 'assets/img/visc-revolver.mp4' | relative_url }}" autoplay loop muted playsinline controls></video><figcaption>The revolver (rotating cup holder) turning with the sample cups loaded.</figcaption></figure>
 </div>
 
@@ -55,7 +65,7 @@ All boards were designed in Altium Designer. The two ESP32 boards were manufactu
 
 <div class="vis-grid">
   <figure class="vis-fig"><img src="{{ 'assets/img/visc-opamp-layout.jpg' | relative_url }}" alt="Op-amp measurement board layout"><figcaption>Op-amp measurement board: PCB layout.</figcaption></figure>
-  <figure class="vis-fig full"><img src="{{ 'assets/img/visc-opamp-board.jpg' | relative_url }}" alt="Fabricated and wired op-amp board"><figcaption>The same board, built on copper-clad laminate so values could be changed while debugging.</figcaption></figure>
+  <figure class="vis-fig photo"><img src="{{ 'assets/img/visc-opamp-board.jpg' | relative_url }}" alt="Fabricated and wired op-amp board"><figcaption>The same board, built on copper-clad laminate so values could be changed while debugging.</figcaption></figure>
 </div>
 
 <div class="vis-grid">
@@ -102,3 +112,7 @@ The original sorting idea (a vending-machine-style stepper, screw and spring) wa
 **Context:** Tec de Monterrey, Aug–Dec 2025, Industrial Automation challenge with Endress+Hauser as industry partner, team of 4.
 **Result:** current-based viscosity measurement separating 252 cP from 1676 cP on a custom PCB.
 **Stack:** ESP32/ESP-IDF, custom PCB design (IPC-2221), Multisim, OpenPLC (Arduino Mega), I²C, UART, Bluetooth, LabVIEW HMI
+
+<div class="vis-grid single">
+  <figure class="vis-fig full"><img src="{{ 'assets/img/visc-endress-visit.jpg' | relative_url }}" alt="Team at Endress+Hauser"><figcaption>The team at Endress+Hauser, in front of their process instrumentation.</figcaption></figure>
+</div>
