@@ -15,6 +15,7 @@ featured: true
   .vis-fig img { display: block; width: 100%; height: 340px; object-fit: contain; background: rgba(128, 128, 128, 0.06); }
   .vis-fig.photo img { object-fit: cover; }
   .vis-fig.auto img { height: auto; }
+  .vis-fig video { display: block; width: 100%; height: 340px; object-fit: contain; background: rgba(128, 128, 128, 0.06); }
   .vis-fig figcaption { padding: 0.6rem 0.9rem; font-size: 0.85rem; line-height: 1.4; opacity: 0.85; border-top: 1px solid rgba(128, 128, 128, 0.2); }
 </style>
 
@@ -28,7 +29,7 @@ Automate a full fluid-handling cycle: identify a sample by its color tag, measur
 
 - **PCB design:** designed all three boards of the measurement station — the ESP32 master and slave boards (two-layer, IPC-2221 trace sizing, manufactured by JLCPCB) and the op-amp board for viscosity measurement
 - **Signal conditioning:** co-developed the current-sensing chain (1 Ω shunt, two-stage UA741 amplification, about 400× gain), simulated it at 61 mA and 67 mA, and verified it on our own PCB
-- **Embedded** (co-developed with a teammate): homing and measuring routines, moving-average filtering of the current signal, color-tag reading over I²C, Bluetooth link to the LabVIEW HMI, UART between the two ESP32s, and the song played during measurement
+- **Embedded** (co-developed with a teammate): homing and measuring routines, moving-average filtering of the current signal, color-tag reading over I²C, Bluetooth link to the LabVIEW HMI, UART between the two ESP32s, and the song the slave board's buzzer plays during homing
 - **PLC & manufacturing:** built the conveyor belts, programmed the ladder logic for some of them, and placed and calibrated the FC-51 sensors
 
 Teammates led the mechanical design of the stations, the PLC sequence design, and the LabVIEW HMI.
@@ -38,6 +39,7 @@ Teammates led the mechanical design of the stations, the PLC sequence design, an
 <div class="vis-grid">
   <figure class="vis-fig"><img src="{{ 'assets/img/viscosity.png' | relative_url }}" alt="SolidWorks render of the full system"><figcaption>Design: SolidWorks render of the carousel, measurement station and conveyors.</figcaption></figure>
   <figure class="vis-fig photo"><img src="{{ 'assets/img/visc-system-test.jpg' | relative_url }}" alt="Integrated system during testing"><figcaption>Build: the integrated system during testing, with the control electronics laid out around it.</figcaption></figure>
+  <figure class="vis-fig clip"><video src="{{ 'assets/img/visc-revolver.mp4' | relative_url }}" autoplay loop muted playsinline controls></video><figcaption>The revolver (rotating cup holder) turning with the sample cups loaded.</figcaption></figure>
 </div>
 
 **PCB design**
@@ -49,10 +51,17 @@ Teammates led the mechanical design of the stations, the PLC sequence design, an
 
 <div class="vis-grid">
   <figure class="vis-fig"><img src="{{ 'assets/img/visc-opamp-layout.jpg' | relative_url }}" alt="Op-amp measurement board layout"><figcaption>Op-amp measurement board: PCB layout.</figcaption></figure>
-  <figure class="vis-fig photo"><img src="{{ 'assets/img/visc-opamp-board.jpg' | relative_url }}" alt="Fabricated and wired op-amp board"><figcaption>The same board, fabricated and wired.</figcaption></figure>
+  <figure class="vis-fig photo"><img src="{{ 'assets/img/visc-opamp-board.jpg' | relative_url }}" alt="Fabricated and wired op-amp board"><figcaption>The same board, fabricated on copper-clad laminate and wired.</figcaption></figure>
+</div>
+
+<div class="vis-grid">
+  <figure class="vis-fig auto"><img src="{{ 'assets/img/visc-master-schematic.png' | relative_url }}" alt="Master board schematic"><figcaption>Master schematic: ESP32 headers, stepper STEP/DIR, and encoder and inductive-sensor inputs level-shifted from 5 V to 3.3 V.</figcaption></figure>
+  <figure class="vis-fig auto"><img src="{{ 'assets/img/visc-slave-schematic.png' | relative_url }}" alt="Slave board schematic"><figcaption>Slave schematic: sensor inputs, fan and water-pump outputs, PLC color/start signals, UART, RGB LED, buzzer and push button.</figcaption></figure>
 </div>
 
 **Signal conditioning**
+
+Viscosity was inferred from the motor's supply current through a 1 Ω shunt: about 61 mV for 75% soap and 67 mV for pure soap at 30 RPM, a 6 mV window. A gain of about 400 (×100, then a differential stage with ×4) maps that window to 0–3.3 V, split in two stages so the first one stays inside the ±12 V rails. At 130 RPM the output still reached about 4 V with a 3.3 V Zener alone, so a 5 V → 3.3 V logic-level converter was added to protect the ESP32 ADC.
 
 <div class="vis-grid">
   <figure class="vis-fig auto"><img src="{{ 'assets/img/visc-sim-61ma.jpg' | relative_url }}" alt="Multisim simulation at 61 mA"><figcaption>Multisim at 61 mA: 61 mV across the 1 Ω shunt becomes about 250 mV at the ADC input.</figcaption></figure>
@@ -80,6 +89,7 @@ Teammates led the mechanical design of the stations, the PLC sequence design, an
 - **Water dosing:** running the pump at 5 V made it controllable, delivering 19/26/36 ml against 18/27/36 ml targets
 - **Conveyors:** the belts carried 5 kg (supply) and 8 kg (sorting) against a requirement below 1 kg
 - **Outcome:** the automatic sequence ran on video, but the live demo failed because of wiring faults and short circuits — the PLC boards were swapped for breadboards after the FC-51 sensors drew more current than the board supply could deliver
+- **Measurement lessons:** PID control had to be dropped for the 30 RPM measurement because it pushed the current to 63–72 mA, outside the 61–67 mA window; swapping the UA741CN for the UA741CP fixed an output that froze
 - **Lessons:** route a short common ground for inter-board UART, since a RX/TX mismatch on the slave board cost debugging time; budget sensor supply current before routing a board, and check pin assignments against the target software (OpenPLC addressing) before fabrication
 
 **Context:** Tec de Monterrey, Aug–Dec 2025, Industrial Automation challenge with Endress+Hauser as industry partner, team of 4.
