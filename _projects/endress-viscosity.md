@@ -43,8 +43,8 @@ Teammates led the mechanical design of the stations, the PLC sequence design, an
 **PCB design**
 
 <div class="vis-grid">
-  <figure class="vis-fig photo"><img src="{{ 'assets/img/visc-esp32-board-a.jpg' | relative_url }}" alt="ESP32 board with level shifter"><figcaption>ESP32 board A: stepper and encoder terminals, I²C connector and level shifter.</figcaption></figure>
-  <figure class="vis-fig photo"><img src="{{ 'assets/img/visc-esp32-board-b.jpg' | relative_url }}" alt="ESP32 board with buzzer and button"><figcaption>ESP32 board B: PLC signals, fan and water-pump outputs, UART, start button and buzzer.</figcaption></figure>
+  <figure class="vis-fig photo"><img src="{{ 'assets/img/visc-esp32-board-a.jpg' | relative_url }}" alt="ESP32 master board"><figcaption>ESP32 master board: drives the main motors, including the stepper of the carousel (stepper and encoder terminals, I²C connector, level shifter).</figcaption></figure>
+  <figure class="vis-fig photo"><img src="{{ 'assets/img/visc-esp32-board-b.jpg' | relative_url }}" alt="ESP32 slave board"><figcaption>ESP32 slave board: sensors and peripherals (PLC signals, fan and water pump), plus the buzzer that plays the song during measurement.</figcaption></figure>
 </div>
 
 <div class="vis-grid">
