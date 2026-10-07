@@ -47,7 +47,7 @@ Teammates led the mechanical design of the stations, the PLC sequence design, an
 The full bench integration, with most of the automatic sequence running: the carousel, measurement station and control electronics working together.
 
 <div class="vis-grid single">
-  <figure class="vis-fig clip"><video src="{{ 'assets/img/visc-integration-demo.mp4' | relative_url }}" muted playsinline controls preload="metadata"></video><figcaption>Integration demo (no audio): most of the automatic sequence running on the bench.</figcaption></figure>
+  <figure class="vis-fig clip"><video src="{{ 'assets/img/visc-integration-demo.mp4' | relative_url }}" muted playsinline controls preload="metadata"></video><figcaption>Integration demo: most of the automatic sequence running on the bench.</figcaption></figure>
 </div>
 
 <div class="vis-grid single">
@@ -64,8 +64,8 @@ All boards were designed in Altium Designer. The two ESP32 boards were manufactu
 </div>
 
 <div class="vis-grid">
-  <figure class="vis-fig"><img src="{{ 'assets/img/visc-opamp-layout.jpg' | relative_url }}" alt="Op-amp measurement board layout"><figcaption>Op-amp measurement board: PCB layout.</figcaption></figure>
-  <figure class="vis-fig photo"><img src="{{ 'assets/img/visc-opamp-board.jpg' | relative_url }}" alt="Fabricated and wired op-amp board"><figcaption>The same board, built on copper-clad laminate so values could be changed while debugging.</figcaption></figure>
+  <figure class="vis-fig auto"><img src="{{ 'assets/img/visc-opamp-layout.jpg' | relative_url }}" alt="Op-amp measurement board layout"><figcaption>Op-amp measurement board: PCB layout.</figcaption></figure>
+  <figure class="vis-fig auto"><img src="{{ 'assets/img/visc-opamp-board.jpg' | relative_url }}" alt="Fabricated and wired op-amp board"><figcaption>The same board, built on copper-clad laminate so values could be changed while debugging.</figcaption></figure>
 </div>
 
 <div class="vis-grid">
