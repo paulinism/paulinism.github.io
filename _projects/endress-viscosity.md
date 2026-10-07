@@ -40,6 +40,7 @@ Teammates led the mechanical design of the stations, the PLC sequence design, an
 <div class="vis-grid">
   <figure class="vis-fig"><img src="{{ 'assets/img/viscosity.png' | relative_url }}" alt="SolidWorks render of the full system"><figcaption>Design: SolidWorks render of the carousel, measurement station and conveyors.</figcaption></figure>
   <figure class="vis-fig full"><img src="{{ 'assets/img/visc-system-test.jpg' | relative_url }}" alt="Integrated system during testing"><figcaption>Build: the integrated system during testing, with the control electronics laid out around it.</figcaption></figure>
+  <figure class="vis-fig full"><img src="{{ 'assets/img/visc-endress-visit.jpg' | relative_url }}" alt="Team at Endress+Hauser"><figcaption>The team at Endress+Hauser, in front of their process instrumentation.</figcaption></figure>
   <figure class="vis-fig clip"><video src="{{ 'assets/img/visc-revolver.mp4' | relative_url }}" autoplay loop muted playsinline controls></video><figcaption>The revolver (rotating cup holder) turning with the sample cups loaded.</figcaption></figure>
 </div>
 
@@ -75,8 +76,9 @@ Viscosity was inferred from the motor's supply current through a 1 Ω shunt: abo
 
 The original sorting idea (a vending-machine-style stepper, screw and spring) was dropped because exactly spaced springs were not available and the ladder logic was complex. For practicality and material feasibility, the final integration uses small conveyor belts instead, driven by an Arduino Mega running OpenPLC.
 
-<div class="vis-grid single">
+<div class="vis-grid">
   <figure class="vis-fig full"><img src="{{ 'assets/img/visc-conveyors.jpg' | relative_url }}" alt="Conveyor belts with FC-51 sensors"><figcaption>The conveyor belts I co-built, with FC-51 sensors for cup detection.</figcaption></figure>
+  <figure class="vis-fig clip"><video src="{{ 'assets/img/visc-plc-validation.mp4' | relative_url }}" autoplay loop muted playsinline controls></video><figcaption>My PLC logic validation: moving a cup along the conveyor belt with the FC-51 sensors.</figcaption></figure>
 </div>
 
 **Tools & technologies**
