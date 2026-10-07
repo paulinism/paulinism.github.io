@@ -51,17 +51,9 @@ Build a scissor lift that raises, weighs, and dumps a 1–5 kg load, carried bet
 
 Teammates led the AGV/lift control firmware, scale calibration, and base welding.
 
-**Electronics**
+**Design & simulation**
 
-<div class="agv-grid">
-  <figure class="agv-fig auto"><img src="{{ 'assets/img/agv-loadcell-circuit.png' | relative_url }}" alt="Load-cell signal conditioning circuit"><figcaption>Load-cell conditioning chain: differential amplifier → non-inverting amplifier → RC low-pass → ESP32 ADC (102 kΩ feedback, 1 µF).</figcaption></figure>
-  <figure class="agv-fig clip">
-    <video src="{{ 'assets/img/agv-lcd.mp4' | relative_url }}" autoplay loop muted playsinline controls></video>
-    <figcaption>16×2 LCD bring-up on the breadboard with the ESP32.</figcaption>
-  </figure>
-</div>
-
-**Motion & structural analysis**
+Before building, I checked the mechanism in simulation: an NX motion study of the scissor linkage, a static displacement check on one arm, and a SolidWorks animation of the cam-driven tilting tray.
 
 <div class="agv-grid">
   <figure class="agv-fig clip">
@@ -76,6 +68,18 @@ Teammates led the AGV/lift control firmware, scale calibration, and base welding
   <figcaption>SolidWorks animation of the tilting tray: the cam lifts one side of the tray to dump the load.</figcaption>
 </figure></div>
 
+**Electronics**
+
+The load-cell conditioning circuit (differential amplifier, non-inverting amplifier, RC low-pass) and the 16×2 LCD brought up on a breadboard with the ESP32.
+
+<div class="agv-grid">
+  <figure class="agv-fig auto"><img src="{{ 'assets/img/agv-loadcell-circuit.png' | relative_url }}" alt="Load-cell signal conditioning circuit"><figcaption>Load-cell conditioning chain: differential amplifier → non-inverting amplifier → RC low-pass → ESP32 ADC (102 kΩ feedback, 1 µF).</figcaption></figure>
+  <figure class="agv-fig clip">
+    <video src="{{ 'assets/img/agv-lcd.mp4' | relative_url }}" autoplay loop muted playsinline controls></video>
+    <figcaption>16×2 LCD bring-up on the breadboard with the ESP32.</figcaption>
+  </figure>
+</div>
+
 **Tools & technologies**
 
 - **SolidWorks:** full assembly, cam modeling, motion study
@@ -87,6 +91,13 @@ Teammates led the AGV/lift control firmware, scale calibration, and base welding
 - **Cost estimation:** per-operation cost model with estimated machine rates, plus cutting-data calculation
 
 **Results & lessons**
+
+<div class="agv-grid single">
+  <figure class="agv-fig tall">
+    <video src="{{ 'assets/img/agv-lift-demo.mp4' | relative_url }}" autoplay loop muted playsinline controls style="height: 480px"></video>
+    <figcaption>The built scissor lift lowering during testing.</figcaption>
+  </figure>
+</div>
 
 - **Structure:** base frame held >100 kg with no visible deformation — confirms the material choice (steel rectangular-tube base under a lightweight aluminum scissor structure), a large margin over the 5 kg payload
 - **Payload:** the platform carried 7 kg at the final demo, 40% above the 5 kg requirement — the scissor linkage and lead-screw drive worked beyond specification
