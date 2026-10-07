@@ -39,7 +39,7 @@ Teammates led the mechanical design of the stations, the PLC sequence design, an
 
 <div class="vis-grid">
   <figure class="vis-fig"><img src="{{ 'assets/img/viscosity.png' | relative_url }}" alt="SolidWorks render of the full system"><figcaption>Design: SolidWorks render of the carousel, measurement station and conveyors.</figcaption></figure>
-  <figure class="vis-fig full"><img src="{{ 'assets/img/visc-system-test.jpg' | relative_url }}" alt="Integrated system during testing"><figcaption>Build: the integrated system during testing, with the control electronics laid out around it.</figcaption></figure>
+  <figure class="vis-fig full"><img src="{{ 'assets/img/visc-system-test.jpg' | relative_url }}" alt="Integrated system during the final presentation"><figcaption>Build: the integrated system during the final presentation, integrating relays, the emergency-button system, water pump, container segregation, steppers, DC motor and infrared sensors.</figcaption></figure>
 </div>
 
 **Integration**
