@@ -66,11 +66,11 @@ _What it demonstrated._
 - One bridge came out incomplete; it is documented as a process defect
 
 <div class="mit-grid">
-  <figure class="mit-fig"><img src="{{ 'assets/img/mit-profilometer-stage.jpg' | relative_url }}" alt="Profilometer stage with a patterned wafer"><figcaption>Stylus profilometer with a patterned wafer on the stage, before scanning.</figcaption></figure>
-  <figure class="mit-fig"><img src="{{ 'assets/img/mit-bridge-view.jpg' | relative_url }}" alt="Bridge structure seen through the profilometer camera"><figcaption>A bridge structure seen through the profilometer camera, with the stylus positioned to scan it.</figcaption></figure>
+  <figure class="mit-fig"><img src="{{ 'assets/img/mit-bridge-test-a.jpg' | relative_url }}" alt="Bridge as designed, before etching"><figcaption>Before: the bridge as designed, before etching and before the photoresist was applied and removed.</figcaption></figure>
+  <figure class="mit-fig"><img src="{{ 'assets/img/mit-bridge-view.jpg' | relative_url }}" alt="Bridge after etching and release"><figcaption>After: the bridge after etching, resist removal and release, seen through the profilometer camera.</figcaption></figure>
   <figure class="mit-fig"><img src="{{ 'assets/img/mit-profilometer-scan.jpg' | relative_url }}" alt="Profilometer scan"><figcaption>Stylus profilometer scan across a patterned feature (1000 µm scan, 5 mg stylus force).</figcaption></figure>
-  <figure class="mit-fig"><img src="{{ 'assets/img/mit-bridge-test-a.jpg' | relative_url }}" alt="Bridge during the mechanical test"><figcaption>Bridge during the mechanical test, microscope view.</figcaption></figure>
-  <figure class="mit-fig"><img src="{{ 'assets/img/mit-bridge-test-b.jpg' | relative_url }}" alt="Bridge during the mechanical test, second view"><figcaption>Bridge during the mechanical test, a second view.</figcaption></figure>
+  <figure class="mit-fig"><img src="{{ 'assets/img/mit-bridge-test-b.jpg' | relative_url }}" alt="Bridge during the mechanical test"><figcaption>Bridge during the mechanical test.</figcaption></figure>
+  <figure class="mit-fig"><img src="{{ 'assets/img/mit-profilometer-stage.jpg' | relative_url }}" alt="Profilometer stage with a patterned wafer"><figcaption>Stylus profilometer with a patterned wafer on the stage, before scanning.</figcaption></figure>
 </div>
 
 **Module 3 · Microfluidic mixer**
