@@ -92,10 +92,14 @@ The load-cell conditioning circuit (differential amplifier, non-inverting amplif
 
 **Results & lessons**
 
-<div class="agv-grid single">
+<div class="agv-grid">
   <figure class="agv-fig tall">
     <video src="{{ 'assets/img/agv-lift-demo.mp4' | relative_url }}" autoplay loop muted playsinline controls style="height: 480px"></video>
     <figcaption>The built scissor lift lowering during testing.</figcaption>
+  </figure>
+  <figure class="agv-fig tall">
+    <video src="{{ 'assets/img/agv-moving.mp4' | relative_url }}" autoplay loop muted playsinline controls style="height: 480px"></video>
+    <figcaption>The line-following AGV driving along the black tape track.</figcaption>
   </figure>
 </div>
 
