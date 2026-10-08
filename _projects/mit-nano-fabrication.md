@@ -83,9 +83,9 @@ _What it demonstrated._
 - The tracer particles accumulated at the walls, where flow velocity is close to zero, until the channel blocked completely, a real failure mode for microfluidic devices
 
 <div class="mit-grid">
+  <figure class="mit-fig"><img src="{{ 'assets/img/mit-su8-mold.jpg' | relative_url }}" alt="SU-8 mold wafer"><figcaption>SU-8 mold wafer with the mixer channel designs.</figcaption></figure>
   <figure class="mit-fig"><video src="{{ 'assets/img/mit-pdms-casting.mp4' | relative_url }}" autoplay loop muted playsinline controls></video><figcaption>Pouring PDMS over the SU-8 mold to cast the microfluidic device.</figcaption></figure>
   <figure class="mit-fig"><img src="{{ 'assets/img/mit-flow-setup.jpg' | relative_url }}" alt="Microfluidic flow test setup"><figcaption>Flow test setup: stereo microscope, pressure controller, tubing and the PDMS device on glass.</figcaption></figure>
-  <figure class="mit-fig"><img src="{{ 'assets/img/mit-su8-mold.jpg' | relative_url }}" alt="SU-8 mold wafer"><figcaption>SU-8 mold wafer with the mixer channel designs.</figcaption></figure>
   <figure class="mit-fig"><img src="{{ 'assets/img/mit-coflow.jpg' | relative_url }}" alt="Two streams in laminar co-flow"><figcaption>Two streams flowing side by side in laminar co-flow at the channel junction.</figcaption></figure>
   <figure class="mit-fig"><img src="{{ 'assets/img/mit-particle-clog.jpg' | relative_url }}" alt="Tracer particles accumulated at the channel junction"><figcaption>Tracer particles accumulating at the channel junction until the channel blocked.</figcaption></figure>
 </div>
