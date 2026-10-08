@@ -57,6 +57,7 @@ One-week visiting-student intensive in semiconductor device fabrication at **MIT
 **MEMS cantilevers and bridges**
 
 <div class="mit-grid">
+  <figure class="mit-fig full"><img src="{{ 'assets/img/mit-profilometer-stage.jpg' | relative_url }}" alt="Profilometer stage with a patterned wafer"><figcaption>Stylus profilometer with a patterned wafer on the stage, before scanning.</figcaption></figure>
   <figure class="mit-fig full"><img src="{{ 'assets/img/mit-profilometer-camera.jpg' | relative_url }}" alt="Profilometer camera view"><figcaption>Stylus profilometer camera view while locating the structure to scan.</figcaption></figure>
   <figure class="mit-fig full"><img src="{{ 'assets/img/mit-profilometer-scan.jpg' | relative_url }}" alt="Profilometer scan"><figcaption>Stylus profilometer scan across a patterned feature (1000 µm scan, 5 mg stylus force).</figcaption></figure>
   <figure class="mit-fig full"><img src="{{ 'assets/img/mit-profilometer-a.jpg' | relative_url }}" alt="Profilometer scan of a step"><figcaption>Profilometer scan of a step next to the camera view of the structure.</figcaption></figure>
@@ -67,6 +68,7 @@ One-week visiting-student intensive in semiconductor device fabrication at **MIT
 
 <div class="mit-grid">
   <figure class="mit-fig full"><img src="{{ 'assets/img/mit-su8-mold.jpg' | relative_url }}" alt="SU-8 mold wafer"><figcaption>SU-8 mold wafer with the mixer channel designs.</figcaption></figure>
+  <figure class="mit-fig"><video src="{{ 'assets/img/mit-pdms-casting.mp4' | relative_url }}" autoplay loop muted playsinline controls></video><figcaption>Pouring PDMS over the SU-8 mold to cast the microfluidic device.</figcaption></figure>
   <figure class="mit-fig full"><img src="{{ 'assets/img/mit-coflow.jpg' | relative_url }}" alt="Two streams in laminar co-flow"><figcaption>Two streams flowing side by side in laminar co-flow at the channel junction.</figcaption></figure>
 </div>
 
