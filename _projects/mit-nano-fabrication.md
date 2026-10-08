@@ -42,7 +42,7 @@ Working as a two-person team, I carried out every process step on all three devi
 <div class="mit-grid">
   <figure class="mit-fig"><img src="{{ 'assets/img/mit-photolitho-track.jpg' | relative_url }}" alt="Photolithography track"><figcaption>Photolithography track (resist coat and develop) in the yellow-light room.</figcaption></figure>
   <figure class="mit-fig"><img src="{{ 'assets/img/mit-asher.jpg' | relative_url }}" alt="Plasma asher control screen"><figcaption>Plasma asher control screen (recipe ash thin, 250 °C, about 1.2 Torr, O₂ and N₂ flow).</figcaption></figure>
-  <figure class="mit-fig"><img src="{{ 'assets/img/mit-wet-bench-acid.jpg' | relative_url }}" alt="Loading a wafer carrier into a wet-processing tool"><figcaption>Wet processing in acid-resistant PPE: loading the wafer carrier into the tool.</figcaption></figure>
+  <figure class="mit-fig"><img src="{{ 'assets/img/mit-wet-bench-acid.jpg' | relative_url }}" alt="Loading a wafer carrier into the Spin Rinse Dryer"><figcaption>In acid-resistant PPE: after the piranha solution clean, the wafers go into the Spin Rinse Dryer (SRD).</figcaption></figure>
 </div>
 
 **1 · Solar cell**
