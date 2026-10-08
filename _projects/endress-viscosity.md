@@ -38,8 +38,8 @@ Teammates led the mechanical design of the stations, the PLC sequence design, an
 **System**
 
 <div class="vis-grid">
-  <figure class="vis-fig"><img src="{{ 'assets/img/viscosity.png' | relative_url }}" alt="SolidWorks render of the full system"><figcaption>Design: SolidWorks render of the carousel, measurement station and conveyors.</figcaption></figure>
-  <figure class="vis-fig full"><img src="{{ 'assets/img/visc-system-test.jpg' | relative_url }}" alt="Integrated system during the final presentation"><figcaption>Build: the integrated system during the final presentation, integrating relays, the emergency-button system, water pump, container segregation, steppers, DC motor and infrared sensors.</figcaption></figure>
+  <figure class="vis-fig"><img src="{{ 'assets/img/viscosity.png' | relative_url }}" alt="SolidWorks render of the full system"><figcaption>Design: SolidWorks CAD model of the rotary measurement station, viscosity measurement unit, and dispenser as originally planned.</figcaption></figure>
+  <figure class="vis-fig full"><img src="{{ 'assets/img/visc-system-test.jpg' | relative_url }}" alt="Integrated system during the final presentation"><figcaption>Build: Integrated system presented as the final prototype, combining relays, emergency-stop system, water pump, container sorting, stepper motors, DC motor with encoder, infrared sensors, and conveyor belts for container transport.</figcaption></figure>
 </div>
 
 **Integration**
