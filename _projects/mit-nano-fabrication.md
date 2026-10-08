@@ -66,11 +66,11 @@ _What it demonstrated._
 - One bridge came out incomplete; it is documented as a process defect
 
 <div class="mit-grid">
+  <figure class="mit-fig"><img src="{{ 'assets/img/mit-bridge-view.jpg' | relative_url }}" alt="Real-time camera view during the bridge test"><figcaption>Real-time camera view of the bridge with the tester's tip positioned on it.</figcaption></figure>
+  <figure class="mit-fig"><img src="{{ 'assets/img/mit-profilometer-scan.jpg' | relative_url }}" alt="Force-displacement plot of the bridge test"><figcaption>Force–displacement plot for a 4 mg test on a narrow bridge: the bridge is pulled down until it reaches the bottom of the cavity, then returns to its initial position.</figcaption></figure>
   <figure class="mit-fig"><img src="{{ 'assets/img/mit-bridge-test-a.jpg' | relative_url }}" alt="Well-fabricated bridge"><figcaption>Well-fabricated bridge: a continuous structure extending from one side of the opening to the other.</figcaption></figure>
   <figure class="mit-fig"><img src="{{ 'assets/img/mit-bridge-test-b.jpg' | relative_url }}" alt="Defective bridge"><figcaption>Defective bridge: the structure is incomplete, likely due to process inconsistencies during fabrication.</figcaption></figure>
   <figure class="mit-fig"><img src="{{ 'assets/img/mit-profilometer-stage.jpg' | relative_url }}" alt="Mechanical test equipment with the patterned wafer"><figcaption>Mechanical test equipment, which applies controlled micro-scale forces, with the patterned wafer on the stage.</figcaption></figure>
-  <figure class="mit-fig"><img src="{{ 'assets/img/mit-bridge-view.jpg' | relative_url }}" alt="Real-time camera view during the bridge test"><figcaption>Real-time camera view of the bridge with the tester's tip positioned on it.</figcaption></figure>
-  <figure class="mit-fig"><img src="{{ 'assets/img/mit-profilometer-scan.jpg' | relative_url }}" alt="Force-displacement plot of the bridge test"><figcaption>Force–displacement plot for a 4 mg test on a narrow bridge: the bridge is pulled down until it reaches the bottom of the cavity, then returns to its initial position.</figcaption></figure>
 </div>
 
 **Module 3 · Microfluidic mixer**
@@ -83,9 +83,9 @@ _What it demonstrated._
 - The tracer particles accumulated at the walls, where flow velocity is close to zero, until the channel blocked completely, a real failure mode for microfluidic devices
 
 <div class="mit-grid">
+  <figure class="mit-fig"><video src="{{ 'assets/img/mit-pdms-casting.mp4' | relative_url }}" autoplay loop muted playsinline controls></video><figcaption>Pouring PDMS over the SU-8 mold to cast the microfluidic device.</figcaption></figure>
   <figure class="mit-fig"><img src="{{ 'assets/img/mit-flow-setup.jpg' | relative_url }}" alt="Microfluidic flow test setup"><figcaption>Flow test setup: stereo microscope, pressure controller, tubing and the PDMS device on glass.</figcaption></figure>
   <figure class="mit-fig"><img src="{{ 'assets/img/mit-su8-mold.jpg' | relative_url }}" alt="SU-8 mold wafer"><figcaption>SU-8 mold wafer with the mixer channel designs.</figcaption></figure>
-  <figure class="mit-fig"><video src="{{ 'assets/img/mit-pdms-casting.mp4' | relative_url }}" autoplay loop muted playsinline controls></video><figcaption>Pouring PDMS over the SU-8 mold to cast the microfluidic device.</figcaption></figure>
   <figure class="mit-fig"><img src="{{ 'assets/img/mit-coflow.jpg' | relative_url }}" alt="Two streams in laminar co-flow"><figcaption>Two streams flowing side by side in laminar co-flow at the channel junction.</figcaption></figure>
   <figure class="mit-fig"><img src="{{ 'assets/img/mit-particle-clog.jpg' | relative_url }}" alt="Tracer particles accumulated at the channel junction"><figcaption>Tracer particles accumulating at the channel junction until the channel blocked.</figcaption></figure>
 </div>
