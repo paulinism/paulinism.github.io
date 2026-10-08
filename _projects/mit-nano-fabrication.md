@@ -10,9 +10,6 @@ hide_from_grid: true # shown in the "Professional & lab experience" section inst
 ---
 
 <style>
-  .mit-snap { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.75rem; margin: 1rem 0 1.5rem; }
-  .mit-chip { border: 1px solid rgba(128, 128, 128, 0.3); border-radius: 12px; padding: 0.7rem 0.9rem; }
-  .mit-chip b { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; opacity: 0.65; margin-bottom: 0.2rem; }
   .mit-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin: 1rem 0 1.5rem; }
   .mit-fig { margin: 0; border: 1px solid rgba(128, 128, 128, 0.25); border-radius: 12px; overflow: hidden; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08); }
   .mit-fig img, .mit-fig video { display: block; width: 100%; height: 340px; object-fit: contain; background: rgba(128, 128, 128, 0.06); }
@@ -20,12 +17,13 @@ hide_from_grid: true # shown in the "Professional & lab experience" section inst
   .mit-result { border-left: 4px solid rgba(128, 128, 128, 0.45); padding: 0.1rem 0 0.1rem 0.9rem; margin: 0.8rem 0; }
 </style>
 
-<div class="mit-snap">
-  <div class="mit-chip"><b>When &amp; where</b>Oct 2025 · MIT.nano nanoLab, Cambridge, USA</div>
-  <div class="mit-chip"><b>Format</b>One-week cleanroom intensive (MIT–Tec de Monterrey program) · team of 2</div>
-  <div class="mit-chip"><b>Role</b>Fabrication and characterization of three devices; co-author of the technical report</div>
-  <div class="mit-chip"><b>Tools</b>Photolithography · thin-film deposition · sputtering · RIE/KOH etching</div>
-</div>
+**Snapshot**
+
+Oct 2025 · MIT.nano nanoLab, Cambridge, USA · one-week cleanroom intensive (MIT–Tec de Monterrey program) · team of 2
+
+**Role:** fabrication and characterization of three devices; co-author of the technical report
+
+**Tools:** photolithography · thin-film deposition · sputtering · RIE/KOH etching
 
 **Result:** three working device types: a silicon solar cell with a measured IV curve, released MEMS beams that passed mechanical testing, and a PDMS microfluidic mixer with laminar co-flow.
 
@@ -56,10 +54,10 @@ Deposited the silicon nitride anti-reflective coating at two thicknesses (80 nm 
   <figure class="mit-fig"><img src="{{ 'assets/img/mit-contact-fingers.jpg' | relative_url }}" alt="Contact fingers under the microscope"><figcaption>Contact fingers inspected under the microscope.</figcaption></figure>
   <figure class="mit-fig"><video src="{{ 'assets/img/mit-wafer-cleaving.mp4' | relative_url }}" autoplay loop muted playsinline controls></video><figcaption>Cleaving the wafer into individual cells.</figcaption></figure>
   <figure class="mit-fig"><img src="{{ 'assets/img/mit-solar-cell-probe.jpg' | relative_url }}" alt="Solar cell on the measurement stage"><figcaption>A finished cell contacted for the IV measurement.</figcaption></figure>
-  <figure class="mit-fig"><img src="{{ 'assets/img/mit-iv-curve.jpg' | relative_url }}" alt="IV sweep of the best device"><figcaption>IV sweep of the best device under illumination; the software readout shows Voc = 0.60 V.</figcaption></figure>
+  <figure class="mit-fig"><img src="{{ 'assets/img/mit-iv-curve.jpg' | relative_url }}" alt="IV sweep of the best device"><figcaption>IV sweep of the best device under illumination; the software readout shows PCE 15.87 %, Voc 0.60 V and FF 47.25 %.</figcaption></figure>
 </div>
 
-<div class="mit-result"><b>Result:</b> the best device (30 µm fingers, 25 lines, 160 µm pitch) produced a clear diode IV curve with Voc = 0.60 V under illumination. The second wafer failed and reached only about 2 % efficiency, which shows how sensitive the result is to coating and metallization quality.</div>
+<div class="mit-result"><b>Result:</b> the best device (30 µm fingers, 25 lines, 160 µm pitch) produced a clear diode IV curve under illumination, with Voc = 0.60 V and a power conversion efficiency of 15.87 % (fill factor 47.25 %) as reported by the IV-sweep software. The second wafer failed and reached only about 2 % efficiency, which shows how sensitive the result is to coating and metallization quality.</div>
 
 **2 · MEMS cantilevers and bridges**
 
