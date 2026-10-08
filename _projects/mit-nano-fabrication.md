@@ -51,7 +51,6 @@ Deposited the silicon nitride anti-reflective coating at two thicknesses (80 nm 
   <figure class="mit-fig"><img src="{{ 'assets/img/mit-nitride-wafer.jpg' | relative_url }}" alt="Silicon nitride coated wafer"><figcaption>Wafer coated with the silicon nitride anti-reflective layer.</figcaption></figure>
   <figure class="mit-fig"><img src="{{ 'assets/img/mit-thickness-station.jpg' | relative_url }}" alt="Film thickness measurement station"><figcaption>Film thickness measurement of the coating.</figcaption></figure>
   <figure class="mit-fig"><img src="{{ 'assets/img/mit-metallized-wafer.jpg' | relative_url }}" alt="Wafer with metal contact patterns"><figcaption>Wafer with the front-contact patterns, with different finger densities across the cells.</figcaption></figure>
-  <figure class="mit-fig"><img src="{{ 'assets/img/mit-contact-fingers.jpg' | relative_url }}" alt="Contact fingers under the microscope"><figcaption>Contact fingers inspected under the microscope.</figcaption></figure>
   <figure class="mit-fig"><video src="{{ 'assets/img/mit-wafer-cleaving.mp4' | relative_url }}" autoplay loop muted playsinline controls></video><figcaption>Cleaving the wafer into individual cells.</figcaption></figure>
   <figure class="mit-fig"><img src="{{ 'assets/img/mit-solar-cell-probe.jpg' | relative_url }}" alt="Solar cell on the measurement stage"><figcaption>A finished cell contacted for the IV measurement.</figcaption></figure>
   <figure class="mit-fig"><img src="{{ 'assets/img/mit-iv-curve.jpg' | relative_url }}" alt="IV sweep of the best device"><figcaption>IV sweep of the best device under illumination; the software readout shows PCE 15.87 %, Voc 0.60 V and FF 47.25 %.</figcaption></figure>
@@ -65,8 +64,8 @@ Deposited about 1.2 µm of low-stress mixed-frequency silicon nitride after an R
 
 <div class="mit-grid">
   <figure class="mit-fig"><img src="{{ 'assets/img/mit-profilometer-stage.jpg' | relative_url }}" alt="Profilometer stage with a patterned wafer"><figcaption>Stylus profilometer with a patterned wafer on the stage, before scanning.</figcaption></figure>
+  <figure class="mit-fig"><img src="{{ 'assets/img/mit-bridge-view.jpg' | relative_url }}" alt="Bridge structure seen through the profilometer camera"><figcaption>A bridge structure seen through the profilometer camera, with the stylus positioned to scan it.</figcaption></figure>
   <figure class="mit-fig"><img src="{{ 'assets/img/mit-profilometer-scan.jpg' | relative_url }}" alt="Profilometer scan"><figcaption>Stylus profilometer scan across a patterned feature (1000 µm scan, 5 mg stylus force).</figcaption></figure>
-  <figure class="mit-fig"><img src="{{ 'assets/img/mit-micrograph-radial.jpg' | relative_url }}" alt="Micrograph of a radial test structure"><figcaption>Optical micrograph of a radial test structure (scale bar 12.5 µm).</figcaption></figure>
 </div>
 
 <div class="mit-result"><b>Result:</b> the bridges reached the bottom of the cavity under a 4 mg load and returned to their initial position. All cantilevers survived the bending tests without breaking. One bridge came out incomplete; it is documented as a process defect.</div>
