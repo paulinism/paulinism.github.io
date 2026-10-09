@@ -159,6 +159,31 @@ The web version (TypeScript) brings the database into the platform itself. It ad
 - **ItemFormModal:** creates or edits an item. It suggests an asset code and checks for duplicates with a debounced query, prepares the photo with `processInventoryPhoto`, sets the QR label size at 2:3, validates the required fields and then calls `createInventoryItem` or `updateInventoryItem`.
 - **InventoryShared:** shared icons, status badges (internal states mapped to readable, color-coded labels) and a common modal shell, so every screen looks and behaves the same.
 
+## Presented at Shell Eco-marathon Brazil 2026
+
+We presented the system to the event's Safety Team in the paddock as part of the Safety Leadership Award submission. The poster's "Try it!" QR code let the judges open the platform on their own phones.
+
+<div class="inv-grid">
+  <figure class="inv-fig"><img src="{{ 'assets/img/inv-sem-explaining.jpg' | relative_url }}" alt="Explaining the system to a member of the Shell Safety Team"><figcaption>Walking a Shell Safety Team member through the platform on his phone.</figcaption></figure>
+  <figure class="inv-fig"><img src="{{ 'assets/img/inv-sem-safety-team.jpg' | relative_url }}" alt="Poster presentation to the Shell Safety Team in the paddock"><figcaption>Poster presentation to the Safety Team at the EcoVolt CCM paddock.</figcaption></figure>
+</div>
+
+**Loan workflow as presented**
+
+- **User side:** scan the QR to check availability → fill in the loan request (item ID, team name, start and return, purpose) → approval → reserved / on loan → use → scan the QR to return → status updated.
+- **System side:** identify the asset, check availability, store and update the request, and alert the admins when an item goes missing or a loan is overdue.
+
+<table class="inv-table">
+  <tr><th>Item status</th><th>Loan status</th></tr>
+  <tr><td>Available, On loan, Reserved, Maintenance, Missing, Retired</td><td>Pending, Approved, Denied, Cancelled, Returned</td></tr>
+</table>
+
+**What changed since the competition.** The core model is the same: the dashboard filters by the same item statuses, and its "needs attention" panel (loan requests to review, overdue returns, items missing or in maintenance) is the alert branch of the poster's flow. Since then, item IDs moved to automatic `EV-######` codes, and the platform gained phone-camera photos, preset sticker sizes, batch label printing and the Excel export.
+
+<div class="inv-grid single">
+  <figure class="inv-fig"><img src="{{ 'assets/img/inv-sem-poster.png' | relative_url }}" alt="Poster: Automated PPE and Inventory Management System"><figcaption>Poster presented at Shell Eco-marathon Brazil 2026: problem, objective, loan flow and summary.</figcaption></figure>
+</div>
+
 ## Results & limitations
 
 - **QR reading works on real photos** in under 80 ms per image on a laptop, and the validation step separates "readable" from "valid".
