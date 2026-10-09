@@ -95,7 +95,7 @@ Alongside the telemetry work, being on the electronics team meant hands-on time 
 </div>
 
 <div class="tel-grid tel-grid-battery">
-  <figure class="tel-fig photo"><img src="{{ 'assets/img/tel-battery-pack.jpg' | relative_url }}" alt="48 V battery pack with BMS during assembly"><figcaption>48 V battery pack assembly: 18650 cells in holders, BMS board and output wiring before installation in the vehicle.</figcaption></figure>
+  <figure class="tel-fig photo"><img src="{{ 'assets/img/tel-battery-pack.jpg' | relative_url }}" alt="48 V battery pack with BMS during assembly"><figcaption>48 V battery pack assembly: cells in holders, BMS board and output wiring before installation in the vehicle.</figcaption></figure>
   <figure class="tel-fig photo"><img src="{{ 'assets/img/tel-comp-assembly.jpg' | relative_url }}" alt="Paulina and José Diego working on the vehicle at the competition"><figcaption>At the competition with José Diego González — working on the vehicle electronics between scrutineering checks.</figcaption></figure>
 </div>
 
