@@ -31,6 +31,8 @@ A QR-based system to track EcoVolt CCM's tools and safety equipment on the way t
 
 I proposed this system to automate how the team manages its tools and how they travel to and during competitions such as Shell Eco-marathon Brazil 2026. It was also part of the team's off-track Safety Leadership Award submission.
 
+Traveling from Mexico to an international competition means clearing customs with dozens of tools, PPE and electronic components — a process that had cost the team significant time and stress in previous editions. Having a single, exportable register of every item the team owns (with photos, serial numbers and responsible areas) simplified the customs declaration and reduced the preparation workload before departure.
+
 **Goals**
 
 - **One identity per item:** a physical QR label on every tool and piece of equipment used in the paddock.
@@ -41,6 +43,10 @@ I proposed this system to automate how the team manages its tools and how they t
 The system was built in three stages: an Excel register as the first record, a Python/OpenCV pilot to validate QR reading, and a web platform with the database built in.
 
 ## My role & responsibilities
+
+**Team roles at the time**
+
+Active member of the Telemetry and CV sub-teams, and mentor within EcoVolt CCM.
 
 **What I did directly**
 
@@ -109,12 +115,31 @@ r.valid_id = bool(re.match(TOOL_ID_PATTERN, r.raw_payload.strip()))
 
 Reading a code and trusting its content are two separate checks. A QR can decode perfectly and still carry the wrong kind of text. The check is syntactic only: it does not look up whether the tool exists in the database.
 
-<div class="inv-grid">
+<div class="inv-grid single">
   <figure class="inv-fig"><img src="{{ 'assets/img/inv-python-detection.png' | relative_url }}" alt="OpenCV QR detection with annotated outline"><figcaption>Test with a QR that is not a tool label: it decodes on the grayscale variant in 73 ms and is correctly flagged as a malformed ID.</figcaption></figure>
+</div>
+
+<div class="inv-grid single">
   <figure class="inv-fig"><img src="{{ 'assets/img/inv-python-benchmark.png' | relative_url }}" alt="Latency benchmark output"><figcaption>Latency benchmark (5 runs on one image): 100 % hit rate, 76.1 ms mean, 79.4 ms p95, saved to the JSONL log.</figcaption></figure>
 </div>
 
 **Local backup.** Each run appends one JSON object per line to `benchmark_opencv.jsonl`: timestamp, engine, image, payload, variant, ID validity and latency statistics. Runs with no detection are logged too. Every record starts with `synced_to_convex: false`, and `load_pending()` returns the records not yet synchronized. The pilot only implements the local backup; the upload to the Convex database was left to the web platform.
+
+A simplified example of one backup record:
+
+```json
+{
+  "timestamp": "2026-10-09T12:00:00+00:00",
+  "engine": "opencv_qrcodedetector",
+  "image": "photo.jpg",
+  "decoded": true,
+  "payload": "TL-2048",
+  "symbology": "QR_CODE",
+  "variant": "gray",
+  "valid_id": true,
+  "synced_to_convex": false
+}
+```
 
 ## Stage 3 — Web platform
 
@@ -144,8 +169,11 @@ The web version (TypeScript) brings the database into the platform itself. It ad
 
 **Loans & item tracking.** Each item has a Quick View panel with its photo, current status, responsible area, activity log and four actions: Request loan, Record movement, Print QR and Edit. To borrow an item, a team fills in a loan request (item, team name, start and return date, purpose) and submits it for approval — an admin reviews it before it is recorded. Every movement is logged with the person, timestamp and destination, and the photo captured at registration makes it easy to confirm what was actually lent.
 
-<div class="inv-grid">
+<div class="inv-grid single">
   <figure class="inv-fig"><img src="{{ 'assets/img/inv-web-item-quickview.png' | relative_url }}" alt="Item Quick View panel"><figcaption>Quick View: item photo, status, details and action buttons — Request loan, Record movement, Print QR and Edit — with the full activity log below.</figcaption></figure>
+</div>
+
+<div class="inv-grid">
   <figure class="inv-fig"><img src="{{ 'assets/img/inv-web-loans-request.png' | relative_url }}" alt="Request a loan modal"><figcaption>Loan request form: item, borrowing team, start and return date, and purpose — submitted for admin approval before it is recorded.</figcaption></figure>
   <figure class="inv-fig"><img src="{{ 'assets/img/inv-web-item-photo.png' | relative_url }}" alt="Photo Inspection view"><figcaption>Photo Inspection: the photo taken at registration, zoomable at full resolution, so the item condition at loan time is always on record.</figcaption></figure>
 </div>
