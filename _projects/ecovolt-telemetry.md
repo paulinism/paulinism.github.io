@@ -203,6 +203,8 @@ Alongside the telemetry work, being on the electronics team meant hands-on time 
 
 ### V3 — Robustness revision (Shell Eco-marathon Brazil 2026)
 
+My role in this revision was primarily mentor and supervisor: José Diego González led the hardware work, with my guidance on design decisions and assembly.
+
 - **Same circuit, new layout:** re-routed board.
 - **Assembly:** improved pin soldering to remove intermittent disconnections and EM noise.
 - **Wiring:** a safer locking power connector.
