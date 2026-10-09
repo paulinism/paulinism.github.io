@@ -22,6 +22,12 @@ featured: true
 
 Industrial Automation challenge (team of 4) at Tec de Monterrey, with Endress+Hauser as industry partner: an automated fluid-handling cycle combining PLC and ESP32 control.
 
+<div class="vis-grid">
+  <figure class="vis-fig"><img src="{{ 'assets/img/viscosity.png' | relative_url }}" alt="SolidWorks render of the full system"><figcaption>Design: SolidWorks CAD model of the rotary measurement station, viscosity measurement unit, and dispenser as originally planned.</figcaption></figure>
+  <figure class="vis-fig full"><img src="{{ 'assets/img/visc-system-test.jpg' | relative_url }}" alt="Integrated system during the final presentation"><figcaption>Build: Integrated system presented as the final prototype, combining relays, emergency-stop system, water pump, container sorting, stepper motors, DC motor with encoder, infrared sensors, and conveyor belts for container transport.</figcaption></figure>
+  <figure class="vis-fig full"><img src="{{ 'assets/img/visc-conveyors.jpg' | relative_url }}" alt="Conveyor belts with FC-51 sensors"><figcaption>Conveyors: the sorting belts I co-built, with FC-51 sensors for cup detection.</figcaption></figure>
+</div>
+
 **Challenge**
 
 Automate a full fluid-handling cycle: identify a sample by its color tag, measure its viscosity, dilute it to a target (±10%), then sort it. Two constraints shaped the design: viscosity had to be inferred from the spindle motor's current, with no commercial viscometer, and control was split between PLC stations (supply and sorting) and an ESP32 station (measurement), which communicate with each other.
@@ -34,13 +40,6 @@ Automate a full fluid-handling cycle: identify a sample by its color tag, measur
 - **PLC & manufacturing:** co-built the conveyor belts, co-programmed the ladder logic, and placed and calibrated the FC-51 sensors
 
 Teammates led the mechanical design of the stations, the PLC sequence design, and the LabVIEW HMI.
-
-**System**
-
-<div class="vis-grid">
-  <figure class="vis-fig"><img src="{{ 'assets/img/viscosity.png' | relative_url }}" alt="SolidWorks render of the full system"><figcaption>Design: SolidWorks CAD model of the rotary measurement station, viscosity measurement unit, and dispenser as originally planned.</figcaption></figure>
-  <figure class="vis-fig full"><img src="{{ 'assets/img/visc-system-test.jpg' | relative_url }}" alt="Integrated system during the final presentation"><figcaption>Build: Integrated system presented as the final prototype, combining relays, emergency-stop system, water pump, container sorting, stepper motors, DC motor with encoder, infrared sensors, and conveyor belts for container transport.</figcaption></figure>
-</div>
 
 **Integration**
 
@@ -86,8 +85,7 @@ Viscosity was inferred from the motor's supply current through a 1 Ω shunt: abo
 
 The original sorting idea (a vending-machine-style stepper, screw and spring) was dropped because exactly spaced springs were not available and the ladder logic was complex. For practicality and material feasibility, the final integration uses small conveyor belts instead, driven by an Arduino Mega running OpenPLC.
 
-<div class="vis-grid">
-  <figure class="vis-fig full"><img src="{{ 'assets/img/visc-conveyors.jpg' | relative_url }}" alt="Conveyor belts with FC-51 sensors"><figcaption>The conveyor belts I co-built, with FC-51 sensors for cup detection.</figcaption></figure>
+<div class="vis-grid single">
   <figure class="vis-fig clip"><video src="{{ 'assets/img/visc-plc-validation.mp4' | relative_url }}" autoplay loop muted playsinline controls></video><figcaption>My PLC logic validation: moving a cup along the conveyor belt with the FC-51 sensors.</figcaption></figure>
 </div>
 
