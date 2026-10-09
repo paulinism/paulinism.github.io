@@ -34,8 +34,6 @@ horizontal: false
 }
 </style>
 
-[View the project photo gallery]({{ '/blog/2026/project-photo-gallery/' | relative_url }}) — main photos of each project, zoomable.
-
 <!-- Both sections below use the theme's own projects.liquid card include, so every
      project — extracurricular or academic — gets identical markup, hover animation,
      and image cropping. -->
