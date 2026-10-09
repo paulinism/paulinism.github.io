@@ -72,7 +72,8 @@ The engineering goals were:
 
 **Built by other team members (shown here for context)**
 
-- The web platform: server-side Python processing, the dashboards, the run archive and the AI assistant.
+- **V3 hardware (Brazil 2026):** the board re-route, assembly improvements and locking connector — led by José Diego González under my supervision as mentor.
+- **Web platform:** server-side Python processing, the dashboards (US 2026) and the run archive with AI-assisted analysis (Brazil 2026).
 
 ## Electronics Co-Lead season (2024 – 2025)
 
