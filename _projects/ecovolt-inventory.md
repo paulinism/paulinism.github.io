@@ -147,9 +147,6 @@ The web version (TypeScript) brings the database into the platform itself. It ad
 <div class="inv-grid">
   <figure class="inv-fig"><img src="{{ 'assets/img/inv-web-item-quickview.png' | relative_url }}" alt="Item Quick View panel"><figcaption>Quick View: item photo, status, details and action buttons — Request loan, Record movement, Print QR and Edit — with the full activity log below.</figcaption></figure>
   <figure class="inv-fig"><img src="{{ 'assets/img/inv-web-loans-request.png' | relative_url }}" alt="Request a loan modal"><figcaption>Loan request form: item, borrowing team, start and return date, and purpose — submitted for admin approval before it is recorded.</figcaption></figure>
-</div>
-
-<div class="inv-grid single">
   <figure class="inv-fig"><img src="{{ 'assets/img/inv-web-item-photo.png' | relative_url }}" alt="Photo Inspection view"><figcaption>Photo Inspection: the photo taken at registration, zoomable at full resolution, so the item condition at loan time is always on record.</figcaption></figure>
 </div>
 
