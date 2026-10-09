@@ -86,11 +86,18 @@ One-week cleanroom intensive: solar cell, MEMS beams and a microfluidic mixer.
 
 ## [Telemetry & Energy-Optimization Platform]({{ '/projects/ecovolt-telemetry/' | relative_url }})
 
-EcoVolt CCM, Shell Eco-marathon team.
+EcoVolt CCM, Shell Eco-marathon: three generations of telemetry PCBs, simulator bench testing and the Data & Telemetry Awards.
 
 <div class="proj-gallery">
   <a href="{{ 'assets/img/gallery/ecovolt-track.jpg' | relative_url }}" data-lightbox="ecovolt" data-title='EcoVolt CCM prototype vehicle on the track — <a href="{{ '/projects/ecovolt-telemetry/' | relative_url }}">Telemetry project →</a>'><img src="{{ 'assets/img/gallery/ecovolt-track-t.jpg' | relative_url }}" alt="EcoVolt CCM prototype vehicle on the track" loading="lazy" /></a>
   <a href="{{ 'assets/img/gallery/ecovolt-telemetry.jpg' | relative_url }}" data-lightbox="ecovolt" data-title='Telemetry and energy-optimization platform — <a href="{{ '/projects/ecovolt-telemetry/' | relative_url }}">Telemetry project →</a>'><img src="{{ 'assets/img/gallery/ecovolt-telemetry-t.jpg' | relative_url }}" alt="Telemetry and energy-optimization platform" loading="lazy" /></a>
+  <a href="{{ 'assets/img/gallery/tel-pcb-us26.jpg' | relative_url }}" data-lightbox="ecovolt" data-title='US 2026 telemetry board with the ESP32-C5 — <a href="{{ '/projects/ecovolt-telemetry/' | relative_url }}">Telemetry project →</a>'><img src="{{ 'assets/img/gallery/tel-pcb-us26-t.jpg' | relative_url }}" alt="US 2026 telemetry board with the ESP32-C5" loading="lazy" /></a>
+  <a href="{{ 'assets/img/gallery/tel-pcb-br26.jpg' | relative_url }}" data-lightbox="ecovolt" data-title='Brazil 2026 telemetry board with microSD logging — <a href="{{ '/projects/ecovolt-telemetry/' | relative_url }}">Telemetry project →</a>'><img src="{{ 'assets/img/gallery/tel-pcb-br26-t.jpg' | relative_url }}" alt="Brazil 2026 telemetry board with microSD logging" loading="lazy" /></a>
+  <a href="{{ 'assets/img/gallery/tel-supercap.jpg' | relative_url }}" data-lightbox="ecovolt" data-title='Supercapacitor energy-reserve module — <a href="{{ '/projects/ecovolt-telemetry/' | relative_url }}">Telemetry project →</a>'><img src="{{ 'assets/img/gallery/tel-supercap-t.jpg' | relative_url }}" alt="Supercapacitor energy-reserve module" loading="lazy" /></a>
+  <a href="{{ 'assets/img/gallery/tel-sim-setup.jpg' | relative_url }}" data-lightbox="ecovolt" data-title='Simulator bench test with the physical motor in the loop — <a href="{{ '/projects/ecovolt-telemetry/' | relative_url }}">Telemetry project →</a>'><img src="{{ 'assets/img/gallery/tel-sim-setup-t.jpg' | relative_url }}" alt="Simulator bench test with the physical motor in the loop" loading="lazy" /></a>
+  <a href="{{ 'assets/img/gallery/tel-dashboard.jpg' | relative_url }}" data-lightbox="ecovolt" data-title='Real-time pit dashboard (web team) — <a href="{{ '/projects/ecovolt-telemetry/' | relative_url }}">Telemetry project →</a>'><img src="{{ 'assets/img/gallery/tel-dashboard-t.jpg' | relative_url }}" alt="Real-time pit dashboard" loading="lazy" /></a>
+  <a href="{{ 'assets/img/gallery/tel-wiring.jpg' | relative_url }}" data-lightbox="ecovolt" data-title='Wiring the vehicle electronics at the competition — <a href="{{ '/projects/ecovolt-telemetry/' | relative_url }}">Telemetry project →</a>'><img src="{{ 'assets/img/gallery/tel-wiring-t.jpg' | relative_url }}" alt="Wiring the vehicle electronics at the competition" loading="lazy" /></a>
+  <a href="{{ 'assets/img/gallery/tel-award-2025.jpg' | relative_url }}" data-lightbox="ecovolt" data-title='1st place, Data &amp; Telemetry Award — Americas 2025 — <a href="{{ '/projects/ecovolt-telemetry/' | relative_url }}">Telemetry project →</a>'><img src="{{ 'assets/img/gallery/tel-award-2025-t.jpg' | relative_url }}" alt="Data and Telemetry Award, Americas 2025" loading="lazy" /></a>
 </div>
 
 [Read the full project →]({{ '/projects/ecovolt-telemetry/' | relative_url }})
