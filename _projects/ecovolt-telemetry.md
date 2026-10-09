@@ -224,7 +224,7 @@ The ergonomics analysis contributed to EcoVolt CCM winning **1st place in the Ve
 
 <div class="tel-grid">
   <figure class="tel-fig sq"><img src="{{ 'assets/img/tel-pcb-us26-render.jpg' | relative_url }}" alt="Altium 3D render of the US 2026 board"><figcaption>US 2026 board, Altium 3D render: ESP32-C5 footprint, sensor connectors and the shunt section.</figcaption></figure>
-  <figure class="tel-fig sq photo"><img src="{{ 'assets/img/tel-pcb-us26.jpg' | relative_url }}" alt="Fabricated US 2026 board with ESP32-C5"><figcaption>The fabricated board with the ESP32-C5 and IMU mounted.</figcaption></figure>
+  <figure class="tel-fig sq photo"><img src="{{ 'assets/img/tel-pcb-us26-purple.jpg' | relative_url }}" alt="Fabricated US 2026 board, ¾ view"><figcaption>The fabricated US 2026 board: ESP32-C5, IMU, shunt section and sensor connectors.</figcaption></figure>
   <figure class="tel-fig sq photo"><img src="{{ 'assets/img/tel-pcb-us26-enclosure.jpg' | relative_url }}" alt="US 2026 board in its 3D-printed enclosure"><figcaption>In its 3D-printed enclosure, ready for the car.</figcaption></figure>
 </div>
 
@@ -240,7 +240,7 @@ My role in this revision was primarily mentor and supervisor: José Diego Gonzá
 
 <div class="tel-grid">
   <figure class="tel-fig auto"><img src="{{ 'assets/img/tel-pcb-br26-layout.png' | relative_url }}" alt="Brazil 2026 PCB layout in Altium"><figcaption>Brazil 2026 layout in Altium, credited to Paulina Ruíz Servín and José Diego González Fernández.</figcaption></figure>
-  <figure class="tel-fig photo tall"><img src="{{ 'assets/img/tel-pcb-us26-purple.jpg' | relative_url }}" alt="Fabricated Brazil 2026 board with microSD slot"><figcaption>The fabricated Brazil 2026 board, with the microSD slot and the locking power connector.</figcaption></figure>
+  <figure class="tel-fig photo tall"><img src="{{ 'assets/img/tel-pcb-us26.jpg' | relative_url }}" alt="Fabricated Brazil 2026 board with microSD slot"><figcaption>The fabricated Brazil 2026 board, with the microSD slot and the locking power connector.</figcaption></figure>
 </div>
 
 <div class="tel-grid">
