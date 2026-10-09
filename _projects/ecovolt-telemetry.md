@@ -111,8 +111,8 @@ As the team's main driver, I also carried out the driver ergonomic analysis for 
 
 The ergonomics analysis contributed to EcoVolt CCM winning **1st place in the Vehicle Design Award – Prototype category** at Shell Eco-marathon United States 2026 ($3,000 prize).
 
-<div class="tel-grid tel-grid-battery">
-  <figure class="tel-fig"><img src="{{ 'assets/img/tel-rula-monitor.png' | relative_url }}" alt="Tecnomatix Posture Monitor showing joint angles and RULA scores"><figcaption>Posture Monitor in Tecnomatix Process Simulate: joint angles for the virtual driver in the 2026 cockpit. Neck flexion (47°, yellow) and trunk flexion (84°, red) flagged as angles to watch; elbows at 45° flexion, wrists neutral.</figcaption></figure>
+<div class="tel-grid">
+  <figure class="tel-fig auto"><img src="{{ 'assets/img/tel-rula-monitor.png' | relative_url }}" alt="Tecnomatix Posture Monitor showing joint angles and RULA scores"><figcaption>Posture Monitor in Tecnomatix Process Simulate: joint angles for the virtual driver in the 2026 cockpit. Neck flexion (47°, yellow) and trunk flexion (84°, red) flagged as angles to watch; elbows at 45° flexion, wrists neutral.</figcaption></figure>
   <figure class="tel-fig auto"><img src="{{ 'assets/img/tel-driver-model.png' | relative_url }}" alt="3D driver model inside the EcoVolt 2026 vehicle shell in Tecnomatix"><figcaption>Driver model inside the 2026 vehicle shell (Tecnomatix Process Simulate). The semi-reclined posture was imported into SolidWorks to shape the monocoque around the ergonomic envelope.</figcaption></figure>
 </div>
 
