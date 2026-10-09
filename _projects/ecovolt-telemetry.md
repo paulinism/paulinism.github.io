@@ -222,7 +222,7 @@ Alongside the telemetry work, being on the electronics team meant hands-on time 
 
 ## Technical challenges & solutions
 
-**1. Miscalibrated voltage reading (2025).** ThingSpeak showed a constant ~15 V offset on battery voltage, so the efficiency calculation was wrong at its source. I moved voltage and current measurement onto my own board with a defined divider ratio and current-sense amplifier, so both could be calibrated against known values. _Lesson:_ calibrate every analog channel before the event.
+**1. Miscalibrated current reading (2025).** ThingSpeak showed a constant ~15 A offset on the motor current channel, so the efficiency calculation was wrong at its source. I moved voltage and current measurement onto my own board with a defined divider ratio and current-sense amplifier, so both could be calibrated against known values. _Lesson:_ calibrate every analog channel before the event.
 
 **2. Undersized current range (Brazil 2025).** The 20 mΩ shunt was sized for a lower current than the car actually drew, and the amplifier output saturated. For US 2026 I reduced the shunt to 5 mΩ, which quarters the signal per ampere and widens the measurable range accordingly. _Lesson:_ size the shunt from measured peak current with margin, not from the expected consumption.
 
