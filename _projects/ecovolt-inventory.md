@@ -2,7 +2,7 @@
 layout: page
 title: Automated PPE & Inventory Management System
 description: QR-code and computer-vision based tracking system for paddock tool and PPE loans — from an Excel register and a Python/OpenCV pilot to a web platform
-img: assets/img/inv-sem-explaining.jpg
+img: assets/img/inv-cover-composite.jpg
 importance: 1
 category: Computer Vision, Web
 featured: false
