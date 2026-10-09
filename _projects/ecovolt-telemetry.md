@@ -22,6 +22,8 @@ hide_from_grid: true # shown in the "Professional & lab experience" section inst
   .tel-table { width: 100%; border-collapse: collapse; margin: 1rem 0 1.5rem; font-size: 0.92rem; }
   .tel-table th, .tel-table td { border: 1px solid rgba(128, 128, 128, 0.3); padding: 0.5rem 0.65rem; vertical-align: top; text-align: left; }
   .tel-table th { background: rgba(128, 128, 128, 0.08); }
+  .tel-grid.tel-grid-battery { grid-template-columns: 2fr 1fr; }
+  .tel-grid.tel-grid-battery .tel-fig img { height: 360px; object-fit: cover; }
 </style>
 
 Three seasons of telemetry for EcoVolt CCM's Shell Eco-marathon car: from a breadboard prototype to custom PCBs integrated in the vehicle, with live data for the pit and the driver, local logging, and a supercapacitor reserve that keeps the system running after a power loss.
@@ -90,8 +92,11 @@ Alongside the telemetry work, being on the electronics team meant hands-on time 
   <figure class="tel-fig sq photo"><img src="{{ 'assets/img/tel-mc-assembled.jpg' | relative_url }}" alt="Assembled SEM motor controller with Raspberry Pi Pico"><figcaption>Assembled motor controller (SEM board): Raspberry Pi Pico, gate drivers, six MOSFETs and current-sense section. Used to characterize transistors and diodes and validate the drive electronics.</figcaption></figure>
   <figure class="tel-fig sq photo"><img src="{{ 'assets/img/tel-mc-bare.jpg' | relative_url }}" alt="Bare SEM motor controller PCB with schematic on phone"><figcaption>Bare PCB next to the schematic: SMD pads for gate drivers, MOSFET footprints and the Raspberry Pi Pico socket.</figcaption></figure>
   <figure class="tel-fig sq"><video src="{{ 'assets/img/tel-mc-test.mp4' | relative_url }}" autoplay loop muted playsinline controls></video><figcaption>Motor controller under test on the bench.</figcaption></figure>
-  <figure class="tel-fig sq photo"><img src="{{ 'assets/img/tel-battery-pack.jpg' | relative_url }}" alt="48 V battery pack with BMS during assembly"><figcaption>48 V battery pack assembly: 18650 cells in holders, BMS board and output wiring before installation in the vehicle.</figcaption></figure>
-  <figure class="tel-fig sq photo"><img src="{{ 'assets/img/tel-comp-assembly.jpg' | relative_url }}" alt="Paulina and José Diego working on the vehicle at the competition"><figcaption>At the competition with José Diego González — working on the vehicle electronics between scrutineering checks.</figcaption></figure>
+</div>
+
+<div class="tel-grid tel-grid-battery">
+  <figure class="tel-fig photo"><img src="{{ 'assets/img/tel-battery-pack.jpg' | relative_url }}" alt="48 V battery pack with BMS during assembly"><figcaption>48 V battery pack assembly: 18650 cells in holders, BMS board and output wiring before installation in the vehicle.</figcaption></figure>
+  <figure class="tel-fig photo"><img src="{{ 'assets/img/tel-comp-assembly.jpg' | relative_url }}" alt="Paulina and José Diego working on the vehicle at the competition"><figcaption>At the competition with José Diego González — working on the vehicle electronics between scrutineering checks.</figcaption></figure>
 </div>
 
 ## Technical background
