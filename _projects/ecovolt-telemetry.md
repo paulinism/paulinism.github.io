@@ -243,7 +243,7 @@ My role in this revision was primarily mentor and supervisor: José Diego Gonzá
 
 <div class="tel-grid">
   <figure class="tel-fig auto"><img src="{{ 'assets/img/tel-pcb-br26-layout.png' | relative_url }}" alt="Brazil 2026 PCB layout in Altium"><figcaption>Brazil 2026 layout in Altium, credited to Paulina Ruíz Servín and José Diego González Fernández.</figcaption></figure>
-  <figure class="tel-fig photo tall"><img src="{{ 'assets/img/tel-pcb-us26.jpg' | relative_url }}" alt="Fabricated Brazil 2026 board with microSD slot"><figcaption>The fabricated Brazil 2026 board, with the microSD slot and the locking power connector.</figcaption></figure>
+  <figure class="tel-fig photo tall"><img src="{{ 'assets/img/tel-pcb-us26-purple.jpg' | relative_url }}" alt="Fabricated Brazil 2026 board with microSD slot"><figcaption>The fabricated Brazil 2026 board, with the microSD slot and the locking power connector.</figcaption></figure>
 </div>
 
 <div class="tel-grid">
