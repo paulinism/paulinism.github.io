@@ -100,6 +100,22 @@ Alongside the telemetry work, being on the electronics team meant hands-on time 
   <figure class="tel-fig photo"><img src="{{ 'assets/img/tel-comp-assembly.jpg' | relative_url }}" alt="Paulina and José Diego working on the vehicle at the competition"><figcaption>At the competition with José Diego González — working on the vehicle electronics between scrutineering checks.</figcaption></figure>
 </div>
 
+## Beyond telemetry: driver ergonomics (Vehicle Design Award)
+
+As the team's main driver, I also carried out the driver ergonomic analysis for the 2026 vehicle. Ergonomics was treated as a design constraint from the start, not as a check after the CAD was finished.
+
+- **Virtual driver model:** before the CAD work began, I built a full-scale 3D driver model in Siemens Tecnomatix Process Simulate using my own body dimensions (limb lengths, joint positions and the space needed to operate every control). It defined the cockpit's minimum internal volume for a competition-legal posture with full reach to the steering, pedals and controls.
+- **Posture Monitor:** tracked every joint angle of the virtual driver against comfort thresholds. Elbows sat at 45° flexion with neutral wrists; neck and trunk flexion were highlighted as the angles to watch.
+- **RULA assessment:** an upper-limb score of 2 for both arms and a neck/trunk/leg score of 3 gave a final RULA score of 3 on both sides. That is Action Level 2: low ergonomic risk, with minor improvements possible in steering reach, seat position and seat geometry.
+- **Integration into the vehicle:** I imported the driver model into the SolidWorks cockpit assembly, so that the monocoque was shaped around two constraints at once: the NACA-derived aerodynamic profile and the driver envelope. Both were met in a single design iteration. The resulting semi-reclined posture reduces frontal area and canopy height while keeping full pedal extension, free steering movement and the forward visibility required by the Shell Eco-marathon rules.
+
+This analysis was my contribution to the team's 1st place in the Vehicle Design Award – Prototype category at Shell Eco-marathon Americas 2026.
+
+<div class="tel-grid tel-grid-battery">
+  <figure class="tel-fig"><img src="{{ 'assets/img/tel-rula-monitor.png' | relative_url }}" alt="Tecnomatix Posture Monitor showing joint angles and RULA scores"><figcaption>Posture Monitor in Tecnomatix Process Simulate: joint angles for the virtual driver in the 2026 cockpit. Neck flexion (47°, yellow) and trunk flexion (84°, red) flagged as angles to watch; elbows at 45° flexion, wrists neutral.</figcaption></figure>
+  <figure class="tel-fig auto"><img src="{{ 'assets/img/tel-driver-model.png' | relative_url }}" alt="3D driver model inside the EcoVolt 2026 vehicle shell in Tecnomatix"><figcaption>Driver model inside the 2026 vehicle shell (Tecnomatix Process Simulate). The semi-reclined posture was imported into SolidWorks to shape the monocoque around the ergonomic envelope.</figcaption></figure>
+</div>
+
 ## Technical background
 
 **Current sensing with a shunt.** A milliohm resistor (shunt) in series with the motor produces a voltage proportional to the current. That voltage is only a few millivolts and sits on top of a 48 V battery line, so it cannot go straight into a microcontroller. A current-sense amplifier such as the TI INA240A1 amplifies the small differential voltage (fixed gain of 20 V/V) and rejects the large common-mode voltage. It is also bidirectional, so it measures both motor draw and regenerative current.
