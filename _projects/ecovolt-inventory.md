@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Automated PPE & Inventory Management System
-description: Solo project — QR tracking for Shell Eco-marathon paddock ops: customs-ready Excel export, <80 ms QR reading, web dashboard with loan management
+description: "Solo project — QR tracking for Shell Eco-marathon paddock ops — customs-ready Excel export, under 80 ms QR reading, web dashboard with loan management"
 img: assets/img/inv-cover-composite.jpg
 importance: 1
 category: Computer Vision, Web
