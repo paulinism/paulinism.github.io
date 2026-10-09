@@ -290,6 +290,7 @@ Download the MATLAB files: [Live Script (.mlx)]({{ 'assets/files/indianapolis-tr
 
 - **Data & Telemetry Award:** 1st place at Shell Eco-marathon Americas 2025, 2nd place at Shell Eco-marathon Americas 2026.
 - **Altair Global Student Contest 2025:** Honorable Mention.
+- **Conference publication:** a paper documenting the telemetry platform's recent advances — hardware, firmware and data architecture up to and including the Brazil 2026 season — was accepted and presented at a conference, consolidating the work across multiple iterations.
 - **Hardware evolution:** from a breadboard prototype to three generations of custom telemetry PCBs integrated into the vehicle.
 - **Driving strategy:** the simulator bench test identified constant throttle as the most efficient strategy before the car reached the track.
 - **Data resilience:** the final architecture combines SD logging, buffered retransmission and a supercapacitor energy reserve.
