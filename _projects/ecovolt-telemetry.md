@@ -109,11 +109,15 @@ As the team's main driver, I also carried out the driver ergonomic analysis for 
 - **RULA assessment:** an upper-limb score of 2 for both arms and a neck/trunk/leg score of 3 gave a final RULA score of 3 on both sides. That is Action Level 2: low ergonomic risk, with minor improvements possible in steering reach, seat position and seat geometry.
 - **Integration into the vehicle:** I imported the driver model into the SolidWorks cockpit assembly, so that the monocoque was shaped around two constraints at once: the NACA-derived aerodynamic profile and the driver envelope. Both were met in a single design iteration. The resulting semi-reclined posture reduces frontal area and canopy height while keeping full pedal extension, free steering movement and the forward visibility required by the Shell Eco-marathon rules.
 
-This analysis was my contribution to the team's 1st place in the Vehicle Design Award – Prototype category at Shell Eco-marathon Americas 2026.
+The ergonomics analysis contributed to EcoVolt CCM winning **1st place in the Vehicle Design Award – Prototype category** at Shell Eco-marathon United States 2026 ($3,000 prize).
 
 <div class="tel-grid tel-grid-battery">
   <figure class="tel-fig"><img src="{{ 'assets/img/tel-rula-monitor.png' | relative_url }}" alt="Tecnomatix Posture Monitor showing joint angles and RULA scores"><figcaption>Posture Monitor in Tecnomatix Process Simulate: joint angles for the virtual driver in the 2026 cockpit. Neck flexion (47°, yellow) and trunk flexion (84°, red) flagged as angles to watch; elbows at 45° flexion, wrists neutral.</figcaption></figure>
   <figure class="tel-fig auto"><img src="{{ 'assets/img/tel-driver-model.png' | relative_url }}" alt="3D driver model inside the EcoVolt 2026 vehicle shell in Tecnomatix"><figcaption>Driver model inside the 2026 vehicle shell (Tecnomatix Process Simulate). The semi-reclined posture was imported into SolidWorks to shape the monocoque around the ergonomic envelope.</figcaption></figure>
+</div>
+
+<div class="tel-grid single">
+  <figure class="tel-fig photo auto"><img src="{{ 'assets/img/tel-award-vehicle-design-us26.jpg' | relative_url }}" alt="EcoVolt CCM team receiving the Vehicle Design Award at Shell Eco-marathon United States 2026"><figcaption>EcoVolt CCM team receiving the 1st place Vehicle Design Award – Prototype at Shell Eco-marathon United States 2026, Indianapolis Motor Speedway.</figcaption></figure>
 </div>
 
 ## Technical background
