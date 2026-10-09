@@ -17,6 +17,7 @@ hide_from_grid: true # shown in the "Professional & lab experience" section inst
   .tel-fig.photo img { object-fit: cover; }
   .tel-fig.tall img, .tel-fig.tall video { height: 440px; }
   .tel-fig.auto img, .tel-fig.auto video { height: auto; }
+  .tel-fig.sq img, .tel-fig.sq video { aspect-ratio: 1/1; height: auto; object-fit: cover; background: rgba(128, 128, 128, 0.06); }
   .tel-fig figcaption { padding: 0.6rem 0.9rem; font-size: 0.85rem; line-height: 1.4; opacity: 0.85; border-top: 1px solid rgba(128, 128, 128, 0.2); }
   .tel-table { width: 100%; border-collapse: collapse; margin: 1rem 0 1.5rem; font-size: 0.92rem; }
   .tel-table th, .tel-table td { border: 1px solid rgba(128, 128, 128, 0.3); padding: 0.5rem 0.65rem; vertical-align: top; text-align: left; }
@@ -47,7 +48,7 @@ The engineering goals were:
 
 <table class="tel-table">
   <tr><th>Period</th><th>Role</th></tr>
-  <tr><td>2024 – 2025</td><td>Electronics Co-Lead</td></tr>
+  <tr><td>2024 – 2025</td><td>Electronics Co-Lead and reserve driver</td></tr>
   <tr><td>2025 – 2026</td><td>Team Captain, Telemetry Lead, Social Media Lead and main driver</td></tr>
   <tr><td>Jul – Sep 2026</td><td>Team Mentor</td></tr>
 </table>
@@ -129,9 +130,9 @@ The engineering goals were:
 - **Outcome:** 1st place, Data & Telemetry Award.
 
 <div class="tel-grid">
-  <figure class="tel-fig photo"><img src="{{ 'assets/img/tel-breadboard-2025.jpg' | relative_url }}" alt="Breadboard prototype with ESP32 and NEO-6M GPS"><figcaption>First prototype: ESP32 DevKit and NEO-6M GPS on a breadboard.</figcaption></figure>
-  <figure class="tel-fig"><img src="{{ 'assets/img/tel-proto-hall-2025.jpg' | relative_url }}" alt="Protoboard with ESP32 and Hall-effect current module"><figcaption>Protoboard version with a Hall-effect current module, used at Americas 2025.</figcaption></figure>
-  <figure class="tel-fig tall"><video src="{{ 'assets/img/tel-indy-2025-track.mp4' | relative_url }}" autoplay loop muted playsinline controls></video><figcaption>The car on track at Indianapolis Motor Speedway, Americas 2025.</figcaption></figure>
+  <figure class="tel-fig sq photo"><img src="{{ 'assets/img/tel-breadboard-2025.jpg' | relative_url }}" alt="Breadboard prototype with ESP32 and NEO-6M GPS"><figcaption>First prototype: ESP32 DevKit and NEO-6M GPS on a breadboard.</figcaption></figure>
+  <figure class="tel-fig sq"><img src="{{ 'assets/img/tel-proto-hall-2025.jpg' | relative_url }}" alt="Protoboard with ESP32 and Hall-effect current module"><figcaption>Protoboard version with a Hall-effect current module, used at Americas 2025.</figcaption></figure>
+  <figure class="tel-fig sq"><video src="{{ 'assets/img/tel-indy-2025-track.mp4' | relative_url }}" autoplay loop muted playsinline controls></video><figcaption>The car on track at Indianapolis Motor Speedway, Americas 2025.</figcaption></figure>
 </div>
 
 <div class="tel-grid single">
@@ -147,15 +148,15 @@ The engineering goals were:
 - **Lesson:** the 20 mΩ shunt saturated the amplifier at the car's real currents, because the current had been estimated too low in the design.
 
 <div class="tel-grid">
-  <figure class="tel-fig photo"><img src="{{ 'assets/img/tel-ina240-handmade.jpg' | relative_url }}" alt="Hand-etched INA240 current-sense prototype"><figcaption>July 2025: hand-etched INA240 current-sense prototype.</figcaption></figure>
-  <figure class="tel-fig"><img src="{{ 'assets/img/tel-ina240-breakout.jpg' | relative_url }}" alt="Altium render of the INA240 breakout board"><figcaption>The same circuit as an Altium breakout: shunt, INA240A1, RC filter and header.</figcaption></figure>
-  <figure class="tel-fig photo"><img src="{{ 'assets/img/tel-pcb-brazil25.jpg' | relative_url }}" alt="Brazil 2025 telemetry board with GPS and IMU"><figcaption>Brazil 2025 telemetry board, fabricated, with the GPS and IMU modules.</figcaption></figure>
+  <figure class="tel-fig sq photo"><img src="{{ 'assets/img/tel-ina240-handmade.jpg' | relative_url }}" alt="Hand-etched INA240 current-sense prototype"><figcaption>July 2025: hand-etched INA240 current-sense prototype.</figcaption></figure>
+  <figure class="tel-fig sq"><img src="{{ 'assets/img/tel-ina240-breakout.jpg' | relative_url }}" alt="Altium render of the INA240 breakout board"><figcaption>The same circuit as an Altium breakout: shunt, INA240A1, RC filter and header.</figcaption></figure>
+  <figure class="tel-fig sq photo"><img src="{{ 'assets/img/tel-pcb-brazil25.jpg' | relative_url }}" alt="Brazil 2025 telemetry board with GPS and IMU"><figcaption>Brazil 2025 telemetry board, fabricated, with the GPS and IMU modules.</figcaption></figure>
 </div>
 
 <div class="tel-grid">
-  <figure class="tel-fig auto"><img src="{{ 'assets/img/tel-sch-brazil25.png' | relative_url }}" alt="Telemetry schematic, Brazil 2025"><figcaption>Brazil 2025 schematic: 20 mΩ shunt with INA240A1, 1 MΩ / 56 kΩ divider, MPU6050, NEO-6M and ESP32-C3 SuperMini.</figcaption></figure>
-  <figure class="tel-fig"><img src="{{ 'assets/img/tel-pcb-brazil25-layout.jpg' | relative_url }}" alt="Brazil 2025 PCB layout in Altium"><figcaption>Brazil 2025 layout in Altium, with the shunt section (IN/OUT pads) on the right.</figcaption></figure>
-  <figure class="tel-fig tall"><video src="{{ 'assets/img/tel-brazil-2025-track.mp4' | relative_url }}" autoplay loop muted playsinline controls></video><figcaption>Track at Pier Mauá, Rio de Janeiro — Brazil 2025.</figcaption></figure>
+  <figure class="tel-fig sq"><img src="{{ 'assets/img/tel-sch-brazil25.png' | relative_url }}" alt="Telemetry schematic, Brazil 2025"><figcaption>Brazil 2025 schematic: 20 mΩ shunt with INA240A1, 1 MΩ / 56 kΩ divider, MPU6050, NEO-6M and ESP32-C3 SuperMini.</figcaption></figure>
+  <figure class="tel-fig sq"><img src="{{ 'assets/img/tel-pcb-brazil25-layout.jpg' | relative_url }}" alt="Brazil 2025 PCB layout in Altium"><figcaption>Brazil 2025 layout in Altium, with the shunt section (IN/OUT pads) on the right.</figcaption></figure>
+  <figure class="tel-fig sq"><video src="{{ 'assets/img/tel-brazil-2025-track.mp4' | relative_url }}" autoplay loop muted playsinline controls></video><figcaption>Track at Pier Mauá, Rio de Janeiro — Brazil 2025.</figcaption></figure>
 </div>
 
 ### Data analysis between seasons
@@ -179,9 +180,9 @@ The engineering goals were:
 - **Outcome:** 2nd place, Data & Telemetry Award.
 
 <div class="tel-grid">
-  <figure class="tel-fig"><img src="{{ 'assets/img/tel-pcb-us26-render.jpg' | relative_url }}" alt="Altium 3D render of the US 2026 board"><figcaption>US 2026 board, Altium 3D render: ESP32-C5 footprint, sensor connectors and the shunt section.</figcaption></figure>
-  <figure class="tel-fig photo"><img src="{{ 'assets/img/tel-pcb-us26.jpg' | relative_url }}" alt="Fabricated US 2026 board with ESP32-C5"><figcaption>The fabricated board with the ESP32-C5 and IMU mounted.</figcaption></figure>
-  <figure class="tel-fig photo tall"><img src="{{ 'assets/img/tel-pcb-us26-enclosure.jpg' | relative_url }}" alt="US 2026 board in its 3D-printed enclosure"><figcaption>In its 3D-printed enclosure, ready for the car.</figcaption></figure>
+  <figure class="tel-fig sq"><img src="{{ 'assets/img/tel-pcb-us26-render.jpg' | relative_url }}" alt="Altium 3D render of the US 2026 board"><figcaption>US 2026 board, Altium 3D render: ESP32-C5 footprint, sensor connectors and the shunt section.</figcaption></figure>
+  <figure class="tel-fig sq photo"><img src="{{ 'assets/img/tel-pcb-us26.jpg' | relative_url }}" alt="Fabricated US 2026 board with ESP32-C5"><figcaption>The fabricated board with the ESP32-C5 and IMU mounted.</figcaption></figure>
+  <figure class="tel-fig sq photo"><img src="{{ 'assets/img/tel-pcb-us26-enclosure.jpg' | relative_url }}" alt="US 2026 board in its 3D-printed enclosure"><figcaption>In its 3D-printed enclosure, ready for the car.</figcaption></figure>
 </div>
 
 ### V3 — Robustness revision (Shell Eco-marathon Brazil 2026)
@@ -219,10 +220,13 @@ The engineering goals were:
 
 **7. Validating strategy before the car existed.** The 2026 car was still being built when the strategy work had to start. The team connected the physical motor and controller to the Assetto Corsa simulator in a closed loop: the driver's throttle drove the real motor, and the motor's response was fed back to the game. The telemetry board logged current and voltage at the same time. The two data streams had no shared clock, so they were aligned offline by matching throttle-off events to drops in current and then cross-correlating the signals.
 
+<div class="tel-grid single">
+  <figure class="tel-fig photo auto"><img src="{{ 'assets/img/tel-sim-setup.jpg' | relative_url }}" alt="Simulator bench test with the physical motor in the loop"><figcaption>Simulator bench test: Assetto Corsa with steering wheel and pedals, the physical motor and controller in the loop, and the live telemetry dashboard.</figcaption></figure>
+</div>
+
 <div class="tel-grid">
-  <figure class="tel-fig photo"><img src="{{ 'assets/img/tel-sim-setup.jpg' | relative_url }}" alt="Simulator bench test with the physical motor in the loop"><figcaption>Simulator bench test: Assetto Corsa with steering wheel and pedals, the physical motor and controller in the loop, and the live telemetry dashboard.</figcaption></figure>
-  <figure class="tel-fig tall"><video src="{{ 'assets/img/tel-sim-bench.mp4' | relative_url }}" autoplay loop muted playsinline controls></video><figcaption>Driving the Indianapolis circuit in the simulator.</figcaption></figure>
-  <figure class="tel-fig photo tall"><img src="{{ 'assets/img/tel-motor-temp.jpg' | relative_url }}" alt="IR thermometer reading on the motor during the bench test"><figcaption>Motor temperature during the bench test (47.7 °C): checking in-car behaviour and whether cooling would be needed after a valid attempt.</figcaption></figure>
+  <figure class="tel-fig sq"><video src="{{ 'assets/img/tel-sim-bench.mp4' | relative_url }}" autoplay loop muted playsinline controls></video><figcaption>Driving the Indianapolis circuit in the simulator.</figcaption></figure>
+  <figure class="tel-fig sq photo"><img src="{{ 'assets/img/tel-motor-temp.jpg' | relative_url }}" alt="IR thermometer reading on the motor during the bench test"><figcaption>Motor temperature during the bench test (47.7 °C): checking in-car behaviour and whether cooling would be needed after a valid attempt.</figcaption></figure>
 </div>
 
 ## Testing & validation
