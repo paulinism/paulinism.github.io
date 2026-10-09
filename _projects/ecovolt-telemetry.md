@@ -9,6 +9,10 @@ featured: true
 hide_from_grid: true # shown in the "Professional & lab experience" section instead of the academic grid
 ---
 
+<div class="construction-notice" style="background:#fff8e1;border-left:4px solid #f9a825;border-radius:4px;padding:0.7rem 1rem;margin-bottom:1.25rem;font-size:0.9rem;">
+  🚧 <strong>Page under construction</strong> — more details, diagrams, and media are being added soon.
+</div>
+
 Telemetry system for a Shell Eco-marathon energy-efficiency vehicle, from PCB to real-time data acquisition.
 
 **My contribution**
