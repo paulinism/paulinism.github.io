@@ -8,7 +8,13 @@ category: Embedded
 featured: true
 ---
 
-<div class="construction-notice" style="border:2px solid #f9a825;border-radius:4px;padding:0.7rem 1rem;margin-bottom:1.25rem;font-size:0.9rem;color:#f9a825;">
+<style>
+.construction-notice { background: #fff8e1; border-left: 4px solid #f9a825; border-radius: 4px; padding: 0.7rem 1rem; margin-bottom: 1.25rem; font-size: 0.9rem; color: #1a1a1a; }
+html[data-theme="dark"] .construction-notice,
+html[data-bs-theme="dark"] .construction-notice { color: #000 !important; }
+</style>
+
+<div class="construction-notice">
   🚧 <strong>Page under construction</strong> — more details, diagrams, and media are being added soon.
 </div>
 
