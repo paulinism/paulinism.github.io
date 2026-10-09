@@ -152,7 +152,7 @@ Alongside the telemetry work, being on the electronics team meant hands-on time 
 </div>
 
 <div class="tel-grid single">
-  <figure class="tel-fig auto"><img src="{{ 'assets/img/tel-thingspeak-2025.jpg' | relative_url }}" alt="ThingSpeak current and voltage charts, 2025"><figcaption>Live data on ThingSpeak, Americas 2025: motor current between 14.5 and 17.6 A. The 57.0 V voltage trace is correct (battery ~60 V); the ~15 V calibration offset described below affected the current channel, not the voltage.</figcaption></figure>
+  <figure class="tel-fig auto"><img src="{{ 'assets/img/tel-thingspeak-2025.jpg' | relative_url }}" alt="ThingSpeak current and voltage charts, 2025"><figcaption>Live data visualization in ThingSpeak during Shell Eco-marathon Americas 2025: motor current readings ranged from 14.5 to 17.6 A, with an approximately 15 A calibration offset. The voltage trace was accurate at 57.0 V, consistent with the battery's nominal operating voltage of approximately 60 V.</figcaption></figure>
 </div>
 
 ### V1 — First custom board (Shell Eco-marathon Brazil 2025)
