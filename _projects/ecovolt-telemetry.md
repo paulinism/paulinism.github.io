@@ -81,6 +81,7 @@ I co-founded and led the Telemetry area within EcoVolt's Electronics team, cover
 Alongside the telemetry work, being on the electronics team meant hands-on time with the rest of the vehicle's electrical hardware:
 
 - **Power electronics & hardware:** soldering and debugging SMD and THT circuits; tested and characterized transistors, and Zener, Schottky and rectifier diodes on the in-house motor controller PCB.
+- **Battery assembly:** assembled the vehicle's 48 V battery pack: cell interconnection, BMS and fuse installation, insulation, and per-cell voltage check before installation.
 - **Lab instrumentation:** oscilloscope, variable DC power supply, multimeter and function generator.
 - **Programming:** built my foundation in C/C++ through the firmware of the first telemetry prototype.
 
@@ -88,6 +89,8 @@ Alongside the telemetry work, being on the electronics team meant hands-on time 
   <figure class="tel-fig sq photo"><img src="{{ 'assets/img/tel-mc-assembled.jpg' | relative_url }}" alt="Assembled SEM motor controller with Raspberry Pi Pico"><figcaption>Assembled motor controller (SEM board): Raspberry Pi Pico, gate drivers, six MOSFETs and current-sense section. Used to characterize transistors and diodes and validate the drive electronics.</figcaption></figure>
   <figure class="tel-fig sq photo"><img src="{{ 'assets/img/tel-mc-bare.jpg' | relative_url }}" alt="Bare SEM motor controller PCB with schematic on phone"><figcaption>Bare PCB next to the schematic: SMD pads for gate drivers, MOSFET footprints and the Raspberry Pi Pico socket.</figcaption></figure>
   <figure class="tel-fig sq"><video src="{{ 'assets/img/tel-mc-test.mp4' | relative_url }}" autoplay loop muted playsinline controls></video><figcaption>Motor controller under test on the bench.</figcaption></figure>
+  <figure class="tel-fig sq photo"><img src="{{ 'assets/img/tel-battery-pack.jpg' | relative_url }}" alt="48 V battery pack with BMS during assembly"><figcaption>48 V battery pack assembly: 18650 cells in holders, BMS board and output wiring before installation in the vehicle.</figcaption></figure>
+  <figure class="tel-fig sq photo"><img src="{{ 'assets/img/tel-comp-assembly.jpg' | relative_url }}" alt="Paulina and José Diego working on the vehicle at the competition"><figcaption>At the competition with José Diego González — working on the vehicle electronics between scrutineering checks.</figcaption></figure>
 </div>
 
 ## Technical background
