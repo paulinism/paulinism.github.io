@@ -154,7 +154,7 @@ The ergonomics analysis contributed to EcoVolt CCM winning **1st place in the Ve
 
 - **Local logging:** every frame is written to a microSD card over SPI.
 - **Network buffering:** frames that cannot be sent are queued and retried when the link returns. If the queue overflows, the oldest unsent packets are dropped from transmission but remain on the SD card.
-- **Energy reserve:** a supercapacitor module keeps the telemetry running for about 60 s after a power loss, or when the car is intentionally switched off to save energy. This prevents data loss and allows the car to be restarted.
+- **Energy reserve:** a supercapacitor module keeps the telemetry running for about 90 s after a power loss, or when the car is intentionally switched off to save energy. This prevents data loss and allows the car to be restarted.
 
 **Server and visualization** (built by teammates)
 
