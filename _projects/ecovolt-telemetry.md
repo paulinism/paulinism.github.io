@@ -145,7 +145,7 @@ Alongside the telemetry work, being on the electronics team meant hands-on time 
 - **Interfaces:** a pit dashboard, a low-latency driver display and a historical analysis workbench.
 - **Brazil 2026:** a run archive with an AI assistant that answers questions about each recorded session.
 
-## Development process & iterations
+## <u>Development process & iterations</u>
 
 ### V0 — Breadboard prototype (Shell Eco-marathon Americas 2025, Indianapolis)
 
