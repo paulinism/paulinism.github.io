@@ -137,18 +137,18 @@ The ergonomics analysis contributed to EcoVolt CCM winning **1st place in the Ve
 
 **Sensing layer**
 
-- **Current:** INA240A1 across a 5 mΩ shunt, with an RC input filter (2.7 Ω / 2.2 µF).
-- **Battery voltage:** 33 kΩ / 2.2 kΩ divider, scaled to a maximum of 3.15 V at the ADC.
-- **Motion and inputs:** MPU6050 accelerometer/gyroscope with a steering-wheel connector, and NEO-6M GNSS receiver over UART.
-- **Driver inputs:** throttle and two brake signals read by an ADS1115 16-bit ADC over I²C.
-- **Wheel speed:** SS49E Hall sensor.
-- **Motor controller:** CAN link providing motor voltage, current, RPM, phase currents and temperature.
+- **Current:** INA240A1 across a 5 mΩ shunt, with an RC input filter (2.7 Ω / 2.2 µF); sampled at 1 kHz.
+- **Battery voltage:** 33 kΩ / 2.2 kΩ divider, scaled to a maximum of 3.15 V at the ADC; sampled at 50 Hz.
+- **Motion and inputs:** MPU6050 accelerometer/gyroscope with a steering-wheel connector (internal ODR set by the sensor), and NEO-6M GNSS receiver over UART.
+- **Driver inputs:** throttle and two brake signals read by an ADS1115 16-bit ADC over I²C; sampled at 5 Hz.
+- **Wheel speed:** SS49E Hall sensor; sampled at 5 Hz.
+- **Motor controller:** CAN link providing motor voltage, current, RPM, phase currents and temperature; polled at 5 Hz.
 
 **Processing and communication**
 
 - **Controller:** ESP32-C5 (RISC-V, Wi-Fi at 2.4 and 5 GHz).
 - **Antenna:** external, mounted on the windshield, outside the carbon monocoque.
-- **Transmission:** frames published to the cloud at about 5 Hz (US 2026); the rate was increased for Brazil 2026. <!-- TODO: confirm the Brazil 2026 sampling rate and replace this sentence -->
+- **Transmission:** cloud frames published at 5 Hz; current is logged locally at 1 kHz and voltage at 50 Hz, so the SD card captures the full-rate data for post-event analysis.
 
 **Data integrity**
 
