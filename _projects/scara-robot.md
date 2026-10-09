@@ -114,10 +114,6 @@ winner = max(votes, key=votes.get)
   <figure class="sc-fig"><img src="{{ 'assets/img/scara-cv-grip.jpg' | relative_url }}" alt="Grip angles overlaid on the workspace"><figcaption>Grip angles computed for each piece, using its symmetry to minimise wrist travel.</figcaption></figure>
 </div>
 
-<div class="sc-grid single">
-  <figure class="sc-fig"><video src="{{ 'assets/img/scara-cv-screen.mp4' | relative_url }}" poster="{{ 'assets/img/scara-cv-screen-poster.jpg' | relative_url }}" autoplay muted loop playsinline></video><figcaption>The vision output on screen during the final demonstration.</figcaption></figure>
-</div>
-
 **Machine-learning stage: YOLOv11n.** The HSV pipeline is fast and easy to interpret, but it is sensitive to lighting and to colours that sit close together. To make detection more robust, I trained a YOLOv11n detector on images of the real workspace.
 
 - **Pre-annotation:** the classical pipeline wrote a YOLO label file for every image automatically, and I only corrected the mistakes in LabelImg. Annotation took about 30 minutes instead of an estimated 3–4 hours by hand.
