@@ -135,7 +135,7 @@ The engineering goals were:
 </div>
 
 <div class="tel-grid single">
-  <figure class="tel-fig auto"><img src="{{ 'assets/img/tel-thingspeak-2025.jpg' | relative_url }}" alt="ThingSpeak current and voltage charts, 2025"><figcaption>Live data on ThingSpeak, Americas 2025: motor current between 14.5 and 17.6 A. The flat 57.0 V voltage trace carries the ~15 V calibration offset described below.</figcaption></figure>
+  <figure class="tel-fig auto"><img src="{{ 'assets/img/tel-thingspeak-2025.jpg' | relative_url }}" alt="ThingSpeak current and voltage charts, 2025"><figcaption>Live data on ThingSpeak, Americas 2025: motor current between 14.5 and 17.6 A. The 57.0 V voltage trace is correct (battery ~60 V); the ~15 V calibration offset described below affected the current channel, not the voltage.</figcaption></figure>
 </div>
 
 ### V1 — First custom board (Shell Eco-marathon Brazil 2025)
@@ -229,7 +229,7 @@ The engineering goals were:
 
 <table class="tel-table">
   <tr><th>Test</th><th>Setup</th><th>Result</th></tr>
-  <tr><td>Americas 2025 on track</td><td>Breadboard system → MQTT → ThingSpeak</td><td>Live current trace (14.5–17.6 A); the voltage channel exposed a ~15 V calibration offset</td></tr>
+  <tr><td>Americas 2025 on track</td><td>Breadboard system → MQTT → ThingSpeak</td><td>Live current trace (14.5–17.6 A); voltage reading correct at 57 V (battery ~60 V); ~15 V offset was on the current channel</td></tr>
   <tr><td>Brazil 2025 on track</td><td>Custom V1 board, cellular Wi-Fi</td><td>About one lap of usable data; latency, sampling interval and shunt saturation identified as the limits</td></tr>
   <tr><td>Model comparison</td><td>8 regression models in Altair AI Studio</td><td>Relative errors of 36–80 %; speed identified as the dominant variable</td></tr>
   <tr><td>Simulator bench test (Mar 2026)</td><td>Motor and controller in the loop with Assetto Corsa; Indianapolis circuit; 15 laps</td><td>Constant throttle: <strong>347.2 km/kWh</strong>; throttle pulses and coasting: <strong>304.3 km/kWh</strong> (14.1 % less efficient); combined strategy: 331.6 km/kWh. Motor temperature monitored with an IR thermometer</td></tr>
