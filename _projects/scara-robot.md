@@ -48,13 +48,39 @@ A 4-degree-of-freedom SCARA robot that finds pieces on its workspace with a came
 
 **What I did with the team**
 
-- **Electronic subsystem:** breadboard prototype, motor and driver selection, and sensor integration, including the homing sensors (Z-axis limit switch and absolute encoder).
+- **Electronic subsystem:** breadboard prototype, motor and driver selection, and sensor integration. For homing and base-position setup I integrated the Z-axis mechanical limit switch and the AS5600 absolute magnetic encoder on joint 4, wired them to the ESP32 and validated the triggering logic against known reference angles before the full kinematics were in place.
 - **MQTT and embedded integration:** the link between the vision host, the Mosquitto broker and the ESP32 firmware.
 - **Simulation:** Simscape Multibody models of a gantry and an industrial arm as team coursework, and the SCARA model, whose final version was built by a teammate.
+
+**Contributed to**
+
+- **Robot datasheet:** co-authored the team's official datasheet, documenting mechanical specs (links, workspace, payload, materials), joint parameters (type, range, actuator, voltage), electrical supply, controller and firmware, feedback sensors and performance figures.
 
 **Built by other team members (shown here for context)**
 
 - The C++ kinematics and the firmware architecture on the ESP32, the MATLAB App Designer HMI (teach pendant), the final Simscape model of the SCARA and the mechanical structure.
+
+## Robot specifications
+
+Key figures from the team datasheet (co-authored).
+
+<table class="sc-table">
+  <tr><th>Parameter</th><th>Value</th></tr>
+  <tr><td>Degrees of freedom</td><td>4 (J1 shoulder revolute, J2 elbow revolute, J3 Z prismatic, J4 wrist revolute)</td></tr>
+  <tr><td>Link lengths</td><td>L1 = 150 mm · L2 = 110 mm · total arm reach 260 mm</td></tr>
+  <tr><td>Workspace radius</td><td>50 – 250 mm from base (≈ 0.196 m²)</td></tr>
+  <tr><td>Payload</td><td>30 g</td></tr>
+  <tr><td>Arm weight</td><td>218 g</td></tr>
+  <tr><td>J1 / J2 actuators</td><td>NEMA 17 stepper, 12 V / 0.5 A, 0 – 360°</td></tr>
+  <tr><td>J3 actuator</td><td>Brushed DC motor, 12 V / 0.5 A, 0 – 270°</td></tr>
+  <tr><td>J4 / gripper</td><td>Servo (SG90), 5 V / 20 mA, 0 – 180°; AS5600 absolute encoder feedback</td></tr>
+  <tr><td>Feedback sensors</td><td>2 × quadrature encoders, 1 × AS5600 absolute encoder, 1 × Z-axis limit switch</td></tr>
+  <tr><td>Controller</td><td>ESP32 (C++, ESP-IDF, PlatformIO); I²C, UART, MQTT over Wi-Fi</td></tr>
+  <tr><td>Supply</td><td>12 V / 3.3 V logic; optional 12 V battery</td></tr>
+  <tr><td>Max joint speed</td><td>529 °/s (≈ 9.23 rad/s)</td></tr>
+  <tr><td>Material</td><td>Elegoo Rapid PETG, aluminium bars</td></tr>
+  <tr><td>Base footprint</td><td>127 × 171 × 25 mm</td></tr>
+</table>
 
 ## System architecture
 
@@ -184,6 +210,14 @@ The teach pendant, a MATLAB App Designer interface connected through Simulink's 
 <div class="sc-grid">
   <figure class="sc-fig"><img src="{{ 'assets/img/scara-hmi.png' | relative_url }}" alt="HMI teach pendant"><figcaption>HMI teach pendant (built by a teammate).</figcaption></figure>
   <figure class="sc-fig tall"><video src="{{ 'assets/img/scara-pick.mp4' | relative_url }}" poster="{{ 'assets/img/scara-pick-poster.jpg' | relative_url }}" autoplay muted loop playsinline></video><figcaption>Gripper picking up a blue square.</figcaption></figure>
+</div>
+
+The clips below show earlier integration stages: joint movement commanded from the HMI over MQTT before the arm links were assembled, Z-axis motion during sensor bring-up, and a full bench session with the HMI visible on-screen.
+
+<div class="sc-grid">
+  <figure class="sc-fig tall"><video src="{{ 'assets/img/scara-mqtt-joint.mp4' | relative_url }}" poster="{{ 'assets/img/scara-mqtt-joint-poster.jpg' | relative_url }}" autoplay muted loop playsinline></video><figcaption>Shoulder joint rotating via MQTT command during early integration — arm links not yet attached.</figcaption></figure>
+  <figure class="sc-fig tall"><video src="{{ 'assets/img/scara-mqtt-zaxis.mp4' | relative_url }}" poster="{{ 'assets/img/scara-mqtt-zaxis-poster.jpg' | relative_url }}" autoplay muted loop playsinline></video><figcaption>Z-axis movement test during sensor integration — limit switch and encoder triggering validated at this stage.</figcaption></figure>
+  <figure class="sc-fig"><video src="{{ 'assets/img/scara-mqtt-hmi.mp4' | relative_url }}" poster="{{ 'assets/img/scara-mqtt-hmi-poster.jpg' | relative_url }}" autoplay muted loop playsinline></video><figcaption>Bench session with HMI SCARA interface visible: joint jog commands sent over MQTT from MATLAB to the ESP32.</figcaption></figure>
 </div>
 
 ## Results
