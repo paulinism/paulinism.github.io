@@ -52,8 +52,8 @@ The engineering goals were:
   <tr><th>Period</th><th>Role</th></tr>
   <tr><td>Aug 2023 – May 2024</td><td>Electronics & Design Member </td></tr>
   <tr><td>May 2024 – May 2025</td><td>Electronics Co-Lead and reserve driver</td></tr>
-  <tr><td>May 2025 – May 2026</td><td>Team Captain, Telemetry Lead, Social Media Lead and main driver</td></tr>
-  <tr><td>Jul – Sep 2026</td><td>Team Mentor:Telemetry & CV member</td></tr>
+  <tr><td>May 2025 – May 2026</td><td>Team Captain, Telemetry Lead, Social Media Co-Lead and main driver</td></tr>
+  <tr><td>Jul – Sep 2026</td><td>Team Mentor: Telemetry & CV member</td></tr>
 </table>
 
 **What I did directly**
