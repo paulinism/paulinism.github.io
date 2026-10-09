@@ -11,9 +11,8 @@ featured: true
 <style>
   .vis-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; margin: 1.5rem 0; align-items: start; }
   .vis-grid.single { grid-template-columns: minmax(0, 560px); justify-content: center; }
-  .vis-grid.hero { grid-template-columns: 1fr 2fr; align-items: stretch; }
-  .vis-grid.hero .vis-fig img { height: 420px; }
-  .vis-grid.hero .vis-fig.full img { height: 420px; object-fit: cover; }
+  .vis-grid.hero { grid-template-columns: 1fr 2fr; }
+  .vis-grid.hero .vis-fig img { height: 420px; object-fit: contain; }
   .vis-fig { margin: 0; border: 1px solid rgba(128, 128, 128, 0.25); border-radius: 12px; overflow: hidden; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08); }
   .vis-fig img { display: block; width: 100%; height: 340px; object-fit: contain; background: rgba(128, 128, 128, 0.06); }
   .vis-fig.photo img { object-fit: cover; }
