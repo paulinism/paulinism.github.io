@@ -24,7 +24,7 @@ hide_from_grid: true # shown in the "Professional & lab experience" section inst
 A QR-based system to track EcoVolt CCM's tools and safety equipment on the way to, and inside, the Shell Eco-marathon paddock. Every item gets a physical QR label linked to a database record, so the team can see what it owns, where each item is, who has it, and what still has to come back.
 
 <div class="inv-grid single">
-  <figure class="inv-fig"><video src="{{ 'assets/img/inv-web-dashboard.mp4' | relative_url }}" poster="{{ 'assets/img/inv-web-dashboard-poster.jpg' | relative_url }}" autoplay muted loop playsinline></video><figcaption>Inventory dashboard of the web platform: totals, status overview and items that need attention.</figcaption></figure>
+  <figure class="inv-fig"><video src="{{ 'assets/img/inv-web-dashboard.mp4' | relative_url }}" poster="{{ 'assets/img/inv-web-dashboard-poster.jpg' | relative_url }}" autoplay muted loop playsinline></video><figcaption>Inventory dashboard: totals, status overview, items that need attention and the Excel export flow.</figcaption></figure>
 </div>
 
 ## Project overview
@@ -139,7 +139,7 @@ The web version (TypeScript) brings the database into the platform itself. It ad
 **Exporting the register.** The whole inventory can be exported to an Excel "EcoVolt Inventory Register": item and serial IDs, category, status, quantity, home and current location, responsible team, country of purchase, sticker size, photo link, who created and last updated each record, and summary counters. The export keeps the original Excel register alive as a portable backup.
 
 <div class="inv-grid single">
-  <figure class="inv-fig"><video src="{{ 'assets/img/inv-web-export.mp4' | relative_url }}" poster="{{ 'assets/img/inv-web-export-poster.jpg' | relative_url }}" autoplay muted loop playsinline></video><figcaption>Export from the web platform to the Excel inventory register (1.6× speed).</figcaption></figure>
+  <figure class="inv-fig"><video src="{{ 'assets/img/inv-web-export.mp4' | relative_url }}" poster="{{ 'assets/img/inv-web-export-poster.jpg' | relative_url }}" autoplay muted loop playsinline></video><figcaption>Export from the web platform to the Excel inventory register.</figcaption></figure>
 </div>
 
 **Loans & item tracking.** Each item has a Quick View panel with its photo, current status, responsible area, activity log and four actions: Request loan, Record movement, Print QR and Edit. To borrow an item, a team fills in a loan request (item, team name, start and return date, purpose) and submits it for approval — an admin reviews it before it is recorded. Every movement is logged with the person, timestamp and destination, and the photo captured at registration makes it easy to confirm what was actually lent.
