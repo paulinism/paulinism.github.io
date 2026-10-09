@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Digital Twin of a Flexible CNC Manufacturing Cell
-description: Virtual commissioning of a CNC milling cell — Process Simulate, TIA Portal / PLCSIM Advanced, URSim and WinCC — for an ORZA Tech industry challenge
+description: Industry challenge with ORZA Tech — virtual CNC cell (S7-1500 PLC, UR5 robot, Cognex vision, SCADA/KPI dashboard) commissioned 100 % in software
 img: assets/img/orza.png
 importance: 2
 category: Automation
@@ -19,7 +19,7 @@ featured: true
   .oz-table th { background: rgba(128, 128, 128, 0.08); }
 </style>
 
-A digital twin of one CNC milling cell inside a flexible manufacturing system, commissioned entirely in software. A virtual Siemens S7-1500 runs the ladder program, Process Simulate moves the 3D cell in response, a virtual Universal Robots controller runs its own robot program, and a WinCC HMI lets the operator run the cell in automatic or manual mode.
+**A fully virtual CNC milling cell commissioned with zero physical hardware.** A virtual S7-1500 runs the ladder program, Process Simulate drives the 3D cell, a Virtual Robot Controller runs the UR5 pick-and-place program, a Cognex inspector classifies each part (pass / rework / scrap), a WinCC HMI gives the operator automatic and manual control, and a SCADA dashboard tracks OEE and KPIs in real time.
 
 <div class="oz-grid single">
   <figure class="oz-fig"><video src="{{ 'assets/img/orza-cell-loop.mp4' | relative_url }}" poster="{{ 'assets/img/orza-cell-loop-poster.jpg' | relative_url }}" autoplay muted loop playsinline></video><figcaption>My CNC cell running in Process Simulate under PLC control: machining and unloading by the UR5 robot (1.5× speed).</figcaption></figure>

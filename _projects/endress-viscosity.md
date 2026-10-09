@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Automated Viscosity Measurement System
-description: Current-based viscosity measurement and sorting system — PCB design, signal conditioning, ESP32/PLC control
+description: PCB & embedded lead with Endress+Hauser — 400× gain signal chain separating 252 cP from 1676 cP; three Altium boards, two manufactured by JLCPCB
 img: assets/img/viscosity.png
 importance: 5
 category: PCB, Embedded, Automation
@@ -22,7 +22,7 @@ featured: true
   .vis-fig figcaption { padding: 0.6rem 0.9rem; font-size: 0.85rem; line-height: 1.4; opacity: 0.85; border-top: 1px solid rgba(128, 128, 128, 0.2); }
 </style>
 
-Industrial Automation challenge (team of 4) at Tec de Monterrey, with Endress+Hauser as industry partner: an automated fluid-handling cycle combining PLC and ESP32 control.
+**A current window of 6 mA — the difference between diluted and pure soap at 30 RPM — amplified 400× into the ESP32 ADC range, reliably separating 252 cP from 1676 cP on a custom two-stage op-amp board.** Industrial Automation challenge at Tec de Monterrey with Endress+Hauser (team of 4): an automated fluid-handling cycle combining PLC sequencing and ESP32 measurement, from Altium PCB design to physical validation.
 
 <div class="vis-grid hero">
   <figure class="vis-fig"><img src="{{ 'assets/img/viscosity.png' | relative_url }}" alt="SolidWorks render of the full system"><figcaption>Design: SolidWorks CAD model of the rotary measurement station, viscosity measurement unit, and dispenser as originally planned.</figcaption></figure>
@@ -100,7 +100,7 @@ The original sorting idea (a vending-machine-style stepper, screw and spring) wa
 - **FC-51 IR sensors:** cup detection on the belts
 - **Laser-cut MDF, aluminum rollers, rubber belts:** conveyor manufacturing
 
-**Results & lessons**
+## Results & lessons
 
 - **Viscosity measurement:** a 6 mA current window, amplified about 400× into the ESP32 ADC range, gave a repeatable separation between diluted and pure soap (252 vs 1676 cP)
 - **Water dosing:** running the pump at 5 V made it controllable, delivering 19/26/36 ml against 18/27/36 ml targets

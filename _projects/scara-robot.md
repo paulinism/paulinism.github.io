@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Vision-Guided SCARA Pick-and-Place Robot (4 DoF)
-description: 4-DOF SCARA robot with an OpenCV + YOLOv11n vision pipeline, MQTT integration with ESP32 firmware and a custom Altium PCB
+description: Firmware & electronics lead — 4-DOF SCARA with YOLOv11n vision (mAP 0.72), 5/6 picks at ~14 s/cycle, custom Altium PCB
 img: assets/img/scara.jpg.jpg
 importance: 3
 category: Embedded, Computer Vision
@@ -20,7 +20,7 @@ featured: true
   .sc-table th { background: rgba(128, 128, 128, 0.08); }
 </style>
 
-A 4-degree-of-freedom SCARA robot that finds pieces on its workspace with a camera, classifies them by shape and colour, and picks and places them on its own. The perception-to-actuation loop runs from a Python vision pipeline, through an MQTT broker, to C++ firmware on an ESP32.
+**5 out of 6 pieces picked and placed correctly in the final demonstration, at approximately 14 seconds per cycle.** The robot classifies pieces by shape and colour with a YOLOv11n model (mAP@0.5 = 0.72) running on a Raspberry Pi, then picks and places them autonomously — coordinates flow from Python over MQTT to C++ firmware on an ESP32.
 
 <div class="sc-grid single">
   <figure class="sc-fig"><video src="{{ 'assets/img/scara-demo.mp4' | relative_url }}" poster="{{ 'assets/img/scara-demo-poster.jpg' | relative_url }}" autoplay muted loop playsinline></video><figcaption>Final demonstration: the robot working on the ArUco-marked workspace with the test pieces.</figcaption></figure>

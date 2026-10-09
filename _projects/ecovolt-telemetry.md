@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Telemetry & Energy-Optimization Platform
-description: Three generations of telemetry PCBs and ESP32 firmware for a Shell Eco-marathon car — 1st (2025) and 2nd (2026) Data & Telemetry Award
+description: PCB lead & firmware — three generations of telemetry for a Shell Eco-marathon car — 1st (2025) and 2nd (2026) Data & Telemetry Award
 img: assets/img/ecovolt-telemetry.png
 importance: 1
 category: PCB, Embedded, Electronics
@@ -26,7 +26,7 @@ hide_from_grid: true # shown in the "Professional & lab experience" section inst
   .tel-grid.tel-grid-battery .tel-fig img { height: 360px; object-fit: cover; }
 </style>
 
-Three seasons of telemetry for EcoVolt CCM's Shell Eco-marathon car: from a breadboard prototype to custom PCBs integrated in the vehicle, with live data for the pit and the driver, local logging, and a supercapacitor reserve that keeps the system running after a power loss.
+**1st place Data & Telemetry Award (2025) and 2nd place (2026) at Shell Eco-marathon.** Three generations of telemetry PCBs and ESP32 firmware for EcoVolt CCM: live data to the pit and the driver, 1 kHz current logging to SD card, a supercapacitor reserve that keeps the system running after a power loss, and a simulator loop for energy strategy.
 
 <div class="tel-grid">
   <figure class="tel-fig photo"><img src="{{ 'assets/img/tel-wiring.jpg' | relative_url }}" alt="Paulina wiring the telemetry electronics at the competition"><figcaption>Wiring the vehicle electronics during the competition.</figcaption></figure>

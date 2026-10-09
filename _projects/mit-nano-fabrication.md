@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Semiconductor Microfabrication — MIT.nano
-description: Cleanroom device fabrication — solar cells, MEMS cantilevers, and microfluidic mixers
+description: MIT.nano cleanroom intensive — solar cell PCE 15.87 % (Voc 0.60 V), functional MEMS cantilevers and microfluidic mixer — one week, Class 100/1K/10K
 img: assets/img/mitnano-cleanroom-equipment.jpg
 importance: 4
 category: Fabrication, Electronics
@@ -16,7 +16,7 @@ hide_from_grid: true # shown in the "Professional & lab experience" section inst
   .mit-fig figcaption { padding: 0.6rem 0.9rem; font-size: 0.85rem; line-height: 1.4; opacity: 0.85; border-top: 1px solid rgba(128, 128, 128, 0.2); }
   </style>
 
-Hands-on semiconductor device fabrication intensive at **MIT.nano** (MIT, Cambridge, USA, October 2025): a one-week cleanroom course from the MIT–Tec de Monterrey program, done as a team of 2, covering three full fabrication modules in Class 100/1K/10K cleanrooms under strict PPE/safety protocols.
+**Three functional devices in one week at MIT.nano (Cambridge, October 2025): a silicon solar cell at PCE 15.87 % and Voc 0.60 V, MEMS cantilevers that survived force–displacement testing under a 4 mg load, and a PDMS microfluidic mixer.** A cleanroom intensive from the MIT–Tec de Monterrey program, carried out as a team of 2 across Class 100/1K/10K cleanrooms under full PPE/safety protocols.
 
 **Challenge**
 

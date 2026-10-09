@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Scissor Lift & AGV — Automated Material Handling Platform
-description: Scissor lift + line-following AGV for material handling — base load-tested at >100 kg
+description: Mechanical design & electronics lead — scissor lift (load-tested >100 kg, 40 × 30 × 76 cm) with custom load-cell PCB (no HX711) and machined aluminum parts
 img: assets/img/agv-cover-pair.jpg
 importance: 6
 category: Mechanical, Electronics
@@ -22,7 +22,7 @@ featured: true
   .agv-fig figcaption { padding: 0.6rem 0.9rem; font-size: 0.85rem; line-height: 1.4; opacity: 0.85; border-top: 1px solid rgba(128, 128, 128, 0.2); }
 </style>
 
-Fourth-semester integrative challenge (team of 5) at Tec de Monterrey: a scissor lift and line-following AGV for automated material handling, from mechanical design through embedded control and fabrication.
+**Functional scissor lift (40 × 30 × 76 cm) load-tested at over 100 kg, carrying 7 kg at the final demo — 40 % above the 5 kg requirement — with a custom load-cell conditioning PCB reading 0–5 kg without an off-the-shelf HX711.** Fourth-semester integrative challenge (team of 5) at Tec de Monterrey: SolidWorks design and motion study through CNC machining, welding and embedded control.
 
 <div class="agv-grid">
   <figure class="agv-fig"><img src="{{ 'assets/img/agv-cover.jpg' | relative_url }}" alt="SolidWorks assembly of the scissor lift with tilting tray"><figcaption>Full SolidWorks assembly of the scissor lift and tilting tray.</figcaption></figure>
@@ -110,7 +110,13 @@ The load-cell conditioning circuit (differential amplifier, non-inverting amplif
 - **Tilt mechanism:** the cam was designed for ≥30° against a ≥25° requirement; the dump motion was demonstrated in a full-size test and a scaled prototype. When the ABS cam cracked at the motor shaft, a bearing-supported aluminum shaft on the opposite side fixed it
 - **Scale:** output was linear from 0–5 kg to 0–3 V, measured in 1 kg steps, with no off-the-shelf conditioner — stays inside the ESP32's ADC range, and moving from breadboard to PCB removed shorts and loose connections
 - **Outcome:** full autonomous integration was not completed — motor drivers failed from a short circuit and one AGV motor was defective
-- **Lesson:** treat electrical insulation as a design requirement, and size actuators by calculation, not recommendation
+
+## Lessons
+
+- **Electrical insulation is a design constraint, not an afterthought:** the motor driver failure came from a short circuit that was not caught during integration. Insulation and current limits need to be in the design checklist before any connector is made.
+- **Size actuators by calculation:** the defective AGV motor was selected by recommendation rather than by torque and speed calculation. Running the numbers upfront would have caught the mismatch before the demo.
+- **Mechanical validation first, electrical second:** decoupling the lead-screw test (drill as actuator) from the motor integration worked well — it found mechanical issues without adding electrical risk. That sequence is worth keeping in any future build.
+- **Move from breadboard to PCB earlier:** the scale accuracy improved noticeably once the signal conditioning moved from breadboard to PCB. Doing that earlier in the timeline would have left more time for calibration.
 
 <div class="agv-grid">
   <figure class="agv-fig auto"><img src="{{ 'assets/img/agv-voltage-time.png' | relative_url }}" alt="Scale output voltage versus time in 1 kg steps"><figcaption>Scale output over time, loaded in 1 kg steps (voltage in mV; the plot's axis label is a typo).</figcaption></figure>

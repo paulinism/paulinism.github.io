@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Automated PPE & Inventory Management System
-description: QR-code and computer-vision based tracking system for paddock tool and PPE loans — from an Excel register and a Python/OpenCV pilot to a web platform
+description: Solo project — QR tracking for Shell Eco-marathon paddock ops: customs-ready Excel export, <80 ms QR reading, web dashboard with loan management
 img: assets/img/inv-cover-composite.jpg
 importance: 1
 category: Computer Vision, Web
@@ -21,7 +21,7 @@ hide_from_grid: true # shown in the "Professional & lab experience" section inst
   .inv-table th { background: rgba(128, 128, 128, 0.08); }
 </style>
 
-A QR-based system to track EcoVolt CCM's tools and safety equipment on the way to, and inside, the Shell Eco-marathon paddock. Every item gets a physical QR label linked to a database record, so the team can see what it owns, where each item is, who has it, and what still has to come back.
+**Deployed at Shell Eco-marathon Brazil 2026: a QR-tracked inventory system that simplified customs declaration for dozens of tools and components and let the team close out its paddock loan list in minutes.** Every item gets a physical QR label linked to a database record — reads run in under 80 ms and the system exports a customs-ready Excel file in one click.
 
 <div class="inv-grid single">
   <figure class="inv-fig"><video src="{{ 'assets/img/inv-web-dashboard.mp4' | relative_url }}" poster="{{ 'assets/img/inv-web-dashboard-poster.jpg' | relative_url }}" autoplay muted loop playsinline></video><figcaption>Inventory dashboard: totals, status overview, items that need attention and the Excel export flow.</figcaption></figure>
@@ -215,6 +215,13 @@ We presented the system to the event's Safety Team in the paddock as part of the
 - **The benchmark is a first estimate:** 5 runs on a single image. A proper evaluation needs a set of test photos under different lighting, distances and angles.
 - **ID format changed between stages:** the pilot validates `TL-####`, while the web platform assigns `EV-######` automatically.
 - **From pilot to platform:** the pilot keeps a local backup only; synchronization and multi-user access were moved to the web version.
+
+## Lessons
+
+- **Scope and data model first:** the project grew from an Excel template to a full web platform, which caused the item ID format to change between stages (`TL-####` in the pilot vs. `EV-######` in the web version). Defining the data model before writing any code would have avoided the migration.
+- **Benchmark on real conditions:** the 80 ms read speed came from five runs on a single test image. A proper evaluation needs a set of photos taken in actual paddock conditions — varying lighting, angles, print quality and distances — before any performance claim.
+- **Adoption is a UX problem:** having the scan option available did not guarantee the whole team used it consistently. A mandatory checkout step in the flow, not just an optional scan, would enforce the process rather than relying on discipline.
+- **Next step:** integrate a camera-based condition check at checkout (flag worn or damaged PPE before it enters the paddock) and link the item register to the team's customs declaration template automatically.
 
 **Context:** EcoVolt CCM, Shell Eco-marathon (paddock operations), 2025–2026; part of the team's Safety Leadership Award submission.
 **Stack:** Python, OpenCV, NumPy, Matplotlib, JSONL · TypeScript web platform, Convex database · Excel · QR labels
