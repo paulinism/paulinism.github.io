@@ -61,7 +61,8 @@ cv:
           - "Built my cell's digital twin in Tecnomatix Process Simulate (three UR5 cobots, AGV, conveyors, CNC mill, inspection camera) with every actuator and sensor mapped to PLC I/O"
           - "Programmed the complete ladder logic in TIA Portal for a virtual Siemens S7-1500 in PLCSIM Advanced (step sequence, interlocks, manual mode, quality routing, KPI logging) plus the WinCC operator HMI"
           - "Developed the plant-wide SCADA screen (OEE, cycle time, scrap rate), a C# Modbus TCP field sensor, and an S7 GET/PUT link to the neighboring station with link-loss alarm"
-          - "Synchronized UR5 pick-and-place programs (PolyScope, URSim) with the PLC via I/O handshake; classified parts as pass/rework/scrap with Cognex In-Sight; wrote the CAM program for the station"
+          - "Synchronized a UR5 PolyScope program in URSim (Virtual Robot Controller) with the PLC via I/O handshake, after hands-on PolyScope work on a physical UR5e"
+          - "Programmed the station's part in SOLIDWORKS CAM and analyzed its G-code (canned drilling cycles, G41 cutter compensation, ≈ 12.8 min cycle); built a Cognex In-Sight inspection validated against caliper measurements"
 
       - name: Automated Viscosity Measurement System — Endress+Hauser industry challenge
         url: /projects/endress-viscosity/
