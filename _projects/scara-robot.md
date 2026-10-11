@@ -203,6 +203,19 @@ Each of us first derived and implemented the forward and inverse kinematics in M
   <figure class="sc-fig"><video src="{{ 'assets/img/sim-arm.mp4' | relative_url }}" poster="{{ 'assets/img/sim-arm-poster.jpg' | relative_url }}" autoplay muted loop playsinline></video><figcaption>Industrial arm simulation (team coursework).</figcaption></figure>
 </div>
 
+**Gantry robot in two environments.** The gantry is a cart on a horizontal rail carrying a 1-DOF arm. We derived its equations of motion with the Euler–Lagrange method (cart position x and arm angle θ, coupled through the inertia matrix) and built it twice to compare the results:
+
+- **Simulink, from the equations:** a MATLAB Function block computes the inverse of the inertia matrix and returns the state derivatives, an integrator closes the loop, and two PID controllers track references for x and θ.
+- **Simscape Multibody:** the 1-DOF arm from the previous activity plus a prismatic joint for the cart, driven by a force actuator. Simscape handles the coupling between cart and arm, so no manual matrix inversion is needed.
+
+<div class="sc-grid single">
+  <figure class="sc-fig"><img src="{{ 'assets/img/gantry-simulink.jpg' | relative_url }}" alt="Simulink block diagram of the gantry robot model"><figcaption>Simulink model of the gantry: the nonlinear state equations in a MATLAB Function block, two PID loops (x and θ) and scopes, with step references (left) and sinusoidal references (right).</figcaption></figure>
+  <figure class="sc-fig"><img src="{{ 'assets/img/gantry-simscape-diagram.jpg' | relative_url }}" alt="Simscape Multibody connection diagram for the gantry robot"><figcaption>Simscape Multibody connection diagram: the gantry and arm subsystems, the motion references, and the same PID loops as the analytical model for comparison.</figcaption></figure>
+  <figure class="sc-fig"><img src="{{ 'assets/img/gantry-theta-tracking.jpg' | relative_url }}" alt="Arm angle tracking the reference"><figcaption>Arm angle θ tracking its reference over 20 s: close tracking with a short transient at the start and at the step changes.</figcaption></figure>
+</div>
+
+In the video, the cart shows a small jiggle at the end of each movement. This is physically reasonable: the torques of the cart and the arm are coupled, so each disturbs the other and the two degrees of freedom are harder to control independently. The two models agree on the overall behaviour, so the analytical model is the faster one to iterate on for control design, and Simscape is the better one for checking the result before hardware.
+
 ## HMI and pick-and-place
 
 The teach pendant, a MATLAB App Designer interface connected through Simulink's MQTT blocks, shows joint and Cartesian values with live plots and offers five modes: joint jog, Cartesian jog, home, set home and pick-and-place. In pick-and-place mode the operator chooses the shape, the colour if there are several, and the place coordinates.
