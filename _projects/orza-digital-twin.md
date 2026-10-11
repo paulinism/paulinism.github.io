@@ -10,6 +10,9 @@ featured: true
 
 <style>
   .oz-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; margin: 1.5rem 0; align-items: start; }
+  .oz-grid.oz-row3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .oz-grid.oz-row2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  @media (max-width: 767px) { .oz-grid.oz-row3, .oz-grid.oz-row2 { grid-template-columns: minmax(0, 1fr); } }
   .oz-grid.single { grid-template-columns: minmax(0, 900px); justify-content: center; }
   .oz-fig { margin: 0; border: 1px solid rgba(128, 128, 128, 0.25); border-radius: 12px; overflow: hidden; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08); }
   .oz-fig img, .oz-fig video { display: block; width: 100%; height: auto; background: rgba(128, 128, 128, 0.06); }
@@ -44,7 +47,7 @@ featured: true
 - **PLC program:** the complete ladder program in TIA Portal for a virtual S7-1500 (CPU 1511-1 PN) running in PLCSIM Advanced: step sequence, interlocks, manual mode, quality routing, KPIs and data logging.
 - **Robot integration:** a UR5 in Virtual Robot Controller mode (URSim in VMware) running its own PolyScope pick-and-place program, synchronised with the PLC through a digital I/O handshake.
 - **HMI:** the WinCC Runtime Advanced operator interface for the cell.
-- **Machining:** the SOLIDWORKS CAM model and toolpath simulation for part P2 (an aluminium piston body), and a block-by-block analysis of its G-code program: tools, cutting data, canned cycles, cutter compensation and an estimated cycle time ([details below](#cnc-machining-part-p2-and-its-g-code)).
+- **Machining:** the SOLIDWORKS CAM model and toolpath simulation for part P2 (an aluminium piston body), and a block-by-block analysis of its G-code program: tools, cutting data, canned cycles, cutter compensation and an estimated cycle time ([details below](#cam-and-g-code-milling-part-p2-and-a-lathe-exercise)).
 - **Global SCADA:** the supervisory screen that consolidates production counts and KPI trends for the whole system.
 - **Modbus TCP sensor:** my C# simulated field sensor exchanging holding registers with the PLC (each team member built one for their own station).
 - **Communication with the team:** the S7 GET/PUT link from my PLC to the assembly station on PC-1, with an alarm when that link fails.
@@ -58,7 +61,7 @@ featured: true
 **Individual work in the same course**
 
 - **Cognex practical exam:** a complete In-Sight inspection, from image acquisition and calibration to pass/fail logic and physical validation ([details below](#quality-inspection-cognex-in-sight-practical-exam)).
-- **Lathe CAM exercise:** a turned AISI 304 shaft programmed in SOLIDWORKS CAM, from stock and tool crib to post-processed G-code ([details below](#reinforcing-cam-and-g-code-a-turning-program-in-solidworks-cam)).
+- **Lathe CAM exercise:** a turned AISI 304 shaft programmed in SOLIDWORKS CAM, from stock and tool crib to post-processed G-code ([details below](#cam-and-g-code-milling-part-p2-and-a-lathe-exercise)).
 - **Physical UR robot:** besides running the UR5 virtually, I learned PolyScope on the lab's physical Universal Robots arm and built hands-on applications with it to learn its real limitations.
 
 ## System architecture
@@ -103,103 +106,35 @@ The cell runs as a chain of PLC step flags (K1 … K35). Each transition only fi
   <figure class="oz-fig"><img src="{{ 'assets/img/orza-cnc-station.jpg' | relative_url }}" alt="CNC station with UR5 robots"><figcaption>CNC station: two UR5 robots load and unload the milling machine and present the part to the camera.</figcaption></figure>
 </div>
 
-## CNC machining: part P2 and its G-code
+## CAM and G-code: milling part P2 and a lathe exercise
 
-**Result:** a six-tool milling program (O0001) for part P2 that I verified block by block. The roughing passes take about 72 % of the estimated 12.8 min cycle, and the contour uses cutter radius compensation, so tool wear is corrected with one offset value instead of a new program.
-
-**The part.** P2 is an aluminium piston body of 32 × 20 × 20 mm with a Ø16 mm central bore, a pocket and two pairs of small mounting holes. I modelled it and its billet in SOLIDWORKS CAM, generated and simulated the toolpaths, and in the twin it is machined on a simulated Haas VF-2. The PLC only leaves the machining step when the machine reports its done signal.
+**Result:** I programmed the station's part (P2, an aluminium piston body of 32 × 20 × 20 mm with a Ø16 bore, a pocket and two pairs of small holes) in SOLIDWORKS CAM and verified the six-tool milling program (O0001) block by block. Roughing is about 72 % of the estimated 12.8 min cycle, and the contour uses cutter compensation (G41 D21), so tool wear is corrected with one offset value instead of a new program. In the twin it runs on a simulated Haas VF-2, and the PLC leaves the machining step only when the machine reports done. In a second exercise on a lathe I set every parameter myself and found a spindle-speed problem in the post-processed code.
 
 <div class="oz-grid">
-  <figure class="oz-fig"><img src="{{ 'assets/img/orza-p2-drawing.png' | relative_url }}" alt="Technical drawing of part P2"><figcaption>Technical drawing of P2 (SOLIDWORKS, scale 2:1): Ø16 bore, Ø3.57 and Ø1.78 mounting holes.</figcaption></figure>
-  <figure class="oz-fig"><img src="{{ 'assets/img/orza-p2-cam-model.jpg' | relative_url }}" alt="P2 inside its billet in SOLIDWORKS CAM"><figcaption>P2 inside the initial billet in SOLIDWORKS CAM: machined face, central pocket and mounting holes.</figcaption></figure>
+  <figure class="oz-fig"><img src="{{ 'assets/img/orza-p2-drawing.png' | relative_url }}" alt="Technical drawing of part P2"><figcaption>Technical drawing of P2 (SOLIDWORKS, scale 2:1).</figcaption></figure>
+  <figure class="oz-fig"><img src="{{ 'assets/img/orza-p2-cam-model.jpg' | relative_url }}" alt="P2 inside its billet in SOLIDWORKS CAM"><figcaption>P2 inside the billet in SOLIDWORKS CAM.</figcaption></figure>
 </div>
 
 <div class="oz-grid single">
   <figure class="oz-fig"><video src="{{ 'assets/img/orza-cam.mp4' | relative_url }}" poster="{{ 'assets/img/orza-cam-poster.jpg' | relative_url }}" autoplay muted loop playsinline></video><figcaption>CAM toolpath simulation of P2 (2× speed).</figcaption></figure>
 </div>
 
-**Operation sequence.** The program follows a spot-drill-before-drill rule and moves from the largest to the most delicate features:
+**Milling sequence.** Spot drill (Ø20, G82) and Ø16 main hole (G83 peck, Q = 2 mm); centre drill and Ø3.5 / Ø1.75 mounting holes (spotting first keeps the thin drill from wandering); pocket roughing in eight Z levels with a Ø6 mm end mill plus two clean-up loops; then seven contour passes with G41 D21, entered on a tangent G03 arc and cancelled with G40.
 
-1. **Spot + main hole:** a Ø20 mm carbide spot drill (G82, dwell cycle) marks the centre, then a Ø16 mm drill makes the main hole with a G83 peck cycle (Q = 2 mm) so chips clear.
-2. **Mounting holes:** a Ø6 mm HSS centre drill spots both positions, then Ø3.5 mm and Ø1.75 mm drills follow with G83. Spotting first matters most for the Ø1.75 mm drill, which would wander and break without it.
-3. **Roughing (Desbaste1):** a Ø6 mm two-flute carbide end mill clears the pocket in eight Z levels: about 2.79 mm per pass, then a 0.25 mm skim to reach the 20 mm floor, followed by two clean-up loops on the walls and floor.
-4. **Contour (Contorneado1):** seven passes of 2.83 mm on the outer profile with G41 D21 (left cutter compensation). Compensation starts on a tangent G03 arc and is cancelled with G40 before each retract.
+**Checking the numbers.** I recalculated each surface speed (v<sub>c</sub> = π·D·n / 1000) and the end-mill chip load, f<sub>z</sub> = 1 645.9 / (12 000 × 2) ≈ 0.069 mm per tooth, inside the 0.05–0.13 mm range for aluminium. Time by group: drilling ≈ 4 s, roughing ≈ 554 s (72 %), clean-up ≈ 139 s (18 %), contour ≈ 41 s (5 %), tool changes and rapids ≈ 30 s, total ≈ 768 s. The weak point is the 12 000 rpm spindle speed: fine in simulation, but above what the lab machine runs on 6061 aluminium, so it needs lower speeds and feeds before real machining.
 
-<table class="oz-table">
-  <tr><th>Tool</th><th>Operation</th><th>Ø (mm)</th><th>n (rpm)</th><th>v<sub>c</sub> (m/min)</th><th>v<sub>f</sub> (mm/min)</th></tr>
-  <tr><td>T15 carbide spot drill</td><td>Spot, G82</td><td>20</td><td>4 957</td><td>311.5</td><td>1 183.7</td></tr>
-  <tr><td>T16 carbide drill</td><td>Main hole, G83</td><td>16</td><td>5 942</td><td>298.7</td><td>800.0</td></tr>
-  <tr><td>T06 HSS centre drill</td><td>Spots, G82</td><td>6</td><td>12 000</td><td>226.2</td><td>731.5</td></tr>
-  <tr><td>T17 jobber drill</td><td>Holes, G83</td><td>3.5</td><td>12 000</td><td>131.9</td><td>1 097.3</td></tr>
-  <tr><td>T18 jobber drill</td><td>Holes, G83</td><td>1.75</td><td>12 000</td><td>66.0</td><td>762.0</td></tr>
-  <tr><td>T01 carbide end mill, 2 flutes</td><td>Roughing / contour</td><td>6</td><td>12 000</td><td>226.2</td><td>411.5 plunge / 1 645.9 lateral</td></tr>
-</table>
-
-**Checking the cutting data.** I recalculated every surface speed from the spindle speed (v<sub>c</sub> = π·D·n / 1000) and the chip load of the end mill from the lateral feed: f<sub>z</sub> = 1 645.9 / (12 000 × 2) ≈ 0.069 mm per tooth, inside the 0.05–0.13 mm range for aluminium. The cycle-time estimate comes from toolpath length ÷ feed for each group of operations:
-
-<table class="oz-table">
-  <tr><th>Group</th><th>Time (s)</th><th>Share</th></tr>
-  <tr><td>Drilling (all holes)</td><td>≈ 4</td><td>&lt; 1 %</td></tr>
-  <tr><td>Roughing, 8 passes</td><td>≈ 554</td><td>72 %</td></tr>
-  <tr><td>Clean-up of walls and floor</td><td>≈ 139</td><td>18 %</td></tr>
-  <tr><td>Contour, 7 passes</td><td>≈ 41</td><td>5 %</td></tr>
-  <tr><td>5 tool changes + rapids</td><td>≈ 30</td><td>4 %</td></tr>
-  <tr><th>Total</th><th>≈ 768 s ≈ 12.8 min</th><th></th></tr>
-</table>
-
-**What reading the G-code taught me.** The program is metric (G21), returns to home with G91 G28 before tool changes, and keeps tool-length compensation (G43) on in every cut. Canned cycles (G82 for a dwell at the bottom, G83 for pecking) keep the drilling short and readable. G41 with offset register D21 means a worn or replaced end mill is corrected on the control, with no change to the program. The weak point is the spindle speed: 12 000 rpm with these feeds works in simulation, but it is above what the lab machine can run on aluminium 6061, so the program would need lower speeds and feeds before real machining.
-
-## Reinforcing CAM and G-code: a turning program in SOLIDWORKS CAM
-
-**Result:** after the challenge, I programmed a full lathe job on my own, from stock definition to post-processed G-code: 8 operations, 9.0 min of machine time, for a turned AISI 304 shaft. The CAM's machine limits flagged a drilling speed the lathe cannot reach, and I could trace that problem into the G-code.
-
-**Why this exercise.** The milling analysis above showed my weak spot: parameters that run in simulation but not on the real machine. This extra activity, on a lathe instead of a mill, was where I set up every parameter myself (machine, stock, tools, cutting data) and then read the G-code the post-processor produced. It built on the turning practice we did in class on a 6061-T6 bar.
-
-<div class="oz-grid single">
-  <figure class="oz-fig"><video src="{{ 'assets/img/cam-turn-practice.mp4' | relative_url }}" poster="{{ 'assets/img/cam-turn-practice-poster.jpg' | relative_url }}" autoplay muted loop playsinline></video><figcaption>Class turning practice in SOLIDWORKS CAM on a 6061-T6 bar: rough and finish turning, then cut-off.</figcaption></figure>
-</div>
-
-**Setup.**
-
-- **Machine:** Turn Single Turret – Metric, rear 12-station tool crib, maximum spindle speed 5 000 rpm.
-- **Stock:** Ø51 × 200 mm AISI 304 bar, defined in the Stock Manager.
-- **Part:** a 150 mm stepped shaft (Ø20, Ø30 and Ø50 mm) with a 3 × 45° chamfer, two fillets (R5.4 and R4.6), an OD groove and a Ø6.35 mm centre hole, 10 mm deep. Finished mass: 1 120.6 g.
+**Lathe exercise.** After the challenge I programmed a turned AISI 304 shaft (Ø51 × 200 mm bar, 150 mm stepped shaft, chamfer, two fillets, groove and Ø6.35 centre hole) from stock definition to post-processed G-code: 8 operations, 9.0 min. The G-code uses `G96` constant surface speed, `G72`/`G71` roughing cycles and `G74` peck drilling. The cut-off switches to fixed rpm (`G97 S700`) so the spindle does not run away at the centre.
 
 <div class="oz-grid">
-  <figure class="oz-fig"><img src="{{ 'assets/img/cam-turn-stock.jpg' | relative_url }}" alt="Stock Manager with the bar stock"><figcaption>Stock Manager: Ø51 × 200 mm bar around the finished shaft.</figcaption></figure>
-  <figure class="oz-fig"><img src="{{ 'assets/img/cam-turn-ops.jpg' | relative_url }}" alt="Operation tree in SOLIDWORKS CAM"><figcaption>Operation tree: facing, centre drill, drill, turning, groove and cut-off, each with its tool station.</figcaption></figure>
-  <figure class="oz-fig"><img src="{{ 'assets/img/cam-turn-toolcrib.jpg' | relative_url }}" alt="Tool crib configuration"><figcaption>Tool crib: inserts, drills and blades assigned to the turret stations.</figcaption></figure>
+  <figure class="oz-fig"><img src="{{ 'assets/img/cam-turn-ops.jpg' | relative_url }}" alt="Operation tree in SOLIDWORKS CAM"><figcaption>Operation tree: facing, drilling, turning, groove and cut-off.</figcaption></figure>
   <figure class="oz-fig"><img src="{{ 'assets/img/cam-turn-sim.jpg' | relative_url }}" alt="Toolpath simulation of the turned shaft"><figcaption>Toolpath simulation with the stock in the chuck.</figcaption></figure>
 </div>
 
-<table class="oz-table">
-  <tr><th>#</th><th>Operation</th><th>Tool (station)</th><th>Speed</th><th>Feed (mm/rev)</th><th>Time (min)</th></tr>
-  <tr><td>1</td><td>Face rough</td><td>CNMG 120404, 80° (T1)</td><td>130 m/min</td><td>0.68</td><td>0.22</td></tr>
-  <tr><td>2</td><td>Face finish</td><td>DNMG 150404, 55° (T3)</td><td>160 m/min</td><td>0.35</td><td>0.08</td></tr>
-  <tr><td>3</td><td>Centre drill</td><td>6 mm × 60° HSS (T11)</td><td>120 m/min</td><td>0.04</td><td>0.06</td></tr>
-  <tr><td>4</td><td>Drill Ø6.35</td><td>Jobber drill (T12)</td><td>120 m/min</td><td>0.04</td><td>0.12</td></tr>
-  <tr><td>5</td><td>Turn rough</td><td>CNMG 120404 (T1)</td><td>130 m/min</td><td>0.68</td><td>2.54</td></tr>
-  <tr><td>6</td><td>Turn finish</td><td>DNMG 150404 (T3)</td><td>160 m/min</td><td>0.35</td><td>0.35</td></tr>
-  <tr><td>7</td><td>Groove rough</td><td>Groove insert (T7)</td><td>110 m/min</td><td>0.26</td><td>0.07</td></tr>
-  <tr><td>8</td><td>Cut-off</td><td>3 mm blade (T9)</td><td>700 rpm (fixed)</td><td>0.03</td><td>5.56</td></tr>
-  <tr><th></th><th>Total</th><th></th><th></th><th></th><th>9.00</th></tr>
-</table>
+**What I would fix before a real lathe.**
 
-**Reading the post-processed G-code.**
-
-- **Tool calls and spindle:** `T0101` loads tool 1 with offset 1. `G96 S130 M03` sets a constant surface speed of 130 m/min, so the rpm rises as the diameter shrinks. `M08`/`M09` switch coolant on and off, and `M01` adds an optional stop between tools.
-- **Roughing cycles:** `G72` (facing) and `G71` (turning) rough the whole profile from one block range (`P…Q…`), leave 0.15 mm for finishing (`U.15 W.15`) and cut 0.8 mm per pass (`D800`). The finishing tool then follows that profile once, with `G02`/`G03` arcs for the fillets.
-- **Drilling and cut-off:** the centre drill uses a `G74` peck cycle. The Ø6.35 drill pecks with plain moves (cut to Z−5, retract, cut to Z−10). The cut-off switches to `G97 S700`, a fixed rpm, because constant surface speed would push the spindle to its limit as the blade reaches the centre.
-
-**What I would fix before running it on a real lathe.**
-
-- **Spindle clamp:** facing and drilling run with `G96` down to the centre line, and the program has no `G50` spindle-speed limit. The CAM already warned that 120 m/min on a Ø6.35 mm drill needs about 6 000 rpm on a 5 000 rpm machine. I would add a `G50` clamp, or drill at a fixed rpm with `G97` as the cut-off does.
-- **Tool-change position:** the post-processor sends the turret to X508 Z127, which is exactly 20 × 5 inches, an inch-machine default. It has to be checked against the real lathe's safe position.
-- **Cycle time:** the cut-off alone takes 62 % of the 9 min, at 0.03 mm/rev. That is the first operation to optimise. I would also check the 0.68 mm/rev roughing feed against the insert maker's range for stainless steel with a 0.4 mm nose radius.
-
-<div class="oz-grid single">
-  <figure class="oz-fig"><img src="{{ 'assets/img/cam-turn-warning.jpg' | relative_url }}" alt="SOLIDWORKS CAM spindle speed warning"><figcaption>The CAM warning that started the spindle-speed check: 120 m/min on the drill exceeds the 5 000 rpm machine limit.</figcaption></figure>
-</div>
+- **Spindle clamp:** the CAM warned that 120 m/min on the Ø6.35 mm drill needs about 6 000 rpm on a 5 000 rpm machine, and the program has no `G50` limit. I would add one, or drill at fixed rpm like the cut-off.
+- **Tool-change position:** X508 Z127 is exactly 20 × 5 inches, an inch-machine default, so it must be checked against the real lathe.
+- **Cycle time:** the cut-off takes 62 % of the 9 min at 0.03 mm/rev, so it is the first operation to optimise.
 
 ## PLC program
 
@@ -328,12 +263,15 @@ The complete run of the cell, with my explanation (7 min, with sound).
 
 **What I found reviewing it afterwards.** The pass limits in my spreadsheet were set to ±10 % of nominal (for example 8.055–9.945 mm on a 9 mm seal radius), much wider than the ±3 % validation target. A tighter gate would have rejected some readings the spreadsheet accepted. Next time I would derive the limits from the requirement first and build the tools around them.
 
-<div class="oz-grid">
-  <figure class="oz-fig"><img src="{{ 'assets/img/cognex-caliper.jpg' | relative_url }}" alt="Vernier caliper measurement of a seal"><figcaption>Physical validation: measuring a seal with the vernier caliper.</figcaption></figure>
+<div class="oz-grid oz-row3">
   <figure class="oz-fig"><img src="{{ 'assets/img/cognex-pattern.jpg' | relative_url }}" alt="PatMax reference frame on the package"><figcaption>PatMax reference frame that anchors every inspection tool.</figcaption></figure>
   <figure class="oz-fig"><img src="{{ 'assets/img/cognex-circle.jpg' | relative_url }}" alt="Circle tool on a seal"><figcaption>FindCircle measuring the radius of a colour seal.</figcaption></figure>
-  <figure class="oz-fig"><img src="{{ 'assets/img/cognex-calibration.jpg' | relative_url }}" alt="Calibration result"><figcaption>Grid calibration: 0.33 px average error over 823 points.</figcaption></figure>
   <figure class="oz-fig"><img src="{{ 'assets/img/cognex-reflection.jpg' | relative_url }}" alt="Caliper failure due to reflection"><figcaption>Failure case: a specular highlight on the foil is taken as an edge by the caliper.</figcaption></figure>
+</div>
+
+<div class="oz-grid oz-row2">
+  <figure class="oz-fig"><img src="{{ 'assets/img/cognex-calibration.jpg' | relative_url }}" alt="Calibration result"><figcaption>Grid calibration: 0.33 px average error over 823 points.</figcaption></figure>
+  <figure class="oz-fig"><img src="{{ 'assets/img/cognex-caliper.jpg' | relative_url }}" alt="Vernier caliper measurement of a seal"><figcaption>Physical validation: measuring a seal with the vernier caliper.</figcaption></figure>
 </div>
 
 ## Limitations & lessons
