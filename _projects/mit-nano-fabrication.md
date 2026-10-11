@@ -14,13 +14,16 @@ hide_from_grid: true # shown in the "Professional & lab experience" section inst
   .mit-fig { margin: 0; border: 1px solid rgba(128, 128, 128, 0.25); border-radius: 12px; overflow: hidden; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08); }
   .mit-fig img, .mit-fig video { display: block; width: 100%; height: 340px; object-fit: contain; background: rgba(128, 128, 128, 0.06); }
   .mit-fig figcaption { padding: 0.6rem 0.9rem; font-size: 0.85rem; line-height: 1.4; opacity: 0.85; border-top: 1px solid rgba(128, 128, 128, 0.2); }
+  .mit-pair { display: grid; grid-template-columns: 1.78fr 1.25fr; gap: 1rem; margin: 1rem 0 1.5rem; align-items: start; }
+  .mit-pair .mit-fig img { height: auto; }
+  @media (max-width: 767px) { .mit-pair { grid-template-columns: minmax(0, 1fr); } }
   </style>
 
 **Three functional devices in one week at MIT.nano (Cambridge, October 2025): a silicon solar cell at PCE 15.87 % and Voc 0.60 V, MEMS cantilevers that survived force–displacement testing under a 4 mg load, and a PDMS microfluidic mixer.** A cleanroom intensive from the MIT–Tec de Monterrey program, carried out as a team of 2 across Class 100/1K/10K cleanrooms under full PPE/safety protocols.
 
-<div class="mit-grid">
-  <figure class="mit-fig" style="grid-column: 1 / -1"><img src="{{ 'assets/img/mit-group-certificates.jpg' | relative_url }}" alt="Program participants holding their MIT.nano certificates" style="height: auto"><figcaption>The MIT–Tec de Monterrey cohort with our MIT.nano completion certificates, in front of the fab.nano lab.</figcaption></figure>
-  <figure class="mit-fig" style="grid-column: 1 / -1; max-width: 640px; justify-self: center"><img src="{{ 'assets/img/mit-group-cleanroom.jpg' | relative_url }}" alt="Cohort in cleanroom suits" style="height: auto"><figcaption>The cohort in cleanroom suits before entering the lab.</figcaption></figure>
+<div class="mit-pair">
+  <figure class="mit-fig"><img src="{{ 'assets/img/mit-group-certificates.jpg' | relative_url }}" alt="Program participants holding their MIT.nano certificates"><figcaption>The MIT–Tec de Monterrey cohort with our MIT.nano completion certificates, in front of the fab.nano lab.</figcaption></figure>
+  <figure class="mit-fig"><img src="{{ 'assets/img/mit-group-cleanroom.jpg' | relative_url }}" alt="Cohort in cleanroom suits"><figcaption>The cohort in cleanroom suits before entering the lab.</figcaption></figure>
 </div>
 
 **Challenge**
