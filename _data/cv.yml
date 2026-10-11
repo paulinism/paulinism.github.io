@@ -41,6 +41,48 @@ cv:
           - Hands-on device fabrication (semiconductors, solar cells, microfluidics) via thin-film deposition (PECVD/PVD) and chemical etching
           - Ran photolithography and characterization processes in Class 100/1K/10K cleanrooms under strict safety protocols
 
+    Projects:
+      - name: Vision-Guided SCARA Pick-and-Place Robot (4 DoF) — Tecnológico de Monterrey
+        url: /projects/scara-robot/
+        start_date: 2026-02
+        end_date: 2026-06
+        summary: "Team of 4 · firmware, electronics and computer-vision integration"
+        highlights:
+          - "Built the vision pipeline: YOLOv11n shape/color classification (mAP@0.5 = 0.72) and ArUco-based pixel-to-mm homography, publishing pick coordinates over MQTT to the ESP32 firmware (C++, ESP-IDF, FreeRTOS)"
+          - "Designed the control board in Altium Designer (ESP32, stepper/DC drivers, encoders, power distribution); selected motors and drivers and integrated the homing sensors (limit switch, AS5600 magnetic encoder)"
+          - "Modeled forward/inverse kinematics and PID joint control in MATLAB/Simulink; final demo placed **5 of 6 parts** correctly at ~14 s per cycle"
+
+      - name: Digital Twin of a Flexible CNC Manufacturing Cell — ORZA Tech industry challenge
+        url: /projects/orza-digital-twin/
+        start_date: 2026-02
+        end_date: 2026-06
+        summary: "Team of 3, one station per member · virtual commissioning with no physical hardware"
+        highlights:
+          - "Built my cell's digital twin in Tecnomatix Process Simulate (three UR5 cobots, AGV, conveyors, CNC mill, inspection camera) with every actuator and sensor mapped to PLC I/O"
+          - "Programmed the complete ladder logic in TIA Portal for a virtual Siemens S7-1500 in PLCSIM Advanced (step sequence, interlocks, manual mode, quality routing, KPI logging) plus the WinCC operator HMI"
+          - "Developed the plant-wide SCADA screen (OEE, cycle time, scrap rate), a C# Modbus TCP field sensor, and an S7 GET/PUT link to the neighboring station with link-loss alarm"
+          - "Synchronized UR5 pick-and-place programs (PolyScope, URSim) with the PLC via I/O handshake; classified parts as pass/rework/scrap with Cognex In-Sight; wrote the CAM program for the station"
+
+      - name: Automated Viscosity Measurement System — Endress+Hauser industry challenge
+        url: /projects/endress-viscosity/
+        start_date: 2025-08
+        end_date: 2025-12
+        summary: "Team of 4 · PCB and embedded lead"
+        highlights:
+          - "Designed all three boards in Altium Designer: ESP32 master and slave (IPC-2221 trace sizing, fabricated by JLCPCB) and the op-amp measurement board"
+          - "Co-developed a two-stage op-amp signal chain (1 Ω shunt, ~400× gain) that maps a 6 mA current window onto the ESP32 ADC range, **separating 252 cP from 1676 cP**; verified in Multisim and on hardware"
+          - "Co-wrote the ESP32 firmware (homing and measurement routines, filtering, I²C color sensor, Bluetooth to a LabVIEW HMI, inter-board UART) and co-programmed the OpenPLC ladder logic for the sorting conveyors"
+
+      - name: Scissor Lift & AGV — Automated Material Handling Platform
+        url: /projects/agv-platform/
+        start_date: 2025-02
+        end_date: 2025-06
+        summary: "Team of 5 · mechanical design and load-cell electronics"
+        highlights:
+          - "Built the full SolidWorks assembly; ran NX motion and SolidWorks static studies (max. arm deflection 0.28 mm); designed and 3D-printed the tilting cam (≥30° dump angle vs. ≥25° required)"
+          - "Designed a load-cell conditioning PCB (Wheatstone bridge, op-amp stages, RC low-pass) without an HX711, giving a linear 0–3 V output over 0–5 kg into the ESP32 ADC"
+          - "Turned and milled the aluminum motor coupler and connecting rod; frame load-tested **above 100 kg**, carried 7 kg at the final demo (5 kg required)"
+
     Education:
       - institution: Hochschule Zittau/Görlitz
         location: Zittau, Germany
