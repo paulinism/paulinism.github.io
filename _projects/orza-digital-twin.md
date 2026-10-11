@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Digital Twin of a Flexible CNC Manufacturing Cell
-description: "Industry challenge with ORZA Tech — virtual CNC cell commissioned 100 % in software (S7-1500 PLC, UR5 VRC, CAM and G-code, Cognex vision, SCADA/KPIs)"
+description: "Industry challenge with ORZA Tech — virtual CNC cell commissioned 100 % in software (S7-1500 PLC programming in TIA Portal, UR5 VRC, CAM and G-code, Cognex vision, SCADA/KPIs)"
 img: assets/img/orza.png
 importance: 2
 category: Automation
@@ -43,8 +43,8 @@ featured: true
 
 **What I did directly — my CNC milling cell (Station 3)**
 
+- **PLC programming (core of the challenge):** the complete ladder program in TIA Portal for a virtual S7-1500 (CPU 1511-1 PN) in PLCSIM Advanced: 35-step sequence, interlocks, safety stop, manual mode, quality routing, recipes, KPIs and data logging ([details below](#plc-programming-in-tia-portal-the-core-of-the-cell)).
 - **Digital twin:** my cell in Tecnomatix Process Simulate (supplier rack with pneumatic actuator, AGV, two conveyors, three UR5 robots, CNC milling machine and inspection camera), with every actuator and sensor mapped to PLC I/O.
-- **PLC program:** the complete ladder program in TIA Portal for a virtual S7-1500 (CPU 1511-1 PN) running in PLCSIM Advanced: step sequence, interlocks, manual mode, quality routing, KPIs and data logging.
 - **Robot integration:** a UR5 in Virtual Robot Controller mode (URSim in VMware) running its own PolyScope pick-and-place program, synchronised with the PLC through a digital I/O handshake.
 - **HMI:** the WinCC Runtime Advanced operator interface for the cell.
 - **Machining:** the SOLIDWORKS CAM model and toolpath simulation for part P2 (an aluminium piston body), and a block-by-block analysis of its G-code program: tools, cutting data, canned cycles, cutter compensation and an estimated cycle time ([details below](#cam-and-g-code-milling-part-p2-and-a-lathe-exercise)).
@@ -106,6 +106,36 @@ The cell runs as a chain of PLC step flags (K1 … K35). Each transition only fi
   <figure class="oz-fig"><img src="{{ 'assets/img/orza-cnc-station.jpg' | relative_url }}" alt="CNC station with UR5 robots"><figcaption>CNC station: two UR5 robots load and unload the milling machine and present the part to the camera.</figcaption></figure>
 </div>
 
+## PLC programming in TIA Portal: the core of the cell
+
+**Result:** the whole control of my cell is one ladder program I wrote myself for a virtual S7-1500 (CPU 1511-1 PN) in PLCSIM Advanced. It drives a 35-step sequence in automatic and manual mode, interlocks every movement against the twin's sensors, routes parts by inspection result (OK, rework or scrap), runs a recipe queue, logs every cycle and exchanges data with a partner PLC and a Modbus sensor. It completed full cycles, including the rework and scrap branches, against the Process Simulate model with no timers standing in for the plant.
+
+**Why it mattered.** In a virtual commissioning the PLC is the part that would go to the real machine unchanged, so the challenge was judged mostly on whether this logic was robust, not on the 3D model. Process Simulate only reacts to the PLC's outputs and feeds sensors back, so any wrong assumption in the program showed up as a part stuck, a collision or a cell that never finished.
+
+**How the program is built.**
+
+- **Sequence engine:** a chain of step flags (K1 … K35), one rung per step. A step only advances on a confirmation from the twin (sensor, door, machine done signal), never on a timer alone. The same engine covers the main cycle and the rework loop, where a part goes back through the CNC and is inspected again.
+- **Interlocks:** a function block turns raw sensor signals into named bits (part present, CNC ready, conveyor clear …). Step transitions use only those bits, so the wiring and the sequence logic stay decoupled and a sensor change touches one place.
+- **Safety and faults:** one global stop bit sits as a normally-closed contact in every step rung and freezes the whole sequence. Any alarm bit puts the cell in Fault, and only a reset from the HMI returns it to idle.
+- **Manual mode:** every step can be driven from the HMI (deploy part, load, start and finish machining, unload, conveyor start/stop/reverse, AGV return), but only when the cell is in manual mode, so manual and automatic commands cannot fight each other.
+- **Quality routing:** the inspection result (OK, rework, scrap) is locked by the PLC once entered and decides the next conveyor or the return to the CNC.
+- **Recipes:** a FIFO production queue on the HMI. Each recipe (A–D) sets which of the three CNC stations a part type needs and the batch quantity, which counts down every cycle.
+- **Data blocks:** sequence, HMI interface, interlocks, quality inspection, latches and production log each live in their own block. Optimised block access is disabled so every tag keeps a fixed absolute address, which Process Simulate's signal mapping and the S7 exchange both need.
+- **KPIs and log:** yield, scrap rate and Micro OEE are computed in the PLC at the end of every cycle, with a 100-entry per-cycle log in a retentive block (details in the KPI section below).
+- **Communication:** S7 GET/PUT to the neighbouring station with a link-loss alarm, Modbus TCP holding registers with my C# sensor, and a seven-signal digital handshake with the UR5 PolyScope program.
+
+<table class="oz-table">
+  <tr><th>Part of the program</th><th>What it proves</th></tr>
+  <tr><td>Step chain K1 … K35 with confirmations</td><td>The logic follows the real plant state, not a timeline</td></tr>
+  <tr><td>Interlock function block</td><td>Sensors and sequence are separated, so changes stay local</td></tr>
+  <tr><td>Global stop and Fault state</td><td>Safe stop and a defined recovery path</td></tr>
+  <tr><td>Manual / automatic modes</td><td>The cell can be commissioned step by step</td></tr>
+  <tr><td>Recipes and routing</td><td>Different parts and quality outcomes are handled by data, not by new code</td></tr>
+  <tr><td>S7, Modbus and UR5 handshakes</td><td>The PLC works as a node in a networked system</td></tr>
+</table>
+
+**What I would improve.** The five machine states are handled in the logic but not all are shown on the HMI, and the OEE ideal cycle time is not yet calibrated against real machining time. If I did it again I would agree one IP plan and tag namespace with the team first, because most of the integration time went into configuration conflicts and not into the control logic.
+
 ## CAM and G-code: milling part P2 and a lathe exercise
 
 **Result:** I programmed the station's part (P2, an aluminium piston body of 32 × 20 × 20 mm with a Ø16 bore, a pocket and two pairs of small holes) in SOLIDWORKS CAM and verified the six-tool milling program (O0001) block by block. Roughing is about 72 % of the estimated 12.8 min cycle, and the contour uses cutter compensation (G41 D21), so tool wear is corrected with one offset value instead of a new program. In the twin it runs on a simulated Haas VF-2, and the PLC leaves the machining step only when the machine reports done. In a second exercise on a lathe I set every parameter myself and found a spindle-speed problem in the post-processed code.
@@ -135,14 +165,6 @@ The cell runs as a chain of PLC step flags (K1 … K35). Each transition only fi
 - **Spindle clamp:** the CAM warned that 120 m/min on the Ø6.35 mm drill needs about 6 000 rpm on a 5 000 rpm machine, and the program has no `G50` limit. I would add one, or drill at fixed rpm like the cut-off.
 - **Tool-change position:** X508 Z127 is exactly 20 × 5 inches, an inch-machine default, so it must be checked against the real lathe.
 - **Cycle time:** the cut-off takes 62 % of the 9 min at 0.03 mm/rev, so it is the first operation to optimise.
-
-## PLC program
-
-- **Structure:** the sequence engine, HMI interface, interlocks, quality inspection, latches and the production log each live in their own data block. Optimised block access is disabled so every tag maps to a fixed absolute address, which Process Simulate's signal mapping and the S7 exchange both need.
-- **Interlocks:** a function block turns raw sensor signals into named interlock bits (part present, CNC ready, conveyor clear …). Step transitions only use these bits, never raw inputs, so wiring and sequence logic stay decoupled.
-- **Safety:** a single global stop bit sits as a normally-closed contact in every step rung and freezes the whole sequence; reset clears all steps and returns the cell to idle.
-- **Manual mode:** every step can be driven from the HMI (deploy part, load, start and finish machining, unload, conveyor start/stop/reverse, AGV return), only when the cell is in manual mode.
-- **Recipes:** a FIFO production queue on the HMI; each recipe (A–D) sets which of the three CNC stations a part type needs and the batch quantity, which counts down every cycle.
 
 ## Virtual commissioning of the UR5 with the Virtual Robot Controller
 
