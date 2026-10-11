@@ -13,6 +13,7 @@ featured: true
   .oz-grid.oz-row3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .oz-grid.oz-row2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   @media (max-width: 767px) { .oz-grid.oz-row3, .oz-grid.oz-row2 { grid-template-columns: minmax(0, 1fr); } }
+  .oz-hmi .oz-fig img { aspect-ratio: 1000 / 570; object-fit: cover; }
   .oz-grid.single { grid-template-columns: minmax(0, 900px); justify-content: center; }
   .oz-fig { margin: 0; border: 1px solid rgba(128, 128, 128, 0.25); border-radius: 12px; overflow: hidden; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08); }
   .oz-fig img, .oz-fig video { display: block; width: 100%; height: auto; background: rgba(128, 128, 128, 0.06); }
@@ -204,7 +205,7 @@ The cell runs as a chain of PLC step flags (K1 … K35). Each transition only fi
 
 The station HMI has a main menu, a station monitor, one screen per area with its own manual commands, status LEDs, fault indicator and error counter, plus alarms with acknowledge, recipes and trends.
 
-<div class="oz-grid">
+<div class="oz-grid oz-row2 oz-hmi">
   <figure class="oz-fig"><img src="{{ 'assets/img/orza-hmi-menu.jpg' | relative_url }}" alt="HMI main menu"><figcaption>Main menu.</figcaption></figure>
   <figure class="oz-fig"><img src="{{ 'assets/img/orza-hmi-monitor.jpg' | relative_url }}" alt="Station monitor screen"><figcaption>Station monitor: mode, current process, station progress and batch quantity.</figcaption></figure>
   <figure class="oz-fig"><img src="{{ 'assets/img/orza-hmi-supply.jpg' | relative_url }}" alt="Supplier and conveyor screen"><figcaption>Supplier and conveyor screen with manual commands.</figcaption></figure>
