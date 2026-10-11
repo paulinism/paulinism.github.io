@@ -116,3 +116,7 @@ The original sorting idea (a vending-machine-style stepper, screw and spring) wa
 <div class="vis-grid single">
   <figure class="vis-fig full"><img src="{{ 'assets/img/visc-endress-visit.jpg' | relative_url }}" alt="Team at Endress+Hauser"><figcaption>The team at Endress+Hauser, in front of their process instrumentation.</figcaption></figure>
 </div>
+
+<div class="back-to-projects" style="margin: 3rem 0 1rem; text-align: center">
+  <a class="btn btn-sm z-depth-0" role="button" href="{{ '/projects/#academic' | relative_url }}">← Back to projects</a>
+</div>

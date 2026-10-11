@@ -349,3 +349,7 @@ The complete run of the cell, with my explanation (7 min, with sound).
 - **Next steps:** recalculate the milling parameters for the lab machine and aluminium 6061, add a spindle clamp and a faster cut-off to the turning program, and repeat the Cognex inspection under diffuse lighting with limits taken from the ±3 % requirement.
 
 **Stack:** Tecnomatix Process Simulate · TIA Portal, S7-1500, PLCSIM Advanced, ladder logic · WinCC Runtime Advanced · URSim / PolyScope (UR5 VRC), physical UR5e · S7 GET/PUT, Modbus TCP · C# (Modbus simulator) · SOLIDWORKS CAM (milling and turning), G-code (G71/G72, G82/G83, G41/G43, G96/G97) · Cognex In-Sight (PatMax RedLine, FindCircle, Caliper, ReadIDMax, OCRMax)
+
+<div class="back-to-projects" style="margin: 3rem 0 1rem; text-align: center">
+  <a class="btn btn-sm z-depth-0" role="button" href="{{ '/projects/#academic' | relative_url }}">← Back to projects</a>
+</div>

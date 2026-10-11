@@ -108,3 +108,7 @@ _What it demonstrated._
 
 **Context:** MIT.nano, Cambridge, USA — one-week cleanroom intensive, semiconductor fabrication (Oct 2025).
 **Stack:** LPCVD/PECVD, photolithography, RIE/KOH wet etching, PDMS soft lithography, cleanroom protocols (Class 100/1K/10K)
+
+<div class="back-to-projects" style="margin: 3rem 0 1rem; text-align: center">
+  <a class="btn btn-sm z-depth-0" role="button" href="{{ '/projects/#extracurricular' | relative_url }}">← Back to projects</a>
+</div>

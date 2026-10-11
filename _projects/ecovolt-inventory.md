@@ -225,3 +225,7 @@ We presented the system to the event's Safety Team in the paddock as part of the
 
 **Context:** EcoVolt CCM, Shell Eco-marathon (paddock operations), 2025–2026; part of the team's Safety Leadership Award submission.
 **Stack:** Python, OpenCV, NumPy, Matplotlib, JSONL · TypeScript web platform, Convex database · Excel · QR labels
+
+<div class="back-to-projects" style="margin: 3rem 0 1rem; text-align: center">
+  <a class="btn btn-sm z-depth-0" role="button" href="{{ '/projects/#extracurricular' | relative_url }}">← Back to projects</a>
+</div>

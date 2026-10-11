@@ -241,3 +241,7 @@ The clips below show earlier integration stages: joint movement commanded from t
 - **Next steps:** more images for the under-represented classes, integrating the PCB to replace the breadboard wiring, and closed-loop control on the stepper joints.
 
 **Stack:** Python, OpenCV, NumPy, Ultralytics YOLOv11n, LabelImg · ESP32, C++ (ESP-IDF, PlatformIO), FreeRTOS · MQTT (Mosquitto), I²C · Altium Designer · MATLAB, Simulink, Simscape Multibody
+
+<div class="back-to-projects" style="margin: 3rem 0 1rem; text-align: center">
+  <a class="btn btn-sm z-depth-0" role="button" href="{{ '/projects/#academic' | relative_url }}">← Back to projects</a>
+</div>

@@ -126,3 +126,7 @@ The load-cell conditioning circuit (differential amplifier, non-inverting amplif
 **Context:** Tec de Monterrey, Feb–Jun 2025, 4th-semester integrative challenge, team of 5.
 **Result:** functional scissor lift, 40 × 30 × 76 cm, base load-tested at >100 kg.
 **Stack:** SolidWorks, Siemens NX, ESP32/ESP-IDF, op-amp signal conditioning, custom PCB, FDM printing, lathe/milling
+
+<div class="back-to-projects" style="margin: 3rem 0 1rem; text-align: center">
+  <a class="btn btn-sm z-depth-0" role="button" href="{{ '/projects/#academic' | relative_url }}">← Back to projects</a>
+</div>

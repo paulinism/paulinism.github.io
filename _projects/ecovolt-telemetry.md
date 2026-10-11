@@ -341,3 +341,7 @@ Download the MATLAB files: [Live Script (.mlx)]({{ 'assets/files/indianapolis-tr
 **Context:** Escudería EcoVolt CCM, Shell Eco-marathon, 2024–2026.
 **Result:** 1st place (2025) and 2nd place (2026), Data & Telemetry Award; Honorable Mention, Altair Global Student Contest 2025.
 **Stack:** Altium Designer, ESP32-C3/C5, C++, INA240, ADS1115, CAN (TWAI), SPI, I²C, UART, MQTT, u-blox u-center, MATLAB, Altair AI Studio, Assetto Corsa bench testing
+
+<div class="back-to-projects" style="margin: 3rem 0 1rem; text-align: center">
+  <a class="btn btn-sm z-depth-0" role="button" href="{{ '/projects/#extracurricular' | relative_url }}">← Back to projects</a>
+</div>
