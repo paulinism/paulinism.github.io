@@ -132,7 +132,7 @@ cv:
         awarder: Altair Global Student Contest 2025
         date: "2025"
         url: https://web.altair.com/global-student-contest-2025
-        summary: For the co-authored paper "AI-Driven Data Analysis for Vehicle Energy Efficiency," applying Altair AI Studio to Shell Eco-marathon performance data to identify the strongest drivers of vehicle energy efficiency.
+        summary: For the co-authored project "AI-Driven Data Analysis for Vehicle Energy Efficiency," applying Altair AI Studio to Shell Eco-marathon performance data to identify the strongest drivers of vehicle energy efficiency.
 
     Publications:
       - title: Real-Time Telemetry and Computational Intelligence Pipeline for Energy-Efficient Driving of an Electric Eco-Marathon Vehicle
@@ -174,6 +174,7 @@ cv:
         keywords:
           - Siemens TIA Portal (S7-1500, LOGO!)
           - Allen-Bradley ControlLogix 5570
+          - Rockwell Automation Studio 5000
           - WinCC
           - PLCSIM Advanced
           - Ladder logic programming
@@ -190,7 +191,7 @@ cv:
       - name: Mechanical Design (CAD/CAM)
         icon: fa-solid fa-cube
         keywords:
-          - SolidWorks
+          - SolidWorks CAD/CAM
           - NX CAD
           - Fusion CAM
 
@@ -252,7 +253,7 @@ cv:
         keywords:
           - Ansys Electronics
           - Fuzzy systems
-          - FactoryTalk Optix
+          - Aeronaautics and Defense
 
       - name: Multicultural
         icon: fa-solid fa-earth-americas
