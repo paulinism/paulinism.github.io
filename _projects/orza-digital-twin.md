@@ -25,7 +25,7 @@ featured: true
 **A fully virtual CNC milling cell commissioned with zero physical hardware.** A virtual S7-1500 runs the ladder program, Process Simulate drives the 3D cell, a Virtual Robot Controller runs the UR5 pick-and-place program, a Cognex inspector classifies each part (pass / rework / scrap), a WinCC HMI gives the operator automatic and manual control, and a SCADA dashboard tracks OEE and KPIs in real time. Behind the machining step is a six-tool milling program for an aluminium piston body that I analysed down to chip load and cycle time (≈ 12.8 min), and the same course added a Cognex inspection exam and a lathe CAM exercise that I carried from stock definition to G-code.
 
 <div class="oz-grid single">
-  <figure class="oz-fig"><video src="{{ 'assets/img/orza-cell-loop.mp4' | relative_url }}" poster="{{ 'assets/img/orza-cell-loop-poster.jpg' | relative_url }}" autoplay muted loop playsinline></video><figcaption>My CNC cell running in Process Simulate under PLC control: machining and unloading by the UR5 robot (1.5× speed).</figcaption></figure>
+  <figure class="oz-fig"><video src="{{ 'assets/img/orza-general-dt.mp4' | relative_url }}" poster="{{ 'assets/img/orza-general-dt-poster.jpg' | relative_url }}" controls preload="metadata" playsinline></video><figcaption>Walkthrough with narration: scrapping a part, the CNC cell working in Process Simulate, and an explanation of how the HMI and the PLC logic run together with the simulation.</figcaption></figure>
 </div>
 
 ## Project overview
