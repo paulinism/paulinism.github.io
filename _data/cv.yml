@@ -159,6 +159,7 @@ cv:
           - Signal conditioning
           - Instrumentation amplifiers
           - Analog/digital electronics
+          - NI Multisim
 
       - name: Control Systems & Model-Based Design
         icon: fa-solid fa-sliders
@@ -253,7 +254,8 @@ cv:
         keywords:
           - Ansys Electronics
           - Fuzzy systems
-          - Aeronaautics and Defense
+          - Aeronautics and Defense
+          - ADAS & Autonomous systems
 
       - name: Multicultural
         icon: fa-solid fa-earth-americas
