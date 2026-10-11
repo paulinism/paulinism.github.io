@@ -15,7 +15,7 @@ nav_order: 4
       <img src="{{ 'assets/img/ecovolt-track.jpg' | relative_url }}" alt="EcoVolt CCM prototype vehicle on the track" style="width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:8px; display:block;">
     </a>
     <div style="margin-top:0.75rem; min-height:90px;">
-      {% include repository/repo.liquid repository="paulinism/Telemetry_Ecovolt" %}
+      {% include repository/repo.liquid repository="josediegogf03/Ecovolt_telemetry_final" %}
     </div>
   </div>
   <div style="display:flex; flex-direction:column;">
