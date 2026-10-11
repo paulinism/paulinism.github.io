@@ -24,6 +24,17 @@ hide_from_grid: true # shown in the "Professional & lab experience" section inst
   .tel-table th { background: rgba(128, 128, 128, 0.08); }
   .tel-grid.tel-grid-battery { grid-template-columns: 2fr 1fr; }
   .tel-grid.tel-grid-battery .tel-fig img { height: 360px; object-fit: cover; }
+  /* Ergonomics trio: tall Posture Monitor capture on the left (shown whole, never cropped), the other two stacked on the right. */
+  .tel-grid.tel-grid-ergo { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.4fr); }
+  .tel-grid.tel-grid-ergo .tel-fig img { height: auto; }
+  .tel-grid.tel-grid-ergo .tel-fig.tall-shot { grid-row: span 2; }
+  .tel-grid.tel-grid-ergo .tel-fig.tall-shot img { object-fit: contain; background: #fff; }
+  @media (max-width: 767px) {
+    .tel-grid.tel-grid-ergo { grid-template-columns: minmax(0, 1fr); }
+    .tel-grid.tel-grid-ergo .tel-fig.tall-shot { grid-row: auto; width: 100%; max-width: 420px; margin: 0 auto; }
+  }
+  /* Board pair: both images share the layout's aspect ratio so the layout and the photo line up at the same size. */
+  .tel-grid.tel-grid-pair .tel-fig img { aspect-ratio: 1202 / 1102; height: auto; object-fit: cover; }
 </style>
 
 **1st place Data & Telemetry Award (2025) and 2nd place (2026) at Shell Eco-marathon.** Three generations of telemetry PCBs and ESP32 firmware for EcoVolt CCM: live data to the pit and the driver, 1 kHz current logging to SD card, a supercapacitor reserve that keeps the system running after a power loss, and a simulator loop for energy strategy.
@@ -111,8 +122,8 @@ As the team's main driver, I also carried out the driver ergonomic analysis for 
 
 The ergonomics analysis contributed to EcoVolt CCM winning **1st place in the Vehicle Design Award – Prototype category** at Shell Eco-marathon United States 2026 ($3,000 prize).
 
-<div class="tel-grid">
-  <figure class="tel-fig sq"><img src="{{ 'assets/img/tel-rula-monitor.png' | relative_url }}" alt="Tecnomatix Posture Monitor showing joint angles and RULA scores"><figcaption>Posture Monitor in Tecnomatix Process Simulate: joint angles for the virtual driver in the 2026 cockpit. Neck flexion (47°, yellow) and trunk flexion (84°, red) flagged as angles to watch; elbows at 45° flexion, wrists neutral.</figcaption></figure>
+<div class="tel-grid tel-grid-ergo">
+  <figure class="tel-fig tall-shot"><img src="{{ 'assets/img/tel-rula-monitor.png' | relative_url }}" alt="Tecnomatix Posture Monitor showing joint angles and RULA scores"><figcaption>Posture Monitor in Tecnomatix Process Simulate: joint angles for the virtual driver in the 2026 cockpit. Neck flexion (47°, yellow) and trunk flexion (84°, red) flagged as angles to watch; elbows at 45° flexion, wrists neutral.</figcaption></figure>
   <figure class="tel-fig"><img src="{{ 'assets/img/tel-award-vehicle-design-us26.jpg' | relative_url }}" alt="EcoVolt CCM team receiving the Vehicle Design Award at Shell Eco-marathon United States 2026"><figcaption>EcoVolt CCM team receiving the 1st place Vehicle Design Award – Prototype at Shell Eco-marathon United States 2026, Indianapolis Motor Speedway.</figcaption></figure>
   <figure class="tel-fig auto"><img src="{{ 'assets/img/tel-driver-model.png' | relative_url }}" alt="3D driver model inside the EcoVolt 2026 vehicle shell in Tecnomatix"><figcaption>Driver model inside the 2026 vehicle shell (Tecnomatix Process Simulate).</figcaption></figure>
 </div>
@@ -238,9 +249,9 @@ My role in this revision was primarily mentor and supervisor: José Diego Gonzá
 - **Energy reserve:** the supercapacitor module was added.
 - **Software (team):** a new web platform with a run archive and an AI-assisted analysis assistant.
 
-<div class="tel-grid">
+<div class="tel-grid tel-grid-pair">
   <figure class="tel-fig auto"><img src="{{ 'assets/img/tel-pcb-br26-layout.png' | relative_url }}" alt="Brazil 2026 PCB layout in Altium"><figcaption>Brazil 2026 layout in Altium, credited to Paulina Ruíz Servín and José Diego González Fernández.</figcaption></figure>
-  <figure class="tel-fig photo tall"><img src="{{ 'assets/img/tel-pcb-us26.jpg' | relative_url }}" alt="Fabricated Brazil 2026 board with microSD slot"><figcaption>The fabricated Brazil 2026 board, with the microSD slot and the locking power connector.</figcaption></figure>
+  <figure class="tel-fig photo"><img src="{{ 'assets/img/tel-pcb-us26.jpg' | relative_url }}" alt="Fabricated Brazil 2026 board with microSD slot"><figcaption>The fabricated Brazil 2026 board, with the microSD slot and the locking power connector.</figcaption></figure>
 </div>
 
 <div class="tel-grid">
