@@ -71,7 +71,7 @@ The engineering goals were:
 
 - **PCB design:** designed the INA240 current-sense breakout and the Brazil 2025 telemetry board. I was the main contributor to the US 2026 board (with José Diego González) and co-designed the Brazil 2026 revision; the layout carries both our names.
 - **Current measurement:** designed, hand-built and programmed the first shunt-based bidirectional current sensor, from a home-etched prototype to a fabricated board.
-- **Embedded firmware:** CAN communication with the team's in-house motor controller, the SD-card, SPI and I²C drivers, and current and voltage acquisition in the early versions.
+- **Embedded firmware:** CAN communication with the team's in-house motor controller, the SD-card, SPI, I²C and UART drivers, and current and voltage acquisition in the early versions.
 - **GPS:** configured the NEO-6M receiver's detection region in u-blox u-center.
 - **CAN hardware:** the transceiver circuit and its integration with the motor controller.
 - **Driver display:** as the team's main driver, I defined and validated which information the driver sees and how it is laid out.
