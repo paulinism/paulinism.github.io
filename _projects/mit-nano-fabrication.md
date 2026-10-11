@@ -20,8 +20,7 @@ hide_from_grid: true # shown in the "Professional & lab experience" section inst
 
 <div class="mit-grid">
   <figure class="mit-fig" style="grid-column: 1 / -1"><img src="{{ 'assets/img/mit-group-certificates.jpg' | relative_url }}" alt="Program participants holding their MIT.nano certificates" style="height: auto"><figcaption>The MIT–Tec de Monterrey cohort with our MIT.nano completion certificates, in front of the fab.nano lab.</figcaption></figure>
-  <figure class="mit-fig"><img src="{{ 'assets/img/mit-group-cleanroom.jpg' | relative_url }}" alt="Cohort in cleanroom suits"><figcaption>The cohort in cleanroom suits before entering the lab.</figcaption></figure>
-  <figure class="mit-fig"><img src="{{ 'assets/img/mit-cover-wafer.jpg' | relative_url }}" alt="Patterned wafer held with MIT.nano wafer tweezers"><figcaption>A patterned wafer under yellow light, held with MIT.nano wafer tweezers.</figcaption></figure>
+  <figure class="mit-fig" style="grid-column: 1 / -1; max-width: 640px; justify-self: center"><img src="{{ 'assets/img/mit-group-cleanroom.jpg' | relative_url }}" alt="Cohort in cleanroom suits" style="height: auto"><figcaption>The cohort in cleanroom suits before entering the lab.</figcaption></figure>
 </div>
 
 **Challenge**
