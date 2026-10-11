@@ -210,7 +210,7 @@ The ergonomics analysis contributed to EcoVolt CCM winning **1st place in the Ve
 <div class="tel-grid">
   <figure class="tel-fig sq"><img src="{{ 'assets/img/tel-sch-brazil25.png' | relative_url }}" alt="Telemetry schematic, Brazil 2025"><figcaption>Brazil 2025 schematic: 20 mΩ shunt with INA240A1, 1 MΩ / 56 kΩ divider, MPU6050, NEO-6M and ESP32-C3 SuperMini.</figcaption></figure>
   <figure class="tel-fig sq"><img src="{{ 'assets/img/tel-pcb-brazil25-layout.jpg' | relative_url }}" alt="Brazil 2025 PCB layout in Altium"><figcaption>Brazil 2025 layout in Altium, with the shunt section (IN/OUT pads) on the right.</figcaption></figure>
-  <figure class="tel-fig sq"><video src="{{ 'assets/img/tel-brazil-2025-track.mp4' | relative_url }}" autoplay loop muted playsinline controls></video><figcaption>Track at Pier Mauá, Rio de Janeiro — Brazil 2025.</figcaption></figure>
+  <figure class="tel-fig sq"><video src="{{ 'assets/img/tel-brazil-2025-track.mp4' | relative_url }}" autoplay loop muted playsinline controls></video><figcaption>Track as driver at Pier Mauá, Rio de Janeiro — Brazil 2025.</figcaption></figure>
 </div>
 
 ### Data analysis between seasons
@@ -334,8 +334,8 @@ Download the MATLAB files: [Live Script (.mlx)]({{ 'assets/files/indianapolis-tr
 - **Data resilience:** the final architecture combines SD logging, buffered retransmission and a supercapacitor energy reserve.
 
 <div class="tel-grid">
-  <figure class="tel-fig photo"><img src="{{ 'assets/img/tel-soldering.jpg' | relative_url }}" alt="Soldering a sensor board"><figcaption>Soldering and debugging a sensor board.</figcaption></figure>
-  <figure class="tel-fig photo"><img src="{{ 'assets/img/tel-trackside-brazil.jpg' | relative_url }}" alt="Briefing the drivers trackside in Rio de Janeiro"><figcaption>Briefing the drivers trackside in Rio de Janeiro.</figcaption></figure>
+  <figure class="tel-fig photo"><img src="{{ 'assets/img/tel-soldering.jpg' | relative_url }}" alt="Soldering a sensor board"><figcaption>Hands-on throttle debugging during the Shell Eco-marathon Brazil 2025.</figcaption></figure>
+  <figure class="tel-fig photo"><img src="{{ 'assets/img/tel-trackside-brazil.jpg' | relative_url }}" alt="Briefing the drivers trackside in Rio de Janeiro"><figcaption>Briefing the drivers trackside in Rio de Janeiro on driving strategy and telemetry data.</figcaption></figure>
 </div>
 
 ## Skills & lessons learned
