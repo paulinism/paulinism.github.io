@@ -42,16 +42,6 @@ cv:
           - Ran photolithography and characterization processes in Class 100/1K/10K cleanrooms under strict safety protocols
 
     Projects:
-      - name: Vision-Guided SCARA Pick-and-Place Robot (4 DoF) — Tecnológico de Monterrey
-        url: /projects/scara-robot/
-        start_date: 2026-02
-        end_date: 2026-06
-        summary: "Team of 4 · firmware, electronics and computer-vision integration"
-        highlights:
-          - "Built the vision pipeline: YOLOv11n shape/color classification (mAP@0.5 = 0.72) and ArUco-based pixel-to-mm homography, publishing pick coordinates over MQTT to the ESP32 firmware (C++, ESP-IDF, FreeRTOS)"
-          - "Designed the control board in Altium Designer (ESP32, stepper/DC drivers, encoders, power distribution); selected motors and drivers and integrated the homing sensors (limit switch, AS5600 magnetic encoder)"
-          - "Modeled forward/inverse kinematics and PID joint control in MATLAB/Simulink; final demo placed **5 of 6 parts** correctly at ~14 s per cycle"
-
       - name: Digital Twin of a Flexible CNC Manufacturing Cell — ORZA Tech industry challenge
         url: /projects/orza-digital-twin/
         start_date: 2026-02
@@ -63,6 +53,16 @@ cv:
           - "Developed the plant-wide SCADA screen (OEE, cycle time, scrap rate), a C# Modbus TCP field sensor, and an S7 GET/PUT link to the neighboring station with link-loss alarm"
           - "Synchronized a UR5 PolyScope program in URSim (Virtual Robot Controller) with the PLC via I/O handshake, after hands-on PolyScope work on a physical UR5e"
           - "Programmed the station's part in SOLIDWORKS CAM and analyzed its G-code (canned drilling cycles, G41 cutter compensation, ≈ 12.8 min cycle); built a Cognex In-Sight inspection validated against caliper measurements"
+
+      - name: Vision-Guided SCARA Pick-and-Place Robot (4 DoF) — Tecnológico de Monterrey
+        url: /projects/scara-robot/
+        start_date: 2026-02
+        end_date: 2026-06
+        summary: "Team of 4 · firmware, electronics and computer-vision integration"
+        highlights:
+          - "Built the vision pipeline: YOLOv11n shape/color classification (mAP@0.5 = 0.72) and ArUco-based pixel-to-mm homography, publishing pick coordinates over MQTT to the ESP32 firmware (C++, ESP-IDF, FreeRTOS)"
+          - "Designed the control board in Altium Designer (ESP32, stepper/DC drivers, encoders, power distribution); selected motors and drivers and integrated the homing sensors (limit switch, AS5600 magnetic encoder)"
+          - "Modeled forward/inverse kinematics and PID joint control in MATLAB/Simulink; final demo placed **5 of 6 parts** correctly at ~14 s per cycle"
 
       - name: Automated Viscosity Measurement System — Endress+Hauser industry challenge
         url: /projects/endress-viscosity/
