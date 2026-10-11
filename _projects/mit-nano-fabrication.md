@@ -2,7 +2,7 @@
 layout: page
 title: Semiconductor Microfabrication — MIT.nano
 description: MIT.nano cleanroom intensive — solar cell PCE 15.87 % (Voc 0.60 V), functional MEMS cantilevers and microfluidic mixer — one week, Class 100/1K/10K
-img: assets/img/mitnano-cleanroom-equipment.jpg
+img: assets/img/mit-cover-wafer.jpg
 importance: 4
 category: Fabrication, Electronics
 featured: true
@@ -17,6 +17,12 @@ hide_from_grid: true # shown in the "Professional & lab experience" section inst
   </style>
 
 **Three functional devices in one week at MIT.nano (Cambridge, October 2025): a silicon solar cell at PCE 15.87 % and Voc 0.60 V, MEMS cantilevers that survived force–displacement testing under a 4 mg load, and a PDMS microfluidic mixer.** A cleanroom intensive from the MIT–Tec de Monterrey program, carried out as a team of 2 across Class 100/1K/10K cleanrooms under full PPE/safety protocols.
+
+<div class="mit-grid">
+  <figure class="mit-fig" style="grid-column: 1 / -1"><img src="{{ 'assets/img/mit-group-certificates.jpg' | relative_url }}" alt="Program participants holding their MIT.nano certificates" style="height: auto"><figcaption>The MIT–Tec de Monterrey cohort with our MIT.nano completion certificates, in front of the fab.nano lab.</figcaption></figure>
+  <figure class="mit-fig"><img src="{{ 'assets/img/mit-group-cleanroom.jpg' | relative_url }}" alt="Cohort in cleanroom suits"><figcaption>The cohort in cleanroom suits before entering the lab.</figcaption></figure>
+  <figure class="mit-fig"><img src="{{ 'assets/img/mit-cover-wafer.jpg' | relative_url }}" alt="Patterned wafer held with MIT.nano wafer tweezers"><figcaption>A patterned wafer under yellow light, held with MIT.nano wafer tweezers.</figcaption></figure>
+</div>
 
 **Challenge**
 
