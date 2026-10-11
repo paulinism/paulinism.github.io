@@ -2,7 +2,7 @@
 layout: page
 title: Telemetry & Energy-Optimization Platform
 description: PCB lead & firmware — three generations of telemetry for a Shell Eco-marathon car — 1st (2025) and 2nd (2026) Data & Telemetry Award
-img: assets/img/ecovolt-telemetry.png
+img: assets/img/ecovolt-telemetry.jpg
 importance: 1
 category: PCB, Embedded, Electronics
 featured: true

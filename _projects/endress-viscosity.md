@@ -2,7 +2,7 @@
 layout: page
 title: Automated Viscosity Measurement System
 description: PCB & embedded lead with Endress+Hauser — 400× gain signal chain separating 252 cP from 1676 cP; three Altium boards, two manufactured by JLCPCB
-img: assets/img/viscosity.png
+img: assets/img/viscosity.jpg
 importance: 5
 category: PCB, Embedded, Automation
 featured: true
@@ -25,7 +25,7 @@ featured: true
 **A current window of 6 mA — the difference between diluted and pure soap at 30 RPM — amplified 400× into the ESP32 ADC range, reliably separating 252 cP from 1676 cP on a custom two-stage op-amp board.** Industrial Automation challenge at Tec de Monterrey with Endress+Hauser (team of 4): an automated fluid-handling cycle combining PLC sequencing and ESP32 measurement, from Altium PCB design to physical validation.
 
 <div class="vis-grid hero">
-  <figure class="vis-fig"><img src="{{ 'assets/img/viscosity.png' | relative_url }}" alt="SolidWorks render of the full system"><figcaption>Design: SolidWorks CAD model of the rotary measurement station, viscosity measurement unit, and dispenser as originally planned.</figcaption></figure>
+  <figure class="vis-fig"><img src="{{ 'assets/img/viscosity.jpg' | relative_url }}" alt="SolidWorks render of the full system"><figcaption>Design: SolidWorks CAD model of the rotary measurement station, viscosity measurement unit, and dispenser as originally planned.</figcaption></figure>
   <figure class="vis-fig full"><img src="{{ 'assets/img/visc-system-test.jpg' | relative_url }}" alt="Integrated system during the final presentation"><figcaption>Build: Integrated system presented as the final prototype, combining relays, emergency-stop system, water pump, container sorting, stepper motors, DC motor with encoder, infrared sensors, and conveyor belts for container transport.</figcaption></figure>
 </div>
 
