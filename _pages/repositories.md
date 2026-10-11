@@ -27,3 +27,8 @@ nav_order: 4
     </div>
   </div>
 </div>
+
+<div class="page-nav" style="display: flex; justify-content: space-between; gap: 1rem; margin: 3rem 0 1rem">
+  <a class="btn btn-sm z-depth-0" role="button" href="{{ '/publications/' | relative_url }}">← Previous: Publications</a>
+  <a class="btn btn-sm z-depth-0" role="button" href="{{ '/cv/' | relative_url }}">Next: CV →</a>
+</div>

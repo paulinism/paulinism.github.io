@@ -27,3 +27,8 @@ Co-authored a technical report on n-type silicon solar cell fabrication, MEMS ca
 - Certified SolidWorks Associate – CSWA (Dassault Systèmes)
 - MATLAB, Simulink and Simscape Onramp (MathWorks)
 - Educational PCB Basic Design (Altium Designer)
+
+<div class="page-nav" style="display: flex; justify-content: space-between; gap: 1rem; margin: 3rem 0 1rem">
+  <a class="btn btn-sm z-depth-0" role="button" href="{{ '/projects/' | relative_url }}">← Previous: Projects</a>
+  <a class="btn btn-sm z-depth-0" role="button" href="{{ '/publications/' | relative_url }}">Next: Publications →</a>
+</div>

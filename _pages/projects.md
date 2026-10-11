@@ -63,3 +63,8 @@ horizontal: false
     </div>
   </div>
 </div>
+
+<div class="page-nav" style="display: flex; justify-content: space-between; gap: 1rem; margin: 3rem 0 1rem">
+  <a class="btn btn-sm z-depth-0" role="button" href="{{ '/' | relative_url }}">← Previous: About</a>
+  <a class="btn btn-sm z-depth-0" role="button" href="{{ '/achievements/' | relative_url }}">Next: Achievements →</a>
+</div>
