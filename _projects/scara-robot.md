@@ -23,7 +23,7 @@ featured: true
 **5 out of 6 pieces picked and placed correctly in the final demonstration, at approximately 14 seconds per cycle.** The robot classifies pieces by shape and colour with a YOLOv11n model (mAP@0.5 = 0.72) running on my own computer, then picks and places them autonomously — coordinates flow from Python over MQTT to C++ firmware on an ESP32.
 
 <div class="sc-grid single">
-  <figure class="sc-fig"><video src="{{ 'assets/img/scara-demo.mp4' | relative_url }}" poster="{{ 'assets/img/scara-demo-poster.jpg' | relative_url }}" controls preload="metadata" playsinline></video><figcaption>Final presentation: the robot sorting the test pieces autonomously on the ArUco-marked workspace while the vision pipeline runs live on the laptop and external display.</figcaption></figure>
+  <figure class="sc-fig"><video src="{{ 'assets/img/scara-demo.mp4' | relative_url }}" poster="{{ 'assets/img/scara-demo-poster.jpg' | relative_url }}" autoplay muted loop playsinline></video><figcaption>Final project presentation: testing the gripper's grip, demonstrating joint control through the HMI and by sending commands directly to the MQTT broker, and explaining how the real-time vision system works.</figcaption></figure>
 </div>
 
 ## Project overview
