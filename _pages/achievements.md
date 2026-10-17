@@ -80,9 +80,10 @@ Co-authored a technical report on n-type silicon solar cell fabrication, MEMS ca
 - MATLAB, Simulink and Simscape Onramp (MathWorks)
 - Educational PCB Basic Design (Altium Designer)
 
-### Certificate viewer
+<!--- ### Certificate viewer --->
 
-Flip through my certificates and award documents, grouped by Electrical Engineering, Automation and Shell Eco-marathon, each in chronological order. Use the arrows, your keyboard (← →), swipe on mobile, or tap a thumbnail.
+<!--- Flip through my certificates and award documents, grouped by Electrical Engineering, Automation and Shell Eco-marathon, each in chronological order. ---> 
+Use the arrows, your keyboard (← →), swipe on mobile, or tap a thumbnail.
 
 <div class="certbook" id="certbook" tabindex="0" aria-label="Certificate viewer">
   <div class="certbook-stage">
