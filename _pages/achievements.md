@@ -5,6 +5,39 @@ permalink: /achievements/
 description: Awards, participations, co-authored papers, and certifications.
 nav: true
 nav_order: 2
+certificates:
+  - file: cert-01.jpg
+    caption: "Altium Education — PCB Basic Design Course (Feb 2026)"
+  - file: cert-02.jpg
+    caption: "Dassault Systèmes — Certified SOLIDWORKS Associate, CSWA (Aug 2026)"
+  - file: cert-03.jpg
+    caption: "Universal Robots — Educational Robotics Training, Core (Mar 2026)"
+  - file: cert-04.jpg
+    caption: "Universal Robots — Educational Robotics Training, Core: curriculum"
+  - file: cert-05.jpg
+    caption: "Universal Robots — e-Series Core Track (Mar 2026)"
+  - file: cert-06.jpg
+    caption: "Universal Robots — e-Series Pro Track (Mar 2026)"
+  - file: cert-07.jpg
+    caption: "Siemens Xcelerator Academy — Process Simulate Standalone Associate (Jun 2026)"
+  - file: cert-08.jpg
+    caption: "Altair Global Student Contest 2025 — Honorable Mention"
+  - file: cert-09.jpg
+    caption: "Shell Eco-marathon United States 2026 — Runner-Up, Data & Telemetry Award"
+  - file: cert-10.jpg
+    caption: "Shell Eco-marathon United States 2026 — Winner, Vehicle Design Award (Prototype)"
+  - file: cert-11.jpg
+    caption: "Shell Eco-marathon United States 2026 — Certificate of Results"
+  - file: cert-12.jpg
+    caption: "Shell Eco-marathon Brazil 2026 — Certificate of Participation"
+  - file: cert-13.jpg
+    caption: "Shell Eco-marathon Americas 2025 — Winner, Data & Telemetry Award"
+  - file: cert-14.jpg
+    caption: "Shell Eco-marathon Americas 2025 — Certificate of Results"
+  - file: cert-15.jpg
+    caption: "Shell Eco-marathon Brazil 2025 — Certificate of Results"
+  - file: cert-16.jpg
+    caption: "MathWorks — Simulink Onramp (Oct 2026)"
 ---
 
 **Shell Eco-marathon** — Team Captain & Electronics Lead, Escudería EcoVolt CCM (2023–2026)
@@ -23,10 +56,126 @@ Co-authored a technical report on n-type silicon solar cell fabrication, MEMS ca
 ## Certifications
 
 - Process Simulate Standalone Associate (Siemens)
-- Educational Robotics Training – Core (Universal Robots)
+- Educational Robotics Training – Core, e-Series Core Track and e-Series Pro Track (Universal Robots)
 - Certified SolidWorks Associate – CSWA (Dassault Systèmes)
 - MATLAB, Simulink and Simscape Onramp (MathWorks)
 - Educational PCB Basic Design (Altium Designer)
+
+### Certificate viewer
+
+Flip through my certificates and award documents. Use the arrows, your keyboard (← →), swipe on mobile, or tap a thumbnail.
+
+<div class="certbook" id="certbook" tabindex="0" aria-label="Certificate viewer">
+  <div class="certbook-stage">
+    <button class="certbook-btn prev" type="button" aria-label="Previous certificate">&#8249;</button>
+    <div class="certbook-page">
+      {% for c in page.certificates %}
+        <figure class="certbook-sheet{% if forloop.first %} active{% endif %}" data-caption="{{ c.caption | escape }}">
+          <img
+            src="{{ '/assets/img/certificates/' | append: c.file | relative_url }}"
+            alt="{{ c.caption | escape }}"
+            loading="{% if forloop.index <= 2 %}eager{% else %}lazy{% endif %}"
+          >
+        </figure>
+      {% endfor %}
+    </div>
+    <button class="certbook-btn next" type="button" aria-label="Next certificate">&#8250;</button>
+  </div>
+  <p class="certbook-caption"></p>
+  <div class="certbook-bar">
+    <span class="certbook-count"></span>
+    <a class="btn btn-sm z-depth-0" href="{{ '/assets/pdf/Certificates_Paulina_Ruiz.pdf' | relative_url }}" target="_blank" rel="noopener">Open full PDF</a>
+  </div>
+  <div class="certbook-thumbs">
+    {% for c in page.certificates %}
+      <button type="button" class="certbook-thumb{% if forloop.first %} active{% endif %}" data-i="{{ forloop.index0 }}" aria-label="{{ c.caption | escape }}">
+        <img src="{{ '/assets/img/certificates/' | append: c.file | relative_url }}" alt="" loading="lazy">
+      </button>
+    {% endfor %}
+  </div>
+</div>
+
+<style>
+  .certbook { margin: 1.5rem 0 1rem; outline: none; }
+  .certbook-stage { position: relative; display: flex; align-items: center; gap: 0.5rem; }
+  .certbook-page {
+    position: relative; flex: 1; aspect-ratio: 4 / 3; perspective: 1600px;
+    background: var(--global-code-bg-color, rgba(0, 0, 0, 0.04)); border-radius: 8px; overflow: hidden;
+  }
+  .certbook-sheet {
+    position: absolute; inset: 0; margin: 0; display: flex; align-items: center; justify-content: center; padding: 3%;
+    opacity: 0; pointer-events: none; transform-origin: left center; transform: rotateY(-70deg);
+    transition: transform 0.55s ease, opacity 0.45s ease; backface-visibility: hidden;
+  }
+  .certbook-sheet.left { transform-origin: right center; transform: rotateY(70deg); }
+  .certbook-sheet.active { opacity: 1; pointer-events: auto; transform: rotateY(0); }
+  .certbook-sheet img { max-width: 100%; max-height: 100%; object-fit: contain; box-shadow: 0 4px 18px rgba(0, 0, 0, 0.18); background: #fff; cursor: zoom-in; }
+  .certbook-btn {
+    flex: 0 0 auto; width: 2.4rem; height: 2.4rem; border-radius: 50%; border: 1px solid var(--global-divider-color, #ccc);
+    background: var(--global-bg-color, #fff); color: var(--global-theme-color, #333); font-size: 1.6rem; line-height: 1; cursor: pointer;
+  }
+  .certbook-btn:disabled { opacity: 0.3; cursor: default; }
+  .certbook-caption { text-align: center; font-weight: 600; margin: 0.8rem 0 0.2rem; min-height: 1.5em; }
+  .certbook-bar { display: flex; justify-content: center; align-items: center; gap: 1rem; font-size: 0.9rem; }
+  .certbook-thumbs { display: flex; gap: 0.4rem; overflow-x: auto; padding: 0.8rem 0.1rem 0.3rem; }
+  .certbook-thumb { flex: 0 0 auto; width: 64px; height: 48px; padding: 0; border: 2px solid transparent; border-radius: 4px; background: #fff; cursor: pointer; opacity: 0.6; }
+  .certbook-thumb img { width: 100%; height: 100%; object-fit: contain; }
+  .certbook-thumb.active { border-color: var(--global-theme-color, #333); opacity: 1; }
+  @media (max-width: 576px) {
+    .certbook-page { aspect-ratio: 3 / 4; }
+    .certbook-btn { width: 2rem; height: 2rem; font-size: 1.3rem; }
+  }
+  @media (prefers-reduced-motion: reduce) { .certbook-sheet { transition: opacity 0.2s; transform: none !important; } }
+</style>
+
+<script>
+  (function () {
+    var book = document.getElementById("certbook");
+    if (!book) return;
+    var sheets = book.querySelectorAll(".certbook-sheet");
+    var thumbs = book.querySelectorAll(".certbook-thumb");
+    var prev = book.querySelector(".prev");
+    var next = book.querySelector(".next");
+    var cap = book.querySelector(".certbook-caption");
+    var count = book.querySelector(".certbook-count");
+    var cur = 0;
+    function show(i) {
+      if (i < 0 || i >= sheets.length) return;
+      for (var k = 0; k < sheets.length; k++) {
+        sheets[k].classList.toggle("active", k === i);
+        sheets[k].classList.toggle("left", k < i);
+        thumbs[k].classList.toggle("active", k === i);
+      }
+      cur = i;
+      cap.textContent = sheets[i].getAttribute("data-caption");
+      count.textContent = i + 1 + " / " + sheets.length;
+      prev.disabled = i === 0;
+      next.disabled = i === sheets.length - 1;
+      thumbs[i].scrollIntoView({ block: "nearest", inline: "nearest" });
+    }
+    prev.addEventListener("click", function () { show(cur - 1); });
+    next.addEventListener("click", function () { show(cur + 1); });
+    thumbs.forEach(function (t) {
+      t.addEventListener("click", function () { show(+t.getAttribute("data-i")); });
+    });
+    book.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowLeft") { show(cur - 1); e.preventDefault(); }
+      if (e.key === "ArrowRight") { show(cur + 1); e.preventDefault(); }
+    });
+    var x0 = null;
+    book.addEventListener("touchstart", function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+    book.addEventListener("touchend", function (e) {
+      if (x0 === null) return;
+      var dx = e.changedTouches[0].clientX - x0;
+      if (Math.abs(dx) > 40) show(cur + (dx < 0 ? 1 : -1));
+      x0 = null;
+    });
+    book.querySelectorAll(".certbook-sheet img").forEach(function (img) {
+      img.addEventListener("click", function () { window.open(img.src, "_blank"); });
+    });
+    show(0);
+  })();
+</script>
 
 <div class="page-nav" style="display: flex; justify-content: space-between; gap: 1rem; margin: 3rem 0 1rem">
   <a class="btn btn-sm z-depth-0" role="button" href="{{ '/projects/' | relative_url }}">← Previous: Projects</a>
