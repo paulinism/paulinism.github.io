@@ -7,37 +7,39 @@ nav: true
 nav_order: 2
 certificates:
   - file: cert-01.jpg
-    caption: "Altium Education — PCB Basic Design Course (Feb 2026)"
+    caption: "Shell Eco-marathon Americas 2025 — Winner, Data & Telemetry Award (Apr 2025)"
   - file: cert-02.jpg
+    caption: "Shell Eco-marathon Americas 2025 — Certificate of Results (Apr 2025)"
+  - file: cert-03.jpg
+    caption: "Shell Eco-marathon Brazil 2025 — Certificate of Results (Aug 2025)"
+  - file: cert-04.jpg
+    caption: "MIT.nano, Massachusetts Institute of Technology — 2025 NanoLab (Oct 2025)"
+  - file: cert-05.jpg
+    caption: "Altair Global Student Contest 2025 — Honorable Mention"
+  - file: cert-06.jpg
+    caption: "Altium Education — PCB Basic Design Course (Feb 2026)"
+  - file: cert-07.jpg
+    caption: "Universal Robots — e-Series Core Track (Mar 2026)"
+  - file: cert-08.jpg
+    caption: "Universal Robots — e-Series Pro Track (Mar 2026)"
+  - file: cert-09.jpg
+    caption: "Universal Robots — Educational Robotics Training, Core (Mar 2026)"
+  - file: cert-10.jpg
+    caption: "Universal Robots — Educational Robotics Training, Core: curriculum"
+  - file: cert-11.jpg
+    caption: "Shell Eco-marathon United States 2026 — Runner-Up, Data & Telemetry Award (Apr 2026)"
+  - file: cert-12.jpg
+    caption: "Shell Eco-marathon United States 2026 — Winner, Vehicle Design Award, Prototype (Apr 2026)"
+  - file: cert-13.jpg
+    caption: "Shell Eco-marathon United States 2026 — Certificate of Results (Apr 2026)"
+  - file: cert-14.jpg
+    caption: "Siemens Xcelerator Academy — Process Simulate Standalone Associate (Jun 2026)"
+  - file: cert-15.jpg
     caption: "Dassault Systèmes — Certified SOLIDWORKS Associate, CSWA (Aug 2026)"
   - file: cert-16.jpg
+    caption: "Shell Eco-marathon Brazil 2026 — Certificate of Participation (Aug 2026)"
+  - file: cert-17.jpg
     caption: "MathWorks — Simulink Onramp (Oct 2026)"
-  - file: cert-03.jpg
-    caption: "Universal Robots — Educational Robotics Training, Core (Mar 2026)"
-  - file: cert-04.jpg
-    caption: "Universal Robots — Educational Robotics Training, Core: curriculum"
-  - file: cert-05.jpg
-    caption: "Universal Robots — e-Series Core Track (Mar 2026)"
-  - file: cert-06.jpg
-    caption: "Universal Robots — e-Series Pro Track (Mar 2026)"
-  - file: cert-07.jpg
-    caption: "Siemens Xcelerator Academy — Process Simulate Standalone Associate (Jun 2026)"
-  - file: cert-08.jpg
-    caption: "Altair Global Student Contest 2025 — Honorable Mention"
-  - file: cert-09.jpg
-    caption: "Shell Eco-marathon United States 2026 — Runner-Up, Data & Telemetry Award"
-  - file: cert-10.jpg
-    caption: "Shell Eco-marathon United States 2026 — Winner, Vehicle Design Award (Prototype)"
-  - file: cert-11.jpg
-    caption: "Shell Eco-marathon United States 2026 — Certificate of Results"
-  - file: cert-12.jpg
-    caption: "Shell Eco-marathon Brazil 2026 — Certificate of Participation"
-  - file: cert-13.jpg
-    caption: "Shell Eco-marathon Americas 2025 — Winner, Data & Telemetry Award"
-  - file: cert-14.jpg
-    caption: "Shell Eco-marathon Americas 2025 — Certificate of Results"
-  - file: cert-15.jpg
-    caption: "Shell Eco-marathon Brazil 2025 — Certificate of Results"
 ---
 
 **Shell Eco-marathon** — Team Captain & Electronics Lead, Escudería EcoVolt CCM (2023–2026)
@@ -63,7 +65,7 @@ Co-authored a technical report on n-type silicon solar cell fabrication, MEMS ca
 
 ### Certificate viewer
 
-Flip through my certificates and award documents. Use the arrows, your keyboard (← →), swipe on mobile, or tap a thumbnail.
+Flip through my certificates and award documents, in chronological order. Use the arrows, your keyboard (← →), swipe on mobile, or tap a thumbnail.
 
 <div class="certbook" id="certbook" tabindex="0" aria-label="Certificate viewer">
   <div class="certbook-stage">
