@@ -10,6 +10,8 @@ certificates:
     caption: "Altium Education — PCB Basic Design Course (Feb 2026)"
   - file: cert-02.jpg
     caption: "Dassault Systèmes — Certified SOLIDWORKS Associate, CSWA (Aug 2026)"
+  - file: cert-16.jpg
+    caption: "MathWorks — Simulink Onramp (Oct 2026)"
   - file: cert-03.jpg
     caption: "Universal Robots — Educational Robotics Training, Core (Mar 2026)"
   - file: cert-04.jpg
@@ -36,8 +38,6 @@ certificates:
     caption: "Shell Eco-marathon Americas 2025 — Certificate of Results"
   - file: cert-15.jpg
     caption: "Shell Eco-marathon Brazil 2025 — Certificate of Results"
-  - file: cert-16.jpg
-    caption: "MathWorks — Simulink Onramp (Oct 2026)"
 ---
 
 **Shell Eco-marathon** — Team Captain & Electronics Lead, Escudería EcoVolt CCM (2023–2026)
