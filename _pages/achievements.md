@@ -73,15 +73,13 @@ Co-authored: _"AI-Driven Data Analysis for Vehicle Energy Efficiency"_ with Jos�
 Co-authored a technical report on n-type silicon solar cell fabrication, MEMS cantilever fabrication, and microfluidic diffusion mixer fabrication, in collaboration with a teammate, under Dr. Javier Izquierdo Reyes and Dr. Arnoldo Salazar Soto (Tecnológico de Monterrey / MIT).
 
 ## Certifications
-
+<!---
 - Process Simulate Standalone Associate (Siemens)
 - Educational Robotics Training – Core, e-Series Core Track and e-Series Pro Track (Universal Robots)
 - Certified SolidWorks Associate – CSWA (Dassault Systèmes)
 - MATLAB, Simulink and Simscape Onramp (MathWorks)
-- Educational PCB Basic Design (Altium Designer)
-
+- Educational PCB Basic Design (Altium Designer)  --->
 <!--- ### Certificate viewer --->
-
 <!--- Flip through my certificates and award documents, grouped by Electrical Engineering, Automation and Shell Eco-marathon, each in chronological order. ---> 
 Use the arrows, your keyboard (← →), swipe on mobile, or tap a thumbnail.
 
