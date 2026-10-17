@@ -7,39 +7,56 @@ nav: true
 nav_order: 2
 certificates:
   - file: cert-01.jpg
-    caption: "Shell Eco-marathon Americas 2025 — Winner, Data & Telemetry Award (Apr 2025)"
-  - file: cert-02.jpg
-    caption: "Shell Eco-marathon Americas 2025 — Certificate of Results (Apr 2025)"
-  - file: cert-03.jpg
-    caption: "Shell Eco-marathon Brazil 2025 — Certificate of Results (Aug 2025)"
-  - file: cert-04.jpg
+    group: "Electrical Engineering"
     caption: "MIT.nano, Massachusetts Institute of Technology — 2025 NanoLab (Oct 2025)"
-  - file: cert-05.jpg
+  - file: cert-02.jpg
+    group: "Electrical Engineering"
     caption: "Altair Global Student Contest 2025 — Honorable Mention"
-  - file: cert-06.jpg
+  - file: cert-03.jpg
+    group: "Electrical Engineering"
     caption: "Altium Education — PCB Basic Design Course (Feb 2026)"
-  - file: cert-07.jpg
-    caption: "Universal Robots — e-Series Core Track (Mar 2026)"
-  - file: cert-08.jpg
-    caption: "Universal Robots — e-Series Pro Track (Mar 2026)"
-  - file: cert-09.jpg
-    caption: "Universal Robots — Educational Robotics Training, Core (Mar 2026)"
-  - file: cert-10.jpg
-    caption: "Universal Robots — Educational Robotics Training, Core: curriculum"
-  - file: cert-11.jpg
-    caption: "Shell Eco-marathon United States 2026 — Runner-Up, Data & Telemetry Award (Apr 2026)"
-  - file: cert-12.jpg
-    caption: "Shell Eco-marathon United States 2026 — Winner, Vehicle Design Award, Prototype (Apr 2026)"
-  - file: cert-13.jpg
-    caption: "Shell Eco-marathon United States 2026 — Certificate of Results (Apr 2026)"
-  - file: cert-14.jpg
-    caption: "Siemens Xcelerator Academy — Process Simulate Standalone Associate (Jun 2026)"
-  - file: cert-15.jpg
-    caption: "Dassault Systèmes — Certified SOLIDWORKS Associate, CSWA (Aug 2026)"
-  - file: cert-16.jpg
-    caption: "Shell Eco-marathon Brazil 2026 — Certificate of Participation (Aug 2026)"
-  - file: cert-17.jpg
+  - file: cert-04.jpg
+    group: "Electrical Engineering"
     caption: "MathWorks — Simulink Onramp (Oct 2026)"
+  - file: cert-05.jpg
+    group: "Automation"
+    caption: "Universal Robots — e-Series Core Track (Mar 2026)"
+  - file: cert-06.jpg
+    group: "Automation"
+    caption: "Universal Robots — e-Series Pro Track (Mar 2026)"
+  - file: cert-07.jpg
+    group: "Automation"
+    caption: "Universal Robots — Educational Robotics Training, Core (Mar 2026)"
+  - file: cert-08.jpg
+    group: "Automation"
+    caption: "Universal Robots — Educational Robotics Training, Core: curriculum"
+  - file: cert-09.jpg
+    group: "Automation"
+    caption: "Siemens Xcelerator Academy — Process Simulate Standalone Associate (Jun 2026)"
+  - file: cert-10.jpg
+    group: "Automation"
+    caption: "Dassault Systèmes — Certified SOLIDWORKS Associate, CSWA (Aug 2026)"
+  - file: cert-11.jpg
+    group: "Shell Eco-marathon"
+    caption: "Shell Eco-marathon Americas 2025 — Winner, Data & Telemetry Award (Apr 2025)"
+  - file: cert-12.jpg
+    group: "Shell Eco-marathon"
+    caption: "Shell Eco-marathon Americas 2025 — Certificate of Results (Apr 2025)"
+  - file: cert-13.jpg
+    group: "Shell Eco-marathon"
+    caption: "Shell Eco-marathon Brazil 2025 — Certificate of Results (Aug 2025)"
+  - file: cert-14.jpg
+    group: "Shell Eco-marathon"
+    caption: "Shell Eco-marathon United States 2026 — Runner-Up, Data & Telemetry Award (Apr 2026)"
+  - file: cert-15.jpg
+    group: "Shell Eco-marathon"
+    caption: "Shell Eco-marathon United States 2026 — Winner, Vehicle Design Award, Prototype (Apr 2026)"
+  - file: cert-16.jpg
+    group: "Shell Eco-marathon"
+    caption: "Shell Eco-marathon United States 2026 — Certificate of Results (Apr 2026)"
+  - file: cert-17.jpg
+    group: "Shell Eco-marathon"
+    caption: "Shell Eco-marathon Brazil 2026 — Certificate of Participation (Aug 2026)"
 ---
 
 **Shell Eco-marathon** — Team Captain & Electronics Lead, Escudería EcoVolt CCM (2023–2026)
@@ -65,14 +82,14 @@ Co-authored a technical report on n-type silicon solar cell fabrication, MEMS ca
 
 ### Certificate viewer
 
-Flip through my certificates and award documents, in chronological order. Use the arrows, your keyboard (← →), swipe on mobile, or tap a thumbnail.
+Flip through my certificates and award documents, grouped by Electrical Engineering, Automation and Shell Eco-marathon, each in chronological order. Use the arrows, your keyboard (← →), swipe on mobile, or tap a thumbnail.
 
 <div class="certbook" id="certbook" tabindex="0" aria-label="Certificate viewer">
   <div class="certbook-stage">
     <button class="certbook-btn prev" type="button" aria-label="Previous certificate">&#8249;</button>
     <div class="certbook-page">
       {% for c in page.certificates %}
-        <figure class="certbook-sheet{% if forloop.first %} active{% endif %}" data-caption="{{ c.caption | escape }}">
+        <figure class="certbook-sheet{% if forloop.first %} active{% endif %}" data-caption="{{ c.caption | escape }}" data-group="{{ c.group | escape }}">
           <img
             src="{{ '/assets/img/certificates/' | append: c.file | relative_url }}"
             alt="{{ c.caption | escape }}"
@@ -119,6 +136,10 @@ Flip through my certificates and award documents, in chronological order. Use th
   }
   .certbook-btn:disabled { opacity: 0.3; cursor: default; }
   .certbook-caption { text-align: center; font-weight: 600; margin: 0.8rem 0 0.2rem; min-height: 1.5em; }
+  .certbook-group {
+    display: block; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--global-theme-color, #555); margin-bottom: 0.15rem;
+  }
   .certbook-bar { display: flex; justify-content: center; align-items: center; gap: 1rem; font-size: 0.9rem; }
   .certbook-thumbs { display: flex; gap: 0.4rem; overflow-x: auto; padding: 0.8rem 0.1rem 0.3rem; }
   .certbook-thumb { flex: 0 0 auto; width: 64px; height: 48px; padding: 0; border: 2px solid transparent; border-radius: 4px; background: #fff; cursor: pointer; opacity: 0.6; }
@@ -141,6 +162,11 @@ Flip through my certificates and award documents, in chronological order. Use th
     var next = book.querySelector(".next");
     var cap = book.querySelector(".certbook-caption");
     var count = book.querySelector(".certbook-count");
+    var grp = document.createElement("span");
+    grp.className = "certbook-group";
+    var capText = document.createElement("span");
+    cap.appendChild(grp);
+    cap.appendChild(capText);
     var cur = 0;
     function show(i) {
       if (i < 0 || i >= sheets.length) return;
@@ -151,7 +177,8 @@ Flip through my certificates and award documents, in chronological order. Use th
         thumbs[k].classList.toggle("active", k === i);
       }
       cur = i;
-      cap.textContent = sheets[i].getAttribute("data-caption");
+      grp.textContent = sheets[i].getAttribute("data-group");
+      capText.textContent = sheets[i].getAttribute("data-caption");
       count.textContent = i + 1 + " / " + sheets.length;
       prev.disabled = i === 0;
       next.disabled = i === sheets.length - 1;
