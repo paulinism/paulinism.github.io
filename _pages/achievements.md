@@ -37,24 +37,27 @@ certificates:
     group: "Automation"
     caption: "Dassault Systèmes — Certified SOLIDWORKS Associate, CSWA (Aug 2026)"
   - file: cert-11.jpg
-    group: "Shell Eco-marathon"
-    caption: "Shell Eco-marathon Americas 2025 — Winner, Data & Telemetry Award (Apr 2025)"
+    group: "Automation"
+    caption: "Universal Robots — e-Series Application Track (Oct 2026)"
   - file: cert-12.jpg
     group: "Shell Eco-marathon"
-    caption: "Shell Eco-marathon Americas 2025 — Certificate of Results (Apr 2025)"
+    caption: "Shell Eco-marathon Americas 2025 — Winner, Data & Telemetry Award (Apr 2025)"
   - file: cert-13.jpg
     group: "Shell Eco-marathon"
-    caption: "Shell Eco-marathon Brazil 2025 — Certificate of Results (Aug 2025)"
+    caption: "Shell Eco-marathon Americas 2025 — Certificate of Results (Apr 2025)"
   - file: cert-14.jpg
     group: "Shell Eco-marathon"
-    caption: "Shell Eco-marathon United States 2026 — Runner-Up, Data & Telemetry Award (Apr 2026)"
+    caption: "Shell Eco-marathon Brazil 2025 — Certificate of Results (Aug 2025)"
   - file: cert-15.jpg
     group: "Shell Eco-marathon"
-    caption: "Shell Eco-marathon United States 2026 — Winner, Vehicle Design Award, Prototype (Apr 2026)"
+    caption: "Shell Eco-marathon United States 2026 — Runner-Up, Data & Telemetry Award (Apr 2026)"
   - file: cert-16.jpg
     group: "Shell Eco-marathon"
-    caption: "Shell Eco-marathon United States 2026 — Certificate of Results (Apr 2026)"
+    caption: "Shell Eco-marathon United States 2026 — Winner, Vehicle Design Award, Prototype (Apr 2026)"
   - file: cert-17.jpg
+    group: "Shell Eco-marathon"
+    caption: "Shell Eco-marathon United States 2026 — Certificate of Results (Apr 2026)"
+  - file: cert-18.jpg
     group: "Shell Eco-marathon"
     caption: "Shell Eco-marathon Brazil 2026 — Certificate of Participation (Aug 2026)"
 ---
@@ -75,13 +78,14 @@ Co-authored a technical report on n-type silicon solar cell fabrication, MEMS ca
 ## Certifications
 
 - Process Simulate Standalone Associate (Siemens)
-- Educational Robotics Training – Core, e-Series Core Track and e-Series Pro Track (Universal Robots)
+- Educational Robotics Training – Core, e-Series Core Track, e-Series Pro Track and e-Series Application Track (Universal Robots)
 - Certified SolidWorks Associate – CSWA (Dassault Systèmes)
 - MATLAB, Simulink and Simscape Onramp (MathWorks)
 - Educational PCB Basic Design (Altium Designer)
 
 <!--- ### Certificate viewer --->
-<!--- Flip through my certificates and award documents, grouped by Electrical Engineering, Automation and Shell Eco-marathon, each in chronological order. ---> 
+<!--- Flip through my certificates and award documents, grouped by Electrical Engineering, Automation and Shell Eco-marathon, each in chronological order. --->
+
 Use the arrows, your keyboard (← →), swipe on mobile, or tap a thumbnail.
 
 <div class="certbook" id="certbook" tabindex="0" aria-label="Certificate viewer">
