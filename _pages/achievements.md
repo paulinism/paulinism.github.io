@@ -26,19 +26,19 @@ certificates:
     caption: "Universal Robots — e-Series Pro Track (Mar 2026)"
   - file: cert-07.jpg
     group: "Automation"
-    caption: "Universal Robots — Educational Robotics Training, Core (Mar 2026)"
+    caption: "Universal Robots — e-Series Application Track (Oct 2026)"
   - file: cert-08.jpg
     group: "Automation"
-    caption: "Universal Robots — Educational Robotics Training, Core: curriculum"
+    caption: "Universal Robots — Educational Robotics Training, Core (Mar 2026)"
   - file: cert-09.jpg
     group: "Automation"
-    caption: "Siemens Xcelerator Academy — Process Simulate Standalone Associate (Jun 2026)"
+    caption: "Universal Robots — Educational Robotics Training, Core: curriculum"
   - file: cert-10.jpg
     group: "Automation"
-    caption: "Dassault Systèmes — Certified SOLIDWORKS Associate, CSWA (Aug 2026)"
+    caption: "Siemens Xcelerator Academy — Process Simulate Standalone Associate (Jun 2026)"
   - file: cert-11.jpg
     group: "Automation"
-    caption: "Universal Robots — e-Series Application Track (Oct 2026)"
+    caption: "Dassault Systèmes — Certified SOLIDWORKS Associate, CSWA (Aug 2026)"
   - file: cert-12.jpg
     group: "Shell Eco-marathon"
     caption: "Shell Eco-marathon Americas 2025 — Winner, Data & Telemetry Award (Apr 2025)"
