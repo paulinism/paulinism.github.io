@@ -77,12 +77,6 @@ Co-authored a technical report on n-type silicon solar cell fabrication, MEMS ca
 
 ## Certifications
 
-- Process Simulate Standalone Associate (Siemens)
-- Educational Robotics Training – Core, e-Series Core Track, e-Series Pro Track and e-Series Application Track (Universal Robots)
-- Certified SolidWorks Associate – CSWA (Dassault Systèmes)
-- MATLAB, Simulink and Simscape Onramp (MathWorks)
-- Educational PCB Basic Design (Altium Designer)
-
 <!--- ### Certificate viewer --->
 <!--- Flip through my certificates and award documents, grouped by Electrical Engineering, Automation and Shell Eco-marathon, each in chronological order. --->
 
@@ -219,3 +213,9 @@ Use the arrows, your keyboard (← →), swipe on mobile, or tap a thumbnail.
   <a class="btn btn-sm z-depth-0" role="button" href="{{ '/projects/' | relative_url }}">← Previous: Projects</a>
   <a class="btn btn-sm z-depth-0" role="button" href="{{ '/publications/' | relative_url }}">Next: Publications →</a>
 </div>
+
+- Process Simulate Standalone Associate (Siemens)
+- Educational Robotics Training – Core, e-Series Core Track, e-Series Pro Track and e-Series Application Track (Universal Robots)
+- Certified SolidWorks Associate – CSWA (Dassault Systèmes)
+- MATLAB, Simulink and Simscape Onramp (MathWorks)
+- Educational PCB Basic Design (Altium Designer)
