@@ -35,29 +35,38 @@ certificates:
     caption: "Universal Robots — Educational Robotics Training, Core: curriculum"
   - file: cert-10.jpg
     group: "Automation"
-    caption: "Siemens Xcelerator Academy — Process Simulate Standalone Associate (Jun 2026)"
+    caption: "MiR Academy — Personnel Safety (Oct 2026)"
   - file: cert-11.jpg
     group: "Automation"
-    caption: "Dassault Systèmes — Certified SOLIDWORKS Associate, CSWA (Aug 2026)"
+    caption: "MiR Academy — Autonomous Navigation (Oct 2026)"
   - file: cert-12.jpg
-    group: "Shell Eco-marathon"
-    caption: "Shell Eco-marathon Americas 2025 — Winner, Data & Telemetry Award (Apr 2025)"
+    group: "Automation"
+    caption: "MiR Academy — Mission Programming (Oct 2026)"
   - file: cert-13.jpg
-    group: "Shell Eco-marathon"
-    caption: "Shell Eco-marathon Americas 2025 — Certificate of Results (Apr 2025)"
+    group: "Automation"
+    caption: "Siemens Xcelerator Academy — Process Simulate Standalone Associate (Jun 2026)"
   - file: cert-14.jpg
-    group: "Shell Eco-marathon"
-    caption: "Shell Eco-marathon Brazil 2025 — Certificate of Results (Aug 2025)"
+    group: "Automation"
+    caption: "Dassault Systèmes — Certified SOLIDWORKS Associate, CSWA (Aug 2026)"
   - file: cert-15.jpg
     group: "Shell Eco-marathon"
-    caption: "Shell Eco-marathon United States 2026 — Runner-Up, Data & Telemetry Award (Apr 2026)"
+    caption: "Shell Eco-marathon Americas 2025 — Winner, Data & Telemetry Award (Apr 2025)"
   - file: cert-16.jpg
     group: "Shell Eco-marathon"
-    caption: "Shell Eco-marathon United States 2026 — Winner, Vehicle Design Award, Prototype (Apr 2026)"
+    caption: "Shell Eco-marathon Americas 2025 — Certificate of Results (Apr 2025)"
   - file: cert-17.jpg
     group: "Shell Eco-marathon"
-    caption: "Shell Eco-marathon United States 2026 — Certificate of Results (Apr 2026)"
+    caption: "Shell Eco-marathon Brazil 2025 — Certificate of Results (Aug 2025)"
   - file: cert-18.jpg
+    group: "Shell Eco-marathon"
+    caption: "Shell Eco-marathon United States 2026 — Runner-Up, Data & Telemetry Award (Apr 2026)"
+  - file: cert-19.jpg
+    group: "Shell Eco-marathon"
+    caption: "Shell Eco-marathon United States 2026 — Winner, Vehicle Design Award, Prototype (Apr 2026)"
+  - file: cert-20.jpg
+    group: "Shell Eco-marathon"
+    caption: "Shell Eco-marathon United States 2026 — Certificate of Results (Apr 2026)"
+  - file: cert-21.jpg
     group: "Shell Eco-marathon"
     caption: "Shell Eco-marathon Brazil 2026 — Certificate of Participation (Aug 2026)"
 ---
@@ -216,6 +225,7 @@ Use the arrows, your keyboard (← →), swipe on mobile, or tap a thumbnail.
 
 - Process Simulate Standalone Associate (Siemens)
 - Educational Robotics Training – Core, e-Series Core Track, e-Series Pro Track and e-Series Application Track (Universal Robots)
+- Personnel Safety, Autonomous Navigation and Mission Programming (MiR – Mobile Industrial Robots Academy)
 - Certified SolidWorks Associate – CSWA (Dassault Systèmes)
 - MATLAB, Simulink and Simscape Onramp (MathWorks)
 - Educational PCB Basic Design (Altium Designer)
