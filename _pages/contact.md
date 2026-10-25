@@ -11,8 +11,7 @@ nav_order: 6
   <img src="{{ 'assets/img/paulina-contact.jpg' | relative_url }}" alt="Paulina Ruíz Servín" style="width:260px; aspect-ratio:3/4; object-fit:cover; object-position:center 22%; border-radius:8px;">
   <div style="flex:1; min-width:260px;">
 
-  <p><strong>I am currently looking for a Pflichtpraktikum (mandatory internship) or Werkstudent position in Germany</strong>, ideally starting in <u>February/March 2027</u>, in the areas of:</p>
-
+  <p><strong>I am currently looking for a Pflichtpraktikum (mandatory internship) or freiwilliges Praktikum (voluntary internship) position in Germany</strong>, ideally starting in <u>February/March 2027</u>, in the areas of:</p>
   <ul>
     <li>Embedded Systems &amp; PCB Design </li>
     <li>Industrial Automation, Virtual Commissioning &amp; Computer Vision</li>
