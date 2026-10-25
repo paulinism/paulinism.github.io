@@ -1,6 +1,6 @@
 cv:
   name: Paulina Lilian Ruíz Servín
-  label: Mechatronics Engineering Student — Embedded Systems & Industrial Automation
+  label: Electrical & Mechatronics Engineering Student — Embedded Systems, Electronics, Control & Automation
   email: pruizservin27@gmail.com
   phone: "+49 1523 3878708"
   website: https://www.linkedin.com/in/pruizservin27/
@@ -15,19 +15,24 @@ cv:
     Hochschule Zittau/Görlitz (Germany), specializing in electrical engineering. Experience spans embedded systems
     (PCB design, ESP32/FreeRTOS firmware, CAN/SPI/I2C/UART), model-based control (MATLAB/Simulink/Simscape, PID),
     and industrial automation (Siemens TIA Portal, Allen-Bradley, digital twins with Process Simulate and Universal
-    Robots cobots). Seeking Werkstudent, Pflichtpraktikum, and Bachelorarbeit opportunities in Germany.
+    Robots cobots), plus laboratory testing and characterization of electronic hardware. Available for internships
+    and Bachelor thesis projects in Germany from March 2027 (full-time, up to 6 months).
 
   sections:
     Experience:
-      - company: Escudería EcoVolt CCM (Shell Eco-marathon)
+      - company: EcoVolt CCM EV Racing Team (Shell Eco-marathon)
         position: Team Captain, Electronics Lead & Mentor
         location: Mexico City, Mexico
         start_date: 2023-08
         end_date: 2026-08
         summary: Led and mentored a 30+ person multidisciplinary team across mechanical, electrical, telemetry, and data-analysis systems for Shell Eco-marathon Americas, Brazil, and United States 2025–2026.
         highlights:
-          - Designed two multilayer telemetry PCBs in Altium Designer (schematic, layout, BOM) and built ESP32 firmware in C++, with HiL simulation in Python and predictive C++ models for energy optimization
-          - Integrated CAN/SPI/I2C/UART bus communication for real-time data acquisition
+          - Designed the telemetry PCBs in Altium Designer (schematic, layout, BOM) — the Brazil 2025 board, main contributor to US 2026 and co-designer of Brazil 2026 — and brought them up and debugged them on the vehicle
+          - Linked the in-house motor controller to the telemetry system by implementing the CAN communication (incl. transceiver circuit) and writing ESP32 firmware in C++ with SPI, I2C, UART and SD drivers, logging current, voltage and GPS position in real time
+          - Developed a bidirectional INA240 shunt current sensor from a self-etched prototype to a manufactured board, verified with oscilloscope and multimeter
+          - Performed BLDC drive measurements and contributed to the transfer functions of its current and speed loops in MATLAB/Simulink
+          - Characterized transistors and Zener, Schottky and rectifier diodes in the lab to select the components of a supercapacitor energy backup system
+          - Built, with the team, a Python HiL test bench (real traction motor and driving simulator) showing with measured data that constant throttle is more efficient than pulse-and-glide
           - Led ergonomic analysis of the driver position (virtual human model in Tecnomatix Process Simulate, RULA assessment) to validate cockpit layout and seating position
           - Designed an automated tool/PPE tracking system for paddock operations using computer vision and QR codes
           - "Results: 1st place Vehicle Design Award (2026), 1st/2nd place Data & Telemetry Award (2025/2026) — see Awards below"
@@ -40,6 +45,7 @@ cv:
         highlights:
           - Hands-on device fabrication (semiconductors, solar cells, microfluidics) via thin-film deposition (PECVD/PVD) and chemical etching
           - Ran photolithography and characterization processes in Class 100/1K/10K cleanrooms under strict safety protocols
+          - Characterized the fabricated devices: IV curve of the solar cell, force–displacement test of the MEMS cantilever and flow tests of the microfluidic mixer
 
     Projects:
       - name: Digital Twin of a Flexible CNC Manufacturing Cell — ORZA Tech industry challenge
@@ -92,8 +98,8 @@ cv:
         studyType: B.Eng. Electrical Engineering (DHIK Double Degree)
         start_date: 2026-09
         highlights:
-          - Collaborativbe Robots Sys.
-          - Artificial Neutral Networks
+          - Collaborative Robot Systems
+          - Artificial Neural Networks
           - Microcontrollers
           - Image processing
           - Advanced Control Theory
@@ -105,7 +111,6 @@ cv:
         studyType: B.Sc. Mechatronics Engineering
         start_date: 2023-08
         highlights:
-          - English-taught degree program (Englischsprachiger Studiengang)
           - "GPA: 92/100"
           - Merit scholarship (30%)
 
@@ -232,7 +237,7 @@ cv:
 
       - name: English
         icon: fa-solid fa-comments
-        summary: Fluent (C1)
+        summary: C1
 
       - name: French
         icon: fa-solid fa-comments
@@ -240,7 +245,7 @@ cv:
 
       - name: German
         icon: fa-solid fa-comments
-        summary: "A2, currently completing B1 certification"
+        summary: B1
 
     Interests:
       - name: Motorsport
