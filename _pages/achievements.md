@@ -74,7 +74,7 @@ certificates:
     caption: "Shell Eco-marathon Brazil 2026 — Certificate of Participation (Aug 2026)"
 ---
 
-**Shell Eco-marathon** — Team Captain & Electronics Lead, Escudería EcoVolt CCM (2023–2026)
+**Shell Eco-marathon** — Team Captain & Electronics Lead, EcoVolt CCM EV Racing Team (Escudería), 2023–2026
 
 - 🥇 <a href='https://www.shellecomarathon.com/about/previous-seasons/2025-programme/regional-americas.html'>Winner</a>, Data & Telemetry Award (sponsored by Schmid Elektronik) — Americas 2025
 - 🥈 <a href='https://www.shellecomarathon.com/about/previous-seasons/2026-programme-shell-eco-marathon/united-states.html'>Runner-Up</a>, Data & Telemetry Award (sponsored by Schmid Elektronik) — United States 2026
