@@ -28,13 +28,13 @@ nav_order: 6
   .ct-avail p { margin: 0 0 .7rem; line-height: 1.6; }
   .ct-when { color: var(--global-theme-color); font-weight: 700; }
   .ct-cards { border-top: 1px solid rgba(128,128,128,.25); }
-  .ct-c { display: flex; align-items: center; gap: 1.1rem; padding: .85rem 0; border-bottom: 1px solid rgba(128,128,128,.25); color: inherit !important; text-decoration: none !important; }
-  .ct-ico { flex: 0 0 auto; width: 2.9rem; height: 2.9rem; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; background: var(--global-theme-color); color: var(--global-bg-color); font-size: 1.15rem; transition: transform .15s ease; }
+  .ct-c { display: flex; align-items: center; gap: 1.1rem; padding: .4rem 0; border-bottom: 1px solid rgba(128,128,128,.25); color: inherit !important; text-decoration: none !important; }
+  .ct-ico { flex: 0 0 auto; width: 2rem; height: 2rem; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; background: var(--global-theme-color); color: var(--global-bg-color); font-size: .9rem; transition: transform .15s ease; }
   .ct-c:hover .ct-ico { transform: scale(1.08); }
   .ct-c:hover .ct-val { color: var(--global-theme-color); }
   .ct-lbl { display: block; font-family: "Roboto Mono", ui-monospace, monospace; font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; opacity: .6; }
   .ct-val { display: block; font-family: "Roboto Mono", ui-monospace, monospace; font-size: .98rem; word-break: break-word; }
-  .ct-grid .cv-h { font-size: 1.2rem; margin: 1.6rem 0 .8rem; padding-bottom: .3rem; }
+  .ct-grid .cv-h { font-size: 1.2rem; margin: 1.1rem 0 .6rem; padding-bottom: .3rem; }
   .ct-note { margin-top: 1rem; font-size: .92rem; opacity: .8; }
   @media (max-width: 760px) { .ct-grid, .ct-cards { grid-template-columns: minmax(0, 1fr); } .ct-photo { max-width: 280px; margin: 0 auto; } }
 </style>
