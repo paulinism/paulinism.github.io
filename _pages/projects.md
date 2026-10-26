@@ -43,6 +43,7 @@ horizontal: false
 <p class="pg-title">Projects</p>
 <p class="pg-lead">Hardware, firmware, control and automation work — from a racing-team telemetry system to cleanroom fabrication, robots and digital twins. Each card opens a full technical write-up with CAD, prototypes and results.</p>
 <h2 class="cv-h" id="extracurricular"><i class="fa-solid fa-flag-checkered"></i> Extracurricular &amp; research</h2>
+<div class="pj-feat-wrap">
 <a class="pc-card pj-feat" href="{{ '/projects/ecovolt-telemetry/' | relative_url }}">
   <img src="{{ '/assets/img/ecovolt-telemetry.jpg' | relative_url }}" alt="Telemetry &amp; Energy-Optimization Platform">
   <div class="pj-body">
@@ -53,6 +54,7 @@ horizontal: false
     <span class="pj-more">Read the project →</span>
   </div>
 </a>
+</div>
 <div class="pj-grid" style="margin-top:1.2rem">
 <a class="pc-card pj-card" href="{{ '/projects/ecovolt-inventory/' | relative_url }}">
   <img src="{{ '/assets/img/inv-cover-composite.jpg' | relative_url }}" alt="Automated PPE &amp; Inventory Management System" loading="lazy">

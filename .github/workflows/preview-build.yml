@@ -1,0 +1,45 @@
+name: Preview build (no deploy)
+
+permissions:
+  contents: write
+
+on:
+  push:
+    branches:
+      - "preview/**"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3.5"
+          bundler-cache: true
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - run: npm ci
+      - name: Build
+        run: |
+          sudo apt-get update && sudo apt-get install -y imagemagick
+          pip3 install --upgrade nbconvert jupyter
+          export JEKYLL_ENV=production
+          set -o pipefail
+          bundle exec jekyll build 2>&1 | tee build.log || { grep -v "^\s*from \|Imagemagick" build.log | grep -E -m3 -A2 "Exception|Conversion error|[Ee]rror:|undefined|\.rb:[0-9]+:in" | head -8 | while IFS= read -r l; do echo "::error::$l"; done; exit 1; }
+      - name: Purge unused CSS
+        run: |
+          npm install -g purgecss
+          purgecss -c purgecss.config.js
+      - name: Push built site to the preview-site branch (not served)
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: _site
+          branch: preview-site
+          single-commit: true
