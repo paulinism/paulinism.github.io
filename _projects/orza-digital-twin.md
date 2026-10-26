@@ -45,7 +45,8 @@ featured: true
   .dag-table th, .dag-table td { border: 1px solid rgba(128,128,128,.3); padding: .45rem .6rem; vertical-align: top; text-align: left; }
   .dag-table th { background: rgba(128,128,128,.08); }
   details.writeup { margin: 1.5rem 0; border: 1px solid rgba(128,128,128,.3); border-radius: 10px; padding: .6rem 1rem; }
-  details.writeup > summary { cursor: pointer; font-weight: 700; font-size: 1.05rem; }
+  details.writeup > summary { cursor: pointer; font-weight: 700; font-size: 1.05rem; margin-bottom: 1.25rem; }
+  details.writeup > summary + * { margin-top: 0.5rem; }
 </style>
 
 ## Design at a glance
@@ -68,8 +69,8 @@ featured: true
 </table>
 <!-- DESIGN-AT-A-GLANCE:END -->
 
-<details class="writeup" markdown="1">
-<summary>Full technical write-up (click to expand)</summary>
+<details class="writeup" markdown="1" open>
+<summary>Full technical write-up</summary>
 
 ## Project overview
 

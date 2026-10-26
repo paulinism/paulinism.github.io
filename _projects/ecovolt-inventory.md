@@ -33,6 +33,43 @@ hide_from_grid: true # shown in the "Professional & lab experience" section inst
   <figure class="inv-fig"><video src="{{ 'assets/img/inv-web-dashboard.mp4' | relative_url }}" poster="{{ 'assets/img/inv-web-dashboard-poster.jpg' | relative_url }}" autoplay muted loop playsinline></video><figcaption>Inventory dashboard: totals, status overview, items that need attention and the Excel export flow.</figcaption></figure>
 </div>
 
+<!-- DESIGN-AT-A-GLANCE:START -->
+<style>
+  .dag-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.9rem; margin: 1rem 0 1.25rem; }
+  .dag-fig { margin: 0; border: 1px solid rgba(128,128,128,.25); border-radius: 10px; overflow: hidden; }
+  .dag-fig img { display: block; width: 100%; height: 190px; object-fit: contain; background: rgba(128,128,128,.06); }
+  .dag-fig figcaption { padding: .4rem .6rem; font-size: .78rem; line-height: 1.3; opacity: .85; border-top: 1px solid rgba(128,128,128,.2); }
+  .dag-table { width: 100%; border-collapse: collapse; font-size: .9rem; margin: .5rem 0 1rem; }
+  .dag-table th, .dag-table td { border: 1px solid rgba(128,128,128,.3); padding: .45rem .6rem; vertical-align: top; text-align: left; }
+  .dag-table th { background: rgba(128,128,128,.08); }
+  details.writeup { margin: 1.5rem 0; border: 1px solid rgba(128,128,128,.3); border-radius: 10px; padding: .6rem 1rem; }
+  details.writeup > summary { cursor: pointer; font-weight: 700; font-size: 1.05rem; margin-bottom: 1.25rem; }
+  details.writeup > summary + * { margin-top: 0.5rem; }
+</style>
+
+## Design at a glance
+
+<div class="dag-grid">
+  <figure class="dag-fig"><img data-zoomable src="{{ 'assets/img/inv-excel-prototype.png' | relative_url }}" alt="Stage 1: Excel register (data model prototype)" loading="lazy"><figcaption>Stage 1: Excel register (data model prototype)</figcaption></figure>
+  <figure class="dag-fig"><img data-zoomable src="{{ 'assets/img/inv-python-detection.png' | relative_url }}" alt="Stage 2: OpenCV QR detection and ID check" loading="lazy"><figcaption>Stage 2: OpenCV QR detection and ID check</figcaption></figure>
+  <figure class="dag-fig"><img data-zoomable src="{{ 'assets/img/inv-python-benchmark.png' | relative_url }}" alt="Latency benchmark of the pilot" loading="lazy"><figcaption>Latency benchmark of the pilot</figcaption></figure>
+  <figure class="dag-fig"><img data-zoomable src="{{ 'assets/img/inv-web-item-quickview.png' | relative_url }}" alt="Stage 3: web platform, item quick view" loading="lazy"><figcaption>Stage 3: web platform, item quick view</figcaption></figure>
+</div>
+
+**Design decisions, from first principles**
+
+<table class="dag-table">
+  <tr><th>Decision</th><th>Engineering reasoning</th><th>Result</th></tr>
+  <tr><td>Excel register before any code</td><td>Validate which fields the team really needs before building software</td><td>Became the database model and the one-click customs Excel export</td></tr>
+  <tr><td>Five image variants, first successful read wins</td><td>Low contrast, blur and small codes break QR detection: CLAHE raises local contrast, sharpening restores edges, 2&times; upscaling enlarges small modules; stopping at the first hit keeps latency low</td><td>Reads in under 80 ms per image</td></tr>
+  <tr><td>Separate &ldquo;readable&rdquo; from &ldquo;valid&rdquo;</td><td>A QR can decode perfectly and still carry the wrong text, so the payload is checked against the ID format</td><td>Green outline for valid IDs, red for malformed ones</td></tr>
+  <tr><td>Capture separated from processing</td><td>Testing the algorithm on saved photos isolates camera problems and makes runs repeatable</td><td>Benchmark with hit rate, mean and p95 latency, logged to JSONL</td></tr>
+</table>
+<!-- DESIGN-AT-A-GLANCE:END -->
+
+<details class="writeup" markdown="1" open>
+<summary>Full technical write-up</summary>
+
 ## Project overview
 
 I proposed this system to automate how the team manages its tools and how they travel to and during competitions such as Shell Eco-marathon Brazil 2026. It was also part of the team's off-track Safety Leadership Award submission.
@@ -228,6 +265,8 @@ We presented the system to the event's Safety Team in the paddock as part of the
 - **Benchmark on real conditions:** the 80 ms read speed came from five runs on a single test image. A proper evaluation needs a set of photos taken in actual paddock conditions — varying lighting, angles, print quality and distances — before any performance claim.
 - **Adoption is a UX problem:** having the scan option available did not guarantee the whole team used it consistently. A mandatory checkout step in the flow, not just an optional scan, would enforce the process rather than relying on discipline.
 - **Next step:** integrate a camera-based condition check at checkout (flag worn or damaged PPE before it enters the paddock) and link the item register to the team's customs declaration template automatically.
+
+</details>
 
 **Context:** EcoVolt CCM, Shell Eco-marathon (paddock operations), 2025–2026; part of the team's Safety Leadership Award submission.
 **Stack:** Python, OpenCV, NumPy, Matplotlib, JSONL · TypeScript web platform, Convex database · Excel · QR labels
