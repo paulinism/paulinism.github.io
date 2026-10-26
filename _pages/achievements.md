@@ -74,20 +74,120 @@ certificates:
     caption: "Shell Eco-marathon Brazil 2026 — Certificate of Participation (Aug 2026)"
 ---
 
-**Shell Eco-marathon** — Team Captain & Electronics Lead, EcoVolt CCM EV Racing Team (Escudería), 2023–2026
+<style>
+  .ach-kpis { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .75rem; margin: 1rem 0 2rem; }
+  .ach-kpi { border: 1px solid rgba(128,128,128,.3); border-radius: 12px; padding: .9rem 1rem; text-align: center; }
+  .ach-kpi b { display: block; font-size: 2rem; line-height: 1.1; color: var(--global-theme-color); }
+  .ach-kpi span { font-size: .85rem; opacity: .85; }
+  .ach-h { margin: 2rem 0 .3rem; }
+  .ach-sub { opacity: .8; margin: 0 0 1rem; }
+  .ach-awards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.1rem; }
+  .ach-card { border: 1px solid rgba(128,128,128,.3); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; }
+  .ach-card img { width: 100%; height: 230px; object-fit: cover; display: block; background: rgba(128,128,128,.08); }
+  .ach-card img.doc { object-fit: contain; background: #fff; }
+  .ach-body { padding: .9rem 1rem 1rem; display: flex; flex-direction: column; gap: .3rem; flex: 1; }
+  .ach-badge { align-self: flex-start; font-size: .72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: .15rem .55rem; border-radius: 999px; border: 1px solid var(--global-theme-color); color: var(--global-theme-color); }
+  .ach-title { font-weight: 700; font-size: 1.08rem; margin: .2rem 0 0; }
+  .ach-event { font-size: .88rem; opacity: .8; margin: 0; }
+  .ach-why { font-size: .92rem; margin: .3rem 0 0; }
+  .ach-link { margin-top: auto; padding-top: .5rem; font-size: .9rem; font-weight: 600; }
+  .ach-timeline { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; margin: .3rem 0 0; }
+  .ach-stop { font-size: .85rem; padding: .3rem .7rem; border-radius: 8px; border: 1px solid rgba(128,128,128,.35); background: rgba(128,128,128,.07); }
+  .ach-stop.win { border-color: var(--global-theme-color); }
+  .ach-arrow { opacity: .5; }
+  .ach-research { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.1rem; }
+  .ach-res { border: 1px solid rgba(128,128,128,.3); border-left: 4px solid var(--global-theme-color); border-radius: 10px; padding: .9rem 1rem; }
+  .ach-res p { margin: .25rem 0 0; font-size: .92rem; }
+  .ach-certs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .8rem; margin: .5rem 0 1.5rem; }
+  .ach-cert { border: 1px solid rgba(128,128,128,.3); border-radius: 10px; padding: .75rem .9rem; }
+  .ach-cert .iss { font-size: .72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--global-theme-color); }
+  .ach-cert .nm { font-size: .92rem; font-weight: 600; margin-top: .15rem; line-height: 1.35; }
+  .ach-cert .dt { font-size: .8rem; opacity: .75; margin-top: .15rem; }
+  @media (max-width: 760px) {
+    .ach-kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .ach-awards, .ach-research { grid-template-columns: minmax(0, 1fr); }
+    .ach-certs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+</style>
 
-- 🥇 <a href='https://www.shellecomarathon.com/about/previous-seasons/2025-programme/regional-americas.html'>Winner</a>, Data & Telemetry Award (sponsored by Schmid Elektronik) — Americas 2025
-- 🥈 <a href='https://www.shellecomarathon.com/about/previous-seasons/2026-programme-shell-eco-marathon/united-states.html'>Runner-Up</a>, Data & Telemetry Award (sponsored by Schmid Elektronik) — United States 2026
-- 🥇 <a href='https://www.shellecomarathon.com/about/previous-seasons/2026-programme-shell-eco-marathon/united-states.html'>Winner</a>, Vehicle Design Award, Prototype category (sponsored by Qatar Museums) — United States 2026
-- Competed: Americas 2025, Brazil 2025, Brazil 2026, United States 2026
+<div class="ach-kpis">
+  <div class="ach-kpi"><b>3</b><span>international awards</span></div>
+  <div class="ach-kpi"><b>4</b><span>Shell Eco-marathon events</span></div>
+  <div class="ach-kpi"><b>12</b><span>technical certifications</span></div>
+  <div class="ach-kpi"><b>1</b><span>IEEE paper (first author)</span></div>
+</div>
 
-**Altair Global Student Contest 2025** — <a href='https://web.altair.com/global-student-contest-2025'>Honorable Mention</a> —
-Co-authored: _"AI-Driven Data Analysis for Vehicle Energy Efficiency"_ with José Diego González Fernández (ITESM México), using Altair AI Studio on Shell Eco-marathon performance data to identify the strongest drivers of vehicle energy efficiency.
+<h2 class="ach-h">Awards</h2>
+<p class="ach-sub">EcoVolt CCM EV Racing Team (Escudería) — Team Captain &amp; Electronics Lead, 2023–2026</p>
 
-**MIT.nano Lab, MIT** — _Micro/Nanofabrication Processing Technology_ (October 2025)
-Co-authored a technical report on n-type silicon solar cell fabrication, MEMS cantilever fabrication, and microfluidic diffusion mixer fabrication, in collaboration with a teammate, under Dr. Javier Izquierdo Reyes and Dr. Arnoldo Salazar Soto (Tecnológico de Monterrey / MIT).
+<div class="ach-awards">
+  <div class="ach-card">
+    <img data-zoomable src="/assets/img/tel-award-2025.jpg" alt="Data and Telemetry Award, Shell Eco-marathon Americas 2025" style="object-position: center 35%">
+    <div class="ach-body">
+      <span class="ach-badge">🥇 Winner · $3,000</span>
+      <p class="ach-title">Data &amp; Telemetry Award</p>
+      <p class="ach-event">Shell Eco-marathon Americas 2025 · sponsored by Schmid Elektronik</p>
+      <p class="ach-why">For the first telemetry system I co-founded: live current, voltage and GPS from the car to the pit.</p>
+      <a class="ach-link" href="/projects/ecovolt-telemetry/">See the telemetry project →</a>
+    </div>
+  </div>
+  <div class="ach-card">
+    <img data-zoomable src="/assets/img/tel-award-vehicle-design-us26.jpg" alt="Vehicle Design Award, Shell Eco-marathon United States 2026">
+    <div class="ach-body">
+      <span class="ach-badge">🥇 Winner · $3,000</span>
+      <p class="ach-title">Vehicle Design Award — Prototype</p>
+      <p class="ach-event">Shell Eco-marathon United States 2026 · sponsored by Qatar Museums</p>
+      <p class="ach-why">My contribution: the driver ergonomics analysis (virtual human model, RULA) that shaped the cockpit.</p>
+      <a class="ach-link" href="/projects/ecovolt-telemetry/#driver-ergonomics-vehicle-design-award">See the ergonomics work →</a>
+    </div>
+  </div>
+  <div class="ach-card">
+    <img class="doc" data-zoomable src="/assets/img/certificates/cert-19.jpg" alt="Runner-up certificate, Data and Telemetry Award 2026">
+    <div class="ach-body">
+      <span class="ach-badge">🥈 Runner-up · $1,500</span>
+      <p class="ach-title">Data &amp; Telemetry Award</p>
+      <p class="ach-event">Shell Eco-marathon United States 2026 · sponsored by Schmid Elektronik</p>
+      <p class="ach-why">For the redesigned V2 system: custom PCB, CAN to the motor controller and SD logging.</p>
+      <a class="ach-link" href="/projects/ecovolt-telemetry/">See the telemetry project →</a>
+    </div>
+  </div>
+  <div class="ach-card">
+    <img class="doc" data-zoomable src="/assets/img/certificates/cert-02.jpg" alt="Altair Global Student Contest 2025 Honorable Mention">
+    <div class="ach-body">
+      <span class="ach-badge">🏅 Honorable Mention</span>
+      <p class="ach-title">Altair Global Student Contest 2025</p>
+      <p class="ach-event">With José Diego González Fernández (ITESM)</p>
+      <p class="ach-why">"AI-Driven Data Analysis for Vehicle Energy Efficiency": Altair AI Studio on race data to rank the drivers of efficiency.</p>
+      <a class="ach-link" href="https://web.altair.com/global-student-contest-2025" target="_blank" rel="noopener">Contest page →</a>
+    </div>
+  </div>
+</div>
 
-## Certifications
+<h2 class="ach-h">Research &amp; reports</h2>
+<div class="ach-research">
+  <div class="ach-res">
+    <strong>📄 IEEE SAIBOT 2026 — first author (submitted)</strong>
+    <p><em>Real-Time Telemetry and Computational Intelligence Pipeline for Energy-Efficient Driving of an Electric Eco-Marathon Vehicle</em></p>
+    <p><a href="/publications/">See publications →</a></p>
+  </div>
+  <div class="ach-res">
+    <strong>🔬 MIT.nano Lab — technical report (Oct 2025)</strong>
+    <p>Micro/Nanofabrication Processing Technology: n-type silicon solar cell, MEMS cantilevers and microfluidic mixer, under Dr. Javier Izquierdo Reyes and Dr. Arnoldo Salazar Soto.</p>
+    <p><a href="/projects/mit-nano-fabrication/">See the MIT.nano project →</a></p>
+  </div>
+</div>
+
+<h2 class="ach-h">Certifications at a glance</h2>
+<div class="ach-certs">
+  <div class="ach-cert"><div class="iss">Siemens</div><div class="nm">Process Simulate Standalone Associate</div><div class="dt">Jun 2026</div></div>
+  <div class="ach-cert"><div class="iss">Dassault Systèmes</div><div class="nm">Certified SOLIDWORKS Associate (CSWA)</div><div class="dt">Aug 2026</div></div>
+  <div class="ach-cert"><div class="iss">Universal Robots</div><div class="nm">Educational Robotics Core + e-Series Core, Pro &amp; Application Tracks</div><div class="dt">Mar – Oct 2026</div></div>
+  <div class="ach-cert"><div class="iss">MiR Academy</div><div class="nm">Personnel Safety, Autonomous Navigation, Mission Programming</div><div class="dt">Oct 2026</div></div>
+  <div class="ach-cert"><div class="iss">MathWorks</div><div class="nm">Simulink Onramp &amp; Simscape Onramp</div><div class="dt">Oct 2026</div></div>
+  <div class="ach-cert"><div class="iss">Altium Education</div><div class="nm">PCB Basic Design</div><div class="dt">Feb 2026</div></div>
+</div>
+
+## All certificates & award documents
 
 <!--- ### Certificate viewer --->
 <!--- Flip through my certificates and award documents, grouped by Electrical Engineering, Automation and Shell Eco-marathon, each in chronological order. --->
@@ -225,10 +325,3 @@ Use the arrows, your keyboard (← →), swipe on mobile, or tap a thumbnail.
   <a class="btn btn-sm z-depth-0" role="button" href="{{ '/projects/' | relative_url }}">← Previous: Projects</a>
   <a class="btn btn-sm z-depth-0" role="button" href="{{ '/publications/' | relative_url }}">Next: Publications →</a>
 </div>
-
-- Process Simulate Standalone Associate (Siemens)
-- Educational Robotics Training – Core, e-Series Core Track, e-Series Pro Track and e-Series Application Track (Universal Robots)
-- Personnel Safety, Autonomous Navigation and Mission Programming (MiR – Mobile Industrial Robots Academy)
-- Certified SolidWorks Associate – CSWA (Dassault Systèmes)
-- MATLAB, Simulink and Simscape Onramp (MathWorks)
-- Educational PCB Basic Design (Altium Designer)
