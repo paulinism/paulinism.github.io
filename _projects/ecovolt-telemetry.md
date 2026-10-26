@@ -168,7 +168,7 @@ The shunt went from 20 mΩ to 5 mΩ, a quarter of the signal per ampere and four
 
 **V3 — Robustness revision (Brazil 2026)**
 
-Same circuit, re-routed board, better soldering and a locking power connector to remove intermittent faults and noise. Data integrity became the design rule: every frame goes to the SD card first and is transmitted afterwards, unsent frames are buffered and retried, and a supercapacitor module keeps the system running for about 80 s after a power loss.
+Same circuit, re-routed board, better soldering and a locking power connector to remove intermittent faults and noise. Data integrity became the design rule: every frame goes to the SD card first and is transmitted afterwards, unsent frames are buffered and retried, and a supercapacitor module keeps the system running for about 80 s after a power loss. I mentored José Diego González on this supercapacitor energy reserve, which he built under my supervision.
 
 <div class="tel-grid">
   <figure class="tel-fig auto"><img data-zoomable src="{{ 'assets/img/tel-pcb-br26-layout.png' | relative_url }}" alt="Brazil 2026 PCB layout in Altium"><figcaption>Brazil 2026 layout in Altium, credited to Paulina Ruíz Servín and José Diego González Fernández.</figcaption></figure>
@@ -214,6 +214,8 @@ As main driver, I tested the driver display from the cockpit and decided what it
   <figure class="tel-fig auto"><img data-zoomable src="{{ 'assets/img/tel-run-archive.png' | relative_url }}" alt="Run archive of the Brazil 2026 web platform"><figcaption>Run archive, Brazil 2026: 14 sessions and 55.1 K telemetry records (built by the web team).</figcaption></figure>
   <figure class="tel-fig auto"><video src="{{ 'assets/img/tel-web-platform.mp4' | relative_url }}" autoplay loop muted playsinline controls></video><figcaption>Session analysis in the web platform.</figcaption></figure>
 </div>
+
+<a id="driver-ergonomics-vehicle-design-award"></a>
 
 **Driver ergonomics (Vehicle Design Award)**
 

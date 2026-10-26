@@ -45,7 +45,7 @@ cv:
         highlights:
           - Hands-on device fabrication (semiconductors, solar cells, microfluidics) via thin-film deposition (PECVD/PVD) and chemical etching
           - Ran photolithography and characterization processes in Class 100/1K/10K cleanrooms under strict safety protocols
-          - Characterized the fabricated devices: IV curve of the solar cell, force–displacement test of the MEMS cantilever and flow tests of the microfluidic mixer
+          - "Characterized the fabricated devices: IV curve of the solar cell, force–displacement test of the MEMS cantilever and flow tests of the microfluidic mixer"
 
     Projects:
       - name: Digital Twin of a Flexible CNC Manufacturing Cell — ORZA Tech industry challenge
