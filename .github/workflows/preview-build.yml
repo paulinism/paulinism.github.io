@@ -19,10 +19,14 @@ jobs:
         with:
           node-version: "20"
           cache: "npm"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
       - run: npm ci
       - name: Build
         run: |
           sudo apt-get update && sudo apt-get install -y imagemagick
+          pip3 install --upgrade nbconvert jupyter
           export JEKYLL_ENV=production
           set -o pipefail
           bundle exec jekyll build 2>&1 | tee build.log || { grep -v "^\s*from \|Imagemagick" build.log | grep -E -m3 -A2 "Exception|Conversion error|[Ee]rror:|undefined|\.rb:[0-9]+:in" | head -8 | while IFS= read -r l; do echo "::error::$l"; done; exit 1; }
