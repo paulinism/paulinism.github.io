@@ -1,0 +1,185 @@
+<!DOCTYPE html> <html lang="de"> <head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <title> Automatisiertes Viskositätsmesssystem | Paulina L. Ruíz Servín </title> <meta name="author" content="Paulina L. Ruíz Servín"> <meta name="description" content="Platinen &amp; Embedded mit Endress+Hauser — Signalkette mit 400-facher Verstärkung trennt 252 cP von 1676 cP; drei Altium-Platinen, zwei davon von JLCPCB gefertigt"> <meta name="keywords" content="Embedded Systems, PCB Design, Altium Designer, ESP32, FreeRTOS, PLC, TIA Portal, Digital Twin, Process Simulate, Mechatronics Engineering, Elektrotechnik, Shell Eco-marathon"> <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; media-src 'self' https:; frame-src 'self' https:; connect-src 'self' https:;"> <style>
+  :root {
+    --max-content-width: 930px;
+  }
+</style> <link rel="stylesheet" href="/assets/css/tailwind.css?v=50c64c15cbb9fd1ce6056fdb8bcb4b62"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css" integrity="sha256-MVopmdyC2tYTiJ8wlktf0uh0v4NgT+vNdyVFepi7Q0c=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.5/css/academicons.min.css" integrity="sha256-SzrCOBJbGVFMahewkgjwnApaV2+av1DwMAA+/QGLyZw=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/scholar-icons@1.0.3/css/scholar-icons.css" integrity="sha256-VY3hHVj/hNX3fYG6wtbA6TcKJQl7+FthzGSyIB64klY=" crossorigin="anonymous"> <link defer rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons&amp;display=swap"> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-github.css?v=591dab5a4e56573bf4ef7fd332894c99" media="" id="highlight_theme_light"> <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%F0%9F%91%A9%E2%80%8D%F0%9F%92%BB&lt;/text&gt;&lt;/svg&gt;"> <link rel="stylesheet" href="/assets/css/main.css?v=3116ba77db9ee1581d05bb3e86fbf7f1"> <link rel="canonical" href="https://paulinism.github.io/de/projects/endress-viscosity/"> <script src="/assets/js/theme.js?v=5286c3e4c334d0ecb8fc0c40ff4fa7ec"></script> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-native.css?v=5847e5ed4a4568527aa6cfab446049ca" media="none" id="highlight_theme_dark"> <script>
+    initTheme();
+  </script> </head> <body class="fixed-top-nav "> <header> <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top" role="navigation"> <div class="container"> <a class="navbar-brand title font-weight-lighter" href="/"> <span class="font-weight-bold">Paulina</span> L. Ruíz Servín </a> <button class="navbar-toggler collapsed navbar-toggler-main" type="button" data-nav-toggle="navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar top-bar"></span> <span class="icon-bar middle-bar"></span> <span class="icon-bar bottom-bar"></span> </button> <div class="collapse navbar-collapse navbar-collapse-main" id="navbarNav"> <ul class="navbar-nav navbar-menu-list flex-nowrap"> <li class="nav-item "> <a class="nav-link" href="/">about </a> </li> <li class="nav-item active"> <a class="nav-link" href="/projects/">projects <span class="sr-only">(current)</span> </a> </li> <li class="nav-item "> <a class="nav-link" href="/achievements/">achievements </a> </li> <li class="nav-item "> <a class="nav-link" href="/publications/">publications </a> </li> <li class="nav-item "> <a class="nav-link" href="/repositories/">repositories </a> </li> <li class="nav-item "> <a class="nav-link" href="/cv/">CV </a> </li> <li class="nav-item "> <a class="nav-link" href="/contact/">contact </a> </li> <li class="nav-item"> <button id="search-toggle" type="button" title="Search" aria-label="Open search"> <span class="nav-link">ctrl k <i class="fa-solid fa-magnifying-glass"></i></span> </button> </li> <li class="toggle-container"> <button id="light-toggle" type="button" title="Change theme" aria-label="Change color theme"> <i class="fa-half-sun-moon" id="light-toggle-system"></i> <i class="fa-solid fa-moon" id="light-toggle-dark"></i> <i class="fa-solid fa-sun" id="light-toggle-light"></i> </button> </li> </ul> </div> </div> </nav> <progress id="progress" value="0"> <div class="progress-container"> <span class="progress-bar"></span> </div> </progress> </header> <div class="container mt-5" role="main"> <div class="post"> <header class="post-header"> <h1 class="post-title">Automatisiertes Viskositätsmesssystem</h1> <p class="post-description">Platinen &amp; Embedded mit Endress+Hauser — Signalkette mit 400-facher Verstärkung trennt 252 cP von 1676 cP; drei Altium-Platinen, zwei davon von JLCPCB gefertigt</p> </header> <article> <style>
+  img[data-zoomable] { cursor: zoom-in; }
+  .medium-zoom-image--opened { object-fit: contain !important; background: transparent !important; }
+  .medium-zoom-overlay, .medium-zoom-image--opened { z-index: 1050; }
+</style> <style>
+  .vis-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; margin: 1.5rem 0; align-items: start; }
+  .vis-grid.single { grid-template-columns: minmax(0, 560px); justify-content: center; }
+  .vis-grid.hero { grid-template-columns: 1fr 2fr; }
+  .vis-grid.hero .vis-fig img { height: 420px; object-fit: contain; }
+  .vis-fig { margin: 0; border: 1px solid rgba(128, 128, 128, 0.25); border-radius: 12px; overflow: hidden; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08); }
+  .vis-fig img { display: block; width: 100%; height: 340px; object-fit: contain; background: rgba(128, 128, 128, 0.06); }
+  .vis-fig.photo img { object-fit: cover; }
+  .vis-fig.auto img { height: auto; }
+  .vis-fig.full img { height: auto; max-height: 460px; }
+  .vis-fig video { display: block; width: 100%; height: 340px; object-fit: contain; background: rgba(128, 128, 128, 0.06); }
+  .vis-fig figcaption { padding: 0.6rem 0.9rem; font-size: 0.85rem; line-height: 1.4; opacity: 0.85; border-top: 1px solid rgba(128, 128, 128, 0.2); }
+</style> <p><strong>Ein Stromfenster von 6 mA — der Unterschied zwischen verdünnter und reiner Seife bei 30 U/min — wird 400-fach in den ADC-Bereich des ESP32 verstärkt und trennt auf einer eigenen zweistufigen OPV-Platine zuverlässig 252 cP von 1676 cP.</strong> Challenge „Industrial Automation“ am Tec de Monterrey mit Endress+Hauser (Team aus 4 Personen): ein automatisierter Ablauf zur Flüssigkeitshandhabung, der SPS-Schrittketten und ESP32-Messung verbindet, vom Platinenentwurf in Altium bis zur Validierung am realen Aufbau.</p> <div class="vis-grid hero"> <figure class="vis-fig"><img data-zoomable="" src="/assets/img/viscosity.jpg" alt="SolidWorks-Rendering des Gesamtsystems"><figcaption>Entwurf: SolidWorks-CAD-Modell der Drehteller-Messstation, der Viskositätsmesseinheit und des Spenders wie ursprünglich geplant.</figcaption></figure> <figure class="vis-fig full"><img data-zoomable="" src="/assets/img/visc-system-test.jpg" alt="Integriertes System bei der Abschlusspräsentation"><figcaption>Aufbau: Integriertes System als finaler Prototyp, mit Relais, Not-Aus-System, Wasserpumpe, Sortierung der Behälter, Schrittmotoren, DC-Motor mit Encoder, Infrarotsensoren und Förderbändern für den Behältertransport.</figcaption></figure> </div> <style>
+  .dag-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.9rem; margin: 1rem 0 1.25rem; }
+  .dag-fig { margin: 0; border: 1px solid rgba(128,128,128,.25); border-radius: 10px; overflow: hidden; }
+  .dag-fig img { display: block; width: 100%; height: 190px; object-fit: contain; background: rgba(128,128,128,.06); }
+  .dag-fig figcaption { padding: .4rem .6rem; font-size: .78rem; line-height: 1.3; opacity: .85; border-top: 1px solid rgba(128,128,128,.2); }
+  .dag-table { width: 100%; border-collapse: collapse; font-size: .9rem; margin: .5rem 0 1rem; }
+  .dag-table th, .dag-table td { border: 1px solid rgba(128,128,128,.3); padding: .45rem .6rem; vertical-align: top; text-align: left; }
+  .dag-table th { background: rgba(128,128,128,.08); }
+  details.writeup { margin: 1.5rem 0; border: 1px solid rgba(128,128,128,.3); border-radius: 10px; padding: .6rem 1rem; }
+  details.writeup > summary { cursor: pointer; font-weight: 700; font-size: 1.05rem; margin-bottom: 1.25rem; }
+  details.writeup > summary + * { margin-top: 0.5rem; }
+</style> <h2 id="konstruktion-auf-einen-blick">Konstruktion auf einen Blick</h2> <div class="dag-grid"> <figure class="dag-fig"><img data-zoomable="" src="/assets/img/visc-opamp-board.jpg" alt="OPV-Platine, aufgebaut und verdrahtet" loading="lazy"><figcaption>OPV-Platine, aufgebaut und verdrahtet</figcaption></figure> <figure class="dag-fig"><img data-zoomable="" src="/assets/img/visc-opamp-layout.jpg" alt="Layout der OPV-Platine" loading="lazy"><figcaption>Layout der OPV-Platine</figcaption></figure> <figure class="dag-fig"><img data-zoomable="" src="/assets/img/visc-esp32-board-a.jpg" alt="ESP32-Master-Platine (JLCPCB)" loading="lazy"><figcaption>ESP32-Master-Platine (JLCPCB)</figcaption></figure> <figure class="dag-fig"><img data-zoomable="" src="/assets/img/visc-sim-61ma.jpg" alt="Multisim-Prüfung bei 61 mA" loading="lazy"><figcaption>Multisim-Prüfung bei 61 mA</figcaption></figure> </div> <p><strong>Konstruktionsentscheidungen, aus den Grundlagen hergeleitet</strong></p> <table class="dag-table"> <tr> <th>Entscheidung</th> <th>Technische Begründung</th> <th>Ergebnis</th> </tr> <tr> <td>Viskosität über den Motorstrom messen</td> <td>Viskose Reibung erhöht das Drehmoment an der Spindel, und das Drehmoment eines DC-Motors ist proportional zum Strom; ein 1-Ω-Shunt wandelt ihn in eine Spannung um</td> <td>Fenster von 6 mV zwischen verdünnter und reiner Seife bei 30 U/min</td> </tr> <tr> <td>Verstärkung ≈ 400 in zwei Stufen (×100, dann ×4)</td> <td>Bildet das 6-mV-Fenster auf 0–3,3 V ab und hält die erste Stufe innerhalb der ±12-V-Versorgung</td> <td>252 cP und 1676 cP zuverlässig getrennt</td> </tr> <tr> <td>Pegelwandler 5 V → 3,3 V</td> <td>Bei 130 U/min erreichte der Ausgang etwa 4 V, über der Grenze des ESP32-ADC</td> <td>ADC bei allen Drehzahlen geschützt</td> </tr> <tr> <td>PID während der Messung aus</td> <td>Die Drehzahlregelung im geschlossenen Kreis trieb den Strom auf 63–72 mA, außerhalb des Messfensters</td> <td>Stabile Messwerte bei konstant 30 U/min</td> </tr> </table> <details class="writeup" open=""> <summary>Vollständige technische Beschreibung</summary> <p><strong>Aufgabe</strong></p> <p>Einen vollständigen Ablauf zur Flüssigkeitshandhabung automatisieren: eine Probe an ihrer Farbmarkierung erkennen, ihre Viskosität messen, sie auf einen Zielwert (±10 %) verdünnen und anschließend sortieren. Zwei Vorgaben prägten den Entwurf: Die Viskosität musste aus dem Strom des Spindelmotors abgeleitet werden, ohne kommerzielles Viskosimeter, und die Steuerung war auf SPS-Stationen (Zuführung und Sortierung) und eine ESP32-Station (Messung) aufgeteilt, die miteinander kommunizieren.</p> <p><strong>Mein Beitrag</strong></p> <ul> <li> <strong>Platinenentwurf:</strong> alle drei Platinen der Messstation in Altium Designer entworfen — die ESP32-Master- und Slave-Platine (zweilagig, Leiterbahnbreiten nach IPC-2221, gefertigt von JLCPCB) und die OPV-Platine für die Viskositätsmessung, die ich auf kupferkaschiertem Basismaterial aufgebaut habe, damit die Schaltung debuggt und abgestimmt werden konnte</li> <li> <strong>Signalaufbereitung:</strong> die Strommesskette (1-Ω-Shunt, zweistufige Verstärkung mit UA741, etwa 400-fach) mitentwickelt, bei 61 mA und 67 mA simuliert und auf unserer eigenen Platine verifiziert</li> <li> <strong>Embedded</strong> (gemeinsam mit einem Teammitglied entwickelt): Referenz- und Messroutinen, gleitender Mittelwert für das Stromsignal, Auslesen der Farbmarkierung über I²C, Bluetooth-Verbindung zur LabVIEW-HMI, UART zwischen den beiden ESP32 und die Melodie, die der Summer der Slave-Platine spielt, während sich die Motoren bewegen (sie stoppt bei der Becher-, Farb- und Viskositätsprüfung)</li> <li> <strong>SPS &amp; Fertigung:</strong> Förderbänder mitgebaut, die Kontaktplan-Logik mitprogrammiert und die FC-51-Sensoren platziert und kalibriert</li> </ul> <p>Teammitglieder haben die mechanische Konstruktion der Stationen, den Entwurf der SPS-Schrittkette und die LabVIEW-HMI verantwortet.</p> <p><strong>Integration</strong></p> <p>Die vollständige Integration am Prüfstand, mit dem größten Teil der automatischen Schrittkette: Drehteller, Messstation und Steuerelektronik arbeiten zusammen.</p> <div class="vis-grid single"> <figure class="vis-fig clip"><video src="/assets/img/visc-integration-demo.mp4" muted="" playsinline="" controls="" preload="metadata"></video><figcaption>Integrationsdemo: der größte Teil der automatischen Schrittkette läuft am Prüfstand.</figcaption></figure> </div> <div class="vis-grid single"> <figure class="vis-fig clip"><video src="/assets/img/visc-revolver.mp4" autoplay="" loop="" muted="" playsinline="" controls=""></video><figcaption>Der Revolver (drehbarer Becherhalter) dreht sich mit beladenen Probenbechern.</figcaption></figure> </div> <p><strong>Platinenentwurf</strong></p> <p>Alle Platinen wurden in Altium Designer entworfen. Die beiden ESP32-Platinen wurden von JLCPCB gefertigt. Die OPV-Platine wurde dagegen auf kupferkaschiertem Basismaterial aufgebaut: Aus praktischen Gründen und für die Fehlersuche konnten wir so die Aufbereitungsschaltung testen und Bauteilwerte anhand der Messergebnisse ändern, was mit einer gefertigten Platine nicht so schnell möglich gewesen wäre.</p> <div class="vis-grid"> <figure class="vis-fig full"><img data-zoomable="" src="/assets/img/visc-esp32-board-a.jpg" alt="ESP32-Master-Platine"><figcaption>ESP32-Master-Platine: steuert die Hauptmotoren, einschließlich des Schrittmotors des Drehtellers (Anschlüsse für Schrittmotor und Encoder, I²C-Stecker, Pegelwandler).</figcaption></figure> <figure class="vis-fig full"><img data-zoomable="" src="/assets/img/visc-esp32-board-b.jpg" alt="ESP32-Slave-Platine"><figcaption>ESP32-Slave-Platine: Sensoren und Peripherie (SPS-Signale, Lüfter und Wasserpumpe) sowie der Summer, der die Melodie spielt, während sich die Mechanik bewegt.</figcaption></figure> </div> <div class="vis-grid"> <figure class="vis-fig auto"><img data-zoomable="" src="/assets/img/visc-opamp-layout.jpg" alt="Layout der OPV-Messplatine"><figcaption>OPV-Messplatine: Platinenlayout.</figcaption></figure> <figure class="vis-fig auto"><img data-zoomable="" src="/assets/img/visc-opamp-board.jpg" alt="Gefertigte und verdrahtete OPV-Platine"><figcaption>Dieselbe Platine, auf kupferkaschiertem Basismaterial aufgebaut, damit Werte bei der Fehlersuche geändert werden konnten.</figcaption></figure> </div> <div class="vis-grid"> <figure class="vis-fig auto"><img data-zoomable="" src="/assets/img/visc-master-schematic.png" alt="Schaltplan der Master-Platine"><figcaption>Master-Schaltplan: ESP32-Steckleisten, STEP/DIR des Schrittmotors sowie Encoder- und Induktivsensor-Eingänge mit Pegelwandlung von 5 V auf 3,3 V.</figcaption></figure> <figure class="vis-fig auto"><img data-zoomable="" src="/assets/img/visc-slave-schematic.png" alt="Schaltplan der Slave-Platine"><figcaption>Slave-Schaltplan: Sensoreingänge, Ausgänge für Lüfter und Wasserpumpe, Farb-/Startsignale der SPS, UART, RGB-LED, Summer und Taster.</figcaption></figure> </div> <p><strong>Signalaufbereitung</strong></p> <p>Die Viskosität wurde aus dem Versorgungsstrom des Motors über einen 1-Ω-Shunt abgeleitet: etwa 61 mV bei 75 % Seife und 67 mV bei reiner Seife bei 30 U/min, also ein Fenster von 6 mV. Eine Verstärkung von etwa 400 (×100, dann eine Differenzstufe mit ×4) bildet dieses Fenster auf 0–3,3 V ab, aufgeteilt in zwei Stufen, damit die erste innerhalb der ±12-V-Versorgung bleibt. Bei 130 U/min erreichte der Ausgang mit einer 3,3-V-Z-Diode allein noch etwa 4 V, daher wurde ein Logikpegelwandler 5 V → 3,3 V ergänzt, um den ADC des ESP32 zu schützen.</p> <div class="vis-grid"> <figure class="vis-fig auto"><img data-zoomable="" src="/assets/img/visc-sim-61ma.jpg" alt="Multisim-Simulation bei 61 mA"><figcaption>Multisim bei 61 mA: 61 mV am 1-Ω-Shunt werden am ADC-Eingang zu etwa 250 mV.</figcaption></figure> <figure class="vis-fig auto"><img data-zoomable="" src="/assets/img/visc-sim-67ma.jpg" alt="Multisim-Simulation bei 67 mA"><figcaption>Multisim bei 67 mA: 67 mV werden zu etwa 2,67 V, begrenzt durch die 3,3-V-Z-Diode.</figcaption></figure> </div> <p><strong>Förderbänder</strong></p> <p>Die ursprüngliche Sortieridee (Schrittmotor, Schnecke und Feder wie in einem Verkaufsautomaten) wurde verworfen, weil keine Federn mit exaktem Windungsabstand verfügbar waren und die Kontaktplan-Logik zu komplex wurde. Aus praktischen Gründen und wegen der Materialverfügbarkeit nutzt die finale Integration stattdessen kleine Förderbänder, gesteuert von einem Arduino Mega mit OpenPLC.</p> <div class="vis-grid"> <figure class="vis-fig full"><img data-zoomable="" src="/assets/img/visc-conveyors.jpg" alt="Förderbänder mit FC-51-Sensoren"><figcaption>Förderbänder: die von mir mitgebauten Sortierbänder mit FC-51-Sensoren zur Bechererkennung.</figcaption></figure> <figure class="vis-fig clip"><video src="/assets/img/visc-plc-validation.mp4" autoplay="" loop="" muted="" playsinline="" controls=""></video><figcaption>Meine Validierung der SPS-Logik: ein Becher wird mit den FC-51-Sensoren über das Förderband bewegt.</figcaption></figure> </div> <p><strong>Werkzeuge &amp; Technologien</strong></p> <ul> <li> <strong>Platinenentwurf (IPC-2221, JLCPCB):</strong> ESP32-Master-/Slave-Platinen, OPV-Messplatine</li> <li> <strong>Multisim:</strong> Simulation des zweistufigen Verstärkers im Bereich 61–67 mA</li> <li> <strong>ESP32 (C++, ESP-IDF):</strong> Referenz- und Messroutinen, digitale Filterung, Farbsensor TCS34725 über I²C, Bluetooth, Master/Slave über UART</li> <li> <strong>OpenPLC auf Arduino Mega (Kontaktplan):</strong> Steuerung der Förderbänder an der Zuführstation</li> <li> <strong>IR-Sensoren FC-51:</strong> Bechererkennung auf den Bändern</li> <li> <strong>Lasergeschnittenes MDF, Aluminiumrollen, Gummibänder:</strong> Fertigung der Förderbänder</li> </ul> <h2 id="ergebnisse--erkenntnisse">Ergebnisse &amp; Erkenntnisse</h2> <ul> <li> <strong>Viskositätsmessung:</strong> Ein Stromfenster von 6 mA, etwa 400-fach in den ADC-Bereich des ESP32 verstärkt, ergab eine reproduzierbare Trennung zwischen verdünnter und reiner Seife (252 vs. 1676 cP)</li> <li> <strong>Wasserdosierung:</strong> Mit 5 V betrieben war die Pumpe steuerbar und lieferte 19/26/36 ml bei Sollwerten von 18/27/36 ml</li> <li> <strong>Förderbänder:</strong> Die Bänder trugen 5 kg (Zuführung) und 8 kg (Sortierung), gefordert war weniger als 1 kg</li> <li> <strong>Ergebnis:</strong> Die automatische Schrittkette lief auf Video, aber die Live-Vorführung scheiterte an Verdrahtungsfehlern und Kurzschlüssen — die SPS-Platinen wurden durch Steckbretter ersetzt, nachdem die FC-51-Sensoren mehr Strom zogen, als die Platinenversorgung liefern konnte</li> <li> <strong>Messtechnische Erkenntnisse:</strong> Die PID-Regelung musste für die Messung bei 30 U/min abgeschaltet werden, weil sie den Strom auf 63–72 mA trieb, außerhalb des Fensters von 61–67 mA; der Tausch des UA741CN gegen den UA741CP behob einen Ausgang, der einfror</li> <li> <strong>Erkenntnisse:</strong> eine kurze gemeinsame Masse für UART zwischen Platinen führen, da eine RX/TX-Vertauschung auf der Slave-Platine Zeit bei der Fehlersuche gekostet hat; den Versorgungsstrom der Sensoren vor dem Layout einplanen und die Pinbelegung vor der Fertigung mit der Zielsoftware (OpenPLC-Adressierung) abgleichen</li> </ul> </details> <p><strong>Kontext:</strong> Tec de Monterrey, Aug.–Dez. 2025, Challenge „Industrial Automation“ mit Endress+Hauser als Industriepartner, Team aus 4 Personen. <strong>Ergebnis:</strong> strombasierte Viskositätsmessung, die auf einer eigenen Platine 252 cP von 1676 cP trennt. <strong>Stack:</strong> ESP32/ESP-IDF, eigener Platinenentwurf (IPC-2221), Multisim, OpenPLC (Arduino Mega), I²C, UART, Bluetooth, LabVIEW-HMI</p> <div class="vis-grid single"> <figure class="vis-fig full"><img data-zoomable="" src="/assets/img/visc-endress-visit.jpg" alt="Team bei Endress+Hauser"><figcaption>Das Team bei Endress+Hauser vor deren Prozessmesstechnik.</figcaption></figure> </div> <div class="back-to-projects" style="margin: 3rem 0 1rem; text-align: center"> <a class="btn btn-sm z-depth-0" role="button" href="/de/projects/#academic">← Zurück zu den Projekten</a> </div> </article> </div> </div> <footer class="fixed-bottom" role="contentinfo"> <div class="container mt-0"> © Copyright 2026 Paulina L. Ruíz Servín. <span class="footer-social" style="display:inline-flex;gap:.9rem;margin:0 .8rem 0 .5rem;vertical-align:middle"> <a href="mailto:pruizservin27@gmail.com" title="Email" style="color:var(--global-theme-color)"><i class="fa-solid fa-envelope"></i></a> <a href="https://www.linkedin.com/in/pruizservin27/" target="_blank" rel="noopener" title="LinkedIn" style="color:var(--global-theme-color)"><i class="fa-brands fa-linkedin"></i></a> <a href="https://github.com/paulinism" target="_blank" rel="noopener" title="GitHub" style="color:var(--global-theme-color)"><i class="fa-brands fa-github"></i></a> <a href="https://wa.me/4915233878708" target="_blank" rel="noopener" title="WhatsApp" style="color:var(--global-theme-color)"><i class="fa-brands fa-whatsapp"></i></a> </span> <span style="font-size:.85em;opacity:.7;color:var(--global-footer-text-color)">Hosted by <a href="https://pages.github.com/" target="_blank" rel="external nofollow noopener">GitHub Pages</a> · Powered by <a href="https://jekyllrb.com/" target="_blank" rel="external nofollow noopener">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio" rel="external nofollow noopener" target="_blank">al-folio</a>.</span> <script src="/assets/js/lang-switch.js"></script> </div> </footer> <script>
+  window.alFolio = {
+    compatBootstrap: false
+  };
+</script> <script src="/assets/js/nav-toggle.js?v=141bd79a73ebc0f0b6ea58e440ae79fc"></script> <script defer src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script> <script defer src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script> <script defer src="/assets/js/masonry.js?v=e49affc7bd2646f6acdad1dbe02c2359" type="text/javascript"></script> <script src="/assets/js/tooltips-setup.js?v=fe487e99db6c43751e6e7bdb2d6a0611"></script> <script src="/assets/js/no_defer.js?v=53b1b1a645525975c963ce8bf8bfefcf"></script> <script defer src="/assets/js/common.js?v=87baac90f765f2f3362dcf6aaf312a8a"></script> <script defer src="/assets/js/copy_code.js?v=c8a01c11a92744d44b093fc3bda915df" type="text/javascript"></script> <script defer src="/assets/js/jupyter_new_tab.js?v=896d254890d9b47f0281f63bfccf0dee"></script> <script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous"></script> <script defer src="/assets/al_img_tools/js/zoom.js"></script> <script defer src="/assets/js/progress-bar.js?v=499464c5c63ced6cf7ad62509f1e2610" type="text/javascript"></script> <script src="https://cdn.jsdelivr.net/npm/vanilla-back-to-top@7.2.1/dist/vanilla-back-to-top.min.js" integrity="sha256-uMJJ3EoTyfRBoTbR+lrfu1uRQ87RZG8AR3cVNuQVeFg=" crossorigin="anonymous"></script> <script>
+    addBackToTop();
+  </script> <script type="module" src="/assets/al_search/js/search/ninja-keys.min.js"></script> <ninja-keys hidebreadcrumbs noautoloadmdicons placeholder="Type to start searching"></ninja-keys> <script src="/assets/al_search/js/search-setup.js"></script> <script>
+// get the ninja-keys element
+const ninja = document.querySelector('ninja-keys');
+
+// add the home and posts menu items
+ninja.data = [{
+    id: "nav-about",
+    title: "about",
+    section: "Navigation",
+    handler: () => {
+      window.location.href = "/";
+    },
+  },{id: "nav-projects",
+          title: "projects",
+          description: "Academic and hands-on engineering work, plus professional/lab experience.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/projects/";
+          },
+        },{id: "nav-achievements",
+          title: "achievements",
+          description: "Awards, participations, co-authored papers, and certifications.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/achievements/";
+          },
+        },{id: "nav-publications",
+          title: "publications",
+          description: "Conference paper and technical reports.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/publications/";
+          },
+        },{id: "nav-repositories",
+          title: "repositories",
+          description: "Selected repositories.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/repositories/";
+          },
+        },{id: "nav-cv",
+          title: "CV",
+          description: "Curriculum Vitae of Paulina L. Ruíz Servín.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/cv/";
+          },
+        },{id: "nav-contact",
+          title: "contact",
+          description: "Currently looking for a Pflichtpraktikum &amp; Abschlussarbeit position.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/contact/";
+          },
+        },{id: "projects-scissor-lift-amp-agv-automated-material-handling-platform",
+          title: 'Scissor Lift &amp;amp; AGV — Automated Material Handling Platform',
+          description: "Mechanical design &amp; electronics lead — scissor lift (load-tested &gt;100 kg, 40 × 30 × 76 cm) with custom load-cell PCB (no HX711) and machined aluminum parts",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/agv-platform/";
+            },},{id: "projects-automated-ppe-amp-inventory-management-system",
+          title: 'Automated PPE &amp;amp; Inventory Management System',
+          description: "Solo project — QR tracking for Shell Eco-marathon paddock ops — customs-ready Excel export, under 80 ms QR reading, web dashboard with loan management",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/ecovolt-inventory/";
+            },},{id: "projects-telemetry-amp-energy-optimization-platform",
+          title: 'Telemetry &amp;amp; Energy-Optimization Platform',
+          description: "PCB lead &amp; firmware — three generations of telemetry for a Shell Eco-marathon car — 1st (2025) and 2nd (2026) Data &amp; Telemetry Award",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/ecovolt-telemetry/";
+            },},{id: "projects-automated-viscosity-measurement-system",
+          title: 'Automated Viscosity Measurement System',
+          description: "PCB &amp; embedded lead with Endress+Hauser — 400× gain signal chain separating 252 cP from 1676 cP; three Altium boards, two manufactured by JLCPCB",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/endress-viscosity/";
+            },},{id: "projects-semiconductor-microfabrication-mit-nano",
+          title: 'Semiconductor Microfabrication — MIT.nano',
+          description: "MIT.nano cleanroom intensive — solar cell PCE 15.87 % (Voc 0.60 V), functional MEMS cantilevers and microfluidic mixer — one week, Class 100/1K/10K",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/mit-nano-fabrication/";
+            },},{id: "projects-digital-twin-of-a-flexible-cnc-manufacturing-cell",
+          title: 'Digital Twin of a Flexible CNC Manufacturing Cell',
+          description: "Industry challenge with ORZA Tech — virtual CNC cell commissioned 100 % in software (S7-1500 PLC programming in TIA Portal, UR5 VRC, CAM and G-code, Cognex vision, SCADA/KPIs)",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/orza-digital-twin/";
+            },},{id: "projects-vision-guided-scara-pick-and-place-robot-4-dof",
+          title: 'Vision-Guided SCARA Pick-and-Place Robot (4 DoF)',
+          description: "Firmware &amp; electronics lead — 4-DOF SCARA with YOLOv11n vision (mAP 0.72), 5/6 picks at ~14 s/cycle, custom Altium PCB",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/scara-robot/";
+            },},{
+        id: 'social-email',
+        title: 'email',
+        section: 'Socials',
+        handler: () => {
+          window.open("mailto:%70%72%75%69%7A%73%65%72%76%69%6E%32%37@%67%6D%61%69%6C.%63%6F%6D", "_blank");
+        },
+      },{
+        id: 'social-linkedin',
+        title: 'LinkedIn',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://www.linkedin.com/in/pruizservin27", "_blank");
+        },
+      },{
+        id: 'social-github',
+        title: 'GitHub',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://github.com/paulinism", "_blank");
+        },
+      },{
+        id: 'social-whatsapp',
+        title: 'whatsapp',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://wa.me/4915233878708", "_blank");
+        },
+      },{
+      id: 'light-theme',
+      title: 'Change theme to light',
+      description: 'Change the theme of the site to Light',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("light");
+      },
+    },
+    {
+      id: 'dark-theme',
+      title: 'Change theme to dark',
+      description: 'Change the theme of the site to Dark',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("dark");
+      },
+    },
+    {
+      id: 'system-theme',
+      title: 'Use system default theme',
+      description: 'Change the theme of the site to System Default',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("system");
+      },
+    },];
+
+</script> <script src="/assets/al_search/js/shortcut-key.js"></script> </body> </html>
