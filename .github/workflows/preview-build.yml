@@ -24,7 +24,8 @@ jobs:
         run: |
           sudo apt-get update && sudo apt-get install -y imagemagick
           export JEKYLL_ENV=production
-          bundle exec jekyll build
+          set -o pipefail
+          bundle exec jekyll build 2>&1 | tee build.log || { tail -40 build.log | while IFS= read -r l; do echo "::error::$l"; done; exit 1; }
       - name: Purge unused CSS
         run: |
           npm install -g purgecss
