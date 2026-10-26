@@ -33,8 +33,8 @@ cv:
           - Performed BLDC drive measurements and contributed to the transfer functions of its current and speed loops in MATLAB/Simulink
           - Characterized transistors and Zener, Schottky and rectifier diodes in the lab to select the components of a supercapacitor energy backup system
           - Built, with the team, a Python HiL test bench (real traction motor and driving simulator) showing with measured data that constant throttle is more efficient than pulse-and-glide
-          - Led ergonomic analysis of the driver position (virtual human model in Tecnomatix Process Simulate, RULA assessment) to validate cockpit layout and seating position
-          - Designed an automated tool/PPE tracking system for paddock operations using computer vision and QR codes
+          - Validated cockpit layout and seating position with an ergonomic RULA analysis (virtual human model in Tecnomatix Process Simulate), contributing to the 2026 Vehicle Design Award
+          - Proposed a QR inventory system for tools and PPE and programmed its first Python/OpenCV version (generated QR codes, automatic detection, scan logging) to track material at competitions
           - "Results: 1st place Vehicle Design Award (2026), 1st/2nd place Data & Telemetry Award (2025/2026) — see Awards below"
 
       - company: MIT.nano Lab, Massachusetts Institute of Technology
@@ -54,11 +54,11 @@ cv:
         end_date: 2026-06
         summary: "Team of 3, one station per member · virtual commissioning with no physical hardware"
         highlights:
-          - "Built my cell's digital twin in Tecnomatix Process Simulate (three UR5 cobots, AGV, conveyors, CNC mill, inspection camera) with every actuator and sensor mapped to PLC I/O"
-          - "Programmed the complete ladder logic in TIA Portal for a virtual Siemens S7-1500 in PLCSIM Advanced (step sequence, interlocks, manual mode, quality routing, KPI logging) plus the WinCC operator HMI"
-          - "Developed the plant-wide SCADA screen (OEE, cycle time, scrap rate), a C# Modbus TCP field sensor, and an S7 GET/PUT link to the neighboring station with link-loss alarm"
-          - "Synchronized a UR5 PolyScope program in URSim (Virtual Robot Controller) with the PLC via I/O handshake, after hands-on PolyScope work on a physical UR5e"
-          - "Programmed the station's part in SOLIDWORKS CAM and analyzed its G-code (canned drilling cycles, G41 cutter compensation, ≈ 12.8 min cycle); built a Cognex In-Sight inspection validated against caliper measurements"
+          - "Commissioned my station fully in simulation: digital twin in Process Simulate (3 UR5 cobots, AGV, conveyors, CNC mill, camera) driven by a virtual S7-1500 (PLCSIM Advanced)"
+          - "Programmed the TIA Portal ladder logic (step sequence, interlocks, manual mode, quality routing) and the WinCC HMI"
+          - "Built the plant-wide SCADA screen (OEE, cycle time, scrap rate), a C# Modbus TCP sensor and an S7 GET/PUT link with link-loss alarm"
+          - "Synchronized a UR5 program in URSim with the PLC via I/O handshake, after hands-on work on a physical UR5e"
+          - "Programmed the part in SOLIDWORKS CAM (≈ 12.8 min cycle) and validated a Cognex In-Sight inspection against caliper measurements"
 
       - name: Vision-Guided SCARA Pick-and-Place Robot (4 DoF) — Tecnológico de Monterrey
         url: /projects/scara-robot/
@@ -97,7 +97,9 @@ cv:
         area: Electrical Engineering
         studyType: B.Eng. Electrical Engineering (DHIK Double Degree)
         start_date: 2026-09
+        end_date: 2027-12
         highlights:
+          - "Expected graduation: December 2027"
           - Collaborative Robot Systems
           - Artificial Neural Networks
           - Microcontrollers
@@ -110,8 +112,10 @@ cv:
         area: Mechatronics Engineering
         studyType: B.Sc. Mechatronics Engineering
         start_date: 2023-08
+        end_date: 2027-12
         highlights:
-          - "GPA: 92/100"
+          - "Expected graduation: December 2027"
+          - "GPA: 92/100 (≈ 1.8 on the German scale)"
           - Merit scholarship (30%)
 
     Awards:
@@ -200,6 +204,18 @@ cv:
           - SolidWorks CAD/CAM
           - NX CAD
           - Fusion CAM
+          - Machining (turning, milling)
+          - MIG welding
+          - 3D printing
+
+      - name: Methods & Documentation
+        icon: fa-solid fa-file-lines
+        keywords:
+          - Design thinking
+          - Technical reporting
+          - Test documentation
+          - LaTeX
+          - MS Office
 
       - name: Programming
         icon: fa-solid fa-code
