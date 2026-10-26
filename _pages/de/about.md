@@ -60,6 +60,7 @@ latest_posts:
   .ab-btn.primary { background: var(--global-theme-color); color: var(--global-bg-color) !important; }
 
   .post > .post-header, .post article > .profile { display: none !important; }
+  #navbar .navbar-brand { display: none !important; }
   @media (min-width: 1200px) { .container { max-width: 1140px; } }
   .hero { display: grid; grid-template-columns: minmax(0, 2.1fr) minmax(0, 1fr); gap: 2.5rem; align-items: start; margin: 1.5rem 0 1rem; }
   .hero-name { font-size: clamp(2.6rem, 6vw, 4.6rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.02; margin: 0 0 .6rem; }
