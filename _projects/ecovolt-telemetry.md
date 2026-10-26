@@ -44,6 +44,43 @@ hide_from_grid: true # shown in the "Professional & lab experience" section inst
   <figure class="tel-fig photo"><img src="{{ 'assets/img/tel-award-2025.jpg' | relative_url }}" alt="Data and Telemetry Award, Shell Eco-marathon Americas 2025"><figcaption>1st place, Data &amp; Telemetry Award — Shell Eco-marathon Americas 2025.</figcaption></figure>
 </div>
 
+<!-- DESIGN-AT-A-GLANCE:START -->
+<style>
+  .dag-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.9rem; margin: 1rem 0 1.25rem; }
+  .dag-fig { margin: 0; border: 1px solid rgba(128,128,128,.25); border-radius: 10px; overflow: hidden; }
+  .dag-fig img { display: block; width: 100%; height: 190px; object-fit: contain; background: rgba(128,128,128,.06); }
+  .dag-fig figcaption { padding: .4rem .6rem; font-size: .78rem; line-height: 1.3; opacity: .85; border-top: 1px solid rgba(128,128,128,.2); }
+  .dag-table { width: 100%; border-collapse: collapse; font-size: .9rem; margin: .5rem 0 1rem; }
+  .dag-table th, .dag-table td { border: 1px solid rgba(128,128,128,.3); padding: .45rem .6rem; vertical-align: top; text-align: left; }
+  .dag-table th { background: rgba(128,128,128,.08); }
+  details.writeup { margin: 1.5rem 0; border: 1px solid rgba(128,128,128,.3); border-radius: 10px; padding: .6rem 1rem; }
+  details.writeup > summary { cursor: pointer; font-weight: 700; font-size: 1.05rem; }
+</style>
+
+## Design at a glance
+
+<div class="dag-grid">
+  <figure class="dag-fig"><img src="{{ 'assets/img/tel-pcb-us26-render.jpg' | relative_url }}" alt="US 2026 board, Altium 3D" loading="lazy"><figcaption>US 2026 board, Altium 3D</figcaption></figure>
+  <figure class="dag-fig"><img src="{{ 'assets/img/tel-pcb-us26-purple.jpg' | relative_url }}" alt="Fabricated US 2026 board" loading="lazy"><figcaption>Fabricated US 2026 board</figcaption></figure>
+  <figure class="dag-fig"><img src="{{ 'assets/img/tel-ina240-handmade.jpg' | relative_url }}" alt="Hand-etched INA240 prototype" loading="lazy"><figcaption>Hand-etched INA240 prototype</figcaption></figure>
+  <figure class="dag-fig"><img src="{{ 'assets/img/tel-installed.jpg' | relative_url }}" alt="Telemetry installed in the car" loading="lazy"><figcaption>Telemetry installed in the car</figcaption></figure>
+</div>
+
+**Design decisions, from first principles**
+
+<table class="dag-table">
+  <tr><th>Decision</th><th>Engineering reasoning</th><th>Result</th></tr>
+  <tr><td>INA240 current-sense amplifier</td><td>A few millivolts across the shunt sit on a 48 V line: the INA240 (gain 20 V/V) rejects the common mode and is bidirectional, so it also reads regeneration</td><td>Calibrated current channel instead of a 15 A offset</td></tr>
+  <tr><td>Shunt reduced from 20 m&Omega; to 5 m&Omega;</td><td>The 20 m&Omega; shunt saturated the amplifier at the real peak current; a quarter of the resistance gives four times the range</td><td>No saturation at US 2026</td></tr>
+  <tr><td>Write to SD first, transmit second</td><td>In Brazil 2025 only about one lap reached the server over the cellular link</td><td>No data lost in transit</td></tr>
+  <tr><td>External antenna on the windshield</td><td>The carbon monocoque is conductive and attenuates Wi-Fi like a partial Faraday cage</td><td>Stable radio link from inside the car</td></tr>
+  <tr><td>Supercapacitor energy reserve</td><td>A power loss or switching off the car would cut the log; ~60 s of reserve bridges the gap</td><td>Telemetry keeps running after power loss</td></tr>
+</table>
+<!-- DESIGN-AT-A-GLANCE:END -->
+
+<details class="writeup" markdown="1">
+<summary>Full technical write-up (click to expand)</summary>
+
 ## Project overview
 
 In the Shell Eco-marathon, teams compete on energy efficiency, not speed: the winner covers the required distance on the least energy. Two things decide the result here: how the driver uses the throttle, and whether the team can see what the powertrain is doing during a run.
@@ -348,6 +385,8 @@ Download the MATLAB files: [Live Script (.mlx)]({{ 'assets/files/indianapolis-tr
 - **Driver-centred interfaces:** as both engineer and driver, I learned that the driver display must be readable at a glance.
 - **Technical leadership:** turning engineering needs into requirements for a separate software team, and supervising a teammate's hardware design.
 - **Next step:** characterize the drivetrain on a dynamometer to build a higher-fidelity digital twin for the simulator loop, and gather enough runs to train a reliable energy model.
+
+</details>
 
 **Context:** Escudería EcoVolt CCM, Shell Eco-marathon, 2024–2026.
 **Result:** 1st place (2025) and 2nd place (2026), Data & Telemetry Award; Honorable Mention, Altair Global Student Contest 2025.

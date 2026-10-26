@@ -26,6 +26,42 @@ featured: true
   <figure class="sc-fig"><video src="{{ 'assets/img/scara-demo.mp4' | relative_url }}" poster="{{ 'assets/img/scara-demo-poster.jpg' | relative_url }}" autoplay muted loop playsinline></video><figcaption>Final project presentation: testing the gripper's grip, demonstrating joint control through the HMI and by sending commands directly to the MQTT broker, and explaining how the real-time vision system works.</figcaption></figure>
 </div>
 
+<!-- DESIGN-AT-A-GLANCE:START -->
+<style>
+  .dag-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.9rem; margin: 1rem 0 1.25rem; }
+  .dag-fig { margin: 0; border: 1px solid rgba(128,128,128,.25); border-radius: 10px; overflow: hidden; }
+  .dag-fig img { display: block; width: 100%; height: 190px; object-fit: contain; background: rgba(128,128,128,.06); }
+  .dag-fig figcaption { padding: .4rem .6rem; font-size: .78rem; line-height: 1.3; opacity: .85; border-top: 1px solid rgba(128,128,128,.2); }
+  .dag-table { width: 100%; border-collapse: collapse; font-size: .9rem; margin: .5rem 0 1rem; }
+  .dag-table th, .dag-table td { border: 1px solid rgba(128,128,128,.3); padding: .45rem .6rem; vertical-align: top; text-align: left; }
+  .dag-table th { background: rgba(128,128,128,.08); }
+  details.writeup { margin: 1.5rem 0; border: 1px solid rgba(128,128,128,.3); border-radius: 10px; padding: .6rem 1rem; }
+  details.writeup > summary { cursor: pointer; font-weight: 700; font-size: 1.05rem; }
+</style>
+
+## Design at a glance
+
+<div class="dag-grid">
+  <figure class="dag-fig"><img src="{{ 'assets/img/scara-cad.png' | relative_url }}" alt="CAD model (4 DoF)" loading="lazy"><figcaption>CAD model (4 DoF)</figcaption></figure>
+  <figure class="dag-fig"><img src="{{ 'assets/img/scara-workspace.png' | relative_url }}" alt="Reachable workspace 50&ndash;250 mm" loading="lazy"><figcaption>Reachable workspace 50&ndash;250 mm</figcaption></figure>
+  <figure class="dag-fig"><img src="{{ 'assets/img/scara-pcb-3d.png' | relative_url }}" alt="Control PCB, 3D view (Altium)" loading="lazy"><figcaption>Control PCB, 3D view (Altium)</figcaption></figure>
+  <figure class="dag-fig"><img src="{{ 'assets/img/scara-cv-detection.jpg' | relative_url }}" alt="Shape/colour detection" loading="lazy"><figcaption>Shape/colour detection</figcaption></figure>
+</div>
+
+**Design decisions, from first principles**
+
+<table class="dag-table">
+  <tr><th>Decision</th><th>Engineering reasoning</th><th>Result</th></tr>
+  <tr><td>All joint axes vertical</td><td>Decouples the problem: planar position from shoulder and elbow, height from the Z stage; inverse kinematics in closed form with the law of cosines</td><td>Forward kinematics mean error 4.0 mm, inverse 6.9 mm</td></tr>
+  <tr><td>L1 = 150 mm, L2 = 110 mm</td><td>Annular workspace from |L1&minus;L2| to L1+L2 covers the 25 cm task radius</td><td>Reachable area 50&ndash;250 mm from the base</td></tr>
+  <tr><td>Steppers on J1/J2, absolute encoder on the wrist, limit-switch homing</td><td>Steppers give position without feedback, so accuracy depends on a correct home reference</td><td>Homing identified as the main error source</td></tr>
+  <tr><td>YOLOv11n on top of the HSV pipeline</td><td>HSV thresholds shift with lighting; a trained detector is more robust</td><td>mAP@0.5 = 0.72; 5 of 6 parts sorted, ~14 s/cycle</td></tr>
+</table>
+<!-- DESIGN-AT-A-GLANCE:END -->
+
+<details class="writeup" markdown="1">
+<summary>Full technical write-up (click to expand)</summary>
+
 ## Project overview
 
 **Context:** Design and Development of Robots, Tecnológico de Monterrey (Mexico City), Feb – Jun 2026. Team of four.
@@ -253,6 +289,8 @@ The clips below show earlier integration stages: joint movement commanded from t
 - **Small validation set:** the pick-and-place figure comes from six attempts, so it is an indication rather than a measured success rate.
 - **Lighting:** HSV ranges had to be retuned whenever the light changed, which is what motivated the YOLO detector.
 - **Next steps:** more images for the under-represented classes, integrating the PCB to replace the breadboard wiring, and closed-loop control on the stepper joints.
+
+</details>
 
 **Stack:** Python, OpenCV, NumPy, Ultralytics YOLOv11n, LabelImg · ESP32, C++ (ESP-IDF, PlatformIO), FreeRTOS · MQTT (Mosquitto), I²C · Altium Designer · MATLAB, Simulink, Simscape Multibody
 

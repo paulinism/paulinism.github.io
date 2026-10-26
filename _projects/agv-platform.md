@@ -30,6 +30,42 @@ featured: true
   <figure class="agv-fig"><img src="{{ 'assets/img/agv-final-build.jpg' | relative_url }}" alt="Final lift build with load-cell scale and electronics on the tray"><figcaption>Final build: load-cell scale and electronics on the tray, welded base.</figcaption></figure>
 </div>
 
+<!-- DESIGN-AT-A-GLANCE:START -->
+<style>
+  .dag-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.9rem; margin: 1rem 0 1.25rem; }
+  .dag-fig { margin: 0; border: 1px solid rgba(128,128,128,.25); border-radius: 10px; overflow: hidden; }
+  .dag-fig img { display: block; width: 100%; height: 190px; object-fit: contain; background: rgba(128,128,128,.06); }
+  .dag-fig figcaption { padding: .4rem .6rem; font-size: .78rem; line-height: 1.3; opacity: .85; border-top: 1px solid rgba(128,128,128,.2); }
+  .dag-table { width: 100%; border-collapse: collapse; font-size: .9rem; margin: .5rem 0 1rem; }
+  .dag-table th, .dag-table td { border: 1px solid rgba(128,128,128,.3); padding: .45rem .6rem; vertical-align: top; text-align: left; }
+  .dag-table th { background: rgba(128,128,128,.08); }
+  details.writeup { margin: 1.5rem 0; border: 1px solid rgba(128,128,128,.3); border-radius: 10px; padding: .6rem 1rem; }
+  details.writeup > summary { cursor: pointer; font-weight: 700; font-size: 1.05rem; }
+</style>
+
+## Design at a glance
+
+<div class="dag-grid">
+  <figure class="dag-fig"><img src="{{ 'assets/img/agv-loadcell-circuit.png' | relative_url }}" alt="Load-cell amplifier circuit" loading="lazy"><figcaption>Load-cell amplifier circuit</figcaption></figure>
+  <figure class="dag-fig"><img src="{{ 'assets/img/agv-displacement.png' | relative_url }}" alt="Static study: max. arm deflection 0.28 mm" loading="lazy"><figcaption>Static study: max. arm deflection 0.28 mm</figcaption></figure>
+  <figure class="dag-fig"><img src="{{ 'assets/img/agv-lathe-2.jpg' | relative_url }}" alt="Turning the aluminium coupler" loading="lazy"><figcaption>Turning the aluminium coupler</figcaption></figure>
+  <figure class="dag-fig"><img src="{{ 'assets/img/agv-force-voltage.png' | relative_url }}" alt="Measured scale output: linear 0&ndash;5 kg" loading="lazy"><figcaption>Measured scale output: linear 0&ndash;5 kg</figcaption></figure>
+</div>
+
+**Design decisions, from first principles**
+
+<table class="dag-table">
+  <tr><th>Decision</th><th>Engineering reasoning</th><th>Result</th></tr>
+  <tr><td>Steel tube base, aluminium scissor arms</td><td>Stiffness where the loads concentrate, low moving mass in the linkage; checked with a static study before cutting metal</td><td>Frame held &gt;100 kg; 7 kg payload vs. 5 kg required</td></tr>
+  <tr><td>Lead-screw lift drive</td><td>A lead screw holds the load without power; tested first with a drill as actuator to separate mechanical from electrical validation</td><td>Lift mechanism validated under load before motor integration</td></tr>
+  <tr><td>Cam designed for &ge;30&deg; tilt</td><td>Margin over the 25&deg; requirement to cover friction and tolerances</td><td>Dump motion demonstrated; cracked ABS cam fixed with a bearing-supported aluminium shaft</td></tr>
+  <tr><td>Own load-cell amplifier (no HX711)</td><td>A Wheatstone bridge gives only millivolts: differential + non-inverting gain and an RC low-pass bring it into the 3.3 V ADC range</td><td>Linear 0&ndash;5 kg &rarr; 0&ndash;3 V</td></tr>
+</table>
+<!-- DESIGN-AT-A-GLANCE:END -->
+
+<details class="writeup" markdown="1">
+<summary>Full technical write-up (click to expand)</summary>
+
 **Challenge**
 
 Build a scissor lift that raises, weighs, and dumps a 1–5 kg load, carried between stations by a line-following AGV. Two constraints shaped the design: the unloading tilt had to reach ≥25°, and the load cell had to be read without an off-the-shelf conditioner (HX711 not allowed).
@@ -122,6 +158,8 @@ The load-cell conditioning circuit (differential amplifier, non-inverting amplif
   <figure class="agv-fig auto"><img src="{{ 'assets/img/agv-voltage-time.png' | relative_url }}" alt="Scale output voltage versus time in 1 kg steps"><figcaption>Scale output over time, loaded in 1 kg steps (voltage in mV; the plot's axis label is a typo).</figcaption></figure>
   <figure class="agv-fig auto"><img src="{{ 'assets/img/agv-force-voltage.png' | relative_url }}" alt="Force versus voltage for the scale"><figcaption>Force (N) vs. voltage (mV) for 1–5 kg: monotonic and close to linear.</figcaption></figure>
 </div>
+
+</details>
 
 **Context:** Tec de Monterrey, Feb–Jun 2025, 4th-semester integrative challenge, team of 5.
 **Result:** functional scissor lift, 40 × 30 × 76 cm, base load-tested at >100 kg.

@@ -26,6 +26,41 @@ hide_from_grid: true # shown in the "Professional & lab experience" section inst
   <figure class="mit-fig"><img src="{{ 'assets/img/mit-group-cleanroom.jpg' | relative_url }}" alt="Cohort in cleanroom suits"><figcaption>The cohort in cleanroom suits before entering the lab.</figcaption></figure>
 </div>
 
+<!-- DESIGN-AT-A-GLANCE:START -->
+<style>
+  .dag-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.9rem; margin: 1rem 0 1.25rem; }
+  .dag-fig { margin: 0; border: 1px solid rgba(128,128,128,.25); border-radius: 10px; overflow: hidden; }
+  .dag-fig img { display: block; width: 100%; height: 190px; object-fit: contain; background: rgba(128,128,128,.06); }
+  .dag-fig figcaption { padding: .4rem .6rem; font-size: .78rem; line-height: 1.3; opacity: .85; border-top: 1px solid rgba(128,128,128,.2); }
+  .dag-table { width: 100%; border-collapse: collapse; font-size: .9rem; margin: .5rem 0 1rem; }
+  .dag-table th, .dag-table td { border: 1px solid rgba(128,128,128,.3); padding: .45rem .6rem; vertical-align: top; text-align: left; }
+  .dag-table th { background: rgba(128,128,128,.08); }
+  details.writeup { margin: 1.5rem 0; border: 1px solid rgba(128,128,128,.3); border-radius: 10px; padding: .6rem 1rem; }
+  details.writeup > summary { cursor: pointer; font-weight: 700; font-size: 1.05rem; }
+</style>
+
+## Design at a glance
+
+<div class="dag-grid">
+  <figure class="dag-fig"><img src="{{ 'assets/img/mit-solar-cell-probe.jpg' | relative_url }}" alt="Solar cell under the probe" loading="lazy"><figcaption>Solar cell under the probe</figcaption></figure>
+  <figure class="dag-fig"><img src="{{ 'assets/img/mit-iv-curve.jpg' | relative_url }}" alt="IV curve: Voc 0.60 V, PCE 15.87 %" loading="lazy"><figcaption>IV curve: Voc 0.60 V, PCE 15.87 %</figcaption></figure>
+  <figure class="dag-fig"><img src="{{ 'assets/img/mit-bridge-test-a.jpg' | relative_url }}" alt="MEMS bridge force test" loading="lazy"><figcaption>MEMS bridge force test</figcaption></figure>
+  <figure class="dag-fig"><img src="{{ 'assets/img/mit-coflow.jpg' | relative_url }}" alt="Laminar co-flow in the mixer" loading="lazy"><figcaption>Laminar co-flow in the mixer</figcaption></figure>
+</div>
+
+**Design decisions, from first principles**
+
+<table class="dag-table">
+  <tr><th>Decision</th><th>Engineering reasoning</th><th>Result</th></tr>
+  <tr><td>Compare 80 nm and 100 nm SiN anti-reflective coatings</td><td>Reflection is minimised when the coating is about a quarter wavelength thick inside the film</td><td>Best cell: PCE 15.87 %, Voc 0.60 V; second wafer ~2 % showed the sensitivity</td></tr>
+  <tr><td>Low-stress SiN for the MEMS beams</td><td>Residual stress bends or breaks released beams</td><td>All cantilevers survived bending; bridges recovered after a 4 mg load</td></tr>
+  <tr><td>Observe mixing at microscale</td><td>At low Reynolds number flow is laminar, so streams run side by side and mix only by diffusion</td><td>Co-flow observed; particles clogged at the walls where velocity &rarr; 0</td></tr>
+</table>
+<!-- DESIGN-AT-A-GLANCE:END -->
+
+<details class="writeup" markdown="1">
+<summary>Full technical write-up (click to expand)</summary>
+
 **Challenge**
 
 Take three devices through the full microfabrication cycle in one week: thin-film deposition, pattern transfer, etching and release, packaging and functional testing. Each module required choosing process parameters (recipe, exposure energy, film thickness) and verifying the result at the microscale before moving to the next step.
@@ -113,6 +148,8 @@ _What it demonstrated._
 
 - **Contamination control:** a wafer broke during cleaving because the workstation was not clean. Contamination control applies to every step, not only to the cleanroom itself.
 - **Failure modes:** the microfluidic channel blocked because tracer particles collected at the walls, so test conditions have to be planned for that.
+
+</details>
 
 **Context:** MIT.nano, Cambridge, USA — one-week cleanroom intensive, semiconductor fabrication (Oct 2025).
 **Stack:** LPCVD/PECVD, photolithography, RIE/KOH wet etching, PDMS soft lithography, cleanroom protocols (Class 100/1K/10K)

@@ -29,6 +29,42 @@ featured: true
   <figure class="oz-fig"><video src="{{ 'assets/img/orza-general-dt.mp4' | relative_url }}" poster="{{ 'assets/img/orza-general-dt-poster.jpg' | relative_url }}" controls preload="metadata" playsinline></video><figcaption>Walkthrough with narration: scrapping a part, the CNC cell working in Process Simulate, and an explanation of how the HMI and the PLC logic run together with the simulation.</figcaption></figure>
 </div>
 
+<!-- DESIGN-AT-A-GLANCE:START -->
+<style>
+  .dag-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.9rem; margin: 1rem 0 1.25rem; }
+  .dag-fig { margin: 0; border: 1px solid rgba(128,128,128,.25); border-radius: 10px; overflow: hidden; }
+  .dag-fig img { display: block; width: 100%; height: 190px; object-fit: contain; background: rgba(128,128,128,.06); }
+  .dag-fig figcaption { padding: .4rem .6rem; font-size: .78rem; line-height: 1.3; opacity: .85; border-top: 1px solid rgba(128,128,128,.2); }
+  .dag-table { width: 100%; border-collapse: collapse; font-size: .9rem; margin: .5rem 0 1rem; }
+  .dag-table th, .dag-table td { border: 1px solid rgba(128,128,128,.3); padding: .45rem .6rem; vertical-align: top; text-align: left; }
+  .dag-table th { background: rgba(128,128,128,.08); }
+  details.writeup { margin: 1.5rem 0; border: 1px solid rgba(128,128,128,.3); border-radius: 10px; padding: .6rem 1rem; }
+  details.writeup > summary { cursor: pointer; font-weight: 700; font-size: 1.05rem; }
+</style>
+
+## Design at a glance
+
+<div class="dag-grid">
+  <figure class="dag-fig"><img src="{{ 'assets/img/orza-layout-iso.jpg' | relative_url }}" alt="Cell layout in Process Simulate" loading="lazy"><figcaption>Cell layout in Process Simulate</figcaption></figure>
+  <figure class="dag-fig"><img src="{{ 'assets/img/orza-p2-cam-model.jpg' | relative_url }}" alt="Part P2 in SOLIDWORKS CAM" loading="lazy"><figcaption>Part P2 in SOLIDWORKS CAM</figcaption></figure>
+  <figure class="dag-fig"><img src="{{ 'assets/img/orza-cnc-station.jpg' | relative_url }}" alt="My CNC milling station" loading="lazy"><figcaption>My CNC milling station</figcaption></figure>
+  <figure class="dag-fig"><img src="{{ 'assets/img/orza-scada-kpi.png' | relative_url }}" alt="SCADA: OEE, cycle time, scrap" loading="lazy"><figcaption>SCADA: OEE, cycle time, scrap</figcaption></figure>
+</div>
+
+**Design decisions, from first principles**
+
+<table class="dag-table">
+  <tr><th>Decision</th><th>Engineering reasoning</th><th>Result</th></tr>
+  <tr><td>Interlock every move against twin sensors, no timers</td><td>The PLC program is what goes to the real machine unchanged, so it must react to the plant, not to assumed times</td><td>Full cycles incl. rework and scrap branches</td></tr>
+  <tr><td>Check the chip load by hand</td><td>f<sub>z</sub> = 1645.9 / (12 000 &times; 2) &asymp; 0.069 mm/tooth, inside 0.05&ndash;0.13 mm for aluminium</td><td>Cycle &asymp; 12.8 min; spindle speed flagged as too high for the lab machine</td></tr>
+  <tr><td>Spot-drill before the small holes</td><td>A short, stiff spot drill keeps the thin &Oslash;1.75 mm drill from wandering</td><td>Correct hole positions in simulation</td></tr>
+  <tr><td>Validate the Cognex inspection against calipers</td><td>Reflective foil creates bright edges that the outline tool reads as part edges</td><td>Found a 3.7&ndash;3.9 % oversize and documented the fix</td></tr>
+</table>
+<!-- DESIGN-AT-A-GLANCE:END -->
+
+<details class="writeup" markdown="1">
+<summary>Full technical write-up (click to expand)</summary>
+
 ## Project overview
 
 **Context:** Automation of Manufacturing Systems, Tecnológico de Monterrey (Mexico City), Feb – Jun 2026. Academic challenge proposed by the industry partner ORZA Tech; team of three, with one CNC station per member.
@@ -308,6 +344,8 @@ The complete run of the cell, with my explanation (7 min, with sound).
 - **Inspection limits come from the requirement:** in the Cognex exam, lighting caused the visible failure, but the hidden one was a ±10 % pass gate against a ±3 % target. Tolerances should be fixed before the tools are tuned.
 - **Simulation and the real robot complement each other:** the virtual controller runs the same PolyScope program as the physical UR, but only the physical UR5e shows how the real robot behaves, so I learned both.
 - **Next steps:** recalculate the milling parameters for the lab machine and aluminium 6061, add a spindle clamp and a faster cut-off to the turning program, and repeat the Cognex inspection under diffuse lighting with limits taken from the ±3 % requirement.
+
+</details>
 
 **Stack:** Tecnomatix Process Simulate · TIA Portal, S7-1500, PLCSIM Advanced, ladder logic · WinCC Runtime Advanced · URSim / PolyScope (UR5 VRC), physical UR5e · S7 GET/PUT, Modbus TCP · C# (Modbus simulator) · SOLIDWORKS CAM (milling and turning), G-code (G71/G72, G82/G83, G41/G43, G96/G97) · Cognex In-Sight (PatMax RedLine, FindCircle, Caliper, ReadIDMax, OCRMax)
 

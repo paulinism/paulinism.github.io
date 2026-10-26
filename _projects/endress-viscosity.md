@@ -29,6 +29,42 @@ featured: true
   <figure class="vis-fig full"><img src="{{ 'assets/img/visc-system-test.jpg' | relative_url }}" alt="Integrated system during the final presentation"><figcaption>Build: Integrated system presented as the final prototype, combining relays, emergency-stop system, water pump, container sorting, stepper motors, DC motor with encoder, infrared sensors, and conveyor belts for container transport.</figcaption></figure>
 </div>
 
+<!-- DESIGN-AT-A-GLANCE:START -->
+<style>
+  .dag-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.9rem; margin: 1rem 0 1.25rem; }
+  .dag-fig { margin: 0; border: 1px solid rgba(128,128,128,.25); border-radius: 10px; overflow: hidden; }
+  .dag-fig img { display: block; width: 100%; height: 190px; object-fit: contain; background: rgba(128,128,128,.06); }
+  .dag-fig figcaption { padding: .4rem .6rem; font-size: .78rem; line-height: 1.3; opacity: .85; border-top: 1px solid rgba(128,128,128,.2); }
+  .dag-table { width: 100%; border-collapse: collapse; font-size: .9rem; margin: .5rem 0 1rem; }
+  .dag-table th, .dag-table td { border: 1px solid rgba(128,128,128,.3); padding: .45rem .6rem; vertical-align: top; text-align: left; }
+  .dag-table th { background: rgba(128,128,128,.08); }
+  details.writeup { margin: 1.5rem 0; border: 1px solid rgba(128,128,128,.3); border-radius: 10px; padding: .6rem 1rem; }
+  details.writeup > summary { cursor: pointer; font-weight: 700; font-size: 1.05rem; }
+</style>
+
+## Design at a glance
+
+<div class="dag-grid">
+  <figure class="dag-fig"><img src="{{ 'assets/img/visc-opamp-board.jpg' | relative_url }}" alt="Op-amp board built and wired" loading="lazy"><figcaption>Op-amp board built and wired</figcaption></figure>
+  <figure class="dag-fig"><img src="{{ 'assets/img/visc-opamp-layout.jpg' | relative_url }}" alt="Op-amp board layout" loading="lazy"><figcaption>Op-amp board layout</figcaption></figure>
+  <figure class="dag-fig"><img src="{{ 'assets/img/visc-esp32-board-a.jpg' | relative_url }}" alt="ESP32 master board (JLCPCB)" loading="lazy"><figcaption>ESP32 master board (JLCPCB)</figcaption></figure>
+  <figure class="dag-fig"><img src="{{ 'assets/img/visc-sim-61ma.jpg' | relative_url }}" alt="Multisim check at 61 mA" loading="lazy"><figcaption>Multisim check at 61 mA</figcaption></figure>
+</div>
+
+**Design decisions, from first principles**
+
+<table class="dag-table">
+  <tr><th>Decision</th><th>Engineering reasoning</th><th>Result</th></tr>
+  <tr><td>Measure viscosity through motor current</td><td>Viscous drag raises spindle torque, and DC-motor torque is proportional to current; a 1 &Omega; shunt turns it into voltage</td><td>6 mV window between diluted and pure soap at 30 RPM</td></tr>
+  <tr><td>Gain &asymp; 400 in two stages (&times;100, then &times;4)</td><td>Maps the 6 mV window onto 0&ndash;3.3 V while keeping the first stage inside the &plusmn;12 V rails</td><td>252 cP and 1676 cP reliably separated</td></tr>
+  <tr><td>5 V &rarr; 3.3 V level converter</td><td>At 130 RPM the output reached about 4 V, above the ESP32 ADC limit</td><td>ADC protected at all speeds</td></tr>
+  <tr><td>PID off during the measurement</td><td>Closed-loop speed control pushed the current to 63&ndash;72 mA, outside the measurement window</td><td>Stable readings at constant 30 RPM</td></tr>
+</table>
+<!-- DESIGN-AT-A-GLANCE:END -->
+
+<details class="writeup" markdown="1">
+<summary>Full technical write-up (click to expand)</summary>
+
 **Challenge**
 
 Automate a full fluid-handling cycle: identify a sample by its color tag, measure its viscosity, dilute it to a target (±10%), then sort it. Two constraints shaped the design: viscosity had to be inferred from the spindle motor's current, with no commercial viscometer, and control was split between PLC stations (supply and sorting) and an ESP32 station (measurement), which communicate with each other.
@@ -108,6 +144,8 @@ The original sorting idea (a vending-machine-style stepper, screw and spring) wa
 - **Outcome:** the automatic sequence ran on video, but the live demo failed because of wiring faults and short circuits — the PLC boards were swapped for breadboards after the FC-51 sensors drew more current than the board supply could deliver
 - **Measurement lessons:** PID control had to be dropped for the 30 RPM measurement because it pushed the current to 63–72 mA, outside the 61–67 mA window; swapping the UA741CN for the UA741CP fixed an output that froze
 - **Lessons:** route a short common ground for inter-board UART, since a RX/TX mismatch on the slave board cost debugging time; budget sensor supply current before routing a board, and check pin assignments against the target software (OpenPLC addressing) before fabrication
+
+</details>
 
 **Context:** Tec de Monterrey, Aug–Dec 2025, Industrial Automation challenge with Endress+Hauser as industry partner, team of 4.
 **Result:** current-based viscosity measurement separating 252 cP from 1676 cP on a custom PCB.
