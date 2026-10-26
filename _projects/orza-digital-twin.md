@@ -72,285 +72,138 @@ featured: true
 <details class="writeup" markdown="1" open>
 <summary>Full technical write-up</summary>
 
-## Project overview
+**Challenge**
 
-**Context:** Automation of Manufacturing Systems, Tecnológico de Monterrey (Mexico City), Feb – Jun 2026. Academic challenge proposed by the industry partner ORZA Tech; team of three, with one CNC station per member.
-
-**Challenge:** design, implement and validate a virtual digital twin of a flexible manufacturing cell (supplier, three CNC stations, intralogistics, quality inspection, assembly and warehouse) with simulated industrial communication, two operating modes, traceability and KPIs. Everything is virtual: no physical PLCs, robots or AGVs.
+Design, implement and validate a virtual digital twin of a flexible manufacturing cell — supplier, three CNC stations, intralogistics, quality inspection, assembly and warehouse — with simulated industrial communication, two operating modes, traceability and KPIs. Everything is virtual: no physical PLCs, robots or AGVs. Automation of Manufacturing Systems, Tec de Monterrey, challenge proposed by ORZA Tech; team of three, one CNC station per member.
 
 <div class="oz-grid">
-  <figure class="oz-fig"><img data-zoomable src="{{ 'assets/img/orza-layout-iso.jpg' | relative_url }}" alt="Isometric view of the flexible manufacturing system"><figcaption>The full flexible manufacturing system in Process Simulate: three CNC cells in parallel along a shared conveyor and AGV backbone.</figcaption></figure>
   <figure class="oz-fig"><img data-zoomable src="{{ 'assets/img/orza-workflow.png' | relative_url }}" alt="Manufacturing cell workflow"><figcaption>Material flow: supplier, transport, CNC machining, quality inspection (pass, rework or scrap), assembly and warehouse.</figcaption></figure>
-</div>
-
-## My role & responsibilities
-
-**What I did directly — my CNC milling cell (Station 3)**
-
-- **PLC programming (core of the challenge):** the complete ladder program in TIA Portal for a virtual S7-1500 (CPU 1511-1 PN) in PLCSIM Advanced: 35-step sequence, interlocks, safety stop, manual mode, quality routing, recipes, KPIs and data logging ([details below](#plc-programming-in-tia-portal-the-core-of-the-cell)).
-- **Digital twin:** my cell in Tecnomatix Process Simulate (supplier rack with pneumatic actuator, AGV, two conveyors, three UR5 robots, CNC milling machine and inspection camera), with every actuator and sensor mapped to PLC I/O.
-- **Robot integration:** a UR5 in Virtual Robot Controller mode (URSim in VMware) running its own PolyScope pick-and-place program, synchronised with the PLC through a digital I/O handshake.
-- **HMI:** the WinCC Runtime Advanced operator interface for the cell.
-- **Machining:** the SOLIDWORKS CAM model and toolpath simulation for part P2 (an aluminium piston body), and a block-by-block analysis of its G-code program: tools, cutting data, canned cycles, cutter compensation and an estimated cycle time ([details below](#cam-and-g-code-milling-part-p2-and-a-lathe-exercise)).
-- **Global SCADA:** the supervisory screen that consolidates production counts and KPI trends for the whole system.
-- **Modbus TCP sensor:** my C# simulated field sensor exchanging holding registers with the PLC (each team member built one for their own station).
-- **Communication with the team:** the S7 GET/PUT link from my PLC to the assembly station on PC-1, with an alarm when that link fails.
-- **FMS layout concept:** I proposed the ladder-type layout of the full system.
-
-**What we did as a team**
-
-- Building the full FMS layout in Process Simulate from that proposal.
-- The three-PC integration over a shared Ethernet switch.
-
-**Individual work in the same course**
-
-- **Cognex practical exam:** a complete In-Sight inspection, from image acquisition and calibration to pass/fail logic and physical validation ([details below](#quality-inspection-cognex-in-sight-practical-exam)).
-- **Lathe CAM exercise:** a turned AISI 304 shaft programmed in SOLIDWORKS CAM, from stock and tool crib to post-processed G-code ([details below](#cam-and-g-code-milling-part-p2-and-a-lathe-exercise)).
-- **Physical UR robot:** besides running the UR5 virtually, I learned PolyScope on the lab's physical Universal Robots arm and built hands-on applications with it to learn its real limitations.
-
-## System architecture
-
-<table class="oz-table">
-  <tr><th>Layer</th><th>Tool</th><th>Role</th></tr>
-  <tr><td>3D plant</td><td>Tecnomatix Process Simulate</td><td>Kinematics of robots, conveyors, AGV and CNC; virtual sensors fed back to the PLC</td></tr>
-  <tr><td>Control</td><td>TIA Portal + PLCSIM Advanced (S7-1500)</td><td>Ladder program; virtual Ethernet adapter seen as a real PROFINET device</td></tr>
-  <tr><td>Robot</td><td>URSim (UR5 VRC) in VMware</td><td>PolyScope program; joint positions streamed to Process Simulate</td></tr>
-  <tr><td>Operator</td><td>WinCC Runtime Advanced</td><td>Station HMI: modes, manual commands, alarms, recipes, trends</td></tr>
-  <tr><td>Network</td><td>S7 GET/PUT, Modbus TCP</td><td>Data exchange between the three team PCs and the simulated sensor</td></tr>
-</table>
-
-<div class="oz-grid single">
   <figure class="oz-fig"><img data-zoomable src="{{ 'assets/img/orza-network.jpg' | relative_url }}" alt="Network diagram of the three workstations"><figcaption>Real network: three workstations on one Ethernet switch, each running Process Simulate, a VMware Tecnomatix server, a Modbus sensor and a PLCSIM Advanced instance.</figcaption></figure>
 </div>
 
-## The station sequence
+**My contribution — CNC milling cell (Station 3)**
 
-The cell runs as a chain of PLC step flags (K1 … K35). Each transition only fires when the digital twin confirms the previous action really finished, so the PLC never moves on based on a timer alone.
+- **PLC program (core of the challenge):** the complete ladder program in TIA Portal for a virtual S7-1500 in PLCSIM Advanced: 35-step sequence, interlocks, safety stop, manual mode, quality routing, recipes, KPIs and logging
+- **Digital twin:** my cell in Process Simulate (supplier rack with pneumatic actuator, AGV, two conveyors, three UR5 robots, CNC milling machine and inspection camera), with every actuator and sensor mapped to PLC I/O
+- **Robot integration:** a UR5 in Virtual Robot Controller mode running its own PolyScope program, synchronised with the PLC through a digital handshake
+- **HMI and SCADA:** the WinCC operator screens of the cell and the plant-wide KPI screen
+- **Machining:** the SOLIDWORKS CAM model of part P2 and a block-by-block analysis of its G-code
+- **Communication:** a C# Modbus TCP field sensor and the S7 GET/PUT link to the assembly station, with an alarm when the link fails
+- **Layout concept:** proposed the ladder-type layout of the full system
 
-1. **Supply:** a proximity sensor detects a blank on the rack; a pneumatic actuator deploys it onto the AGV.
-2. **Transport:** the AGV carries the blank to the VRC robot, which picks it and places it on the inlet conveyor.
-3. **Loading:** the conveyor stops at the CNC; a UR5 loads the part and the CNC door closes.
-4. **Machining:** the spindle head rises and the tool magazine starts the cycle; the step only ends on the machine's done signal.
-5. **Unloading and inspection:** the door opens and a second UR5 holds the part in front of the inspection camera.
-6. **Routing:** OK parts go to the exit conveyor and the assembly station; rework parts go back through the CNC and are inspected again; scrap goes to the disposal bin.
-7. **Cycle close:** counters, cycle time and the log entry are updated, and the order quantity counts down.
-
-<table class="oz-table">
-  <tr><th>State</th><th>Entry condition</th><th>Exit condition</th></tr>
-  <tr><td>Idle</td><td>Reset or cycle start</td><td>Part present at the supplier</td></tr>
-  <tr><td>Loading</td><td>Part present</td><td>Part inside the CNC</td></tr>
-  <tr><td>Machining</td><td>CNC ready, door closed</td><td>Machining done</td></tr>
-  <tr><td>Unloading</td><td>Machining done</td><td>Robot done</td></tr>
-  <tr><td>Quality inspection</td><td>Part at the camera</td><td>Result locked (OK, rework or scrap)</td></tr>
-  <tr><td>Fault</td><td>Any alarm bit active</td><td>Reset from the HMI</td></tr>
-</table>
+The team built the full layout in Process Simulate and integrated the three PCs over one Ethernet switch.
 
 <div class="oz-grid">
   <figure class="oz-fig"><img data-zoomable src="{{ 'assets/img/orza-layout-top.jpg' | relative_url }}" alt="Top view of the cell layout"><figcaption>Top view of the line operation in Process Simulate: conveyors, AGV path, CNC cells and robots.</figcaption></figure>
   <figure class="oz-fig"><img data-zoomable src="{{ 'assets/img/orza-cnc-station.jpg' | relative_url }}" alt="CNC station with UR5 robots"><figcaption>CNC station: two UR5 robots load and unload the milling machine and present the part to the camera.</figcaption></figure>
 </div>
 
-## PLC programming in TIA Portal: the core of the cell
+**PLC program**
 
-**Result:** the whole control of my cell is one ladder program I wrote myself for a virtual S7-1500 (CPU 1511-1 PN) in PLCSIM Advanced. It drives a 35-step sequence in automatic and manual mode, interlocks every movement against the twin's sensors, routes parts by inspection result (OK, rework or scrap), runs a recipe queue, logs every cycle and exchanges data with a partner PLC and a Modbus sensor. It completed full cycles, including the rework and scrap branches, against the Process Simulate model with no timers standing in for the plant.
+The cell runs as a chain of step flags (K1 … K35): supply, AGV transport, loading by a UR5, machining, unloading and inspection, routing and cycle close. A step advances only when the twin confirms the previous action really finished — a sensor, a door, the machine's done signal — never on a timer. In a virtual commissioning the PLC is the part that would go to the real machine unchanged, so any wrong assumption showed up as a stuck part, a collision or a cell that never finished.
 
-**Why it mattered.** In a virtual commissioning the PLC is the part that would go to the real machine unchanged, so the challenge was judged mostly on whether this logic was robust, not on the 3D model. Process Simulate only reacts to the PLC's outputs and feeds sensors back, so any wrong assumption in the program showed up as a part stuck, a collision or a cell that never finished.
+- **Interlocks:** a function block turns raw sensor signals into named bits (part present, CNC ready, conveyor clear), so wiring and sequence stay decoupled
+- **Safety:** one global stop contact sits in every step rung; any alarm puts the cell in Fault until it is reset from the HMI
+- **Manual mode:** every step can be driven from the HMI, but only in manual mode, so manual and automatic commands cannot fight each other
+- **Routing and recipes:** the inspection result (OK, rework, scrap) is locked by the PLC and decides the next conveyor; a FIFO recipe queue sets which stations a part type needs and the batch size
+- **KPIs:** yield, scrap rate and Micro OEE computed in the PLC every cycle, with a 100-entry retentive log that survives a restart
 
-**How the program is built.**
+<div class="oz-grid">
+  <figure class="oz-fig"><img data-zoomable src="{{ 'assets/img/orza-hmi-menu.jpg' | relative_url }}" alt="HMI main menu"><figcaption>Main menu.</figcaption></figure>
+  <figure class="oz-fig"><img data-zoomable src="{{ 'assets/img/orza-hmi-monitor.jpg' | relative_url }}" alt="Station monitor screen"><figcaption>Station monitor: mode, current process, station progress and batch quantity.</figcaption></figure>
+</div>
+<div class="oz-grid">
+  <figure class="oz-fig"><img data-zoomable src="{{ 'assets/img/orza-hmi-supply.jpg' | relative_url }}" alt="Supplier and conveyor screen"><figcaption>Supplier and conveyor screen with manual commands.</figcaption></figure>
+  <figure class="oz-fig"><img data-zoomable src="{{ 'assets/img/orza-hmi-cnc-qi.jpg' | relative_url }}" alt="CNC and quality inspection screen"><figcaption>CNC and quality inspection: manual machining commands and the OK / rework / scrap result.</figcaption></figure>
+</div>
+<div class="oz-grid">
+  <figure class="oz-fig"><img data-zoomable src="{{ 'assets/img/orza-db22.png' | relative_url }}" alt="DATA_LOG data block"><figcaption>The retentive DATA_LOG block with counters, KPIs, alarm bits and the 100-entry log.</figcaption></figure>
+  <figure class="oz-fig"><img data-zoomable src="{{ 'assets/img/orza-scada-kpi.png' | relative_url }}" alt="SCADA counters and trends"><figcaption>Global SCADA screen at the end of a demonstration run: 11 parts, 11 OK, 0 scrap, with yield, scrap and Micro OEE trends.</figcaption></figure>
+</div>
 
-- **Sequence engine:** a chain of step flags (K1 … K35), one rung per step. A step only advances on a confirmation from the twin (sensor, door, machine done signal), never on a timer alone. The same engine covers the main cycle and the rework loop, where a part goes back through the CNC and is inspected again.
-- **Interlocks:** a function block turns raw sensor signals into named bits (part present, CNC ready, conveyor clear …). Step transitions use only those bits, so the wiring and the sequence logic stay decoupled and a sensor change touches one place.
-- **Safety and faults:** one global stop bit sits as a normally-closed contact in every step rung and freezes the whole sequence. Any alarm bit puts the cell in Fault, and only a reset from the HMI returns it to idle.
-- **Manual mode:** every step can be driven from the HMI (deploy part, load, start and finish machining, unload, conveyor start/stop/reverse, AGV return), but only when the cell is in manual mode, so manual and automatic commands cannot fight each other.
-- **Quality routing:** the inspection result (OK, rework, scrap) is locked by the PLC once entered and decides the next conveyor or the return to the CNC.
-- **Recipes:** a FIFO production queue on the HMI. Each recipe (A–D) sets which of the three CNC stations a part type needs and the batch quantity, which counts down every cycle.
-- **Data blocks:** sequence, HMI interface, interlocks, quality inspection, latches and production log each live in their own block. Optimised block access is disabled so every tag keeps a fixed absolute address, which Process Simulate's signal mapping and the S7 exchange both need.
-- **KPIs and log:** yield, scrap rate and Micro OEE are computed in the PLC at the end of every cycle, with a 100-entry per-cycle log in a retentive block (details in the KPI section below).
-- **Communication:** S7 GET/PUT to the neighbouring station with a link-loss alarm, Modbus TCP holding registers with my C# sensor, and a seven-signal digital handshake with the UR5 PolyScope program.
+**CAM & G-code**
 
-<table class="oz-table">
-  <tr><th>Part of the program</th><th>What it proves</th></tr>
-  <tr><td>Step chain K1 … K35 with confirmations</td><td>The logic follows the real plant state, not a timeline</td></tr>
-  <tr><td>Interlock function block</td><td>Sensors and sequence are separated, so changes stay local</td></tr>
-  <tr><td>Global stop and Fault state</td><td>Safe stop and a defined recovery path</td></tr>
-  <tr><td>Manual / automatic modes</td><td>The cell can be commissioned step by step</td></tr>
-  <tr><td>Recipes and routing</td><td>Different parts and quality outcomes are handled by data, not by new code</td></tr>
-  <tr><td>S7, Modbus and UR5 handshakes</td><td>The PLC works as a node in a networked system</td></tr>
-</table>
-
-**What I would improve.** The five machine states are handled in the logic but not all are shown on the HMI, and the OEE ideal cycle time is not yet calibrated against real machining time. If I did it again I would agree one IP plan and tag namespace with the team first, because most of the integration time went into configuration conflicts and not into the control logic.
-
-## CAM and G-code: milling part P2 and a lathe exercise
-
-**Result:** I programmed the station's part (P2, an aluminium piston body of 32 × 20 × 20 mm with a Ø16 bore, a pocket and two pairs of small holes) in SOLIDWORKS CAM and verified the six-tool milling program (O0001) block by block. Roughing is about 72 % of the estimated 12.8 min cycle, and the contour uses cutter compensation (G41 D21), so tool wear is corrected with one offset value instead of a new program. In the twin it runs on a simulated Haas VF-2, and the PLC leaves the machining step only when the machine reports done. In a second exercise on a lathe I set every parameter myself and found a spindle-speed problem in the post-processed code.
+Part P2 is an aluminium piston body of 32 × 20 × 20 mm with a Ø16 bore, a pocket and two pairs of small holes, machined with six tools: spot drill and Ø16 peck drilling, a centre drill before the small holes so the thin drill does not wander, pocket roughing in eight Z levels, and seven contour passes with cutter compensation (G41), so tool wear is corrected with one offset value. I recalculated every surface speed (v<sub>c</sub> = π·D·n/1000) and the chip load, f<sub>z</sub> ≈ 0.069 mm/tooth, inside the 0.05–0.13 mm range for aluminium. The estimated cycle is 12.8 min, 72 % of it roughing; the weak point is the 12 000 rpm spindle speed, fine in simulation but above what the lab machine runs.
 
 <div class="oz-grid">
   <figure class="oz-fig"><img data-zoomable src="{{ 'assets/img/orza-p2-drawing.png' | relative_url }}" alt="Technical drawing of part P2"><figcaption>Technical drawing of P2 (SOLIDWORKS, scale 2:1).</figcaption></figure>
   <figure class="oz-fig"><img data-zoomable src="{{ 'assets/img/orza-p2-cam-model.jpg' | relative_url }}" alt="P2 inside its billet in SOLIDWORKS CAM"><figcaption>P2 inside the billet in SOLIDWORKS CAM.</figcaption></figure>
 </div>
-
 <div class="oz-grid single">
   <figure class="oz-fig"><video src="{{ 'assets/img/orza-cam.mp4' | relative_url }}" poster="{{ 'assets/img/orza-cam-poster.jpg' | relative_url }}" autoplay muted loop playsinline></video><figcaption>CAM toolpath simulation of P2 (2× speed).</figcaption></figure>
 </div>
 
-**Milling sequence.** Spot drill (Ø20, G82) and Ø16 main hole (G83 peck, Q = 2 mm); centre drill and Ø3.5 / Ø1.75 mounting holes (spotting first keeps the thin drill from wandering); pocket roughing in eight Z levels with a Ø6 mm end mill plus two clean-up loops; then seven contour passes with G41 D21, entered on a tangent G03 arc and cancelled with G40.
-
-**Checking the numbers.** I recalculated each surface speed (v<sub>c</sub> = π·D·n / 1000) and the end-mill chip load, f<sub>z</sub> = 1 645.9 / (12 000 × 2) ≈ 0.069 mm per tooth, inside the 0.05–0.13 mm range for aluminium. Time by group: drilling ≈ 4 s, roughing ≈ 554 s (72 %), clean-up ≈ 139 s (18 %), contour ≈ 41 s (5 %), tool changes and rapids ≈ 30 s, total ≈ 768 s. The weak point is the 12 000 rpm spindle speed: fine in simulation, but above what the lab machine runs on 6061 aluminium, so it needs lower speeds and feeds before real machining.
-
-**Lathe exercise.** After the challenge I programmed a turned AISI 304 shaft (Ø51 × 200 mm bar, 150 mm stepped shaft, chamfer, two fillets, groove and Ø6.35 centre hole) from stock definition to post-processed G-code: 8 operations, 9.0 min. The G-code uses `G96` constant surface speed, `G72`/`G71` roughing cycles and `G74` peck drilling. The cut-off switches to fixed rpm (`G97 S700`) so the spindle does not run away at the centre.
+In a second exercise I programmed a turned AISI 304 shaft from stock to post-processed G-code (8 operations, 9.0 min) and found what I would fix before a real lathe: a missing spindle-speed clamp (G50) and a cut-off that takes 62 % of the cycle.
 
 <div class="oz-grid">
   <figure class="oz-fig"><img data-zoomable src="{{ 'assets/img/cam-turn-ops.jpg' | relative_url }}" alt="Operation tree in SOLIDWORKS CAM"><figcaption>Operation tree: facing, drilling, turning, groove and cut-off.</figcaption></figure>
   <figure class="oz-fig"><img data-zoomable src="{{ 'assets/img/cam-turn-sim.jpg' | relative_url }}" alt="Toolpath simulation of the turned shaft"><figcaption>Toolpath simulation with the stock in the chuck.</figcaption></figure>
 </div>
 
-**What I would fix before a real lathe.**
+**Robot: from virtual to real**
 
-- **Spindle clamp:** the CAM warned that 120 m/min on the Ø6.35 mm drill needs about 6 000 rpm on a 5 000 rpm machine, and the program has no `G50` limit. I would add one, or drill at fixed rpm like the cut-off.
-- **Tool-change position:** X508 Z127 is exactly 20 × 5 inches, an inch-machine default, so it must be checked against the real lathe.
-- **Cycle time:** the cut-off takes 62 % of the 9 min at 0.03 mm/rev, so it is the first operation to optimise.
+The AGV-to-conveyor UR5 runs its own PolyScope program in URSim, Universal Robots' official emulator, so the program is real and portable instead of a simulation-only path. The PLC treats it as an external device and only exchanges seven agreed handshake signals (start, grip confirmed, release confirmed, pick in progress, place complete). Before trusting the virtual robot, I programmed the lab's physical UR5e — here a vacuum-gripper pick-and-place in a 2 × 2 pattern.
 
-## Virtual commissioning of the UR5 with the Virtual Robot Controller
-
-**Result:** the AGV-to-conveyor robot runs its own PolyScope program in URSim, exactly as it would on a real controller, and stays synchronised with the S7-1500 through seven handshake signals. Process Simulate only shows the motion; the robot program itself is real.
-
-**Why VRC mode.** The two UR5 arms inside the CNC cell run in Process Simulate's simpler pick-and-place mode, where the simulation plans the motion. For the third arm I used Virtual Robot Controller mode: URSim, Universal Robots' official emulator with the same PolyScope, URScript and I/O registers as the physical controller, runs inside a VMware virtual machine and streams its joint positions to Process Simulate through the Tecnomatix Server (TCP port 8523). That makes the program portable to a real robot instead of being a simulation-only path.
-
-**Bridging the I/O.** URSim inside VMware cannot reach the PLC's virtual Ethernet adapter directly, so its digital I/O goes through Process Simulate's signal interface. Process Simulate maps PLC outputs to URSim inputs and URSim outputs back to PLC inputs.
-
-**PolyScope program.**
-
-- **BeforeStart:** move to a SAFE waypoint with MoveL, open the gripper (TO[0] off) and pressurise the vacuum (TO[1] on).
-- **Pick:** wait for the PLC trigger (digital_in[2]), approach with MoveL, close the gripper, then wait until the PLC confirms the grip (DI[0]) before retracting.
-- **Place:** a MoveJ via a waypoint that clears the two other robots, MoveL to the conveyor, release, wait for the PLC to confirm the release (DI[1]), then report "place complete" (DO[4]) and return to the initial pose.
-
-<div class="oz-grid single">
+<div class="oz-grid">
   <figure class="oz-fig" style="max-width: 640px; margin: 0 auto"><img data-zoomable src="{{ 'assets/img/orza-polyscope.png' | relative_url }}" alt="PolyScope program for pick and place"><figcaption>PolyScope program in URSim: BeforeStart, the trigger loop, and the pick and place routines with their wait-for-confirmation steps.</figcaption></figure>
-</div>
-
-**Robot handshake.** The VRC robot is treated as an asynchronous external device: the PLC only reads and writes agreed handshake bits, never individual waypoints. It also waits until both the gripper sensor and the simulation's attach event agree before telling the robot the grip is confirmed.
-
-<table class="oz-table">
-  <tr><th>Direction</th><th>Signal</th><th>Purpose</th></tr>
-  <tr><td>PLC → robot</td><td>digital_in[2]</td><td>Start the pick-and-place cycle</td></tr>
-  <tr><td>PLC → robot</td><td>digital_in[0] / [1]</td><td>Gripper close / open confirmed</td></tr>
-  <tr><td>Robot → PLC</td><td>tool_digital_out[0] / [1]</td><td>Robot requests gripper close / open</td></tr>
-  <tr><td>Robot → PLC</td><td>digital_out[3] / [4]</td><td>Pick in progress / place complete</td></tr>
-</table>
-
-**From the virtual robot to the real one.** Before relying on the virtual controller, I learned PolyScope on the lab's physical UR5e and programmed hands-on applications with it, to understand the real robot's limitations before trusting the simulated one. The video below is one of them: a pick-and-place routine with a vacuum gripper that takes blocks from a stack and places them in a 2 × 2 pattern on the table. This hands-on work is also covered by my Universal Robots _Educational Robotics Training – Core_ certificate.
-
-<div class="oz-grid single">
   <figure class="oz-fig" style="max-width: 420px; margin: 0 auto"><video src="{{ 'assets/img/ur5e-physical-pnp.mp4' | relative_url }}" poster="{{ 'assets/img/ur5e-physical-pnp-poster.jpg' | relative_url }}" autoplay muted loop playsinline style="max-height: 640px; object-fit: contain"></video><figcaption>Physical UR5e in the lab: vacuum-gripper pick-and-place programmed in PolyScope.</figcaption></figure>
 </div>
 
-## HMI
+**Communication**
 
-The station HMI has a main menu, a station monitor, one screen per area with its own manual commands, status LEDs, fault indicator and error counter, plus alarms with acknowledge, recipes and trends.
-
-<div class="oz-grid oz-row2 oz-hmi">
-  <figure class="oz-fig"><img data-zoomable src="{{ 'assets/img/orza-hmi-menu.jpg' | relative_url }}" alt="HMI main menu"><figcaption>Main menu.</figcaption></figure>
-  <figure class="oz-fig"><img data-zoomable src="{{ 'assets/img/orza-hmi-monitor.jpg' | relative_url }}" alt="Station monitor screen"><figcaption>Station monitor: mode, current process, station progress and batch quantity.</figcaption></figure>
-  <figure class="oz-fig"><img data-zoomable src="{{ 'assets/img/orza-hmi-supply.jpg' | relative_url }}" alt="Supplier and conveyor screen"><figcaption>Supplier and conveyor screen with manual commands.</figcaption></figure>
-  <figure class="oz-fig"><img data-zoomable src="{{ 'assets/img/orza-hmi-cnc-qi.jpg' | relative_url }}" alt="CNC and quality inspection screen"><figcaption>CNC and quality inspection: manual machining commands and the OK / rework / scrap result.</figcaption></figure>
-</div>
-
-## KPIs and data logging
-
-All production statistics are computed inside the PLC at the end of every cycle and stored in a retentive data block, so they survive a PLC restart.
-
-- **Yield** = good parts / total parts.
-- **Scrap rate** = scrapped parts / total parts.
-- **Micro OEE** = ideal cycle time × good parts / accumulated cycle time (performance × quality, assuming full availability in uninterrupted automatic mode).
-- **Per-cycle log:** a 100-entry ring buffer stores the part type, operation, station state, quality result, cycle time and active alarms of every cycle.
-
-<div class="oz-grid">
-  <figure class="oz-fig"><img data-zoomable src="{{ 'assets/img/orza-db22.png' | relative_url }}" alt="DATA_LOG data block"><figcaption>The retentive DATA_LOG block with counters, KPIs, alarm bits and the 100-entry log.</figcaption></figure>
-  <figure class="oz-fig"><img data-zoomable src="{{ 'assets/img/orza-scada-kpi.png' | relative_url }}" alt="SCADA counters and trends"><figcaption>Global SCADA screen at the end of a demonstration run: 11 parts, 11 OK, 0 scrap, with yield, scrap and Micro OEE trends.</figcaption></figure>
-</div>
-
-## Integration and results
-
-- **Digital twin closed loop:** every PLC output drives a body in the 3D scene and every virtual sensor feeds back into the PLC; the cell completes full cycles in automatic mode, including the rework and scrap branches.
-- **Modbus TCP:** bidirectional exchange verified between the C# sensor simulator and the PLC (read holding registers and write multiple registers).
-- **Communication failure:** when the link to a partner PC is cut, the GET block reports the error, an alarm is raised on the HMI and the station stops passing stale data downstream.
-- **Protocols:** the challenge brief suggested OPC UA or EtherNet/IP; the partner accepted S7 GET/PUT between PLCs and Modbus TCP for the sensors, which proved simpler and more reliable in the virtual setup.
-- **Three-PC integration:** each station's S7 link worked on its own, but the full interconnection of all three stations could not be completed in the integration window because of IP conflicts, duplicate tag references and stale PLCSIM connections between the individual projects.
+S7 GET/PUT links my PLC to the assembly station on another PC, and a C# Modbus TCP sensor exchanges holding registers with the PLC. When the link is cut, the GET block reports the error, the HMI raises an alarm and the station stops passing stale data downstream.
 
 <div class="oz-grid">
   <figure class="oz-fig"><img data-zoomable src="{{ 'assets/img/orza-s7-get.png' | relative_url }}" alt="S7 GET block"><figcaption>S7 GET block reading a byte from the partner PLC, triggered at 10 Hz.</figcaption></figure>
   <figure class="oz-fig"><img data-zoomable src="{{ 'assets/img/orza-modbus-app.png' | relative_url }}" alt="C# Modbus sensor application"><figcaption>C# Modbus TCP sensor simulator exchanging the supplier stock value with the PLC.</figcaption></figure>
 </div>
 
-## Full demonstration
+**Quality inspection (Cognex In-Sight)**
 
-The complete run of the cell, with my explanation (7 min, with sound).
+A complete inspection built on my own on a reflective anti-static bag: 20 images with deliberate errors, grid calibration (0.33 px average error over 823 points), a PatMax reference frame that follows the part as it moves, circle and caliper measurements in millimetres, QR, barcode and OCR reading, and a spreadsheet that passes a part only if every feature passes. Seals and label matched a vernier caliper within ±3 %; the package outline came out 3.7–3.9 % too large, because the foil's highlights were read as edges.
+
+<div class="oz-grid oz-row3">
+  <figure class="oz-fig"><img data-zoomable src="{{ 'assets/img/cognex-golden.jpg' | relative_url }}" alt="Golden reference image of the package"><figcaption>Golden image: two colour seals, QR code, barcode, "QTY" text and the label.</figcaption></figure>
+  <figure class="oz-fig"><img data-zoomable src="{{ 'assets/img/cognex-faulty.jpg' | relative_url }}" alt="Deliberately faulty sample"><figcaption>Deliberately faulty sample: one seal only partly present and a QR code that does not match the part inside.</figcaption></figure>
+  <figure class="oz-fig"><img data-zoomable src="{{ 'assets/img/cognex-setup-vertical.jpg' | relative_url }}" alt="Image acquisition setup"><figcaption>Acquisition setup: phone fixed above a matte black surface, ceiling light only, calibration checkerboard at the side.</figcaption></figure>
+</div>
+<style>
+  .oz-grid.oz-bw .oz-fig img { aspect-ratio: 4 / 3; object-fit: contain; background: #555; }
+</style>
+
+<div class="oz-grid oz-row3 oz-bw">
+  <figure class="oz-fig"><img data-zoomable src="{{ 'assets/img/cognex-pattern.jpg' | relative_url }}" alt="PatMax reference frame on the package"><figcaption>PatMax reference frame that anchors every inspection tool.</figcaption></figure>
+  <figure class="oz-fig"><img data-zoomable src="{{ 'assets/img/cognex-circle.jpg' | relative_url }}" alt="Circle tool on a seal"><figcaption>FindCircle measuring the radius of a colour seal.</figcaption></figure>
+  <figure class="oz-fig"><img data-zoomable src="{{ 'assets/img/cognex-reflection.jpg' | relative_url }}" alt="Caliper failure due to reflection"><figcaption>Failure case: a specular highlight on the foil is taken as an edge by the caliper.</figcaption></figure>
+</div>
+<div class="oz-grid oz-row2">
+  <figure class="oz-fig"><img data-zoomable src="{{ 'assets/img/cognex-calibration.jpg' | relative_url }}" alt="Calibration result"><figcaption>Grid calibration: 0.33 px average error over 823 points.</figcaption></figure>
+  <figure class="oz-fig"><img data-zoomable src="{{ 'assets/img/cognex-caliper.jpg' | relative_url }}" alt="Vernier caliper measurement of a seal"><figcaption>Physical validation: measuring a seal with the vernier caliper.</figcaption></figure>
+</div>
+<div class="oz-grid single">
+  <figure class="oz-fig"><img data-zoomable src="{{ 'assets/img/cognex-spreadsheet.jpg' | relative_url }}" alt="Cognex In-Sight spreadsheet"><figcaption>In-Sight spreadsheet: raw tool outputs on the left, and the quality-control table with nominal, limits and pass flags on the right.</figcaption></figure>
+</div>
+
+**Tools & technologies**
+
+- **TIA Portal, S7-1500, PLCSIM Advanced, WinCC:** PLC program, HMI and SCADA
+- **Tecnomatix Process Simulate:** digital twin and virtual commissioning
+- **URSim / PolyScope, physical UR5e:** robot programming
+- **SOLIDWORKS CAM:** milling and turning toolpaths, G-code analysis
+- **C# (Modbus TCP), S7 GET/PUT:** communication between stations and sensors
+- **Cognex In-Sight:** calibrated vision inspection
+
+**Results & lessons**
 
 <div class="oz-grid single">
   <figure class="oz-fig"><video src="{{ 'assets/img/orza-full-demo.mp4' | relative_url }}" poster="{{ 'assets/img/orza-full-demo-poster.jpg' | relative_url }}" controls preload="none" playsinline></video><figcaption>Full demonstration of the CNC cell: Process Simulate, PLC and HMI running together.</figcaption></figure>
 </div>
 
-## Quality inspection: Cognex In-Sight practical exam
-
-**Result:** a complete inspection built on my own in the Cognex In-Sight emulator. It reads the QR code, barcode and text on every image, measures two seals and the label in calibrated millimetres, and makes one pass/fail decision per part. Seal and label measurements matched a vernier caliper within ±3 %. The package outline did not, and that failure is the most useful part of the exam.
-
-**How it connects to the twin.** In the digital twin a UR5 presents each machined part to an In-Sight camera, but Cognex cannot be connected to Process Simulate. So the camera's verdict is entered on the HMI and locked by the PLC. This exam is the real inspection work behind that step. The product was an LCSC anti-static bag holding a 0603 chip resistor: a reflective package, chosen as a hard case.
-
-<div class="oz-grid">
-  <figure class="oz-fig"><img data-zoomable src="{{ 'assets/img/cognex-golden.jpg' | relative_url }}" alt="Golden reference image of the package"><figcaption>Golden image: two colour seals, QR code, barcode, "QTY" text and the label.</figcaption></figure>
-  <figure class="oz-fig"><img data-zoomable src="{{ 'assets/img/cognex-faulty.jpg' | relative_url }}" alt="Deliberately faulty sample"><figcaption>Deliberately faulty sample: one seal only partly present and a QR code that does not match the part inside.</figcaption></figure>
-  <figure class="oz-fig"><img data-zoomable src="{{ 'assets/img/cognex-setup.jpg' | relative_url }}" alt="Image acquisition setup"><figcaption>Acquisition setup: phone fixed above a matte black surface, ceiling light only, calibration checkerboard at the side.</figcaption></figure>
-</div>
-
-**Steps I followed.**
-
-1. **Acquisition:** 20 photos of the same product with varied position and rotation, plus deliberate errors (rotation, off-centre framing, reflections), taken over a matte black surface to reduce glare. I converted them to the resolution and .bmp format the emulator expects.
-2. **Calibration:** CalibrateGrid on a checkerboard with fiducial (7 mm grid, radial lens model): 823 feature points, 0.33 px average error, 1.04 px maximum, so every result is in millimetres.
-3. **Fixturing:** a PatMax RedLine pattern trained on a stable logo on the label, with the angle search widened to ±55°. It returns a reference frame (row, column, angle) that every other tool is anchored to, so the inspection follows the part when it moves or rotates.
-4. **Measurement:** FindCircle on the two colour seals (radius), and Caliper edge-pair tools on the label and on the package width and length.
-5. **Identification:** ReadIDMax decodes the QR code (the full LCSC part string) and the barcode, and OCRMax reads the "QTY" text character by character.
-6. **Decision logic:** in the In-Sight spreadsheet each feature has a nominal value, upper and lower limits and a pass flag (1 or 0). A final indicator sums the flags, so a part passes only if every required feature does.
-7. **Validation:** I measured the same features on the real package with a vernier caliper and compared them with the vision results against a ±3 % band.
-
-<div class="oz-grid single">
-  <figure class="oz-fig"><img data-zoomable src="{{ 'assets/img/cognex-spreadsheet.jpg' | relative_url }}" alt="Cognex In-Sight spreadsheet"><figcaption>In-Sight spreadsheet: raw tool outputs on the left, and the quality-control table with nominal, limits and pass flags on the right.</figcaption></figure>
-</div>
-
-<table class="oz-table">
-  <tr><th>Feature</th><th>Vision</th><th>Caliper</th><th>Within ±3 %?</th></tr>
-  <tr><td>Seal diameter</td><td>19.50 mm</td><td>≈ 19.5 mm</td><td>Yes</td></tr>
-  <tr><td>Label length</td><td>80.00 mm</td><td>≈ 80 mm</td><td>Yes</td></tr>
-  <tr><td>Package outline, long side</td><td>124.6 mm</td><td>120.0 mm</td><td>No (+3.8 %)</td></tr>
-  <tr><td>Package outline, short side</td><td>82.9 mm</td><td>80.0 mm</td><td>No (+3.7 %)</td></tr>
-  <tr><td>QR code, barcode, "QTY" text</td><td colspan="2">Read on every image (OCR scores 93–97 %)</td><td>—</td></tr>
-</table>
-
-**What did not work.** The reflective foil produced bright highlights that the outline calipers took as edges, so those readings came out 3.7–3.9 % too large, outside the ±3 % target. Only the 11 images with the smallest rotation passed the full check; in the most rotated ones the highlight moved into the caliper's search band. QR, barcode and OCR were unaffected because they do not rely on edge transitions. A light box or ring light would be the first fix.
-
-**What I found reviewing it afterwards.** The pass limits in my spreadsheet were set to ±10 % of nominal (for example 8.055–9.945 mm on a 9 mm seal radius), much wider than the ±3 % validation target. A tighter gate would have rejected some readings the spreadsheet accepted. Next time I would derive the limits from the requirement first and build the tools around them.
-
-<div class="oz-grid oz-row3">
-  <figure class="oz-fig"><img data-zoomable src="{{ 'assets/img/cognex-pattern.jpg' | relative_url }}" alt="PatMax reference frame on the package"><figcaption>PatMax reference frame that anchors every inspection tool.</figcaption></figure>
-  <figure class="oz-fig"><img data-zoomable src="{{ 'assets/img/cognex-circle.jpg' | relative_url }}" alt="Circle tool on a seal"><figcaption>FindCircle measuring the radius of a colour seal.</figcaption></figure>
-  <figure class="oz-fig"><img data-zoomable src="{{ 'assets/img/cognex-reflection.jpg' | relative_url }}" alt="Caliper failure due to reflection"><figcaption>Failure case: a specular highlight on the foil is taken as an edge by the caliper.</figcaption></figure>
-</div>
-
-<div class="oz-grid oz-row2">
-  <figure class="oz-fig"><img data-zoomable src="{{ 'assets/img/cognex-calibration.jpg' | relative_url }}" alt="Calibration result"><figcaption>Grid calibration: 0.33 px average error over 823 points.</figcaption></figure>
-  <figure class="oz-fig"><img data-zoomable src="{{ 'assets/img/cognex-caliper.jpg' | relative_url }}" alt="Vernier caliper measurement of a seal"><figcaption>Physical validation: measuring a seal with the vernier caliper.</figcaption></figure>
-</div>
-
-## Limitations & lessons
-
-- **Integration is its own engineering task:** most lost time came from configuration consistency (one authoritative IP plan, namespaced tags, a clean start-up and shutdown routine for the virtual adapters), not from any single protocol.
-- **Inspection result:** in a real cell an operator confirms the camera's verdict. Cognex cannot be connected to Process Simulate, so in the simulation that confirmation is given on the HMI (OK, rework or scrap) and the PLC locks it and routes the part.
-- **Ideal cycle time:** the Micro OEE formula is implemented, but there was no time to calibrate the ideal cycle time against the real machining time, so the OEE values are relative rather than absolute.
-- **HMI coverage:** the five machine states are handled in the logic but not all of them are shown explicitly on the HMI screens.
-- **Machining parameters:** some cutting speeds suit the simulation but exceed what the lab machine can do on aluminium 6061; they would need to be reduced before real machining.
-- **Machine limits belong in the CAM, not after it:** the lathe exercise showed the same pattern from the other side. Defining the real machine (maximum rpm, tool-change position) first lets the CAM flag problems such as a drill speed the spindle cannot reach, and reading the G-code shows where a `G50` clamp or a fixed rpm is still needed.
-- **Inspection limits come from the requirement:** in the Cognex exam, lighting caused the visible failure, but the hidden one was a ±10 % pass gate against a ±3 % target. Tolerances should be fixed before the tools are tuned.
-- **Simulation and the real robot complement each other:** the virtual controller runs the same PolyScope program as the physical UR, but only the physical UR5e shows how the real robot behaves, so I learned both.
-- **Next steps:** recalculate the milling parameters for the lab machine and aluminium 6061, add a spindle clamp and a faster cut-off to the turning program, and repeat the Cognex inspection under diffuse lighting with limits taken from the ±3 % requirement.
+- **Closed loop:** every PLC output drives the 3D scene and every virtual sensor feeds back; the cell completes full automatic cycles, including the rework and scrap branches
+- **Communication:** Modbus TCP verified in both directions; a cut link raises an alarm and stops stale data
+- **Integration:** each S7 link worked alone, but the full three-station interconnection was not completed because of IP conflicts, duplicate tags and stale PLCSIM connections
+- **Integration is its own engineering task:** one IP plan and tag namespace agreed first would have saved most of the lost time
+- **Limits come from the requirement:** my inspection pass limits were ±10 %, wider than the ±3 % target; next time I would derive them first and build the tools around them
 
 </details>
 
