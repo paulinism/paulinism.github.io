@@ -58,7 +58,7 @@ description: Auf der Suche nach einem Pflichtpraktikum und einer Abschlussarbeit
     <div class="ct-cards">
   <a class="ct-c" href="mailto:pruizservin27@gmail.com"><span class="ct-ico"><i class="fa-solid fa-envelope"></i></span><span><span class="ct-lbl">E-Mail</span><span class="ct-val">pruizservin27@gmail.com</span></span></a>
   <a class="ct-c" href="tel:+4915233878708"><span class="ct-ico"><i class="fa-solid fa-phone"></i></span><span><span class="ct-lbl">Telefon (Deutschland)</span><span class="ct-val">+49 1523 3878708</span></span></a>
-  <a class="ct-c" href="https://www.linkedin.com/in/pruizservin27/" target="_blank" rel="noopener"><span class="ct-ico"><i class="fa-brands fa-linkedin-in"></i></span><span><span class="ct-lbl">LinkedIn</span><span class="ct-val">linkedin.com/in/pruizservin27</span></span></a>
+  <a class="ct-c" href="https://www.linkedin.com/in/pruizservin27/?locale=de-DE" target="_blank" rel="noopener"><span class="ct-ico"><i class="fa-brands fa-linkedin-in"></i></span><span><span class="ct-lbl">LinkedIn</span><span class="ct-val">linkedin.com/in/pruizservin27</span></span></a>
   <a class="ct-c" href="https://github.com/paulinism" target="_blank" rel="noopener"><span class="ct-ico"><i class="fa-brands fa-github"></i></span><span><span class="ct-lbl">GitHub</span><span class="ct-val">github.com/paulinism</span></span></a>
     </div>
   </div>

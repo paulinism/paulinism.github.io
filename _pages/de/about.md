@@ -3,7 +3,7 @@ layout: about
 title: about
 permalink: /de/
 lang: de
-subtitle: Studentin der Mechatronik & Elektrotechnik · <a href='mailto:pruizservin27@gmail.com'>pruizservin27@gmail.com</a> · <a href='https://www.linkedin.com/in/pruizservin27/'>LinkedIn</a>
+subtitle: Studentin der Mechatronik & Elektrotechnik · <a href='mailto:pruizservin27@gmail.com'>pruizservin27@gmail.com</a> · <a href='https://www.linkedin.com/in/pruizservin27/?locale=de-DE'>LinkedIn</a>
 
 profile:
   align: right
@@ -114,7 +114,7 @@ latest_posts:
     <p class="hero-loc">📍 Zittau, Sachsen</p>
     <div class="hero-icons">
       <a href="mailto:pruizservin27@gmail.com" title="E-Mail" aria-label="E-Mail"><i class="fa-solid fa-envelope"></i></a>
-      <a href="https://www.linkedin.com/in/pruizservin27/" target="_blank" rel="noopener" title="LinkedIn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+      <a href="https://www.linkedin.com/in/pruizservin27/?locale=de-DE" target="_blank" rel="noopener" title="LinkedIn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
       <a href="https://github.com/paulinism" target="_blank" rel="noopener" title="GitHub" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
       <a href="https://wa.me/4915233878708" target="_blank" rel="noopener" title="WhatsApp" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
     </div>

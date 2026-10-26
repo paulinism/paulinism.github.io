@@ -88,6 +88,12 @@
     nav.appendChild(makeSwitch("mobile"));
 
     if (!isDe) return;
+    // German pages: LinkedIn links open the German profile
+    var li2 = document.querySelectorAll('a[href*="linkedin.com/in/pruizservin27"]');
+    for (var k = 0; k < li2.length; k++) {
+      var h = li2[k].getAttribute("href");
+      if (h.indexOf("locale=") === -1) li2[k].setAttribute("href", h.replace(/\/?(\?.*)?$/, "/?locale=de-DE"));
+    }
     // German pages: point the menu to /de/ and translate its labels
     var links = document.querySelectorAll("#navbar .navbar-nav .nav-item > a.nav-link");
     for (var i = 0; i < links.length; i++) {
