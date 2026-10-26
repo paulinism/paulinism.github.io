@@ -42,6 +42,7 @@ horizontal: false
 <p class="pg-title">Projekte</p>
 <p class="pg-lead">Arbeiten in Hardware, Firmware, Regelung und Automatisierung — vom Telemetriesystem eines Rennteams über Reinraumfertigung bis zu Robotern und digitalen Zwillingen. Jede Karte öffnet eine vollständige technische Beschreibung mit CAD, Prototypen und Ergebnissen.</p>
 <h2 class="cv-h" id="extracurricular"><i class="fa-solid fa-flag-checkered"></i> Außerhalb des Studiums &amp; Forschung</h2>
+<div class="pj-feat-wrap">
 <a class="pc-card pj-feat" href="{{ '/de/projects/ecovolt-telemetry/' | relative_url }}">
   <img src="{{ '/assets/img/ecovolt-telemetry.jpg' | relative_url }}" alt="Plattform für Telemetrie &amp; Energieoptimierung">
   <div class="pj-body">
@@ -52,6 +53,7 @@ horizontal: false
     <span class="pj-more">Zum Projekt →</span>
   </div>
 </a>
+</div>
 <div class="pj-grid" style="margin-top:1.2rem">
 <a class="pc-card pj-card" href="{{ '/de/projects/ecovolt-inventory/' | relative_url }}">
   <img src="{{ '/assets/img/inv-cover-composite.jpg' | relative_url }}" alt="Automatisiertes Inventarsystem für Schutzausrüstung &amp; Werkzeug" loading="lazy">
