@@ -27,12 +27,14 @@ nav_order: 6
   .ct-avail { border: 1px solid rgba(128,128,128,.3); border-left: 4px solid var(--global-theme-color); border-radius: 12px; padding: 1.1rem 1.2rem; }
   .ct-avail p { margin: 0 0 .7rem; line-height: 1.6; }
   .ct-when { color: var(--global-theme-color); font-weight: 700; }
-  .ct-cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .9rem; }
-  .ct-c { display: flex; align-items: center; gap: .9rem; padding: .85rem 1rem; color: inherit !important; text-decoration: none !important; transition: transform .15s ease, border-color .15s ease; }
-  .ct-c:hover { transform: translateY(-2px); border-color: var(--global-theme-color); }
-  .ct-ico { flex: 0 0 auto; width: 2.6rem; height: 2.6rem; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; background: var(--global-theme-color); color: var(--global-bg-color); font-size: 1.05rem; }
-  .ct-lbl { display: block; font-size: .78rem; opacity: .7; }
-  .ct-val { display: block; font-weight: 600; word-break: break-word; }
+  .ct-cards { border-top: 1px solid rgba(128,128,128,.25); }
+  .ct-c { display: flex; align-items: center; gap: 1.1rem; padding: .85rem 0; border-bottom: 1px solid rgba(128,128,128,.25); color: inherit !important; text-decoration: none !important; }
+  .ct-ico { flex: 0 0 auto; width: 2.9rem; height: 2.9rem; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; background: var(--global-theme-color); color: var(--global-bg-color); font-size: 1.15rem; transition: transform .15s ease; }
+  .ct-c:hover .ct-ico { transform: scale(1.08); }
+  .ct-c:hover .ct-val { color: var(--global-theme-color); }
+  .ct-lbl { display: block; font-family: "Roboto Mono", ui-monospace, monospace; font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; opacity: .6; }
+  .ct-val { display: block; font-family: "Roboto Mono", ui-monospace, monospace; font-size: .98rem; word-break: break-word; }
+  .ct-grid .cv-h { font-size: 1.2rem; margin: 1.6rem 0 .8rem; padding-bottom: .3rem; }
   .ct-note { margin-top: 1rem; font-size: .92rem; opacity: .8; }
   @media (max-width: 760px) { .ct-grid, .ct-cards { grid-template-columns: minmax(0, 1fr); } .ct-photo { max-width: 280px; margin: 0 auto; } }
 </style>
@@ -55,10 +57,10 @@ nav_order: 6
     </div>
     <h2 class="cv-h"><i class="fa-solid fa-paper-plane"></i> Get in touch</h2>
     <div class="ct-cards">
-  <a class="pc-card ct-c" href="mailto:pruizservin27@gmail.com"><span class="ct-ico"><i class="fa-solid fa-envelope"></i></span><span><span class="ct-lbl">Email</span><span class="ct-val">pruizservin27@gmail.com</span></span></a>
-  <a class="pc-card ct-c" href="tel:+4915233878708"><span class="ct-ico"><i class="fa-solid fa-phone"></i></span><span><span class="ct-lbl">Phone (Germany)</span><span class="ct-val">+49 1523 3878708</span></span></a>
-  <a class="pc-card ct-c" href="https://www.linkedin.com/in/pruizservin27/" target="_blank" rel="noopener"><span class="ct-ico"><i class="fa-brands fa-linkedin-in"></i></span><span><span class="ct-lbl">LinkedIn</span><span class="ct-val">in/pruizservin27</span></span></a>
-  <a class="pc-card ct-c" href="https://github.com/paulinism" target="_blank" rel="noopener"><span class="ct-ico"><i class="fa-brands fa-github"></i></span><span><span class="ct-lbl">GitHub</span><span class="ct-val">github.com/paulinism</span></span></a>
+  <a class="ct-c" href="mailto:pruizservin27@gmail.com"><span class="ct-ico"><i class="fa-solid fa-envelope"></i></span><span><span class="ct-lbl">Email</span><span class="ct-val">pruizservin27@gmail.com</span></span></a>
+  <a class="ct-c" href="tel:+4915233878708"><span class="ct-ico"><i class="fa-solid fa-phone"></i></span><span><span class="ct-lbl">Phone (Germany)</span><span class="ct-val">+49 1523 3878708</span></span></a>
+  <a class="ct-c" href="https://www.linkedin.com/in/pruizservin27/" target="_blank" rel="noopener"><span class="ct-ico"><i class="fa-brands fa-linkedin-in"></i></span><span><span class="ct-lbl">LinkedIn</span><span class="ct-val">linkedin.com/in/pruizservin27</span></span></a>
+  <a class="ct-c" href="https://github.com/paulinism" target="_blank" rel="noopener"><span class="ct-ico"><i class="fa-brands fa-github"></i></span><span><span class="ct-lbl">GitHub</span><span class="ct-val">github.com/paulinism</span></span></a>
     </div>
   </div>
 </div>
