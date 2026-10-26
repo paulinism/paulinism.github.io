@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: Mechatronics Engineering Student · <a href='mailto:pruizservin27@gmail.com'>pruizservin27@gmail.com</a> · <a href='https://www.linkedin.com/in/pruizservin27/'>LinkedIn</a>
+subtitle: Mechatronics & Electrical Engineering Student · <a href='mailto:pruizservin27@gmail.com'>pruizservin27@gmail.com</a> · <a href='https://www.linkedin.com/in/pruizservin27/'>LinkedIn</a>
 
 profile:
   align: right
@@ -84,7 +84,7 @@ latest_posts:
 <section class="hero">
   <div>
     <h1 class="hero-name">Paulina L. Ruíz Servín</h1>
-    <p class="hero-role">Mechatronics Engineering Student</p>
+    <p class="hero-role">Mechatronics &amp; Electrical Engineering Student</p>
     <p class="ab-hook">I turn engineering concepts into working systems — from PCB and firmware to control, automation and testing.</p>
     <p>Mechatronics Engineering student in the German–Mexican DHIK double degree (<em>Tec de Monterrey</em> · <em>Hochschule Zittau/Görlitz</em>), based in Saxony. I led the 30-member <a href="https://www.instagram.com/ecovoltccm/">EcoVolt CCM</a> team at Shell Eco-marathon, built its telemetry, fabricated devices in the <a href="https://global.mit.edu/news-stories/nanolab-workshop-builds-student-skills-and-strengthens-international-ties/">MIT.nano cleanrooms</a> and developed vision-guided robots and digital twins.</p>
 <div class="ab-stats">
