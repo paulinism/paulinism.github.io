@@ -9,6 +9,12 @@ featured: true
 ---
 
 <style>
+  img[data-zoomable] { cursor: zoom-in; }
+  .medium-zoom-image--opened { object-fit: contain !important; background: transparent !important; }
+  .medium-zoom-overlay, .medium-zoom-image--opened { z-index: 1050; }
+</style>
+
+<style>
   .sc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; margin: 1.5rem 0; align-items: start; }
   .sc-grid.single { grid-template-columns: minmax(0, 860px); justify-content: center; }
   .sc-fig { margin: 0; border: 1px solid rgba(128, 128, 128, 0.25); border-radius: 12px; overflow: hidden; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08); }
@@ -42,10 +48,10 @@ featured: true
 ## Design at a glance
 
 <div class="dag-grid">
-  <figure class="dag-fig"><img src="{{ 'assets/img/scara-cad.png' | relative_url }}" alt="CAD model (4 DoF)" loading="lazy"><figcaption>CAD model (4 DoF)</figcaption></figure>
-  <figure class="dag-fig"><img src="{{ 'assets/img/scara-workspace.png' | relative_url }}" alt="Reachable workspace 50&ndash;250 mm" loading="lazy"><figcaption>Reachable workspace 50&ndash;250 mm</figcaption></figure>
-  <figure class="dag-fig"><img src="{{ 'assets/img/scara-pcb-3d.png' | relative_url }}" alt="Control PCB, 3D view (Altium)" loading="lazy"><figcaption>Control PCB, 3D view (Altium)</figcaption></figure>
-  <figure class="dag-fig"><img src="{{ 'assets/img/scara-cv-detection.jpg' | relative_url }}" alt="Shape/colour detection" loading="lazy"><figcaption>Shape/colour detection</figcaption></figure>
+  <figure class="dag-fig"><img data-zoomable src="{{ 'assets/img/scara-cad.png' | relative_url }}" alt="CAD model (4 DoF)" loading="lazy"><figcaption>CAD model (4 DoF)</figcaption></figure>
+  <figure class="dag-fig"><img data-zoomable src="{{ 'assets/img/scara-workspace.png' | relative_url }}" alt="Reachable workspace 50&ndash;250 mm" loading="lazy"><figcaption>Reachable workspace 50&ndash;250 mm</figcaption></figure>
+  <figure class="dag-fig"><img data-zoomable src="{{ 'assets/img/scara-pcb-3d.png' | relative_url }}" alt="Control PCB, 3D view (Altium)" loading="lazy"><figcaption>Control PCB, 3D view (Altium)</figcaption></figure>
+  <figure class="dag-fig"><img data-zoomable src="{{ 'assets/img/scara-cv-detection.jpg' | relative_url }}" alt="Shape/colour detection" loading="lazy"><figcaption>Shape/colour detection</figcaption></figure>
 </div>
 
 **Design decisions, from first principles**
@@ -138,8 +144,8 @@ The vision subsystem reports, for every piece, its shape, colour, position in mi
 **Camera and calibration.** A smartphone (Samsung Galaxy S25, main lens) is mounted 500 mm above the workspace with its optical axis vertical, and streamed to the PC through DroidCam. A capture script saves a single frame at 1280 × 720 px. Four ArUco markers (`DICT_4X4_50`, IDs 0–3) at known corners of a 562 × 562 mm area define a homography that maps image pixels to robot coordinates in millimetres.
 
 <div class="sc-grid">
-  <figure class="sc-fig tall"><img src="{{ 'assets/img/scara-camera.jpg' | relative_url }}" alt="Overhead camera setup"><figcaption>Overhead camera 500 mm above the workspace, with the ArUco markers at the corners.</figcaption></figure>
-  <figure class="sc-fig"><img src="{{ 'assets/img/scara-cv-homography.jpg' | relative_url }}" alt="ArUco markers detected for the homography"><figcaption>ArUco detection: the marker centroids (red) define the pixel-to-millimetre homography.</figcaption></figure>
+  <figure class="sc-fig tall"><img data-zoomable src="{{ 'assets/img/scara-camera.jpg' | relative_url }}" alt="Overhead camera setup"><figcaption>Overhead camera 500 mm above the workspace, with the ArUco markers at the corners.</figcaption></figure>
+  <figure class="sc-fig"><img data-zoomable src="{{ 'assets/img/scara-cv-homography.jpg' | relative_url }}" alt="ArUco markers detected for the homography"><figcaption>ArUco detection: the marker centroids (red) define the pixel-to-millimetre homography.</figcaption></figure>
 </div>
 
 **Classical pipeline**
@@ -172,8 +178,8 @@ winner = max(votes, key=votes.get)
 ```
 
 <div class="sc-grid">
-  <figure class="sc-fig"><img src="{{ 'assets/img/scara-cv-detection.jpg' | relative_url }}" alt="Classified shapes on the workspace"><figcaption>Final detection: each piece labelled with its ID, shape and colour.</figcaption></figure>
-  <figure class="sc-fig"><img src="{{ 'assets/img/scara-cv-grip.jpg' | relative_url }}" alt="Grip angles overlaid on the workspace"><figcaption>Grip angles computed for each piece, using its symmetry to minimise wrist travel.</figcaption></figure>
+  <figure class="sc-fig"><img data-zoomable src="{{ 'assets/img/scara-cv-detection.jpg' | relative_url }}" alt="Classified shapes on the workspace"><figcaption>Final detection: each piece labelled with its ID, shape and colour.</figcaption></figure>
+  <figure class="sc-fig"><img data-zoomable src="{{ 'assets/img/scara-cv-grip.jpg' | relative_url }}" alt="Grip angles overlaid on the workspace"><figcaption>Grip angles computed for each piece, using its symmetry to minimise wrist travel.</figcaption></figure>
 </div>
 
 **Machine-learning stage: YOLOv11n.** The HSV pipeline is fast and easy to interpret, but it is sensitive to lighting and to colours that sit close together. To make detection more robust, I trained a YOLOv11n detector on images of the real workspace.
@@ -193,9 +199,9 @@ winner = max(votes, key=votes.get)
 The weakest classes were the crosses (yellow cross AP 0.45, green cross AP 0.51), which also had the fewest examples: 62 and 94 instances against 1,580 for the blue square. The class imbalance, not the model, is the main limit.
 
 <div class="sc-grid">
-  <figure class="sc-fig"><img src="{{ 'assets/img/scara-yolo-preannot.jpg' | relative_url }}" alt="Training image of the workspace"><figcaption>Training image captured on the real workspace, with pieces in varied positions, orientations and colours.</figcaption></figure>
-  <figure class="sc-fig"><img src="{{ 'assets/img/scara-yolo-loss.png' | relative_url }}" alt="YOLOv11n loss and mAP curves"><figcaption>Training and validation losses and mAP over 50 epochs.</figcaption></figure>
-  <figure class="sc-fig"><img src="{{ 'assets/img/scara-yolo-confusion.png' | relative_url }}" alt="Normalised confusion matrix"><figcaption>Normalised confusion matrix: green pieces are recognised best, crosses worst.</figcaption></figure>
+  <figure class="sc-fig"><img data-zoomable src="{{ 'assets/img/scara-yolo-preannot.jpg' | relative_url }}" alt="Training image of the workspace"><figcaption>Training image captured on the real workspace, with pieces in varied positions, orientations and colours.</figcaption></figure>
+  <figure class="sc-fig"><img data-zoomable src="{{ 'assets/img/scara-yolo-loss.png' | relative_url }}" alt="YOLOv11n loss and mAP curves"><figcaption>Training and validation losses and mAP over 50 epochs.</figcaption></figure>
+  <figure class="sc-fig"><img data-zoomable src="{{ 'assets/img/scara-yolo-confusion.png' | relative_url }}" alt="Normalised confusion matrix"><figcaption>Normalised confusion matrix: green pieces are recognised best, crosses worst.</figcaption></figure>
 </div>
 
 ## Electronics & PCB
@@ -215,9 +221,9 @@ The weakest classes were the crosses (yellow cross AP 0.45, green cross AP 0.51)
 The board was completed but not integrated into the final prototype: in the last weeks the team prioritised debugging the mechanics, control and vision for the demonstration, and the robot ran from the breadboard electronics.
 
 <div class="sc-grid">
-  <figure class="sc-fig"><img src="{{ 'assets/img/scara-schematic.png' | relative_url }}" alt="Control board schematic"><figcaption>Schematic: ESP32, stepper drivers, DC motor driver and connectors.</figcaption></figure>
-  <figure class="sc-fig tall"><img src="{{ 'assets/img/scara-pcb-layout.png' | relative_url }}" alt="Single-layer PCB layout"><figcaption>Single-layer layout with power polygon pours.</figcaption></figure>
-  <figure class="sc-fig tall"><img src="{{ 'assets/img/scara-pcb-3d.png' | relative_url }}" alt="3D view of the PCB"><figcaption>3D view of the board.</figcaption></figure>
+  <figure class="sc-fig"><img data-zoomable src="{{ 'assets/img/scara-schematic.png' | relative_url }}" alt="Control board schematic"><figcaption>Schematic: ESP32, stepper drivers, DC motor driver and connectors.</figcaption></figure>
+  <figure class="sc-fig tall"><img data-zoomable src="{{ 'assets/img/scara-pcb-layout.png' | relative_url }}" alt="Single-layer PCB layout"><figcaption>Single-layer layout with power polygon pours.</figcaption></figure>
+  <figure class="sc-fig tall"><img data-zoomable src="{{ 'assets/img/scara-pcb-3d.png' | relative_url }}" alt="3D view of the PCB"><figcaption>3D view of the board.</figcaption></figure>
 </div>
 
 ## Kinematics & simulation
@@ -227,8 +233,8 @@ All four joint axes are vertical, so the problem splits cleanly: the planar posi
 Each of us first derived and implemented the forward and inverse kinematics in MATLAB. The version that runs on the robot is a teammate's C++ port inside the ESP32 firmware.
 
 <div class="sc-grid">
-  <figure class="sc-fig"><img src="{{ 'assets/img/scara-cad.png' | relative_url }}" alt="CAD model of the SCARA robot"><figcaption>CAD model of the robot.</figcaption></figure>
-  <figure class="sc-fig"><img src="{{ 'assets/img/scara-workspace.png' | relative_url }}" alt="Reachable workspace"><figcaption>Top view of the reachable workspace (250 mm radius).</figcaption></figure>
+  <figure class="sc-fig"><img data-zoomable src="{{ 'assets/img/scara-cad.png' | relative_url }}" alt="CAD model of the SCARA robot"><figcaption>CAD model of the robot.</figcaption></figure>
+  <figure class="sc-fig"><img data-zoomable src="{{ 'assets/img/scara-workspace.png' | relative_url }}" alt="Reachable workspace"><figcaption>Top view of the reachable workspace (250 mm radius).</figcaption></figure>
   <figure class="sc-fig"><video src="{{ 'assets/img/scara-simscape.mp4' | relative_url }}" poster="{{ 'assets/img/scara-simscape-poster.jpg' | relative_url }}" autoplay muted loop playsinline></video><figcaption>Simscape Multibody model of the SCARA, built from the CAD geometry, with PID control of the two planar joints (final version by a teammate).</figcaption></figure>
 </div>
 
@@ -245,10 +251,10 @@ Each of us first derived and implemented the forward and inverse kinematics in M
 - **Simscape Multibody:** the 1-DOF arm from the previous activity plus a prismatic joint for the cart, driven by a force actuator. Simscape handles the coupling between cart and arm, so no manual matrix inversion is needed.
 
 <div class="sc-grid single">
-  <figure class="sc-fig"><img src="{{ 'assets/img/gantry-simulink.jpg' | relative_url }}" alt="Simulink block diagram of the gantry robot model"><figcaption>Simulink model of the gantry: the nonlinear state equations in a MATLAB Function block, two PID loops (x and θ) and scopes, with step references (left) and sinusoidal references (right).</figcaption></figure>
-  <figure class="sc-fig"><img src="{{ 'assets/img/gantry-simscape-top.jpg' | relative_url }}" alt="Top-level Simscape model with the gantry and arm subsystems"><figcaption>Top level of the Simscape model: the gantry subsystem (rail, cart and arm) and the robot arm subsystem, each driven by a motion reference and logged to scopes.</figcaption></figure>
-  <figure class="sc-fig"><img src="{{ 'assets/img/gantry-simscape-diagram.jpg' | relative_url }}" alt="Simscape Multibody connection diagram for the gantry robot"><figcaption>Simscape Multibody connection diagram: the gantry and arm subsystems, the motion references, and the same PID loops as the analytical model for comparison.</figcaption></figure>
-  <figure class="sc-fig"><img src="{{ 'assets/img/gantry-simscape-outputs.jpg' | relative_url }}" alt="Simscape outputs: angle, angular velocity, torque and control signal"><figcaption>Simscape outputs: arm angle θ against its reference, angular velocity, output torque and PID control signal. The control signal overshoots at the start of each step and then settles.</figcaption></figure>
+  <figure class="sc-fig"><img data-zoomable src="{{ 'assets/img/gantry-simulink.jpg' | relative_url }}" alt="Simulink block diagram of the gantry robot model"><figcaption>Simulink model of the gantry: the nonlinear state equations in a MATLAB Function block, two PID loops (x and θ) and scopes, with step references (left) and sinusoidal references (right).</figcaption></figure>
+  <figure class="sc-fig"><img data-zoomable src="{{ 'assets/img/gantry-simscape-top.jpg' | relative_url }}" alt="Top-level Simscape model with the gantry and arm subsystems"><figcaption>Top level of the Simscape model: the gantry subsystem (rail, cart and arm) and the robot arm subsystem, each driven by a motion reference and logged to scopes.</figcaption></figure>
+  <figure class="sc-fig"><img data-zoomable src="{{ 'assets/img/gantry-simscape-diagram.jpg' | relative_url }}" alt="Simscape Multibody connection diagram for the gantry robot"><figcaption>Simscape Multibody connection diagram: the gantry and arm subsystems, the motion references, and the same PID loops as the analytical model for comparison.</figcaption></figure>
+  <figure class="sc-fig"><img data-zoomable src="{{ 'assets/img/gantry-simscape-outputs.jpg' | relative_url }}" alt="Simscape outputs: angle, angular velocity, torque and control signal"><figcaption>Simscape outputs: arm angle θ against its reference, angular velocity, output torque and PID control signal. The control signal overshoots at the start of each step and then settles.</figcaption></figure>
 </div>
 
 In the video, the cart shows a small jiggle at the end of each movement. This is physically reasonable: the torques of the cart and the arm are coupled, so each disturbs the other and the two degrees of freedom are harder to control independently. The two models agree on the overall behaviour, so the analytical model is the faster one to iterate on for control design, and Simscape is the better one for checking the result before hardware.
@@ -258,7 +264,7 @@ In the video, the cart shows a small jiggle at the end of each movement. This is
 The teach pendant, a MATLAB App Designer interface connected through Simulink's MQTT blocks, shows joint and Cartesian values with live plots and offers five modes: joint jog, Cartesian jog, home, set home and pick-and-place. In pick-and-place mode the operator chooses the shape, the colour if there are several, and the place coordinates.
 
 <div class="sc-grid">
-  <figure class="sc-fig"><img src="{{ 'assets/img/scara-hmi.png' | relative_url }}" alt="HMI teach pendant"><figcaption>HMI teach pendant (built by a teammate).</figcaption></figure>
+  <figure class="sc-fig"><img data-zoomable src="{{ 'assets/img/scara-hmi.png' | relative_url }}" alt="HMI teach pendant"><figcaption>HMI teach pendant (built by a teammate).</figcaption></figure>
   <figure class="sc-fig tall"><video src="{{ 'assets/img/scara-pick.mp4' | relative_url }}" poster="{{ 'assets/img/scara-pick-poster.jpg' | relative_url }}" autoplay muted loop playsinline></video><figcaption>Gripper picking up a blue square.</figcaption></figure>
 </div>
 

@@ -10,6 +10,12 @@ hide_from_grid: true # shown in the "Professional & lab experience" section inst
 ---
 
 <style>
+  img[data-zoomable] { cursor: zoom-in; }
+  .medium-zoom-image--opened { object-fit: contain !important; background: transparent !important; }
+  .medium-zoom-overlay, .medium-zoom-image--opened { z-index: 1050; }
+</style>
+
+<style>
   .mit-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin: 1rem 0 1.5rem; }
   .mit-fig { margin: 0; border: 1px solid rgba(128, 128, 128, 0.25); border-radius: 12px; overflow: hidden; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08); }
   .mit-fig img, .mit-fig video { display: block; width: 100%; height: 340px; object-fit: contain; background: rgba(128, 128, 128, 0.06); }
@@ -22,8 +28,8 @@ hide_from_grid: true # shown in the "Professional & lab experience" section inst
 **Three functional devices in one week at MIT.nano (Cambridge, October 2025): a silicon solar cell at PCE 15.87 % and Voc 0.60 V, MEMS cantilevers that survived force–displacement testing under a 4 mg load, and a PDMS microfluidic mixer.** A cleanroom intensive from the MIT–Tec de Monterrey program, carried out as a team of 2 across Class 100/1K/10K cleanrooms under full PPE/safety protocols.
 
 <div class="mit-pair">
-  <figure class="mit-fig"><img src="{{ 'assets/img/mit-group-certificates.jpg' | relative_url }}" alt="Program participants holding their MIT.nano certificates"><figcaption>The MIT–Tec de Monterrey cohort with our MIT.nano completion certificates, in front of the fab.nano lab.</figcaption></figure>
-  <figure class="mit-fig"><img src="{{ 'assets/img/mit-group-cleanroom.jpg' | relative_url }}" alt="Cohort in cleanroom suits"><figcaption>The cohort in cleanroom suits before entering the lab.</figcaption></figure>
+  <figure class="mit-fig"><img data-zoomable src="{{ 'assets/img/mit-group-certificates.jpg' | relative_url }}" alt="Program participants holding their MIT.nano certificates"><figcaption>The MIT–Tec de Monterrey cohort with our MIT.nano completion certificates, in front of the fab.nano lab.</figcaption></figure>
+  <figure class="mit-fig"><img data-zoomable src="{{ 'assets/img/mit-group-cleanroom.jpg' | relative_url }}" alt="Cohort in cleanroom suits"><figcaption>The cohort in cleanroom suits before entering the lab.</figcaption></figure>
 </div>
 
 <!-- DESIGN-AT-A-GLANCE:START -->
@@ -42,10 +48,10 @@ hide_from_grid: true # shown in the "Professional & lab experience" section inst
 ## Design at a glance
 
 <div class="dag-grid">
-  <figure class="dag-fig"><img src="{{ 'assets/img/mit-solar-cell-probe.jpg' | relative_url }}" alt="Solar cell under the probe" loading="lazy"><figcaption>Solar cell under the probe</figcaption></figure>
-  <figure class="dag-fig"><img src="{{ 'assets/img/mit-iv-curve.jpg' | relative_url }}" alt="IV curve: Voc 0.60 V, PCE 15.87 %" loading="lazy"><figcaption>IV curve: Voc 0.60 V, PCE 15.87 %</figcaption></figure>
-  <figure class="dag-fig"><img src="{{ 'assets/img/mit-bridge-test-a.jpg' | relative_url }}" alt="MEMS bridge force test" loading="lazy"><figcaption>MEMS bridge force test</figcaption></figure>
-  <figure class="dag-fig"><img src="{{ 'assets/img/mit-coflow.jpg' | relative_url }}" alt="Laminar co-flow in the mixer" loading="lazy"><figcaption>Laminar co-flow in the mixer</figcaption></figure>
+  <figure class="dag-fig"><img data-zoomable src="{{ 'assets/img/mit-solar-cell-probe.jpg' | relative_url }}" alt="Solar cell under the probe" loading="lazy"><figcaption>Solar cell under the probe</figcaption></figure>
+  <figure class="dag-fig"><img data-zoomable src="{{ 'assets/img/mit-iv-curve.jpg' | relative_url }}" alt="IV curve: Voc 0.60 V, PCE 15.87 %" loading="lazy"><figcaption>IV curve: Voc 0.60 V, PCE 15.87 %</figcaption></figure>
+  <figure class="dag-fig"><img data-zoomable src="{{ 'assets/img/mit-bridge-test-a.jpg' | relative_url }}" alt="MEMS bridge force test" loading="lazy"><figcaption>MEMS bridge force test</figcaption></figure>
+  <figure class="dag-fig"><img data-zoomable src="{{ 'assets/img/mit-coflow.jpg' | relative_url }}" alt="Laminar co-flow in the mixer" loading="lazy"><figcaption>Laminar co-flow in the mixer</figcaption></figure>
 </div>
 
 **Design decisions, from first principles**
@@ -75,9 +81,9 @@ Take three devices through the full microfabrication cycle in one week: thin-fil
 **In the cleanroom**
 
 <div class="mit-grid">
-  <figure class="mit-fig"><img src="{{ 'assets/img/mit-photolitho-track.jpg' | relative_url }}" alt="Photolithography track"><figcaption>Photolithography track (resist coat and develop) in the yellow-light room.</figcaption></figure>
-  <figure class="mit-fig"><img src="{{ 'assets/img/mit-asher.jpg' | relative_url }}" alt="Plasma asher control screen"><figcaption>Plasma asher control screen (recipe ash thin, 250 °C, about 1.2 Torr, O₂ and N₂ flow).</figcaption></figure>
-  <figure class="mit-fig"><img src="{{ 'assets/img/mit-wet-bench-acid.jpg' | relative_url }}" alt="Loading a wafer carrier into the Spin Rinse Dryer"><figcaption>In acid-resistant PPE: after the piranha solution clean, the wafers go into the Spin Rinse Dryer (SRD).</figcaption></figure>
+  <figure class="mit-fig"><img data-zoomable src="{{ 'assets/img/mit-photolitho-track.jpg' | relative_url }}" alt="Photolithography track"><figcaption>Photolithography track (resist coat and develop) in the yellow-light room.</figcaption></figure>
+  <figure class="mit-fig"><img data-zoomable src="{{ 'assets/img/mit-asher.jpg' | relative_url }}" alt="Plasma asher control screen"><figcaption>Plasma asher control screen (recipe ash thin, 250 °C, about 1.2 Torr, O₂ and N₂ flow).</figcaption></figure>
+  <figure class="mit-fig"><img data-zoomable src="{{ 'assets/img/mit-wet-bench-acid.jpg' | relative_url }}" alt="Loading a wafer carrier into the Spin Rinse Dryer"><figcaption>In acid-resistant PPE: after the piranha solution clean, the wafers go into the Spin Rinse Dryer (SRD).</figcaption></figure>
 </div>
 
 **Module 1 · Solar cell**
@@ -90,12 +96,12 @@ _What it demonstrated._
 - The second wafer failed and reached only about 2 % efficiency, which shows how sensitive the result is to coating and metallization quality
 
 <div class="mit-grid">
-  <figure class="mit-fig"><img src="{{ 'assets/img/mit-nitride-wafer.jpg' | relative_url }}" alt="Silicon nitride coated wafer"><figcaption>Wafer coated with the silicon nitride anti-reflective layer.</figcaption></figure>
-  <figure class="mit-fig"><img src="{{ 'assets/img/mit-thickness-station.jpg' | relative_url }}" alt="Film thickness measurement station"><figcaption>Film thickness measurement of the coating.</figcaption></figure>
-  <figure class="mit-fig"><img src="{{ 'assets/img/mit-metallized-wafer.jpg' | relative_url }}" alt="Wafer with metal contact patterns"><figcaption>Wafer with the front-contact patterns, with different finger densities across the cells.</figcaption></figure>
+  <figure class="mit-fig"><img data-zoomable src="{{ 'assets/img/mit-nitride-wafer.jpg' | relative_url }}" alt="Silicon nitride coated wafer"><figcaption>Wafer coated with the silicon nitride anti-reflective layer.</figcaption></figure>
+  <figure class="mit-fig"><img data-zoomable src="{{ 'assets/img/mit-thickness-station.jpg' | relative_url }}" alt="Film thickness measurement station"><figcaption>Film thickness measurement of the coating.</figcaption></figure>
+  <figure class="mit-fig"><img data-zoomable src="{{ 'assets/img/mit-metallized-wafer.jpg' | relative_url }}" alt="Wafer with metal contact patterns"><figcaption>Wafer with the front-contact patterns, with different finger densities across the cells.</figcaption></figure>
   <figure class="mit-fig"><video src="{{ 'assets/img/mit-wafer-cleaving.mp4' | relative_url }}" autoplay loop muted playsinline controls></video><figcaption>Cleaving the wafer into individual cells.</figcaption></figure>
-  <figure class="mit-fig"><img src="{{ 'assets/img/mit-solar-cell-probe.jpg' | relative_url }}" alt="Solar cell on the measurement stage"><figcaption>A finished cell contacted for the IV measurement.</figcaption></figure>
-  <figure class="mit-fig"><img src="{{ 'assets/img/mit-iv-curve.jpg' | relative_url }}" alt="IV sweep of the best device"><figcaption>IV sweep of the best device under illumination; the software readout shows PCE 15.87 %, Voc 0.60 V and FF 47.25 %.</figcaption></figure>
+  <figure class="mit-fig"><img data-zoomable src="{{ 'assets/img/mit-solar-cell-probe.jpg' | relative_url }}" alt="Solar cell on the measurement stage"><figcaption>A finished cell contacted for the IV measurement.</figcaption></figure>
+  <figure class="mit-fig"><img data-zoomable src="{{ 'assets/img/mit-iv-curve.jpg' | relative_url }}" alt="IV sweep of the best device"><figcaption>IV sweep of the best device under illumination; the software readout shows PCE 15.87 %, Voc 0.60 V and FF 47.25 %.</figcaption></figure>
 </div>
 
 **Module 2 · MEMS cantilevers and bridges**
@@ -109,11 +115,11 @@ _What it demonstrated._
 - One bridge came out incomplete; it is documented as a process defect
 
 <div class="mit-grid">
-  <figure class="mit-fig"><img src="{{ 'assets/img/mit-profilometer-stage.jpg' | relative_url }}" alt="Mechanical test equipment with the patterned wafer"><figcaption>Mechanical test equipment, which applies controlled micro-scale forces, with the patterned wafer on the stage.</figcaption></figure>
-  <figure class="mit-fig"><img src="{{ 'assets/img/mit-profilometer-scan.jpg' | relative_url }}" alt="Force-displacement plot of the bridge test"><figcaption>Force–displacement plot for a 4 mg test on a narrow bridge: the bridge is pulled down until it reaches the bottom of the cavity, then returns to its initial position.</figcaption></figure>
-  <figure class="mit-fig"><img src="{{ 'assets/img/mit-bridge-view.jpg' | relative_url }}" alt="Real-time camera view during the bridge test"><figcaption>Real-time camera view of the bridge with the tester's tip positioned on it.</figcaption></figure>
-  <figure class="mit-fig"><img src="{{ 'assets/img/mit-bridge-test-a.jpg' | relative_url }}" alt="Well-fabricated bridge"><figcaption>Well-fabricated bridge: a continuous structure extending from one side of the opening to the other.</figcaption></figure>
-  <figure class="mit-fig"><img src="{{ 'assets/img/mit-bridge-test-b.jpg' | relative_url }}" alt="Defective bridge"><figcaption>Defective bridge: the structure is incomplete, likely due to process inconsistencies during fabrication.</figcaption></figure>
+  <figure class="mit-fig"><img data-zoomable src="{{ 'assets/img/mit-profilometer-stage.jpg' | relative_url }}" alt="Mechanical test equipment with the patterned wafer"><figcaption>Mechanical test equipment, which applies controlled micro-scale forces, with the patterned wafer on the stage.</figcaption></figure>
+  <figure class="mit-fig"><img data-zoomable src="{{ 'assets/img/mit-profilometer-scan.jpg' | relative_url }}" alt="Force-displacement plot of the bridge test"><figcaption>Force–displacement plot for a 4 mg test on a narrow bridge: the bridge is pulled down until it reaches the bottom of the cavity, then returns to its initial position.</figcaption></figure>
+  <figure class="mit-fig"><img data-zoomable src="{{ 'assets/img/mit-bridge-view.jpg' | relative_url }}" alt="Real-time camera view during the bridge test"><figcaption>Real-time camera view of the bridge with the tester's tip positioned on it.</figcaption></figure>
+  <figure class="mit-fig"><img data-zoomable src="{{ 'assets/img/mit-bridge-test-a.jpg' | relative_url }}" alt="Well-fabricated bridge"><figcaption>Well-fabricated bridge: a continuous structure extending from one side of the opening to the other.</figcaption></figure>
+  <figure class="mit-fig"><img data-zoomable src="{{ 'assets/img/mit-bridge-test-b.jpg' | relative_url }}" alt="Defective bridge"><figcaption>Defective bridge: the structure is incomplete, likely due to process inconsistencies during fabrication.</figcaption></figure>
 </div>
 
 **Module 3 · Microfluidic mixer**
@@ -126,11 +132,11 @@ _What it demonstrated._
 - The tracer particles accumulated at the walls, where flow velocity is close to zero, until the channel blocked completely, a real failure mode for microfluidic devices
 
 <div class="mit-grid">
-  <figure class="mit-fig"><img src="{{ 'assets/img/mit-su8-mold.jpg' | relative_url }}" alt="SU-8 mold wafer"><figcaption>SU-8 mold wafer with the mixer channel designs.</figcaption></figure>
+  <figure class="mit-fig"><img data-zoomable src="{{ 'assets/img/mit-su8-mold.jpg' | relative_url }}" alt="SU-8 mold wafer"><figcaption>SU-8 mold wafer with the mixer channel designs.</figcaption></figure>
   <figure class="mit-fig"><video src="{{ 'assets/img/mit-pdms-casting.mp4' | relative_url }}" autoplay loop muted playsinline controls></video><figcaption>Pouring PDMS over the SU-8 mold to cast the microfluidic device.</figcaption></figure>
-  <figure class="mit-fig"><img src="{{ 'assets/img/mit-flow-setup.jpg' | relative_url }}" alt="Microfluidic flow test setup"><figcaption>Flow test setup: stereo microscope, pressure controller, tubing and the PDMS device on glass.</figcaption></figure>
-  <figure class="mit-fig"><img src="{{ 'assets/img/mit-coflow.jpg' | relative_url }}" alt="Two streams in laminar co-flow"><figcaption>Two streams flowing side by side in laminar co-flow at the channel junction.</figcaption></figure>
-  <figure class="mit-fig"><img src="{{ 'assets/img/mit-particle-clog.jpg' | relative_url }}" alt="Tracer particles accumulated at the channel junction"><figcaption>Tracer particles accumulating at the channel junction until the channel blocked.</figcaption></figure>
+  <figure class="mit-fig"><img data-zoomable src="{{ 'assets/img/mit-flow-setup.jpg' | relative_url }}" alt="Microfluidic flow test setup"><figcaption>Flow test setup: stereo microscope, pressure controller, tubing and the PDMS device on glass.</figcaption></figure>
+  <figure class="mit-fig"><img data-zoomable src="{{ 'assets/img/mit-coflow.jpg' | relative_url }}" alt="Two streams in laminar co-flow"><figcaption>Two streams flowing side by side in laminar co-flow at the channel junction.</figcaption></figure>
+  <figure class="mit-fig"><img data-zoomable src="{{ 'assets/img/mit-particle-clog.jpg' | relative_url }}" alt="Tracer particles accumulated at the channel junction"><figcaption>Tracer particles accumulating at the channel junction until the channel blocked.</figcaption></figure>
 </div>
 
 **Tools & technologies**

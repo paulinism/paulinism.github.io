@@ -9,6 +9,12 @@ featured: true
 ---
 
 <style>
+  img[data-zoomable] { cursor: zoom-in; }
+  .medium-zoom-image--opened { object-fit: contain !important; background: transparent !important; }
+  .medium-zoom-overlay, .medium-zoom-image--opened { z-index: 1050; }
+</style>
+
+<style>
   .vis-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; margin: 1.5rem 0; align-items: start; }
   .vis-grid.single { grid-template-columns: minmax(0, 560px); justify-content: center; }
   .vis-grid.hero { grid-template-columns: 1fr 2fr; }
@@ -25,8 +31,8 @@ featured: true
 **A current window of 6 mA — the difference between diluted and pure soap at 30 RPM — amplified 400× into the ESP32 ADC range, reliably separating 252 cP from 1676 cP on a custom two-stage op-amp board.** Industrial Automation challenge at Tec de Monterrey with Endress+Hauser (team of 4): an automated fluid-handling cycle combining PLC sequencing and ESP32 measurement, from Altium PCB design to physical validation.
 
 <div class="vis-grid hero">
-  <figure class="vis-fig"><img src="{{ 'assets/img/viscosity.jpg' | relative_url }}" alt="SolidWorks render of the full system"><figcaption>Design: SolidWorks CAD model of the rotary measurement station, viscosity measurement unit, and dispenser as originally planned.</figcaption></figure>
-  <figure class="vis-fig full"><img src="{{ 'assets/img/visc-system-test.jpg' | relative_url }}" alt="Integrated system during the final presentation"><figcaption>Build: Integrated system presented as the final prototype, combining relays, emergency-stop system, water pump, container sorting, stepper motors, DC motor with encoder, infrared sensors, and conveyor belts for container transport.</figcaption></figure>
+  <figure class="vis-fig"><img data-zoomable src="{{ 'assets/img/viscosity.jpg' | relative_url }}" alt="SolidWorks render of the full system"><figcaption>Design: SolidWorks CAD model of the rotary measurement station, viscosity measurement unit, and dispenser as originally planned.</figcaption></figure>
+  <figure class="vis-fig full"><img data-zoomable src="{{ 'assets/img/visc-system-test.jpg' | relative_url }}" alt="Integrated system during the final presentation"><figcaption>Build: Integrated system presented as the final prototype, combining relays, emergency-stop system, water pump, container sorting, stepper motors, DC motor with encoder, infrared sensors, and conveyor belts for container transport.</figcaption></figure>
 </div>
 
 <!-- DESIGN-AT-A-GLANCE:START -->
@@ -45,10 +51,10 @@ featured: true
 ## Design at a glance
 
 <div class="dag-grid">
-  <figure class="dag-fig"><img src="{{ 'assets/img/visc-opamp-board.jpg' | relative_url }}" alt="Op-amp board built and wired" loading="lazy"><figcaption>Op-amp board built and wired</figcaption></figure>
-  <figure class="dag-fig"><img src="{{ 'assets/img/visc-opamp-layout.jpg' | relative_url }}" alt="Op-amp board layout" loading="lazy"><figcaption>Op-amp board layout</figcaption></figure>
-  <figure class="dag-fig"><img src="{{ 'assets/img/visc-esp32-board-a.jpg' | relative_url }}" alt="ESP32 master board (JLCPCB)" loading="lazy"><figcaption>ESP32 master board (JLCPCB)</figcaption></figure>
-  <figure class="dag-fig"><img src="{{ 'assets/img/visc-sim-61ma.jpg' | relative_url }}" alt="Multisim check at 61 mA" loading="lazy"><figcaption>Multisim check at 61 mA</figcaption></figure>
+  <figure class="dag-fig"><img data-zoomable src="{{ 'assets/img/visc-opamp-board.jpg' | relative_url }}" alt="Op-amp board built and wired" loading="lazy"><figcaption>Op-amp board built and wired</figcaption></figure>
+  <figure class="dag-fig"><img data-zoomable src="{{ 'assets/img/visc-opamp-layout.jpg' | relative_url }}" alt="Op-amp board layout" loading="lazy"><figcaption>Op-amp board layout</figcaption></figure>
+  <figure class="dag-fig"><img data-zoomable src="{{ 'assets/img/visc-esp32-board-a.jpg' | relative_url }}" alt="ESP32 master board (JLCPCB)" loading="lazy"><figcaption>ESP32 master board (JLCPCB)</figcaption></figure>
+  <figure class="dag-fig"><img data-zoomable src="{{ 'assets/img/visc-sim-61ma.jpg' | relative_url }}" alt="Multisim check at 61 mA" loading="lazy"><figcaption>Multisim check at 61 mA</figcaption></figure>
 </div>
 
 **Design decisions, from first principles**
@@ -95,18 +101,18 @@ The full bench integration, with most of the automatic sequence running: the car
 All boards were designed in Altium Designer. The two ESP32 boards were manufactured by JLCPCB. The op-amp board was instead built on copper-clad laminate: for practicality and debugging, this let us test the conditioning circuit and modify component values with experimental results, which a fabricated board would not have allowed as quickly.
 
 <div class="vis-grid">
-  <figure class="vis-fig full"><img src="{{ 'assets/img/visc-esp32-board-a.jpg' | relative_url }}" alt="ESP32 master board"><figcaption>ESP32 master board: drives the main motors, including the stepper of the carousel (stepper and encoder terminals, I²C connector, level shifter).</figcaption></figure>
-  <figure class="vis-fig full"><img src="{{ 'assets/img/visc-esp32-board-b.jpg' | relative_url }}" alt="ESP32 slave board"><figcaption>ESP32 slave board: sensors and peripherals (PLC signals, fan and water pump), plus the buzzer that plays the song while the mechanisms move.</figcaption></figure>
+  <figure class="vis-fig full"><img data-zoomable src="{{ 'assets/img/visc-esp32-board-a.jpg' | relative_url }}" alt="ESP32 master board"><figcaption>ESP32 master board: drives the main motors, including the stepper of the carousel (stepper and encoder terminals, I²C connector, level shifter).</figcaption></figure>
+  <figure class="vis-fig full"><img data-zoomable src="{{ 'assets/img/visc-esp32-board-b.jpg' | relative_url }}" alt="ESP32 slave board"><figcaption>ESP32 slave board: sensors and peripherals (PLC signals, fan and water pump), plus the buzzer that plays the song while the mechanisms move.</figcaption></figure>
 </div>
 
 <div class="vis-grid">
-  <figure class="vis-fig auto"><img src="{{ 'assets/img/visc-opamp-layout.jpg' | relative_url }}" alt="Op-amp measurement board layout"><figcaption>Op-amp measurement board: PCB layout.</figcaption></figure>
-  <figure class="vis-fig auto"><img src="{{ 'assets/img/visc-opamp-board.jpg' | relative_url }}" alt="Fabricated and wired op-amp board"><figcaption>The same board, built on copper-clad laminate so values could be changed while debugging.</figcaption></figure>
+  <figure class="vis-fig auto"><img data-zoomable src="{{ 'assets/img/visc-opamp-layout.jpg' | relative_url }}" alt="Op-amp measurement board layout"><figcaption>Op-amp measurement board: PCB layout.</figcaption></figure>
+  <figure class="vis-fig auto"><img data-zoomable src="{{ 'assets/img/visc-opamp-board.jpg' | relative_url }}" alt="Fabricated and wired op-amp board"><figcaption>The same board, built on copper-clad laminate so values could be changed while debugging.</figcaption></figure>
 </div>
 
 <div class="vis-grid">
-  <figure class="vis-fig auto"><img src="{{ 'assets/img/visc-master-schematic.png' | relative_url }}" alt="Master board schematic"><figcaption>Master schematic: ESP32 headers, stepper STEP/DIR, and encoder and inductive-sensor inputs level-shifted from 5 V to 3.3 V.</figcaption></figure>
-  <figure class="vis-fig auto"><img src="{{ 'assets/img/visc-slave-schematic.png' | relative_url }}" alt="Slave board schematic"><figcaption>Slave schematic: sensor inputs, fan and water-pump outputs, PLC color/start signals, UART, RGB LED, buzzer and push button.</figcaption></figure>
+  <figure class="vis-fig auto"><img data-zoomable src="{{ 'assets/img/visc-master-schematic.png' | relative_url }}" alt="Master board schematic"><figcaption>Master schematic: ESP32 headers, stepper STEP/DIR, and encoder and inductive-sensor inputs level-shifted from 5 V to 3.3 V.</figcaption></figure>
+  <figure class="vis-fig auto"><img data-zoomable src="{{ 'assets/img/visc-slave-schematic.png' | relative_url }}" alt="Slave board schematic"><figcaption>Slave schematic: sensor inputs, fan and water-pump outputs, PLC color/start signals, UART, RGB LED, buzzer and push button.</figcaption></figure>
 </div>
 
 **Signal conditioning**
@@ -114,8 +120,8 @@ All boards were designed in Altium Designer. The two ESP32 boards were manufactu
 Viscosity was inferred from the motor's supply current through a 1 Ω shunt: about 61 mV for 75% soap and 67 mV for pure soap at 30 RPM, a 6 mV window. A gain of about 400 (×100, then a differential stage with ×4) maps that window to 0–3.3 V, split in two stages so the first one stays inside the ±12 V rails. At 130 RPM the output still reached about 4 V with a 3.3 V Zener alone, so a 5 V → 3.3 V logic-level converter was added to protect the ESP32 ADC.
 
 <div class="vis-grid">
-  <figure class="vis-fig auto"><img src="{{ 'assets/img/visc-sim-61ma.jpg' | relative_url }}" alt="Multisim simulation at 61 mA"><figcaption>Multisim at 61 mA: 61 mV across the 1 Ω shunt becomes about 250 mV at the ADC input.</figcaption></figure>
-  <figure class="vis-fig auto"><img src="{{ 'assets/img/visc-sim-67ma.jpg' | relative_url }}" alt="Multisim simulation at 67 mA"><figcaption>Multisim at 67 mA: 67 mV becomes about 2.67 V, clamped by the 3.3 V Zener.</figcaption></figure>
+  <figure class="vis-fig auto"><img data-zoomable src="{{ 'assets/img/visc-sim-61ma.jpg' | relative_url }}" alt="Multisim simulation at 61 mA"><figcaption>Multisim at 61 mA: 61 mV across the 1 Ω shunt becomes about 250 mV at the ADC input.</figcaption></figure>
+  <figure class="vis-fig auto"><img data-zoomable src="{{ 'assets/img/visc-sim-67ma.jpg' | relative_url }}" alt="Multisim simulation at 67 mA"><figcaption>Multisim at 67 mA: 67 mV becomes about 2.67 V, clamped by the 3.3 V Zener.</figcaption></figure>
 </div>
 
 **Conveyors**
@@ -123,7 +129,7 @@ Viscosity was inferred from the motor's supply current through a 1 Ω shunt: abo
 The original sorting idea (a vending-machine-style stepper, screw and spring) was dropped because exactly spaced springs were not available and the ladder logic was complex. For practicality and material feasibility, the final integration uses small conveyor belts instead, driven by an Arduino Mega running OpenPLC.
 
 <div class="vis-grid">
-  <figure class="vis-fig full"><img src="{{ 'assets/img/visc-conveyors.jpg' | relative_url }}" alt="Conveyor belts with FC-51 sensors"><figcaption>Conveyors: the sorting belts I co-built, with FC-51 sensors for cup detection.</figcaption></figure>
+  <figure class="vis-fig full"><img data-zoomable src="{{ 'assets/img/visc-conveyors.jpg' | relative_url }}" alt="Conveyor belts with FC-51 sensors"><figcaption>Conveyors: the sorting belts I co-built, with FC-51 sensors for cup detection.</figcaption></figure>
   <figure class="vis-fig clip"><video src="{{ 'assets/img/visc-plc-validation.mp4' | relative_url }}" autoplay loop muted playsinline controls></video><figcaption>My PLC logic validation: moving a cup along the conveyor belt with the FC-51 sensors.</figcaption></figure>
 </div>
 
@@ -152,7 +158,7 @@ The original sorting idea (a vending-machine-style stepper, screw and spring) wa
 **Stack:** ESP32/ESP-IDF, custom PCB design (IPC-2221), Multisim, OpenPLC (Arduino Mega), I²C, UART, Bluetooth, LabVIEW HMI
 
 <div class="vis-grid single">
-  <figure class="vis-fig full"><img src="{{ 'assets/img/visc-endress-visit.jpg' | relative_url }}" alt="Team at Endress+Hauser"><figcaption>The team at Endress+Hauser, in front of their process instrumentation.</figcaption></figure>
+  <figure class="vis-fig full"><img data-zoomable src="{{ 'assets/img/visc-endress-visit.jpg' | relative_url }}" alt="Team at Endress+Hauser"><figcaption>The team at Endress+Hauser, in front of their process instrumentation.</figcaption></figure>
 </div>
 
 <div class="back-to-projects" style="margin: 3rem 0 1rem; text-align: center">

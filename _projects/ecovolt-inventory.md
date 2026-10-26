@@ -10,6 +10,12 @@ hide_from_grid: true # shown in the "Professional & lab experience" section inst
 ---
 
 <style>
+  img[data-zoomable] { cursor: zoom-in; }
+  .medium-zoom-image--opened { object-fit: contain !important; background: transparent !important; }
+  .medium-zoom-overlay, .medium-zoom-image--opened { z-index: 1050; }
+</style>
+
+<style>
   .inv-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; margin: 1.5rem 0; align-items: start; }
   .inv-grid.single { grid-template-columns: minmax(0, 860px); justify-content: center; }
   .inv-fig { margin: 0; border: 1px solid rgba(128, 128, 128, 0.25); border-radius: 12px; overflow: hidden; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08); }
@@ -76,7 +82,7 @@ Active member of the Telemetry and CV sub-teams, and mentor within EcoVolt CCM.
 The first version of the inventory was an Excel register, filled in before any software existed. Each row carries the QR ID, a unique item code, a short description, quantity, type, area, the box it belongs to, a link to its photo and whether the sticker has already been applied. It served as the prototype for the database of the web version.
 
 <div class="inv-grid single">
-  <figure class="inv-fig"><img src="{{ 'assets/img/inv-excel-prototype.png' | relative_url }}" alt="Excel inventory register with photos and QR IDs"><figcaption>Initial Excel register: one row per item, with its box, photo link and sticker status.</figcaption></figure>
+  <figure class="inv-fig"><img data-zoomable src="{{ 'assets/img/inv-excel-prototype.png' | relative_url }}" alt="Excel inventory register with photos and QR IDs"><figcaption>Initial Excel register: one row per item, with its box, photo link and sticker status.</figcaption></figure>
 </div>
 
 ## Stage 2 — Python / OpenCV pilot
@@ -116,11 +122,11 @@ r.valid_id = bool(re.match(TOOL_ID_PATTERN, r.raw_payload.strip()))
 Reading a code and trusting its content are two separate checks. A QR can decode perfectly and still carry the wrong kind of text. The check is syntactic only: it does not look up whether the tool exists in the database.
 
 <div class="inv-grid single">
-  <figure class="inv-fig"><img src="{{ 'assets/img/inv-python-detection.png' | relative_url }}" alt="OpenCV QR detection with annotated outline"><figcaption>Test with a QR that is not a tool label: it decodes on the grayscale variant in 73 ms and is correctly flagged as a malformed ID.</figcaption></figure>
+  <figure class="inv-fig"><img data-zoomable src="{{ 'assets/img/inv-python-detection.png' | relative_url }}" alt="OpenCV QR detection with annotated outline"><figcaption>Test with a QR that is not a tool label: it decodes on the grayscale variant in 73 ms and is correctly flagged as a malformed ID.</figcaption></figure>
 </div>
 
 <div class="inv-grid single">
-  <figure class="inv-fig"><img src="{{ 'assets/img/inv-python-benchmark.png' | relative_url }}" alt="Latency benchmark output"><figcaption>Latency benchmark (5 runs on one image): 100 % hit rate, 76.1 ms mean, 79.4 ms p95, saved to the JSONL log.</figcaption></figure>
+  <figure class="inv-fig"><img data-zoomable src="{{ 'assets/img/inv-python-benchmark.png' | relative_url }}" alt="Latency benchmark output"><figcaption>Latency benchmark (5 runs on one image): 100 % hit rate, 76.1 ms mean, 79.4 ms p95, saved to the JSONL log.</figcaption></figure>
 </div>
 
 **Local backup.** Each run appends one JSON object per line to `benchmark_opencv.jsonl`: timestamp, engine, image, payload, variant, ID validity and latency statistics. Runs with no detection are logged too. Every record starts with `synced_to_convex: false`, and `load_pending()` returns the records not yet synchronized. The pilot only implements the local backup; the upload to the Convex database was left to the web platform.
@@ -170,12 +176,12 @@ The web version (TypeScript) brings the database into the platform itself. It ad
 **Loans & item tracking.** Each item has a Quick View panel with its photo, current status, responsible area, activity log and four actions: Request loan, Record movement, Print QR and Edit. To borrow an item, a team fills in a loan request (item, team name, start and return date, purpose) and submits it for approval — an admin reviews it before it is recorded. Every movement is logged with the person, timestamp and destination, and the photo captured at registration makes it easy to confirm what was actually lent.
 
 <div class="inv-grid single">
-  <figure class="inv-fig"><img src="{{ 'assets/img/inv-web-item-quickview.png' | relative_url }}" alt="Item Quick View panel"><figcaption>Quick View: item photo, status, details and action buttons — Request loan, Record movement, Print QR and Edit — with the full activity log below.</figcaption></figure>
+  <figure class="inv-fig"><img data-zoomable src="{{ 'assets/img/inv-web-item-quickview.png' | relative_url }}" alt="Item Quick View panel"><figcaption>Quick View: item photo, status, details and action buttons — Request loan, Record movement, Print QR and Edit — with the full activity log below.</figcaption></figure>
 </div>
 
 <div class="inv-grid">
-  <figure class="inv-fig"><img src="{{ 'assets/img/inv-web-loans-request.png' | relative_url }}" alt="Request a loan modal"><figcaption>Loan request form: item, borrowing team, start and return date, and purpose — submitted for admin approval before it is recorded.</figcaption></figure>
-  <figure class="inv-fig"><img src="{{ 'assets/img/inv-web-item-photo.png' | relative_url }}" alt="Photo Inspection view"><figcaption>Photo Inspection: the photo taken at registration, zoomable at full resolution, so the item condition at loan time is always on record.</figcaption></figure>
+  <figure class="inv-fig"><img data-zoomable src="{{ 'assets/img/inv-web-loans-request.png' | relative_url }}" alt="Request a loan modal"><figcaption>Loan request form: item, borrowing team, start and return date, and purpose — submitted for admin approval before it is recorded.</figcaption></figure>
+  <figure class="inv-fig"><img data-zoomable src="{{ 'assets/img/inv-web-item-photo.png' | relative_url }}" alt="Photo Inspection view"><figcaption>Photo Inspection: the photo taken at registration, zoomable at full resolution, so the item condition at loan time is always on record.</figcaption></figure>
 </div>
 
 **Main interface components**
@@ -189,8 +195,8 @@ The web version (TypeScript) brings the database into the platform itself. It ad
 We presented the system to the event's Safety Team in the paddock as part of the Safety Leadership Award submission. The poster's "Try it!" QR code let the judges open the platform on their own phones.
 
 <div class="inv-grid">
-  <figure class="inv-fig"><img src="{{ 'assets/img/inv-sem-explaining.jpg' | relative_url }}" alt="Explaining the system to a member of the Shell Safety Team"><figcaption>Walking a Shell Safety Team member through the platform on his phone.</figcaption></figure>
-  <figure class="inv-fig"><img src="{{ 'assets/img/inv-sem-safety-team.jpg' | relative_url }}" alt="Poster presentation to the Shell Safety Team in the paddock"><figcaption>Poster presentation to the Safety Team at the EcoVolt CCM paddock.</figcaption></figure>
+  <figure class="inv-fig"><img data-zoomable src="{{ 'assets/img/inv-sem-explaining.jpg' | relative_url }}" alt="Explaining the system to a member of the Shell Safety Team"><figcaption>Walking a Shell Safety Team member through the platform on his phone.</figcaption></figure>
+  <figure class="inv-fig"><img data-zoomable src="{{ 'assets/img/inv-sem-safety-team.jpg' | relative_url }}" alt="Poster presentation to the Shell Safety Team in the paddock"><figcaption>Poster presentation to the Safety Team at the EcoVolt CCM paddock.</figcaption></figure>
 </div>
 
 **Loan workflow as presented**
@@ -206,7 +212,7 @@ We presented the system to the event's Safety Team in the paddock as part of the
 **What changed since the competition.** The core model is the same: the dashboard filters by the same item statuses, and its "needs attention" panel (loan requests to review, overdue returns, items missing or in maintenance) is the alert branch of the poster's flow. Since then, item IDs moved to automatic `EV-######` codes, and the platform gained phone-camera photos, preset sticker sizes, batch label printing and the Excel export.
 
 <div class="inv-grid single">
-  <figure class="inv-fig"><img src="{{ 'assets/img/inv-sem-poster.png' | relative_url }}" alt="Poster: Automated PPE and Inventory Management System"><figcaption>Poster presented at Shell Eco-marathon Brazil 2026: problem, objective, loan flow and summary.</figcaption></figure>
+  <figure class="inv-fig"><img data-zoomable src="{{ 'assets/img/inv-sem-poster.png' | relative_url }}" alt="Poster: Automated PPE and Inventory Management System"><figcaption>Poster presented at Shell Eco-marathon Brazil 2026: problem, objective, loan flow and summary.</figcaption></figure>
 </div>
 
 ## Results & limitations

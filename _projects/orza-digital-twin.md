@@ -9,6 +9,12 @@ featured: true
 ---
 
 <style>
+  img[data-zoomable] { cursor: zoom-in; }
+  .medium-zoom-image--opened { object-fit: contain !important; background: transparent !important; }
+  .medium-zoom-overlay, .medium-zoom-image--opened { z-index: 1050; }
+</style>
+
+<style>
   .oz-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; margin: 1.5rem 0; align-items: start; }
   .oz-grid.oz-row3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .oz-grid.oz-row2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -45,10 +51,10 @@ featured: true
 ## Design at a glance
 
 <div class="dag-grid">
-  <figure class="dag-fig"><img src="{{ 'assets/img/orza-layout-iso.jpg' | relative_url }}" alt="Cell layout in Process Simulate" loading="lazy"><figcaption>Cell layout in Process Simulate</figcaption></figure>
-  <figure class="dag-fig"><img src="{{ 'assets/img/orza-p2-cam-model.jpg' | relative_url }}" alt="Part P2 in SOLIDWORKS CAM" loading="lazy"><figcaption>Part P2 in SOLIDWORKS CAM</figcaption></figure>
-  <figure class="dag-fig"><img src="{{ 'assets/img/orza-cnc-station.jpg' | relative_url }}" alt="My CNC milling station" loading="lazy"><figcaption>My CNC milling station</figcaption></figure>
-  <figure class="dag-fig"><img src="{{ 'assets/img/orza-scada-kpi.png' | relative_url }}" alt="SCADA: OEE, cycle time, scrap" loading="lazy"><figcaption>SCADA: OEE, cycle time, scrap</figcaption></figure>
+  <figure class="dag-fig"><img data-zoomable src="{{ 'assets/img/orza-layout-iso.jpg' | relative_url }}" alt="Cell layout in Process Simulate" loading="lazy"><figcaption>Cell layout in Process Simulate</figcaption></figure>
+  <figure class="dag-fig"><img data-zoomable src="{{ 'assets/img/orza-p2-cam-model.jpg' | relative_url }}" alt="Part P2 in SOLIDWORKS CAM" loading="lazy"><figcaption>Part P2 in SOLIDWORKS CAM</figcaption></figure>
+  <figure class="dag-fig"><img data-zoomable src="{{ 'assets/img/orza-cnc-station.jpg' | relative_url }}" alt="My CNC milling station" loading="lazy"><figcaption>My CNC milling station</figcaption></figure>
+  <figure class="dag-fig"><img data-zoomable src="{{ 'assets/img/orza-scada-kpi.png' | relative_url }}" alt="SCADA: OEE, cycle time, scrap" loading="lazy"><figcaption>SCADA: OEE, cycle time, scrap</figcaption></figure>
 </div>
 
 **Design decisions, from first principles**
@@ -72,8 +78,8 @@ featured: true
 **Challenge:** design, implement and validate a virtual digital twin of a flexible manufacturing cell (supplier, three CNC stations, intralogistics, quality inspection, assembly and warehouse) with simulated industrial communication, two operating modes, traceability and KPIs. Everything is virtual: no physical PLCs, robots or AGVs.
 
 <div class="oz-grid">
-  <figure class="oz-fig"><img src="{{ 'assets/img/orza-layout-iso.jpg' | relative_url }}" alt="Isometric view of the flexible manufacturing system"><figcaption>The full flexible manufacturing system in Process Simulate: three CNC cells in parallel along a shared conveyor and AGV backbone.</figcaption></figure>
-  <figure class="oz-fig"><img src="{{ 'assets/img/orza-workflow.png' | relative_url }}" alt="Manufacturing cell workflow"><figcaption>Material flow: supplier, transport, CNC machining, quality inspection (pass, rework or scrap), assembly and warehouse.</figcaption></figure>
+  <figure class="oz-fig"><img data-zoomable src="{{ 'assets/img/orza-layout-iso.jpg' | relative_url }}" alt="Isometric view of the flexible manufacturing system"><figcaption>The full flexible manufacturing system in Process Simulate: three CNC cells in parallel along a shared conveyor and AGV backbone.</figcaption></figure>
+  <figure class="oz-fig"><img data-zoomable src="{{ 'assets/img/orza-workflow.png' | relative_url }}" alt="Manufacturing cell workflow"><figcaption>Material flow: supplier, transport, CNC machining, quality inspection (pass, rework or scrap), assembly and warehouse.</figcaption></figure>
 </div>
 
 ## My role & responsibilities
@@ -113,7 +119,7 @@ featured: true
 </table>
 
 <div class="oz-grid single">
-  <figure class="oz-fig"><img src="{{ 'assets/img/orza-network.jpg' | relative_url }}" alt="Network diagram of the three workstations"><figcaption>Real network: three workstations on one Ethernet switch, each running Process Simulate, a VMware Tecnomatix server, a Modbus sensor and a PLCSIM Advanced instance.</figcaption></figure>
+  <figure class="oz-fig"><img data-zoomable src="{{ 'assets/img/orza-network.jpg' | relative_url }}" alt="Network diagram of the three workstations"><figcaption>Real network: three workstations on one Ethernet switch, each running Process Simulate, a VMware Tecnomatix server, a Modbus sensor and a PLCSIM Advanced instance.</figcaption></figure>
 </div>
 
 ## The station sequence
@@ -139,8 +145,8 @@ The cell runs as a chain of PLC step flags (K1 … K35). Each transition only fi
 </table>
 
 <div class="oz-grid">
-  <figure class="oz-fig"><img src="{{ 'assets/img/orza-layout-top.jpg' | relative_url }}" alt="Top view of the cell layout"><figcaption>Top view of the line operation in Process Simulate: conveyors, AGV path, CNC cells and robots.</figcaption></figure>
-  <figure class="oz-fig"><img src="{{ 'assets/img/orza-cnc-station.jpg' | relative_url }}" alt="CNC station with UR5 robots"><figcaption>CNC station: two UR5 robots load and unload the milling machine and present the part to the camera.</figcaption></figure>
+  <figure class="oz-fig"><img data-zoomable src="{{ 'assets/img/orza-layout-top.jpg' | relative_url }}" alt="Top view of the cell layout"><figcaption>Top view of the line operation in Process Simulate: conveyors, AGV path, CNC cells and robots.</figcaption></figure>
+  <figure class="oz-fig"><img data-zoomable src="{{ 'assets/img/orza-cnc-station.jpg' | relative_url }}" alt="CNC station with UR5 robots"><figcaption>CNC station: two UR5 robots load and unload the milling machine and present the part to the camera.</figcaption></figure>
 </div>
 
 ## PLC programming in TIA Portal: the core of the cell
@@ -178,8 +184,8 @@ The cell runs as a chain of PLC step flags (K1 … K35). Each transition only fi
 **Result:** I programmed the station's part (P2, an aluminium piston body of 32 × 20 × 20 mm with a Ø16 bore, a pocket and two pairs of small holes) in SOLIDWORKS CAM and verified the six-tool milling program (O0001) block by block. Roughing is about 72 % of the estimated 12.8 min cycle, and the contour uses cutter compensation (G41 D21), so tool wear is corrected with one offset value instead of a new program. In the twin it runs on a simulated Haas VF-2, and the PLC leaves the machining step only when the machine reports done. In a second exercise on a lathe I set every parameter myself and found a spindle-speed problem in the post-processed code.
 
 <div class="oz-grid">
-  <figure class="oz-fig"><img src="{{ 'assets/img/orza-p2-drawing.png' | relative_url }}" alt="Technical drawing of part P2"><figcaption>Technical drawing of P2 (SOLIDWORKS, scale 2:1).</figcaption></figure>
-  <figure class="oz-fig"><img src="{{ 'assets/img/orza-p2-cam-model.jpg' | relative_url }}" alt="P2 inside its billet in SOLIDWORKS CAM"><figcaption>P2 inside the billet in SOLIDWORKS CAM.</figcaption></figure>
+  <figure class="oz-fig"><img data-zoomable src="{{ 'assets/img/orza-p2-drawing.png' | relative_url }}" alt="Technical drawing of part P2"><figcaption>Technical drawing of P2 (SOLIDWORKS, scale 2:1).</figcaption></figure>
+  <figure class="oz-fig"><img data-zoomable src="{{ 'assets/img/orza-p2-cam-model.jpg' | relative_url }}" alt="P2 inside its billet in SOLIDWORKS CAM"><figcaption>P2 inside the billet in SOLIDWORKS CAM.</figcaption></figure>
 </div>
 
 <div class="oz-grid single">
@@ -193,8 +199,8 @@ The cell runs as a chain of PLC step flags (K1 … K35). Each transition only fi
 **Lathe exercise.** After the challenge I programmed a turned AISI 304 shaft (Ø51 × 200 mm bar, 150 mm stepped shaft, chamfer, two fillets, groove and Ø6.35 centre hole) from stock definition to post-processed G-code: 8 operations, 9.0 min. The G-code uses `G96` constant surface speed, `G72`/`G71` roughing cycles and `G74` peck drilling. The cut-off switches to fixed rpm (`G97 S700`) so the spindle does not run away at the centre.
 
 <div class="oz-grid">
-  <figure class="oz-fig"><img src="{{ 'assets/img/cam-turn-ops.jpg' | relative_url }}" alt="Operation tree in SOLIDWORKS CAM"><figcaption>Operation tree: facing, drilling, turning, groove and cut-off.</figcaption></figure>
-  <figure class="oz-fig"><img src="{{ 'assets/img/cam-turn-sim.jpg' | relative_url }}" alt="Toolpath simulation of the turned shaft"><figcaption>Toolpath simulation with the stock in the chuck.</figcaption></figure>
+  <figure class="oz-fig"><img data-zoomable src="{{ 'assets/img/cam-turn-ops.jpg' | relative_url }}" alt="Operation tree in SOLIDWORKS CAM"><figcaption>Operation tree: facing, drilling, turning, groove and cut-off.</figcaption></figure>
+  <figure class="oz-fig"><img data-zoomable src="{{ 'assets/img/cam-turn-sim.jpg' | relative_url }}" alt="Toolpath simulation of the turned shaft"><figcaption>Toolpath simulation with the stock in the chuck.</figcaption></figure>
 </div>
 
 **What I would fix before a real lathe.**
@@ -218,7 +224,7 @@ The cell runs as a chain of PLC step flags (K1 … K35). Each transition only fi
 - **Place:** a MoveJ via a waypoint that clears the two other robots, MoveL to the conveyor, release, wait for the PLC to confirm the release (DI[1]), then report "place complete" (DO[4]) and return to the initial pose.
 
 <div class="oz-grid single">
-  <figure class="oz-fig" style="max-width: 640px; margin: 0 auto"><img src="{{ 'assets/img/orza-polyscope.png' | relative_url }}" alt="PolyScope program for pick and place"><figcaption>PolyScope program in URSim: BeforeStart, the trigger loop, and the pick and place routines with their wait-for-confirmation steps.</figcaption></figure>
+  <figure class="oz-fig" style="max-width: 640px; margin: 0 auto"><img data-zoomable src="{{ 'assets/img/orza-polyscope.png' | relative_url }}" alt="PolyScope program for pick and place"><figcaption>PolyScope program in URSim: BeforeStart, the trigger loop, and the pick and place routines with their wait-for-confirmation steps.</figcaption></figure>
 </div>
 
 **Robot handshake.** The VRC robot is treated as an asynchronous external device: the PLC only reads and writes agreed handshake bits, never individual waypoints. It also waits until both the gripper sensor and the simulation's attach event agree before telling the robot the grip is confirmed.
@@ -242,10 +248,10 @@ The cell runs as a chain of PLC step flags (K1 … K35). Each transition only fi
 The station HMI has a main menu, a station monitor, one screen per area with its own manual commands, status LEDs, fault indicator and error counter, plus alarms with acknowledge, recipes and trends.
 
 <div class="oz-grid oz-row2 oz-hmi">
-  <figure class="oz-fig"><img src="{{ 'assets/img/orza-hmi-menu.jpg' | relative_url }}" alt="HMI main menu"><figcaption>Main menu.</figcaption></figure>
-  <figure class="oz-fig"><img src="{{ 'assets/img/orza-hmi-monitor.jpg' | relative_url }}" alt="Station monitor screen"><figcaption>Station monitor: mode, current process, station progress and batch quantity.</figcaption></figure>
-  <figure class="oz-fig"><img src="{{ 'assets/img/orza-hmi-supply.jpg' | relative_url }}" alt="Supplier and conveyor screen"><figcaption>Supplier and conveyor screen with manual commands.</figcaption></figure>
-  <figure class="oz-fig"><img src="{{ 'assets/img/orza-hmi-cnc-qi.jpg' | relative_url }}" alt="CNC and quality inspection screen"><figcaption>CNC and quality inspection: manual machining commands and the OK / rework / scrap result.</figcaption></figure>
+  <figure class="oz-fig"><img data-zoomable src="{{ 'assets/img/orza-hmi-menu.jpg' | relative_url }}" alt="HMI main menu"><figcaption>Main menu.</figcaption></figure>
+  <figure class="oz-fig"><img data-zoomable src="{{ 'assets/img/orza-hmi-monitor.jpg' | relative_url }}" alt="Station monitor screen"><figcaption>Station monitor: mode, current process, station progress and batch quantity.</figcaption></figure>
+  <figure class="oz-fig"><img data-zoomable src="{{ 'assets/img/orza-hmi-supply.jpg' | relative_url }}" alt="Supplier and conveyor screen"><figcaption>Supplier and conveyor screen with manual commands.</figcaption></figure>
+  <figure class="oz-fig"><img data-zoomable src="{{ 'assets/img/orza-hmi-cnc-qi.jpg' | relative_url }}" alt="CNC and quality inspection screen"><figcaption>CNC and quality inspection: manual machining commands and the OK / rework / scrap result.</figcaption></figure>
 </div>
 
 ## KPIs and data logging
@@ -258,8 +264,8 @@ All production statistics are computed inside the PLC at the end of every cycle 
 - **Per-cycle log:** a 100-entry ring buffer stores the part type, operation, station state, quality result, cycle time and active alarms of every cycle.
 
 <div class="oz-grid">
-  <figure class="oz-fig"><img src="{{ 'assets/img/orza-db22.png' | relative_url }}" alt="DATA_LOG data block"><figcaption>The retentive DATA_LOG block with counters, KPIs, alarm bits and the 100-entry log.</figcaption></figure>
-  <figure class="oz-fig"><img src="{{ 'assets/img/orza-scada-kpi.png' | relative_url }}" alt="SCADA counters and trends"><figcaption>Global SCADA screen at the end of a demonstration run: 11 parts, 11 OK, 0 scrap, with yield, scrap and Micro OEE trends.</figcaption></figure>
+  <figure class="oz-fig"><img data-zoomable src="{{ 'assets/img/orza-db22.png' | relative_url }}" alt="DATA_LOG data block"><figcaption>The retentive DATA_LOG block with counters, KPIs, alarm bits and the 100-entry log.</figcaption></figure>
+  <figure class="oz-fig"><img data-zoomable src="{{ 'assets/img/orza-scada-kpi.png' | relative_url }}" alt="SCADA counters and trends"><figcaption>Global SCADA screen at the end of a demonstration run: 11 parts, 11 OK, 0 scrap, with yield, scrap and Micro OEE trends.</figcaption></figure>
 </div>
 
 ## Integration and results
@@ -271,8 +277,8 @@ All production statistics are computed inside the PLC at the end of every cycle 
 - **Three-PC integration:** each station's S7 link worked on its own, but the full interconnection of all three stations could not be completed in the integration window because of IP conflicts, duplicate tag references and stale PLCSIM connections between the individual projects.
 
 <div class="oz-grid">
-  <figure class="oz-fig"><img src="{{ 'assets/img/orza-s7-get.png' | relative_url }}" alt="S7 GET block"><figcaption>S7 GET block reading a byte from the partner PLC, triggered at 10 Hz.</figcaption></figure>
-  <figure class="oz-fig"><img src="{{ 'assets/img/orza-modbus-app.png' | relative_url }}" alt="C# Modbus sensor application"><figcaption>C# Modbus TCP sensor simulator exchanging the supplier stock value with the PLC.</figcaption></figure>
+  <figure class="oz-fig"><img data-zoomable src="{{ 'assets/img/orza-s7-get.png' | relative_url }}" alt="S7 GET block"><figcaption>S7 GET block reading a byte from the partner PLC, triggered at 10 Hz.</figcaption></figure>
+  <figure class="oz-fig"><img data-zoomable src="{{ 'assets/img/orza-modbus-app.png' | relative_url }}" alt="C# Modbus sensor application"><figcaption>C# Modbus TCP sensor simulator exchanging the supplier stock value with the PLC.</figcaption></figure>
 </div>
 
 ## Full demonstration
@@ -290,9 +296,9 @@ The complete run of the cell, with my explanation (7 min, with sound).
 **How it connects to the twin.** In the digital twin a UR5 presents each machined part to an In-Sight camera, but Cognex cannot be connected to Process Simulate. So the camera's verdict is entered on the HMI and locked by the PLC. This exam is the real inspection work behind that step. The product was an LCSC anti-static bag holding a 0603 chip resistor: a reflective package, chosen as a hard case.
 
 <div class="oz-grid">
-  <figure class="oz-fig"><img src="{{ 'assets/img/cognex-golden.jpg' | relative_url }}" alt="Golden reference image of the package"><figcaption>Golden image: two colour seals, QR code, barcode, "QTY" text and the label.</figcaption></figure>
-  <figure class="oz-fig"><img src="{{ 'assets/img/cognex-faulty.jpg' | relative_url }}" alt="Deliberately faulty sample"><figcaption>Deliberately faulty sample: one seal only partly present and a QR code that does not match the part inside.</figcaption></figure>
-  <figure class="oz-fig"><img src="{{ 'assets/img/cognex-setup.jpg' | relative_url }}" alt="Image acquisition setup"><figcaption>Acquisition setup: phone fixed above a matte black surface, ceiling light only, calibration checkerboard at the side.</figcaption></figure>
+  <figure class="oz-fig"><img data-zoomable src="{{ 'assets/img/cognex-golden.jpg' | relative_url }}" alt="Golden reference image of the package"><figcaption>Golden image: two colour seals, QR code, barcode, "QTY" text and the label.</figcaption></figure>
+  <figure class="oz-fig"><img data-zoomable src="{{ 'assets/img/cognex-faulty.jpg' | relative_url }}" alt="Deliberately faulty sample"><figcaption>Deliberately faulty sample: one seal only partly present and a QR code that does not match the part inside.</figcaption></figure>
+  <figure class="oz-fig"><img data-zoomable src="{{ 'assets/img/cognex-setup.jpg' | relative_url }}" alt="Image acquisition setup"><figcaption>Acquisition setup: phone fixed above a matte black surface, ceiling light only, calibration checkerboard at the side.</figcaption></figure>
 </div>
 
 **Steps I followed.**
@@ -306,7 +312,7 @@ The complete run of the cell, with my explanation (7 min, with sound).
 7. **Validation:** I measured the same features on the real package with a vernier caliper and compared them with the vision results against a ±3 % band.
 
 <div class="oz-grid single">
-  <figure class="oz-fig"><img src="{{ 'assets/img/cognex-spreadsheet.jpg' | relative_url }}" alt="Cognex In-Sight spreadsheet"><figcaption>In-Sight spreadsheet: raw tool outputs on the left, and the quality-control table with nominal, limits and pass flags on the right.</figcaption></figure>
+  <figure class="oz-fig"><img data-zoomable src="{{ 'assets/img/cognex-spreadsheet.jpg' | relative_url }}" alt="Cognex In-Sight spreadsheet"><figcaption>In-Sight spreadsheet: raw tool outputs on the left, and the quality-control table with nominal, limits and pass flags on the right.</figcaption></figure>
 </div>
 
 <table class="oz-table">
@@ -323,14 +329,14 @@ The complete run of the cell, with my explanation (7 min, with sound).
 **What I found reviewing it afterwards.** The pass limits in my spreadsheet were set to ±10 % of nominal (for example 8.055–9.945 mm on a 9 mm seal radius), much wider than the ±3 % validation target. A tighter gate would have rejected some readings the spreadsheet accepted. Next time I would derive the limits from the requirement first and build the tools around them.
 
 <div class="oz-grid oz-row3">
-  <figure class="oz-fig"><img src="{{ 'assets/img/cognex-pattern.jpg' | relative_url }}" alt="PatMax reference frame on the package"><figcaption>PatMax reference frame that anchors every inspection tool.</figcaption></figure>
-  <figure class="oz-fig"><img src="{{ 'assets/img/cognex-circle.jpg' | relative_url }}" alt="Circle tool on a seal"><figcaption>FindCircle measuring the radius of a colour seal.</figcaption></figure>
-  <figure class="oz-fig"><img src="{{ 'assets/img/cognex-reflection.jpg' | relative_url }}" alt="Caliper failure due to reflection"><figcaption>Failure case: a specular highlight on the foil is taken as an edge by the caliper.</figcaption></figure>
+  <figure class="oz-fig"><img data-zoomable src="{{ 'assets/img/cognex-pattern.jpg' | relative_url }}" alt="PatMax reference frame on the package"><figcaption>PatMax reference frame that anchors every inspection tool.</figcaption></figure>
+  <figure class="oz-fig"><img data-zoomable src="{{ 'assets/img/cognex-circle.jpg' | relative_url }}" alt="Circle tool on a seal"><figcaption>FindCircle measuring the radius of a colour seal.</figcaption></figure>
+  <figure class="oz-fig"><img data-zoomable src="{{ 'assets/img/cognex-reflection.jpg' | relative_url }}" alt="Caliper failure due to reflection"><figcaption>Failure case: a specular highlight on the foil is taken as an edge by the caliper.</figcaption></figure>
 </div>
 
 <div class="oz-grid oz-row2">
-  <figure class="oz-fig"><img src="{{ 'assets/img/cognex-calibration.jpg' | relative_url }}" alt="Calibration result"><figcaption>Grid calibration: 0.33 px average error over 823 points.</figcaption></figure>
-  <figure class="oz-fig"><img src="{{ 'assets/img/cognex-caliper.jpg' | relative_url }}" alt="Vernier caliper measurement of a seal"><figcaption>Physical validation: measuring a seal with the vernier caliper.</figcaption></figure>
+  <figure class="oz-fig"><img data-zoomable src="{{ 'assets/img/cognex-calibration.jpg' | relative_url }}" alt="Calibration result"><figcaption>Grid calibration: 0.33 px average error over 823 points.</figcaption></figure>
+  <figure class="oz-fig"><img data-zoomable src="{{ 'assets/img/cognex-caliper.jpg' | relative_url }}" alt="Vernier caliper measurement of a seal"><figcaption>Physical validation: measuring a seal with the vernier caliper.</figcaption></figure>
 </div>
 
 ## Limitations & lessons

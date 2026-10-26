@@ -9,6 +9,12 @@ featured: true
 ---
 
 <style>
+  img[data-zoomable] { cursor: zoom-in; }
+  .medium-zoom-image--opened { object-fit: contain !important; background: transparent !important; }
+  .medium-zoom-overlay, .medium-zoom-image--opened { z-index: 1050; }
+</style>
+
+<style>
   .agv-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; margin: 1.5rem 0; align-items: start; }
   .agv-grid.single { grid-template-columns: minmax(0, 520px); justify-content: center; }
   .agv-fig { margin: 0; border: 1px solid rgba(128, 128, 128, 0.25); border-radius: 12px; overflow: hidden; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08); }
@@ -25,9 +31,9 @@ featured: true
 **Functional scissor lift (40 × 30 × 76 cm) load-tested at over 100 kg, carrying 7 kg at the final demo — 40 % above the 5 kg requirement — with a custom load-cell conditioning PCB reading 0–5 kg without an off-the-shelf HX711.** Fourth-semester integrative challenge (team of 5) at Tec de Monterrey: SolidWorks design and motion study through CNC machining, welding and embedded control.
 
 <div class="agv-grid">
-  <figure class="agv-fig"><img src="{{ 'assets/img/agv-cover.jpg' | relative_url }}" alt="SolidWorks assembly of the scissor lift with tilting tray"><figcaption>Full SolidWorks assembly of the scissor lift and tilting tray.</figcaption></figure>
-  <figure class="agv-fig"><img src="{{ 'assets/img/agv-prototype.jpg' | relative_url }}" alt="Assembled prototype with the tilting table and printed cam"><figcaption>Assembled prototype: tilting table, ABS-printed cam and gearmotor.</figcaption></figure>
-  <figure class="agv-fig"><img src="{{ 'assets/img/agv-final-build.jpg' | relative_url }}" alt="Final lift build with load-cell scale and electronics on the tray"><figcaption>Final build: load-cell scale and electronics on the tray, welded base.</figcaption></figure>
+  <figure class="agv-fig"><img data-zoomable src="{{ 'assets/img/agv-cover.jpg' | relative_url }}" alt="SolidWorks assembly of the scissor lift with tilting tray"><figcaption>Full SolidWorks assembly of the scissor lift and tilting tray.</figcaption></figure>
+  <figure class="agv-fig"><img data-zoomable src="{{ 'assets/img/agv-prototype.jpg' | relative_url }}" alt="Assembled prototype with the tilting table and printed cam"><figcaption>Assembled prototype: tilting table, ABS-printed cam and gearmotor.</figcaption></figure>
+  <figure class="agv-fig"><img data-zoomable src="{{ 'assets/img/agv-final-build.jpg' | relative_url }}" alt="Final lift build with load-cell scale and electronics on the tray"><figcaption>Final build: load-cell scale and electronics on the tray, welded base.</figcaption></figure>
 </div>
 
 <!-- DESIGN-AT-A-GLANCE:START -->
@@ -46,10 +52,10 @@ featured: true
 ## Design at a glance
 
 <div class="dag-grid">
-  <figure class="dag-fig"><img src="{{ 'assets/img/agv-loadcell-circuit.png' | relative_url }}" alt="Load-cell amplifier circuit" loading="lazy"><figcaption>Load-cell amplifier circuit</figcaption></figure>
-  <figure class="dag-fig"><img src="{{ 'assets/img/agv-displacement.png' | relative_url }}" alt="Static study: max. arm deflection 0.28 mm" loading="lazy"><figcaption>Static study: max. arm deflection 0.28 mm</figcaption></figure>
-  <figure class="dag-fig"><img src="{{ 'assets/img/agv-lathe-2.jpg' | relative_url }}" alt="Turning the aluminium coupler" loading="lazy"><figcaption>Turning the aluminium coupler</figcaption></figure>
-  <figure class="dag-fig"><img src="{{ 'assets/img/agv-force-voltage.png' | relative_url }}" alt="Measured scale output: linear 0&ndash;5 kg" loading="lazy"><figcaption>Measured scale output: linear 0&ndash;5 kg</figcaption></figure>
+  <figure class="dag-fig"><img data-zoomable src="{{ 'assets/img/agv-loadcell-circuit.png' | relative_url }}" alt="Load-cell amplifier circuit" loading="lazy"><figcaption>Load-cell amplifier circuit</figcaption></figure>
+  <figure class="dag-fig"><img data-zoomable src="{{ 'assets/img/agv-displacement.png' | relative_url }}" alt="Static study: max. arm deflection 0.28 mm" loading="lazy"><figcaption>Static study: max. arm deflection 0.28 mm</figcaption></figure>
+  <figure class="dag-fig"><img data-zoomable src="{{ 'assets/img/agv-lathe-2.jpg' | relative_url }}" alt="Turning the aluminium coupler" loading="lazy"><figcaption>Turning the aluminium coupler</figcaption></figure>
+  <figure class="dag-fig"><img data-zoomable src="{{ 'assets/img/agv-force-voltage.png' | relative_url }}" alt="Measured scale output: linear 0&ndash;5 kg" loading="lazy"><figcaption>Measured scale output: linear 0&ndash;5 kg</figcaption></figure>
 </div>
 
 **Design decisions, from first principles**
@@ -78,7 +84,7 @@ Build a scissor lift that raises, weighs, and dumps a 1–5 kg load, carried bet
 - **Manufacturing:** turned and milled the aluminum motor coupler and the connecting rod
 
 <div class="agv-grid">
-  <figure class="agv-fig photo tall"><img src="{{ 'assets/img/agv-lathe-2.jpg' | relative_url }}" alt="Paulina turning on the lathe"><figcaption>Turning a part on the lathe, with the digital readout.</figcaption></figure>
+  <figure class="agv-fig photo tall"><img data-zoomable src="{{ 'assets/img/agv-lathe-2.jpg' | relative_url }}" alt="Paulina turning on the lathe"><figcaption>Turning a part on the lathe, with the digital readout.</figcaption></figure>
   <figure class="agv-fig clip tall">
     <video src="{{ 'assets/img/agv-coupler.mp4' | relative_url }}" autoplay loop muted playsinline controls></video>
     <figcaption>Machined aluminum coupler mounted on the NEMA 17 lift motor.</figcaption>
@@ -96,7 +102,7 @@ Before building, I checked the mechanism in simulation: an NX motion study of th
     <video src="{{ 'assets/img/agv-nx-motion.mp4' | relative_url }}" autoplay loop muted playsinline controls></video>
     <figcaption>Siemens NX motion simulation of the scissor linkage (pivots and sliders).</figcaption>
   </figure>
-  <figure class="agv-fig auto"><img src="{{ 'assets/img/agv-displacement.png' | relative_url }}" alt="SolidWorks static displacement plot of one scissor arm"><figcaption>SolidWorks Motion Study, static displacement of one scissor arm: maximum 0.28 mm at the free end.</figcaption></figure>
+  <figure class="agv-fig auto"><img data-zoomable src="{{ 'assets/img/agv-displacement.png' | relative_url }}" alt="SolidWorks static displacement plot of one scissor arm"><figcaption>SolidWorks Motion Study, static displacement of one scissor arm: maximum 0.28 mm at the free end.</figcaption></figure>
 </div>
 
 <div class="agv-grid single"><figure class="agv-fig auto">
@@ -109,7 +115,7 @@ Before building, I checked the mechanism in simulation: an NX motion study of th
 The load-cell conditioning circuit (differential amplifier, non-inverting amplifier, RC low-pass) and the 16×2 LCD brought up on a breadboard with the ESP32.
 
 <div class="agv-grid">
-  <figure class="agv-fig auto"><img src="{{ 'assets/img/agv-loadcell-circuit.png' | relative_url }}" alt="Load-cell signal conditioning circuit"><figcaption>Load-cell conditioning chain: differential amplifier → non-inverting amplifier → RC low-pass → ESP32 ADC (102 kΩ feedback, 1 µF).</figcaption></figure>
+  <figure class="agv-fig auto"><img data-zoomable src="{{ 'assets/img/agv-loadcell-circuit.png' | relative_url }}" alt="Load-cell signal conditioning circuit"><figcaption>Load-cell conditioning chain: differential amplifier → non-inverting amplifier → RC low-pass → ESP32 ADC (102 kΩ feedback, 1 µF).</figcaption></figure>
   <figure class="agv-fig clip">
     <video src="{{ 'assets/img/agv-lcd.mp4' | relative_url }}" autoplay loop muted playsinline controls></video>
     <figcaption>16×2 LCD bring-up on the breadboard with the ESP32.</figcaption>
@@ -155,8 +161,8 @@ The load-cell conditioning circuit (differential amplifier, non-inverting amplif
 - **Move from breadboard to PCB earlier:** the scale accuracy improved noticeably once the signal conditioning moved from breadboard to PCB. Doing that earlier in the timeline would have left more time for calibration.
 
 <div class="agv-grid">
-  <figure class="agv-fig auto"><img src="{{ 'assets/img/agv-voltage-time.png' | relative_url }}" alt="Scale output voltage versus time in 1 kg steps"><figcaption>Scale output over time, loaded in 1 kg steps (voltage in mV; the plot's axis label is a typo).</figcaption></figure>
-  <figure class="agv-fig auto"><img src="{{ 'assets/img/agv-force-voltage.png' | relative_url }}" alt="Force versus voltage for the scale"><figcaption>Force (N) vs. voltage (mV) for 1–5 kg: monotonic and close to linear.</figcaption></figure>
+  <figure class="agv-fig auto"><img data-zoomable src="{{ 'assets/img/agv-voltage-time.png' | relative_url }}" alt="Scale output voltage versus time in 1 kg steps"><figcaption>Scale output over time, loaded in 1 kg steps (voltage in mV; the plot's axis label is a typo).</figcaption></figure>
+  <figure class="agv-fig auto"><img data-zoomable src="{{ 'assets/img/agv-force-voltage.png' | relative_url }}" alt="Force versus voltage for the scale"><figcaption>Force (N) vs. voltage (mV) for 1–5 kg: monotonic and close to linear.</figcaption></figure>
 </div>
 
 </details>

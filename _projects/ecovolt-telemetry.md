@@ -10,6 +10,12 @@ hide_from_grid: true # shown in the "Professional & lab experience" section inst
 ---
 
 <style>
+  img[data-zoomable] { cursor: zoom-in; }
+  .medium-zoom-image--opened { object-fit: contain !important; background: transparent !important; }
+  .medium-zoom-overlay, .medium-zoom-image--opened { z-index: 1050; }
+</style>
+
+<style>
   .tel-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; margin: 1.5rem 0; align-items: start; }
   .tel-grid.single { grid-template-columns: minmax(0, 720px); justify-content: center; }
   .tel-fig { margin: 0; border: 1px solid rgba(128, 128, 128, 0.25); border-radius: 12px; overflow: hidden; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08); }
@@ -40,8 +46,8 @@ hide_from_grid: true # shown in the "Professional & lab experience" section inst
 **1st place Data & Telemetry Award (2025) and 2nd place (2026) at Shell Eco-marathon.** Three generations of telemetry PCBs and ESP32 firmware for EcoVolt CCM: live data to the pit and the driver, 1 kHz current logging to SD card, a supercapacitor reserve that keeps the system running after a power loss, and a simulator loop for energy strategy.
 
 <div class="tel-grid">
-  <figure class="tel-fig photo"><img src="{{ 'assets/img/tel-wiring.jpg' | relative_url }}" alt="Paulina wiring the telemetry electronics at the competition"><figcaption>Wiring the vehicle electronics during the competition.</figcaption></figure>
-  <figure class="tel-fig photo"><img src="{{ 'assets/img/tel-award-2025.jpg' | relative_url }}" alt="Data and Telemetry Award, Shell Eco-marathon Americas 2025"><figcaption>1st place, Data &amp; Telemetry Award — Shell Eco-marathon Americas 2025.</figcaption></figure>
+  <figure class="tel-fig photo"><img data-zoomable src="{{ 'assets/img/tel-wiring.jpg' | relative_url }}" alt="Paulina wiring the telemetry electronics at the competition"><figcaption>Wiring the vehicle electronics during the competition.</figcaption></figure>
+  <figure class="tel-fig photo"><img data-zoomable src="{{ 'assets/img/tel-award-2025.jpg' | relative_url }}" alt="Data and Telemetry Award, Shell Eco-marathon Americas 2025"><figcaption>1st place, Data &amp; Telemetry Award — Shell Eco-marathon Americas 2025.</figcaption></figure>
 </div>
 
 <!-- DESIGN-AT-A-GLANCE:START -->
@@ -60,10 +66,10 @@ hide_from_grid: true # shown in the "Professional & lab experience" section inst
 ## Design at a glance
 
 <div class="dag-grid">
-  <figure class="dag-fig"><img src="{{ 'assets/img/tel-pcb-us26-render.jpg' | relative_url }}" alt="US 2026 board, Altium 3D" loading="lazy"><figcaption>US 2026 board, Altium 3D</figcaption></figure>
-  <figure class="dag-fig"><img src="{{ 'assets/img/tel-pcb-us26-purple.jpg' | relative_url }}" alt="Fabricated US 2026 board" loading="lazy"><figcaption>Fabricated US 2026 board</figcaption></figure>
-  <figure class="dag-fig"><img src="{{ 'assets/img/tel-ina240-handmade.jpg' | relative_url }}" alt="Hand-etched INA240 prototype" loading="lazy"><figcaption>Hand-etched INA240 prototype</figcaption></figure>
-  <figure class="dag-fig"><img src="{{ 'assets/img/tel-installed.jpg' | relative_url }}" alt="Telemetry installed in the car" loading="lazy"><figcaption>Telemetry installed in the car</figcaption></figure>
+  <figure class="dag-fig"><img data-zoomable src="{{ 'assets/img/tel-pcb-us26-render.jpg' | relative_url }}" alt="US 2026 board, Altium 3D" loading="lazy"><figcaption>US 2026 board, Altium 3D</figcaption></figure>
+  <figure class="dag-fig"><img data-zoomable src="{{ 'assets/img/tel-pcb-us26-purple.jpg' | relative_url }}" alt="Fabricated US 2026 board" loading="lazy"><figcaption>Fabricated US 2026 board</figcaption></figure>
+  <figure class="dag-fig"><img data-zoomable src="{{ 'assets/img/tel-ina240-handmade.jpg' | relative_url }}" alt="Hand-etched INA240 prototype" loading="lazy"><figcaption>Hand-etched INA240 prototype</figcaption></figure>
+  <figure class="dag-fig"><img data-zoomable src="{{ 'assets/img/tel-installed.jpg' | relative_url }}" alt="Telemetry installed in the car" loading="lazy"><figcaption>Telemetry installed in the car</figcaption></figure>
 </div>
 
 **Design decisions, from first principles**
@@ -138,14 +144,14 @@ Alongside the telemetry work, being on the electronics team meant hands-on time 
 - **Programming:** built my foundation in C/C++ through the firmware of the first telemetry prototype.
 
 <div class="tel-grid">
-  <figure class="tel-fig sq photo"><img src="{{ 'assets/img/tel-mc-assembled.jpg' | relative_url }}" alt="Assembled SEM motor controller with Raspberry Pi Pico"><figcaption>Assembled motor controller (SEM board): Raspberry Pi Pico, gate drivers, six MOSFETs and current-sense section. Used to characterize transistors and diodes and validate the drive electronics.</figcaption></figure>
-  <figure class="tel-fig sq photo"><img src="{{ 'assets/img/tel-mc-bare.jpg' | relative_url }}" alt="Bare SEM motor controller PCB with schematic on phone"><figcaption>Bare PCB next to the schematic: SMD pads for gate drivers, MOSFET footprints and the Raspberry Pi Pico socket.</figcaption></figure>
+  <figure class="tel-fig sq photo"><img data-zoomable src="{{ 'assets/img/tel-mc-assembled.jpg' | relative_url }}" alt="Assembled SEM motor controller with Raspberry Pi Pico"><figcaption>Assembled motor controller (SEM board): Raspberry Pi Pico, gate drivers, six MOSFETs and current-sense section. Used to characterize transistors and diodes and validate the drive electronics.</figcaption></figure>
+  <figure class="tel-fig sq photo"><img data-zoomable src="{{ 'assets/img/tel-mc-bare.jpg' | relative_url }}" alt="Bare SEM motor controller PCB with schematic on phone"><figcaption>Bare PCB next to the schematic: SMD pads for gate drivers, MOSFET footprints and the Raspberry Pi Pico socket.</figcaption></figure>
   <figure class="tel-fig sq"><video src="{{ 'assets/img/tel-mc-test.mp4' | relative_url }}" autoplay loop muted playsinline controls></video><figcaption>Motor controller under test on the bench.</figcaption></figure>
 </div>
 
 <div class="tel-grid tel-grid-battery">
-  <figure class="tel-fig photo"><img src="{{ 'assets/img/tel-battery-pack.jpg' | relative_url }}" alt="48 V battery pack with BMS during assembly"><figcaption>48 V battery pack assembly: cells in holders, BMS board and output wiring before installation in the vehicle.</figcaption></figure>
-  <figure class="tel-fig photo"><img src="{{ 'assets/img/tel-comp-assembly.jpg' | relative_url }}" alt="Paulina and José Diego working on the vehicle at the competition"><figcaption>At the competition with José Diego González — working on the vehicle electronics between scrutineering checks.</figcaption></figure>
+  <figure class="tel-fig photo"><img data-zoomable src="{{ 'assets/img/tel-battery-pack.jpg' | relative_url }}" alt="48 V battery pack with BMS during assembly"><figcaption>48 V battery pack assembly: cells in holders, BMS board and output wiring before installation in the vehicle.</figcaption></figure>
+  <figure class="tel-fig photo"><img data-zoomable src="{{ 'assets/img/tel-comp-assembly.jpg' | relative_url }}" alt="Paulina and José Diego working on the vehicle at the competition"><figcaption>At the competition with José Diego González — working on the vehicle electronics between scrutineering checks.</figcaption></figure>
 </div>
 
 ## Beyond telemetry: driver ergonomics (Vehicle Design Award)
@@ -160,9 +166,9 @@ As the team's main driver, I also carried out the driver ergonomic analysis for 
 The ergonomics analysis contributed to EcoVolt CCM winning **1st place in the Vehicle Design Award – Prototype category** at Shell Eco-marathon United States 2026 ($3,000 prize).
 
 <div class="tel-grid tel-grid-ergo">
-  <figure class="tel-fig tall-shot"><img src="{{ 'assets/img/tel-rula-monitor.png' | relative_url }}" alt="Tecnomatix Posture Monitor showing joint angles and RULA scores"><figcaption>Posture Monitor in Tecnomatix Process Simulate: joint angles for the virtual driver in the 2026 cockpit. Neck flexion (47°, yellow) and trunk flexion (84°, red) flagged as angles to watch; elbows at 45° flexion, wrists neutral.</figcaption></figure>
-  <figure class="tel-fig"><img src="{{ 'assets/img/tel-award-vehicle-design-us26.jpg' | relative_url }}" alt="EcoVolt CCM team receiving the Vehicle Design Award at Shell Eco-marathon United States 2026"><figcaption>EcoVolt CCM team receiving the 1st place Vehicle Design Award – Prototype at Shell Eco-marathon United States 2026, Indianapolis Motor Speedway.</figcaption></figure>
-  <figure class="tel-fig auto"><img src="{{ 'assets/img/tel-driver-model.png' | relative_url }}" alt="3D driver model inside the EcoVolt 2026 vehicle shell in Tecnomatix"><figcaption>Driver model inside the 2026 vehicle shell (Tecnomatix Process Simulate).</figcaption></figure>
+  <figure class="tel-fig tall-shot"><img data-zoomable src="{{ 'assets/img/tel-rula-monitor.png' | relative_url }}" alt="Tecnomatix Posture Monitor showing joint angles and RULA scores"><figcaption>Posture Monitor in Tecnomatix Process Simulate: joint angles for the virtual driver in the 2026 cockpit. Neck flexion (47°, yellow) and trunk flexion (84°, red) flagged as angles to watch; elbows at 45° flexion, wrists neutral.</figcaption></figure>
+  <figure class="tel-fig"><img data-zoomable src="{{ 'assets/img/tel-award-vehicle-design-us26.jpg' | relative_url }}" alt="EcoVolt CCM team receiving the Vehicle Design Award at Shell Eco-marathon United States 2026"><figcaption>EcoVolt CCM team receiving the 1st place Vehicle Design Award – Prototype at Shell Eco-marathon United States 2026, Indianapolis Motor Speedway.</figcaption></figure>
+  <figure class="tel-fig auto"><img data-zoomable src="{{ 'assets/img/tel-driver-model.png' | relative_url }}" alt="3D driver model inside the EcoVolt 2026 vehicle shell in Tecnomatix"><figcaption>Driver model inside the 2026 vehicle shell (Tecnomatix Process Simulate).</figcaption></figure>
 </div>
 
 ## Technical background
@@ -180,7 +186,7 @@ The ergonomics analysis contributed to EcoVolt CCM winning **1st place in the Ve
 ## System architecture (US 2026 / Brazil 2026)
 
 <div class="tel-grid single">
-  <figure class="tel-fig auto"><img src="{{ 'assets/img/tel-sch-us26.png' | relative_url }}" alt="Telemetry schematic, US 2026"><figcaption>US 2026 schematic: INA240A1 current sensing, voltage divider, MPU6050, NEO-6M GPS, ADS1115 for driver inputs, SPI microSD, CAN transceiver and the ESP32-C5.</figcaption></figure>
+  <figure class="tel-fig auto"><img data-zoomable src="{{ 'assets/img/tel-sch-us26.png' | relative_url }}" alt="Telemetry schematic, US 2026"><figcaption>US 2026 schematic: INA240A1 current sensing, voltage divider, MPU6050, NEO-6M GPS, ADS1115 for driver inputs, SPI microSD, CAN transceiver and the ESP32-C5.</figcaption></figure>
 </div>
 
 **Sensing layer**
@@ -221,13 +227,13 @@ The ergonomics analysis contributed to EcoVolt CCM winning **1st place in the Ve
 - **Outcome:** 1st place, Data & Telemetry Award.
 
 <div class="tel-grid">
-  <figure class="tel-fig sq photo"><img src="{{ 'assets/img/tel-breadboard-2025.jpg' | relative_url }}" alt="Breadboard prototype with ESP32 and NEO-6M GPS"><figcaption>First prototype: ESP32 DevKit and NEO-6M GPS on a breadboard.</figcaption></figure>
-  <figure class="tel-fig sq"><img src="{{ 'assets/img/tel-proto-hall-2025.jpg' | relative_url }}" alt="Protoboard with ESP32 and Hall-effect current module"><figcaption>Protoboard version with a Hall-effect current module, used at Americas 2025.</figcaption></figure>
+  <figure class="tel-fig sq photo"><img data-zoomable src="{{ 'assets/img/tel-breadboard-2025.jpg' | relative_url }}" alt="Breadboard prototype with ESP32 and NEO-6M GPS"><figcaption>First prototype: ESP32 DevKit and NEO-6M GPS on a breadboard.</figcaption></figure>
+  <figure class="tel-fig sq"><img data-zoomable src="{{ 'assets/img/tel-proto-hall-2025.jpg' | relative_url }}" alt="Protoboard with ESP32 and Hall-effect current module"><figcaption>Protoboard version with a Hall-effect current module, used at Americas 2025.</figcaption></figure>
   <figure class="tel-fig sq"><video src="{{ 'assets/img/tel-indy-2025-track.mp4' | relative_url }}" autoplay loop muted playsinline controls></video><figcaption>The car on track at Indianapolis Motor Speedway, Americas 2025.</figcaption></figure>
 </div>
 
 <div class="tel-grid single">
-  <figure class="tel-fig auto"><img src="{{ 'assets/img/tel-thingspeak-2025.jpg' | relative_url }}" alt="ThingSpeak current and voltage charts, 2025"><figcaption>Live data visualization in ThingSpeak during Shell Eco-marathon Americas 2025: motor current readings ranged from 14.5 to 17.6 A, with an approximately 15 A calibration offset. The voltage trace was accurate at 57.0 V, consistent with the battery's nominal operating voltage of approximately 60 V.</figcaption></figure>
+  <figure class="tel-fig auto"><img data-zoomable src="{{ 'assets/img/tel-thingspeak-2025.jpg' | relative_url }}" alt="ThingSpeak current and voltage charts, 2025"><figcaption>Live data visualization in ThingSpeak during Shell Eco-marathon Americas 2025: motor current readings ranged from 14.5 to 17.6 A, with an approximately 15 A calibration offset. The voltage trace was accurate at 57.0 V, consistent with the battery's nominal operating voltage of approximately 60 V.</figcaption></figure>
 </div>
 
 ### V1 — First custom board (Shell Eco-marathon Brazil 2025)
@@ -239,14 +245,14 @@ The ergonomics analysis contributed to EcoVolt CCM winning **1st place in the Ve
 - **Lesson:** the 20 mΩ shunt saturated the amplifier at the car's real currents, because the current had been estimated too low in the design.
 
 <div class="tel-grid">
-  <figure class="tel-fig sq photo"><img src="{{ 'assets/img/tel-ina240-handmade.jpg' | relative_url }}" alt="Hand-etched INA240 current-sense prototype"><figcaption>July 2025: hand-etched INA240 current-sense prototype.</figcaption></figure>
-  <figure class="tel-fig sq"><img src="{{ 'assets/img/tel-ina240-breakout.jpg' | relative_url }}" alt="Altium render of the INA240 breakout board"><figcaption>The same circuit as an Altium breakout: shunt, INA240A1, RC filter and header.</figcaption></figure>
-  <figure class="tel-fig sq photo"><img src="{{ 'assets/img/tel-pcb-brazil25.jpg' | relative_url }}" alt="Brazil 2025 telemetry board with GPS and IMU"><figcaption>Brazil 2025 telemetry board, fabricated, with the GPS and IMU modules.</figcaption></figure>
+  <figure class="tel-fig sq photo"><img data-zoomable src="{{ 'assets/img/tel-ina240-handmade.jpg' | relative_url }}" alt="Hand-etched INA240 current-sense prototype"><figcaption>July 2025: hand-etched INA240 current-sense prototype.</figcaption></figure>
+  <figure class="tel-fig sq"><img data-zoomable src="{{ 'assets/img/tel-ina240-breakout.jpg' | relative_url }}" alt="Altium render of the INA240 breakout board"><figcaption>The same circuit as an Altium breakout: shunt, INA240A1, RC filter and header.</figcaption></figure>
+  <figure class="tel-fig sq photo"><img data-zoomable src="{{ 'assets/img/tel-pcb-brazil25.jpg' | relative_url }}" alt="Brazil 2025 telemetry board with GPS and IMU"><figcaption>Brazil 2025 telemetry board, fabricated, with the GPS and IMU modules.</figcaption></figure>
 </div>
 
 <div class="tel-grid">
-  <figure class="tel-fig sq"><img src="{{ 'assets/img/tel-sch-brazil25.png' | relative_url }}" alt="Telemetry schematic, Brazil 2025"><figcaption>Brazil 2025 schematic: 20 mΩ shunt with INA240A1, 1 MΩ / 56 kΩ divider, MPU6050, NEO-6M and ESP32-C3 SuperMini.</figcaption></figure>
-  <figure class="tel-fig sq"><img src="{{ 'assets/img/tel-pcb-brazil25-layout.jpg' | relative_url }}" alt="Brazil 2025 PCB layout in Altium"><figcaption>Brazil 2025 layout in Altium, with the shunt section (IN/OUT pads) on the right.</figcaption></figure>
+  <figure class="tel-fig sq"><img data-zoomable src="{{ 'assets/img/tel-sch-brazil25.png' | relative_url }}" alt="Telemetry schematic, Brazil 2025"><figcaption>Brazil 2025 schematic: 20 mΩ shunt with INA240A1, 1 MΩ / 56 kΩ divider, MPU6050, NEO-6M and ESP32-C3 SuperMini.</figcaption></figure>
+  <figure class="tel-fig sq"><img data-zoomable src="{{ 'assets/img/tel-pcb-brazil25-layout.jpg' | relative_url }}" alt="Brazil 2025 PCB layout in Altium"><figcaption>Brazil 2025 layout in Altium, with the shunt section (IN/OUT pads) on the right.</figcaption></figure>
   <figure class="tel-fig sq"><video src="{{ 'assets/img/tel-brazil-2025-track.mp4' | relative_url }}" autoplay loop muted playsinline controls></video><figcaption>Track as driver at Pier Mauá, Rio de Janeiro — Brazil 2025.</figcaption></figure>
 </div>
 
@@ -258,7 +264,7 @@ The ergonomics analysis contributed to EcoVolt CCM winning **1st place in the Ve
 - **Recognition:** this work received an Honorable Mention in the Altair Global Student Contest 2025.
 
 <div class="tel-grid single">
-  <figure class="tel-fig auto"><img src="{{ 'assets/img/tel-altair.png' | relative_url }}" alt="Altair AI Studio model comparison and factor ranking"><figcaption>Altair AI Studio: eight models compared on relative error and runtime (top); variable ranking with speed as the dominant factor (bottom right).</figcaption></figure>
+  <figure class="tel-fig auto"><img data-zoomable src="{{ 'assets/img/tel-altair.png' | relative_url }}" alt="Altair AI Studio model comparison and factor ranking"><figcaption>Altair AI Studio: eight models compared on relative error and runtime (top); variable ranking with speed as the dominant factor (bottom right).</figcaption></figure>
 </div>
 
 ### V2 — Complete redesign (Shell Eco-marathon US 2026)
@@ -271,9 +277,9 @@ The ergonomics analysis contributed to EcoVolt CCM winning **1st place in the Ve
 - **Outcome:** 2nd place, Data & Telemetry Award.
 
 <div class="tel-grid">
-  <figure class="tel-fig sq"><img src="{{ 'assets/img/tel-pcb-us26-render.jpg' | relative_url }}" alt="Altium 3D render of the US 2026 board"><figcaption>US 2026 board, Altium 3D render: ESP32-C5 footprint, sensor connectors and the shunt section.</figcaption></figure>
-  <figure class="tel-fig sq photo"><img src="{{ 'assets/img/tel-pcb-us26-purple.jpg' | relative_url }}" alt="Fabricated US 2026 board, ¾ view"><figcaption>The fabricated US 2026 board: ESP32-C5, IMU, shunt section and sensor connectors.</figcaption></figure>
-  <figure class="tel-fig sq photo"><img src="{{ 'assets/img/tel-pcb-us26-enclosure.jpg' | relative_url }}" alt="US 2026 board in its 3D-printed enclosure"><figcaption>In its 3D-printed enclosure, ready for the car.</figcaption></figure>
+  <figure class="tel-fig sq"><img data-zoomable src="{{ 'assets/img/tel-pcb-us26-render.jpg' | relative_url }}" alt="Altium 3D render of the US 2026 board"><figcaption>US 2026 board, Altium 3D render: ESP32-C5 footprint, sensor connectors and the shunt section.</figcaption></figure>
+  <figure class="tel-fig sq photo"><img data-zoomable src="{{ 'assets/img/tel-pcb-us26-purple.jpg' | relative_url }}" alt="Fabricated US 2026 board, ¾ view"><figcaption>The fabricated US 2026 board: ESP32-C5, IMU, shunt section and sensor connectors.</figcaption></figure>
+  <figure class="tel-fig sq photo"><img data-zoomable src="{{ 'assets/img/tel-pcb-us26-enclosure.jpg' | relative_url }}" alt="US 2026 board in its 3D-printed enclosure"><figcaption>In its 3D-printed enclosure, ready for the car.</figcaption></figure>
 </div>
 
 ### V3 — Robustness revision (Shell Eco-marathon Brazil 2026)
@@ -287,14 +293,14 @@ My role in this revision was primarily mentor and supervisor: José Diego Gonzá
 - **Software (team):** a new web platform with a run archive and an AI-assisted analysis assistant.
 
 <div class="tel-grid tel-grid-pair">
-  <figure class="tel-fig auto"><img src="{{ 'assets/img/tel-pcb-br26-layout.png' | relative_url }}" alt="Brazil 2026 PCB layout in Altium"><figcaption>Brazil 2026 layout in Altium, credited to Paulina Ruíz Servín and José Diego González Fernández.</figcaption></figure>
-  <figure class="tel-fig photo"><img src="{{ 'assets/img/tel-pcb-us26.jpg' | relative_url }}" alt="Fabricated Brazil 2026 board with microSD slot"><figcaption>The fabricated Brazil 2026 board, with the microSD slot and the locking power connector.</figcaption></figure>
+  <figure class="tel-fig auto"><img data-zoomable src="{{ 'assets/img/tel-pcb-br26-layout.png' | relative_url }}" alt="Brazil 2026 PCB layout in Altium"><figcaption>Brazil 2026 layout in Altium, credited to Paulina Ruíz Servín and José Diego González Fernández.</figcaption></figure>
+  <figure class="tel-fig photo"><img data-zoomable src="{{ 'assets/img/tel-pcb-us26.jpg' | relative_url }}" alt="Fabricated Brazil 2026 board with microSD slot"><figcaption>The fabricated Brazil 2026 board, with the microSD slot and the locking power connector.</figcaption></figure>
 </div>
 
 <div class="tel-grid">
-  <figure class="tel-fig photo"><img src="{{ 'assets/img/tel-supercap.jpg' | relative_url }}" alt="Supercapacitor energy-reserve module"><figcaption>Supercapacitor energy-reserve module: about 60 s of operation after a power loss.</figcaption></figure>
-  <figure class="tel-fig"><img src="{{ 'assets/img/tel-supercap-render.jpg' | relative_url }}" alt="3D render of the energy-reserve board"><figcaption>3D render of the energy-reserve board.</figcaption></figure>
-  <figure class="tel-fig photo"><img src="{{ 'assets/img/tel-installed.jpg' | relative_url }}" alt="Telemetry installed in the vehicle"><figcaption>Telemetry installed in the vehicle, next to the battery.</figcaption></figure>
+  <figure class="tel-fig photo"><img data-zoomable src="{{ 'assets/img/tel-supercap.jpg' | relative_url }}" alt="Supercapacitor energy-reserve module"><figcaption>Supercapacitor energy-reserve module: about 60 s of operation after a power loss.</figcaption></figure>
+  <figure class="tel-fig"><img data-zoomable src="{{ 'assets/img/tel-supercap-render.jpg' | relative_url }}" alt="3D render of the energy-reserve board"><figcaption>3D render of the energy-reserve board.</figcaption></figure>
+  <figure class="tel-fig photo"><img data-zoomable src="{{ 'assets/img/tel-installed.jpg' | relative_url }}" alt="Telemetry installed in the vehicle"><figcaption>Telemetry installed in the vehicle, next to the battery.</figcaption></figure>
 </div>
 
 ## Technical challenges & solutions
@@ -314,12 +320,12 @@ My role in this revision was primarily mentor and supervisor: José Diego Gonzá
 **7. Validating strategy before the car existed.** The 2026 car was still being built when the strategy work had to start. The team connected the physical motor and controller to the Assetto Corsa simulator in a closed loop: the driver's throttle drove the real motor, and the motor's response was fed back to the game. The telemetry board logged current and voltage at the same time. The two data streams had no shared clock, so they were aligned offline by matching throttle-off events to drops in current and then cross-correlating the signals.
 
 <div class="tel-grid single">
-  <figure class="tel-fig photo auto"><img src="{{ 'assets/img/tel-sim-setup.jpg' | relative_url }}" alt="Simulator bench test with the physical motor in the loop"><figcaption>Simulator bench test: Assetto Corsa with steering wheel and pedals, the physical motor and controller in the loop, and the live telemetry dashboard.</figcaption></figure>
+  <figure class="tel-fig photo auto"><img data-zoomable src="{{ 'assets/img/tel-sim-setup.jpg' | relative_url }}" alt="Simulator bench test with the physical motor in the loop"><figcaption>Simulator bench test: Assetto Corsa with steering wheel and pedals, the physical motor and controller in the loop, and the live telemetry dashboard.</figcaption></figure>
 </div>
 
 <div class="tel-grid">
   <figure class="tel-fig sq"><video src="{{ 'assets/img/tel-sim-bench.mp4' | relative_url }}" autoplay loop muted playsinline controls></video><figcaption>Driving the Indianapolis circuit in the simulator.</figcaption></figure>
-  <figure class="tel-fig sq photo"><img src="{{ 'assets/img/tel-motor-temp.jpg' | relative_url }}" alt="IR thermometer reading on the motor during the bench test"><figcaption>Motor temperature during the bench test (47.7 °C): checking in-car behaviour and whether cooling would be needed after a valid attempt.</figcaption></figure>
+  <figure class="tel-fig sq photo"><img data-zoomable src="{{ 'assets/img/tel-motor-temp.jpg' | relative_url }}" alt="IR thermometer reading on the motor during the bench test"><figcaption>Motor temperature during the bench test (47.7 °C): checking in-car behaviour and whether cooling would be needed after a valid attempt.</figcaption></figure>
 </div>
 
 ## Testing & validation
@@ -342,21 +348,21 @@ My role in this revision was primarily mentor and supervisor: José Diego Gonzá
 As the main driver, I tested the driver display from the cockpit and decided what it shows. The dashboards and the run archive were built by the web team, working from the variables and interpretation we defined together.
 
 <div class="tel-grid single">
-  <figure class="tel-fig auto"><img src="{{ 'assets/img/tel-driver-display.png' | relative_url }}" alt="Driver display during a simulator session"><figcaption>Driver display during a simulator session: session time, speed, target speed and efficiency.</figcaption></figure>
+  <figure class="tel-fig auto"><img data-zoomable src="{{ 'assets/img/tel-driver-display.png' | relative_url }}" alt="Driver display during a simulator session"><figcaption>Driver display during a simulator session: session time, speed, target speed and efficiency.</figcaption></figure>
 </div>
 
 <div class="tel-grid">
-  <figure class="tel-fig auto"><img src="{{ 'assets/img/tel-dashboard.png' | relative_url }}" alt="Real-time pit dashboard"><figcaption>Real-time pit dashboard, US 2026 (built by the web team).</figcaption></figure>
-  <figure class="tel-fig auto"><img src="{{ 'assets/img/tel-track-map.png' | relative_url }}" alt="Track map coloured by telemetry"><figcaption>Lap trace on the Indianapolis layout, coloured by telemetry values.</figcaption></figure>
+  <figure class="tel-fig auto"><img data-zoomable src="{{ 'assets/img/tel-dashboard.png' | relative_url }}" alt="Real-time pit dashboard"><figcaption>Real-time pit dashboard, US 2026 (built by the web team).</figcaption></figure>
+  <figure class="tel-fig auto"><img data-zoomable src="{{ 'assets/img/tel-track-map.png' | relative_url }}" alt="Track map coloured by telemetry"><figcaption>Lap trace on the Indianapolis layout, coloured by telemetry values.</figcaption></figure>
 </div>
 
 <div class="tel-grid">
-  <figure class="tel-fig auto"><img src="{{ 'assets/img/tel-run-archive.png' | relative_url }}" alt="Run archive of the Brazil 2026 web platform"><figcaption>Run archive, Brazil 2026: 14 sessions and 55.1 K telemetry records (built by the web team).</figcaption></figure>
+  <figure class="tel-fig auto"><img data-zoomable src="{{ 'assets/img/tel-run-archive.png' | relative_url }}" alt="Run archive of the Brazil 2026 web platform"><figcaption>Run archive, Brazil 2026: 14 sessions and 55.1 K telemetry records (built by the web team).</figcaption></figure>
   <figure class="tel-fig auto"><video src="{{ 'assets/img/tel-web-platform.mp4' | relative_url }}" autoplay loop muted playsinline controls></video><figcaption>Session analysis in the web platform.</figcaption></figure>
 </div>
 
 <div class="tel-grid single">
-  <figure class="tel-fig auto"><img src="{{ 'assets/img/tel-indy-3d.png' | relative_url }}" alt="MATLAB 3D reconstruction of the Indianapolis circuit"><figcaption>My MATLAB 3D reconstruction of the Indianapolis circuit from 2,696 GPS fixes (latitude, longitude, altitude); the elevation varies by about 3.8 m around the lap.</figcaption></figure>
+  <figure class="tel-fig auto"><img data-zoomable src="{{ 'assets/img/tel-indy-3d.png' | relative_url }}" alt="MATLAB 3D reconstruction of the Indianapolis circuit"><figcaption>My MATLAB 3D reconstruction of the Indianapolis circuit from 2,696 GPS fixes (latitude, longitude, altitude); the elevation varies by about 3.8 m around the lap.</figcaption></figure>
 </div>
 
 Download the MATLAB files: [Live Script (.mlx)]({{ 'assets/files/indianapolis-track/Indianapolis_track.mlx' | relative_url }}) · [plain script (.m)]({{ 'assets/files/indianapolis-track/Indianapolis_track.m' | relative_url }}) · [GPS data (.xlsx)]({{ 'assets/files/indianapolis-track/sem_2023_us.xlsx' | relative_url }})
@@ -371,8 +377,8 @@ Download the MATLAB files: [Live Script (.mlx)]({{ 'assets/files/indianapolis-tr
 - **Data resilience:** the final architecture combines SD logging, buffered retransmission and a supercapacitor energy reserve.
 
 <div class="tel-grid">
-  <figure class="tel-fig photo"><img src="{{ 'assets/img/tel-soldering.jpg' | relative_url }}" alt="Soldering a sensor board"><figcaption>Hands-on throttle debugging during the Shell Eco-marathon Brazil 2025.</figcaption></figure>
-  <figure class="tel-fig photo"><img src="{{ 'assets/img/tel-trackside-brazil.jpg' | relative_url }}" alt="Briefing the drivers trackside in Rio de Janeiro"><figcaption>Briefing the drivers trackside in Rio de Janeiro on driving strategy and telemetry data.</figcaption></figure>
+  <figure class="tel-fig photo"><img data-zoomable src="{{ 'assets/img/tel-soldering.jpg' | relative_url }}" alt="Soldering a sensor board"><figcaption>Hands-on throttle debugging during the Shell Eco-marathon Brazil 2025.</figcaption></figure>
+  <figure class="tel-fig photo"><img data-zoomable src="{{ 'assets/img/tel-trackside-brazil.jpg' | relative_url }}" alt="Briefing the drivers trackside in Rio de Janeiro"><figcaption>Briefing the drivers trackside in Rio de Janeiro on driving strategy and telemetry data.</figcaption></figure>
 </div>
 
 ## Skills & lessons learned
