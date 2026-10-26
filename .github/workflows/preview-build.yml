@@ -1,5 +1,8 @@
 name: Preview build (no deploy)
 
+permissions:
+  contents: write
+
 on:
   push:
     branches:
@@ -34,8 +37,9 @@ jobs:
         run: |
           npm install -g purgecss
           purgecss -c purgecss.config.js
-      - uses: actions/upload-artifact@v4
+      - name: Push built site to the preview-site branch (not served)
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          name: site
-          path: _site
-          retention-days: 3
+          folder: _site
+          branch: preview-site
+          single-commit: true
