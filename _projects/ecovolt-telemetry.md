@@ -114,7 +114,7 @@ Before and alongside telemetry, I worked on the rest of the car's electronics: s
 <div class="tel-grid">
   <figure class="tel-fig sq photo"><img data-zoomable src="{{ 'assets/img/tel-mc-assembled.jpg' | relative_url }}" alt="Assembled SEM motor controller with Raspberry Pi Pico"><figcaption>Assembled motor controller (SEM board): Raspberry Pi Pico, gate drivers, six MOSFETs and current-sense section. Used to characterize transistors and diodes and validate the drive electronics.</figcaption></figure>
   <figure class="tel-fig sq photo"><img data-zoomable src="{{ 'assets/img/tel-mc-bare.jpg' | relative_url }}" alt="Bare SEM motor controller PCB with schematic on phone"><figcaption>Bare PCB next to the schematic: SMD pads for gate drivers, MOSFET footprints and the Raspberry Pi Pico socket.</figcaption></figure>
-  <figure class="tel-fig sq"><video src="{{ 'assets/img/tel-mc-test.mp4' | relative_url }}" autoplay loop muted playsinline controls></video><figcaption>Motor controller under test on the bench.</figcaption></figure>
+  <figure class="tel-fig sq"><video src="{{ 'assets/img/tel-mc-test.mp4' | relative_url }}" autoplay loop muted playsinline controls></video><figcaption>Motor controller under test on the bench, running firmware written in C.</figcaption></figure>
 </div>
 <div class="tel-grid">
   <figure class="tel-fig photo"><img data-zoomable src="{{ 'assets/img/tel-battery-pack.jpg' | relative_url }}" alt="48 V battery pack with BMS during assembly"><figcaption>48 V battery pack assembly: cells in holders, BMS board and output wiring before installation in the vehicle.</figcaption></figure>
