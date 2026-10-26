@@ -253,7 +253,7 @@ cv:
 
       - name: English
         icon: fa-solid fa-comments
-        summary: C1
+        summary: Fluent (C1)
 
       - name: French
         icon: fa-solid fa-comments
@@ -261,7 +261,7 @@ cv:
 
       - name: German
         icon: fa-solid fa-comments
-        summary: B1
+        summary: Intermediate (B1)
 
     Interests:
       - name: Motorsport
