@@ -58,17 +58,17 @@
     sw.setAttribute("aria-label", isDe ? "Sprache" : "Language");
     sw.innerHTML =
       '<a href="' +
-      dePath +
-      (hasDe ? hash : "") +
-      '" hreflang="de" lang="de"' +
-      (isDe ? ' class="on" aria-current="true"' : "") +
-      ">DE</a>" +
-      '<a href="' +
       enPath +
       hash +
       '" hreflang="en" lang="en"' +
       (!isDe ? ' class="on" aria-current="true"' : "") +
-      ">EN</a>";
+      ">EN</a>" +
+      '<a href="' +
+      dePath +
+      (hasDe ? hash : "") +
+      '" hreflang="de" lang="de"' +
+      (isDe ? ' class="on" aria-current="true"' : "") +
+      ">DE</a>";
     return sw;
   }
 
@@ -80,7 +80,10 @@
       var li = document.createElement("li");
       li.className = "lang-item";
       li.appendChild(makeSwitch(""));
-      list.appendChild(li);
+      var theme = list.querySelector("#light-toggle");
+      var themeLi = theme ? theme.closest("li") : null;
+      if (themeLi && themeLi.parentNode === list) list.insertBefore(li, themeLi);
+      else list.appendChild(li);
     }
     nav.appendChild(makeSwitch("mobile"));
 
