@@ -72,7 +72,7 @@ latest_posts:
     <p>Mechatronics Engineering student in the German–Mexican DHIK double degree (<em>Tec de Monterrey</em> · <em>Hochschule Zittau/Görlitz</em>), based in Saxony. I led the 30-member <a href="https://www.instagram.com/ecovoltccm/">EcoVolt CCM</a> team at Shell Eco-marathon, built its telemetry, fabricated devices in the <a href="https://global.mit.edu/news-stories/nanolab-workshop-builds-student-skills-and-strengthens-international-ties/">MIT.nano cleanrooms</a> and developed vision-guided robots and digital twins.</p>
 <div class="ab-stats">
   <div class="ab-stat"><span class="ab-big">🏆 1st &amp; 2nd place</span><span class="ab-small">Data &amp; Telemetry Award, Shell Eco-marathon 2025 / 2026</span></div>
-  <div class="ab-stat"><span class="ab-big">👥 Team Captain</span><span class="ab-small">EcoVolt CCM (2025–26): led 30 members; designed the telemetry PCBs and CAN firmware</span></div>
+  <div class="ab-stat"><span class="ab-big">👥 Team Captain</span><span class="ab-small">EcoVolt CCM (2025–26): led 30 members; designed the telemetry PCBs and CAN firmware; mentored José Diego González on the supercapacitor energy reserve</span></div>
   <div class="ab-stat"><span class="ab-big">🔬 MIT.nano</span><span class="ab-small">Cleanroom semiconductor fabrication</span></div>
   <div class="ab-stat"><span class="ab-big">📄 IEEE paper</span><span class="ab-small">First author, SAIBOT 2026</span></div>
 </div>
