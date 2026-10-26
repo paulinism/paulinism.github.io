@@ -11,6 +11,12 @@ contact_note: >
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
   Portfolio of Paulina Ruíz Servín — Mechatronics Engineering student (Tec de Monterrey / Hochschule Zittau-Görlitz) focused on embedded systems, hardware, and industrial automation.
 footer_text: >
+  <span class="footer-social" style="display:inline-flex;gap:.9rem;margin-right:.6rem;vertical-align:middle">
+  <a href="mailto:pruizservin27@gmail.com" title="Email" style="color:var(--global-theme-color)"><i class="fa-solid fa-envelope"></i></a>
+  <a href="https://www.linkedin.com/in/pruizservin27/" target="_blank" rel="noopener" title="LinkedIn" style="color:var(--global-theme-color)"><i class="fa-brands fa-linkedin"></i></a>
+  <a href="https://github.com/paulinism" target="_blank" rel="noopener" title="GitHub" style="color:var(--global-theme-color)"><i class="fa-brands fa-github"></i></a>
+  <a href="https://wa.me/4915233878708" target="_blank" rel="noopener" title="WhatsApp" style="color:var(--global-theme-color)"><i class="fa-brands fa-whatsapp"></i></a>
+  </span>
   Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
   Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
 keywords: Embedded Systems, PCB Design, Altium Designer, ESP32, FreeRTOS, PLC, TIA Portal, Digital Twin, Process Simulate, Mechatronics Engineering, Elektrotechnik, Shell Eco-marathon # add your own keywords or leave empty

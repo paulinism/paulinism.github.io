@@ -26,6 +26,23 @@ latest_posts:
 ---
 
 <style>
+  /* Featured projects: same card look as the Projects page */
+  #featured-projects + div { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; gap: 1.2rem !important; }
+  #featured-projects + div > a { border: 1px solid rgba(128,128,128,.3) !important; border-radius: 12px !important; color: inherit !important; transition: transform .15s ease, border-color .15s ease; }
+  #featured-projects + div > a:hover { transform: translateY(-3px); border-color: var(--global-theme-color) !important; }
+  #featured-projects + div > a img { aspect-ratio: 16 / 9 !important; }
+  #featured-projects + div > a h3 { font-size: 1.05rem !important; line-height: 1.3; }
+  #featured-projects + div > a:hover h3 { color: var(--global-theme-color); }
+  #featured-projects + div > a p { font-size: .86rem !important; line-height: 1.5; }
+  @media (max-width: 860px) { #featured-projects + div { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; } }
+  @media (max-width: 560px) { #featured-projects + div { grid-template-columns: minmax(0, 1fr) !important; } }
+  /* Bottom social block: small theme-colored icons in one row */
+  .social { text-align: center; }
+  .social .contact-icons { display: flex !important; justify-content: center; align-items: center; gap: 1.1rem; flex-wrap: nowrap; font-size: 1.5rem !important; }
+  .social .contact-icons a, .social .contact-icons i { color: var(--global-theme-color) !important; font-size: 1.5rem !important; }
+  .social .contact-icons a i::before { color: var(--global-theme-color) !important; }
+  .social .contact-icons a:hover i { opacity: .75; }
+  .social .contact-note { font-size: .9rem; opacity: .8; }
 
   .ab-hook { font-size: 1.2rem; font-weight: 600; line-height: 1.45; margin: 0.25rem 0 1rem; }
   .ab-stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.75rem; margin: 1.25rem 0 1.5rem; }
@@ -82,8 +99,8 @@ latest_posts:
       <details class="ab-cv">
         <summary class="ab-btn">Download CV</summary>
         <div class="ab-cv-menu">
-          <a href="/assets/pdf/CV_Paulina_EN.pdf" target="_blank" rel="noopener">English (PDF)</a>
-          <a href="/assets/pdf/CV_Paulina_DE.pdf" target="_blank" rel="noopener">Deutsch (PDF)</a>
+          <a href="/assets/pdf/CV_Paulina_EN.pdf?v=20261026" target="_blank" rel="noopener">English (PDF)</a>
+          <a href="/assets/pdf/CV_Paulina_DE.pdf?v=20261026" target="_blank" rel="noopener">Deutsch (PDF)</a>
         </div>
       </details>
       <a class="ab-btn" href="/contact/">Contact</a>
