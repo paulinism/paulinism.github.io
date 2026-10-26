@@ -1,0 +1,190 @@
+<!DOCTYPE html> <html lang="en"> <head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <title> Automated PPE &amp; Inventory Management System | Paulina L. Ruíz Servín </title> <meta name="author" content="Paulina L. Ruíz Servín"> <meta name="description" content="Solo project — QR tracking for Shell Eco-marathon paddock ops — customs-ready Excel export, under 80 ms QR reading, web dashboard with loan management"> <meta name="keywords" content="Embedded Systems, PCB Design, Altium Designer, ESP32, FreeRTOS, PLC, TIA Portal, Digital Twin, Process Simulate, Mechatronics Engineering, Elektrotechnik, Shell Eco-marathon"> <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; media-src 'self' https:; frame-src 'self' https:; connect-src 'self' https:;"> <style>
+  :root {
+    --max-content-width: 930px;
+  }
+</style> <link rel="stylesheet" href="/assets/css/tailwind.css?v=50c64c15cbb9fd1ce6056fdb8bcb4b62"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css" integrity="sha256-MVopmdyC2tYTiJ8wlktf0uh0v4NgT+vNdyVFepi7Q0c=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.5/css/academicons.min.css" integrity="sha256-SzrCOBJbGVFMahewkgjwnApaV2+av1DwMAA+/QGLyZw=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/scholar-icons@1.0.3/css/scholar-icons.css" integrity="sha256-VY3hHVj/hNX3fYG6wtbA6TcKJQl7+FthzGSyIB64klY=" crossorigin="anonymous"> <link defer rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons&amp;display=swap"> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-github.css?v=591dab5a4e56573bf4ef7fd332894c99" media="" id="highlight_theme_light"> <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%F0%9F%91%A9%E2%80%8D%F0%9F%92%BB&lt;/text&gt;&lt;/svg&gt;"> <link rel="stylesheet" href="/assets/css/main.css?v=3116ba77db9ee1581d05bb3e86fbf7f1"> <link rel="canonical" href="https://paulinism.github.io/projects/ecovolt-inventory/"> <script src="/assets/js/theme.js?v=5286c3e4c334d0ecb8fc0c40ff4fa7ec"></script> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-native.css?v=5847e5ed4a4568527aa6cfab446049ca" media="none" id="highlight_theme_dark"> <script>
+    initTheme();
+  </script> </head> <body class="fixed-top-nav "> <header> <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top" role="navigation"> <div class="container"> <a class="navbar-brand title font-weight-lighter" href="/"> <span class="font-weight-bold">Paulina</span> L. Ruíz Servín </a> <button class="navbar-toggler collapsed navbar-toggler-main" type="button" data-nav-toggle="navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar top-bar"></span> <span class="icon-bar middle-bar"></span> <span class="icon-bar bottom-bar"></span> </button> <div class="collapse navbar-collapse navbar-collapse-main" id="navbarNav"> <ul class="navbar-nav navbar-menu-list flex-nowrap"> <li class="nav-item "> <a class="nav-link" href="/">about </a> </li> <li class="nav-item active"> <a class="nav-link" href="/projects/">projects <span class="sr-only">(current)</span> </a> </li> <li class="nav-item "> <a class="nav-link" href="/achievements/">achievements </a> </li> <li class="nav-item "> <a class="nav-link" href="/publications/">publications </a> </li> <li class="nav-item "> <a class="nav-link" href="/repositories/">repositories </a> </li> <li class="nav-item "> <a class="nav-link" href="/cv/">CV </a> </li> <li class="nav-item "> <a class="nav-link" href="/contact/">contact </a> </li> <li class="nav-item"> <button id="search-toggle" type="button" title="Search" aria-label="Open search"> <span class="nav-link">ctrl k <i class="fa-solid fa-magnifying-glass"></i></span> </button> </li> <li class="toggle-container"> <button id="light-toggle" type="button" title="Change theme" aria-label="Change color theme"> <i class="fa-half-sun-moon" id="light-toggle-system"></i> <i class="fa-solid fa-moon" id="light-toggle-dark"></i> <i class="fa-solid fa-sun" id="light-toggle-light"></i> </button> </li> </ul> </div> </div> </nav> <progress id="progress" value="0"> <div class="progress-container"> <span class="progress-bar"></span> </div> </progress> </header> <div class="container mt-5" role="main"> <div class="post"> <header class="post-header"> <h1 class="post-title">Automated PPE &amp; Inventory Management System</h1> <p class="post-description">Solo project — QR tracking for Shell Eco-marathon paddock ops — customs-ready Excel export, under 80 ms QR reading, web dashboard with loan management</p> </header> <article> <style>
+  img[data-zoomable] { cursor: zoom-in; }
+  .medium-zoom-image--opened { object-fit: contain !important; background: transparent !important; }
+  .medium-zoom-overlay, .medium-zoom-image--opened { z-index: 1050; }
+</style> <style>
+  .inv-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; margin: 1.5rem 0; align-items: start; }
+  .inv-grid.single { grid-template-columns: minmax(0, 860px); justify-content: center; }
+  .inv-fig { margin: 0; border: 1px solid rgba(128, 128, 128, 0.25); border-radius: 12px; overflow: hidden; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08); }
+  .inv-fig img, .inv-fig video { display: block; width: 100%; height: auto; background: rgba(128, 128, 128, 0.06); }
+  .inv-fig.phone img, .inv-fig.phone video { height: 520px; object-fit: contain; }
+  .inv-fig figcaption { padding: 0.6rem 0.9rem; font-size: 0.85rem; line-height: 1.4; opacity: 0.85; border-top: 1px solid rgba(128, 128, 128, 0.2); }
+  .inv-table { width: 100%; border-collapse: collapse; margin: 1rem 0 1.5rem; font-size: 0.92rem; }
+  .inv-table th, .inv-table td { border: 1px solid rgba(128, 128, 128, 0.3); padding: 0.5rem 0.65rem; vertical-align: top; text-align: left; }
+  .inv-table th { background: rgba(128, 128, 128, 0.08); }
+</style> <p><strong>Deployed at Shell Eco-marathon Brazil 2026: a QR-tracked inventory system that simplified customs declaration for dozens of tools and components and let the team close out its paddock loan list in minutes.</strong> Every item gets a physical QR label linked to a database record — reads run in under 80 ms and the system exports a customs-ready Excel file in one click.</p> <div class="inv-grid single"> <figure class="inv-fig"><video src="/assets/img/inv-web-dashboard.mp4" poster="/assets/img/inv-web-dashboard-poster.jpg" autoplay="" muted="" loop="" playsinline=""></video><figcaption>Inventory dashboard: totals, status overview, items that need attention and the Excel export flow.</figcaption></figure> </div> <style>
+  .dag-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.9rem; margin: 1rem 0 1.25rem; }
+  .dag-fig { margin: 0; border: 1px solid rgba(128,128,128,.25); border-radius: 10px; overflow: hidden; }
+  .dag-fig img { display: block; width: 100%; height: 190px; object-fit: contain; background: rgba(128,128,128,.06); }
+  .dag-fig figcaption { padding: .4rem .6rem; font-size: .78rem; line-height: 1.3; opacity: .85; border-top: 1px solid rgba(128,128,128,.2); }
+  .dag-table { width: 100%; border-collapse: collapse; font-size: .9rem; margin: .5rem 0 1rem; }
+  .dag-table th, .dag-table td { border: 1px solid rgba(128,128,128,.3); padding: .45rem .6rem; vertical-align: top; text-align: left; }
+  .dag-table th { background: rgba(128,128,128,.08); }
+  details.writeup { margin: 1.5rem 0; border: 1px solid rgba(128,128,128,.3); border-radius: 10px; padding: .6rem 1rem; }
+  details.writeup > summary { cursor: pointer; font-weight: 700; font-size: 1.05rem; margin-bottom: 1.25rem; }
+  details.writeup > summary + * { margin-top: 0.5rem; }
+</style> <h2 id="design-at-a-glance">Design at a glance</h2> <div class="dag-grid"> <figure class="dag-fig"><img data-zoomable="" src="/assets/img/inv-excel-prototype.png" alt="Stage 1: Excel register (data model prototype)" loading="lazy"><figcaption>Stage 1: Excel register (data model prototype)</figcaption></figure> <figure class="dag-fig"><img data-zoomable="" src="/assets/img/inv-python-detection.png" alt="Stage 2: OpenCV QR detection and ID check" loading="lazy"><figcaption>Stage 2: OpenCV QR detection and ID check</figcaption></figure> <figure class="dag-fig"><img data-zoomable="" src="/assets/img/inv-python-benchmark.png" alt="Latency benchmark of the pilot" loading="lazy"><figcaption>Latency benchmark of the pilot</figcaption></figure> <figure class="dag-fig"><img data-zoomable="" src="/assets/img/inv-web-item-quickview.png" alt="Stage 3: web platform, item quick view" loading="lazy"><figcaption>Stage 3: web platform, item quick view</figcaption></figure> </div> <p><strong>Design decisions, from first principles</strong></p> <table class="dag-table"> <tr> <th>Decision</th> <th>Engineering reasoning</th> <th>Result</th> </tr> <tr> <td>Excel register before any code</td> <td>Validate which fields the team really needs before building software</td> <td>Became the database model and the one-click customs Excel export</td> </tr> <tr> <td>Five image variants, first successful read wins</td> <td>Low contrast, blur and small codes break QR detection: CLAHE raises local contrast, sharpening restores edges, 2× upscaling enlarges small modules; stopping at the first hit keeps latency low</td> <td>Reads in under 80 ms per image</td> </tr> <tr> <td>Separate “readable” from “valid”</td> <td>A QR can decode perfectly and still carry the wrong text, so the payload is checked against the ID format</td> <td>Green outline for valid IDs, red for malformed ones</td> </tr> <tr> <td>Capture separated from processing</td> <td>Testing the algorithm on saved photos isolates camera problems and makes runs repeatable</td> <td>Benchmark with hit rate, mean and p95 latency, logged to JSONL</td> </tr> </table> <details class="writeup" open=""> <summary>Full technical write-up</summary> <p><strong>Challenge</strong></p> <p>Traveling from Mexico to an international competition means clearing customs with dozens of tools, PPE and electronic components — a process that had cost the team time and stress in previous editions — and then keeping track of them in a busy paddock. I proposed a QR-based inventory with four goals: one physical label per item, one database record behind it, loans to other teams under control, and every toolbox locatable at a glance. It was built in three stages and became part of the team’s Safety Leadership Award submission.</p> <p><strong>My contribution</strong></p> <ul> <li> <strong>Concept and data model:</strong> proposed the system and defined what each inventory record contains</li> <li> <strong>Stage 1 — Excel register:</strong> the first inventory, with a photo, a Drive link and a “sticker applied” check for every item</li> <li> <strong>Stage 2 — Python pilot:</strong> the OpenCV pipeline that loads a photo, preprocesses it, decodes the QR, validates the ID, benchmarks the latency and keeps a JSONL backup</li> <li> <strong>QR generation:</strong> a Python script that generates the labels</li> <li> <strong>With the team:</strong> the TypeScript web platform that replaced the pilot, with the database built in</li> </ul> <p><strong>Stage 1 — Excel register</strong></p> <p>Before any software existed, the register listed the QR ID, item code, description, quantity, type, area, the box it belongs to, a photo link and whether the sticker was applied. It became the prototype of the database.</p> <div class="inv-grid single"> <figure class="inv-fig"><img data-zoomable="" src="/assets/img/inv-excel-prototype.png" alt="Excel inventory register with photos and QR IDs"><figcaption>Initial Excel register: one row per item, with its box, photo link and sticker status.</figcaption></figure> </div> <p><strong>Stage 2 — Python / OpenCV pilot</strong></p> <p>The pilot works on photos captured separately (phone camera via DroidCam), so camera problems and algorithm problems stay apart. Each photo is tried in five variants — original, grayscale, CLAHE, sharpened and 2× upscaled — and the first one that decodes wins, which keeps latency low. The decoded text is then checked against the ID format, because a QR can be readable and still carry the wrong content; the image is annotated green or red with the variant used and the processing time, and every run is logged to JSONL with hit rate, mean and p95 latency.</p> <div class="inv-grid single"> <figure class="inv-fig"><img data-zoomable="" src="/assets/img/inv-python-detection.png" alt="OpenCV QR detection with annotated outline"><figcaption>Test with a QR that is not a tool label: it decodes on the grayscale variant in 73 ms and is correctly flagged as a malformed ID.</figcaption></figure> </div> <div class="inv-grid single"> <figure class="inv-fig"><img data-zoomable="" src="/assets/img/inv-python-benchmark.png" alt="Latency benchmark output"><figcaption>Latency benchmark (5 runs on one image): 100 % hit rate, 76.1 ms mean, 79.4 ms p95, saved to the JSONL log.</figcaption></figure> </div> <p><strong>Stage 3 — Web platform</strong></p> <p>The web version brings the database into the platform. The dashboard shows item status (available, on loan, reserved, maintenance, missing) and a “needs attention” panel. Items are registered from a phone with a camera photo; the ID (<code class="language-plaintext highlighter-rouge">EV-######</code>) is assigned automatically, the serial number is checked for duplicates and the QR sticker size is chosen from presets that keep a 2:3 ratio. Labels print one by one or in batches, and the whole register exports to Excel for customs in one click.</p> <div class="inv-grid"> <figure class="inv-fig phone"><video src="/assets/img/inv-mobile-add-item.mp4" poster="/assets/img/inv-mobile-add-item-poster.jpg" autoplay="" muted="" loop="" playsinline=""></video><figcaption>Adding an item: form, camera capture, sticker size and automatic item ID (2.5× speed).</figcaption></figure> <figure class="inv-fig phone"><video src="/assets/img/inv-mobile-label.mp4" poster="/assets/img/inv-mobile-label-poster.jpg" autoplay="" muted="" loop="" playsinline=""></video><figcaption>The new item gets its QR label, ready to print.</figcaption></figure> <figure class="inv-fig phone"><video src="/assets/img/inv-mobile-handoff.mp4" poster="/assets/img/inv-mobile-handoff-poster.jpg" autoplay="" muted="" loop="" playsinline=""></video><figcaption>Item detail and handoff: scanning a label records a movement with its new place, status and note.</figcaption></figure> </div> <div class="inv-grid"> <figure class="inv-fig"><video src="/assets/img/inv-web-print-labels.mp4" poster="/assets/img/inv-web-print-labels-poster.jpg" autoplay="" muted="" loop="" playsinline=""></video><figcaption>Batch label printing and the single-label view (label size, item ID and serial number).</figcaption></figure> <figure class="inv-fig"><video src="/assets/img/inv-web-export.mp4" poster="/assets/img/inv-web-export-poster.jpg" autoplay="" muted="" loop="" playsinline=""></video><figcaption>Export from the web platform to the Excel inventory register.</figcaption></figure> </div> <p>Each item has a Quick View with its photo, status, responsible area and activity log. A team that wants to borrow an item fills in a loan request (item, team, dates, purpose) that an admin approves before it is recorded, and the registration photo confirms the item’s condition at loan time.</p> <style>
+  @media (min-width: 768px) {
+    .inv-grid.inv-stack { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.3fr); grid-template-rows: 1fr 1fr; align-items: stretch; }
+    .inv-grid.inv-stack .inv-fig:first-child { grid-row: span 2; }
+    .inv-grid.inv-stack .inv-fig { display: flex; flex-direction: column; }
+    .inv-grid.inv-stack .inv-fig img { flex: 1 1 auto; height: 0; min-height: 200px; width: 100%; object-fit: contain; }
+  }
+</style> <div class="inv-grid inv-stack"> <figure class="inv-fig"><img data-zoomable="" src="/assets/img/inv-web-item-quickview.png" alt="Item Quick View panel"><figcaption>Quick View: item photo, status, details and action buttons — Request loan, Record movement, Print QR and Edit — with the full activity log below.</figcaption></figure> <figure class="inv-fig"><img data-zoomable="" src="/assets/img/inv-web-item-photo.png" alt="Photo Inspection view"><figcaption>Photo Inspection: the photo taken at registration, zoomable at full resolution, so the item condition at loan time is always on record.</figcaption></figure> <figure class="inv-fig"><img data-zoomable="" src="/assets/img/inv-web-loans-request.png" alt="Request a loan modal"><figcaption>Loan request form: item, borrowing team, start and return date, and purpose — submitted for admin approval before it is recorded.</figcaption></figure> </div> <p><strong>Presented at Shell Eco-marathon Brazil 2026</strong></p> <p>We presented the system to the event’s Safety Team in the paddock as part of the Safety Leadership Award submission; the poster’s “Try it!” QR code let the judges open the platform on their own phones.</p> <div class="inv-grid"> <figure class="inv-fig"><img data-zoomable="" src="/assets/img/inv-sem-explaining.jpg" alt="Explaining the system to a member of the Shell Safety Team"><figcaption>Walking a Shell Safety Team member through the platform on his phone.</figcaption></figure> <figure class="inv-fig"><img data-zoomable="" src="/assets/img/inv-sem-safety-team.jpg" alt="Poster presentation to the Shell Safety Team in the paddock"><figcaption>Poster presentation to the Safety Team at the EcoVolt CCM paddock.</figcaption></figure> </div> <div class="inv-grid single"> <figure class="inv-fig"><img data-zoomable="" src="/assets/img/inv-sem-poster.png" alt="Poster: Automated PPE and Inventory Management System"><figcaption>Poster presented at Shell Eco-marathon Brazil 2026: problem, objective, loan flow and summary.</figcaption></figure> </div> <p><strong>Tools &amp; technologies</strong></p> <ul> <li> <strong>Python, OpenCV, NumPy, Matplotlib, JSONL:</strong> QR reading pilot and benchmark</li> <li> <strong>TypeScript web platform with Convex database (team):</strong> inventory, loans, labels, export</li> <li> <strong>Excel:</strong> first register and customs export</li> </ul> <p><strong>Results &amp; lessons</strong></p> <ul> <li> <strong>Deployed in Brazil 2026:</strong> simplified the customs declaration and let the team close its paddock loan list in minutes</li> <li> <strong>Fast reading:</strong> under 80 ms per image on a laptop, with valid and invalid IDs separated</li> <li> <strong>Benchmark honestly:</strong> the 80 ms comes from 5 runs on one image; real paddock photos (light, angle, distance) are the next test</li> <li> <strong>Data model first:</strong> the ID format changed between stages (<code class="language-plaintext highlighter-rouge">TL-####</code> → <code class="language-plaintext highlighter-rouge">EV-######</code>); defining it upfront would have avoided the migration</li> <li> <strong>Adoption is a UX problem:</strong> a mandatory scan at checkout would enforce the process better than an optional one</li> <li> <strong>Next step:</strong> a camera-based condition check at checkout to flag worn or damaged PPE</li> </ul> </details> <p><strong>Context:</strong> EcoVolt CCM, Shell Eco-marathon (paddock operations), 2025–2026; part of the team’s Safety Leadership Award submission. <strong>Stack:</strong> Python, OpenCV, NumPy, Matplotlib, JSONL · TypeScript web platform, Convex database · Excel · QR labels</p> <div class="back-to-projects" style="margin: 3rem 0 1rem; text-align: center"> <a class="btn btn-sm z-depth-0" role="button" href="/projects/#extracurricular">← Back to projects</a> </div> </article> </div> </div> <footer class="fixed-bottom" role="contentinfo"> <div class="container mt-0"> © Copyright 2026 Paulina L. Ruíz Servín. <span class="footer-social" style="display:inline-flex;gap:.9rem;margin:0 .8rem 0 .5rem;vertical-align:middle"> <a href="mailto:pruizservin27@gmail.com" title="Email" style="color:var(--global-theme-color)"><i class="fa-solid fa-envelope"></i></a> <a href="https://www.linkedin.com/in/pruizservin27/" target="_blank" rel="noopener" title="LinkedIn" style="color:var(--global-theme-color)"><i class="fa-brands fa-linkedin"></i></a> <a href="https://github.com/paulinism" target="_blank" rel="noopener" title="GitHub" style="color:var(--global-theme-color)"><i class="fa-brands fa-github"></i></a> <a href="https://wa.me/4915233878708" target="_blank" rel="noopener" title="WhatsApp" style="color:var(--global-theme-color)"><i class="fa-brands fa-whatsapp"></i></a> </span> <span style="font-size:.85em;opacity:.7;color:var(--global-footer-text-color)">Hosted by <a href="https://pages.github.com/" target="_blank" rel="external nofollow noopener">GitHub Pages</a> · Powered by <a href="https://jekyllrb.com/" target="_blank" rel="external nofollow noopener">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio" rel="external nofollow noopener" target="_blank">al-folio</a>.</span> <script src="/assets/js/lang-switch.js"></script> </div> </footer> <script>
+  window.alFolio = {
+    compatBootstrap: false
+  };
+</script> <script src="/assets/js/nav-toggle.js?v=141bd79a73ebc0f0b6ea58e440ae79fc"></script> <script defer src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script> <script defer src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script> <script defer src="/assets/js/masonry.js?v=e49affc7bd2646f6acdad1dbe02c2359" type="text/javascript"></script> <script src="/assets/js/tooltips-setup.js?v=fe487e99db6c43751e6e7bdb2d6a0611"></script> <script src="/assets/js/no_defer.js?v=53b1b1a645525975c963ce8bf8bfefcf"></script> <script defer src="/assets/js/common.js?v=87baac90f765f2f3362dcf6aaf312a8a"></script> <script defer src="/assets/js/copy_code.js?v=c8a01c11a92744d44b093fc3bda915df" type="text/javascript"></script> <script defer src="/assets/js/jupyter_new_tab.js?v=896d254890d9b47f0281f63bfccf0dee"></script> <script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous"></script> <script defer src="/assets/al_img_tools/js/zoom.js"></script> <script defer src="/assets/js/progress-bar.js?v=499464c5c63ced6cf7ad62509f1e2610" type="text/javascript"></script> <script src="https://cdn.jsdelivr.net/npm/vanilla-back-to-top@7.2.1/dist/vanilla-back-to-top.min.js" integrity="sha256-uMJJ3EoTyfRBoTbR+lrfu1uRQ87RZG8AR3cVNuQVeFg=" crossorigin="anonymous"></script> <script>
+    addBackToTop();
+  </script> <script type="module" src="/assets/al_search/js/search/ninja-keys.min.js"></script> <ninja-keys hidebreadcrumbs noautoloadmdicons placeholder="Type to start searching"></ninja-keys> <script src="/assets/al_search/js/search-setup.js"></script> <script>
+// get the ninja-keys element
+const ninja = document.querySelector('ninja-keys');
+
+// add the home and posts menu items
+ninja.data = [{
+    id: "nav-about",
+    title: "about",
+    section: "Navigation",
+    handler: () => {
+      window.location.href = "/";
+    },
+  },{id: "nav-projects",
+          title: "projects",
+          description: "Academic and hands-on engineering work, plus professional/lab experience.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/projects/";
+          },
+        },{id: "nav-achievements",
+          title: "achievements",
+          description: "Awards, participations, co-authored papers, and certifications.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/achievements/";
+          },
+        },{id: "nav-publications",
+          title: "publications",
+          description: "Conference paper and technical reports.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/publications/";
+          },
+        },{id: "nav-repositories",
+          title: "repositories",
+          description: "Selected repositories.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/repositories/";
+          },
+        },{id: "nav-cv",
+          title: "CV",
+          description: "Curriculum Vitae of Paulina L. Ruíz Servín.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/cv/";
+          },
+        },{id: "nav-contact",
+          title: "contact",
+          description: "Currently looking for a Pflichtpraktikum &amp; Abschlussarbeit position.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/contact/";
+          },
+        },{id: "projects-scissor-lift-amp-agv-automated-material-handling-platform",
+          title: 'Scissor Lift &amp;amp; AGV — Automated Material Handling Platform',
+          description: "Mechanical design &amp; electronics lead — scissor lift (load-tested &gt;100 kg, 40 × 30 × 76 cm) with custom load-cell PCB (no HX711) and machined aluminum parts",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/agv-platform/";
+            },},{id: "projects-automated-ppe-amp-inventory-management-system",
+          title: 'Automated PPE &amp;amp; Inventory Management System',
+          description: "Solo project — QR tracking for Shell Eco-marathon paddock ops — customs-ready Excel export, under 80 ms QR reading, web dashboard with loan management",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/ecovolt-inventory/";
+            },},{id: "projects-telemetry-amp-energy-optimization-platform",
+          title: 'Telemetry &amp;amp; Energy-Optimization Platform',
+          description: "PCB lead &amp; firmware — three generations of telemetry for a Shell Eco-marathon car — 1st (2025) and 2nd (2026) Data &amp; Telemetry Award",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/ecovolt-telemetry/";
+            },},{id: "projects-automated-viscosity-measurement-system",
+          title: 'Automated Viscosity Measurement System',
+          description: "PCB &amp; embedded lead with Endress+Hauser — 400× gain signal chain separating 252 cP from 1676 cP; three Altium boards, two manufactured by JLCPCB",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/endress-viscosity/";
+            },},{id: "projects-semiconductor-microfabrication-mit-nano",
+          title: 'Semiconductor Microfabrication — MIT.nano',
+          description: "MIT.nano cleanroom intensive — solar cell PCE 15.87 % (Voc 0.60 V), functional MEMS cantilevers and microfluidic mixer — one week, Class 100/1K/10K",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/mit-nano-fabrication/";
+            },},{id: "projects-digital-twin-of-a-flexible-cnc-manufacturing-cell",
+          title: 'Digital Twin of a Flexible CNC Manufacturing Cell',
+          description: "Industry challenge with ORZA Tech — virtual CNC cell commissioned 100 % in software (S7-1500 PLC programming in TIA Portal, UR5 VRC, CAM and G-code, Cognex vision, SCADA/KPIs)",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/orza-digital-twin/";
+            },},{id: "projects-vision-guided-scara-pick-and-place-robot-4-dof",
+          title: 'Vision-Guided SCARA Pick-and-Place Robot (4 DoF)',
+          description: "Firmware &amp; electronics lead — 4-DOF SCARA with YOLOv11n vision (mAP 0.72), 5/6 picks at ~14 s/cycle, custom Altium PCB",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/scara-robot/";
+            },},{
+        id: 'social-email',
+        title: 'email',
+        section: 'Socials',
+        handler: () => {
+          window.open("mailto:%70%72%75%69%7A%73%65%72%76%69%6E%32%37@%67%6D%61%69%6C.%63%6F%6D", "_blank");
+        },
+      },{
+        id: 'social-linkedin',
+        title: 'LinkedIn',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://www.linkedin.com/in/pruizservin27", "_blank");
+        },
+      },{
+        id: 'social-github',
+        title: 'GitHub',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://github.com/paulinism", "_blank");
+        },
+      },{
+        id: 'social-whatsapp',
+        title: 'whatsapp',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://wa.me/4915233878708", "_blank");
+        },
+      },{
+      id: 'light-theme',
+      title: 'Change theme to light',
+      description: 'Change the theme of the site to Light',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("light");
+      },
+    },
+    {
+      id: 'dark-theme',
+      title: 'Change theme to dark',
+      description: 'Change the theme of the site to Dark',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("dark");
+      },
+    },
+    {
+      id: 'system-theme',
+      title: 'Use system default theme',
+      description: 'Change the theme of the site to System Default',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("system");
+      },
+    },];
+
+</script> <script src="/assets/al_search/js/shortcut-key.js"></script> </body> </html>

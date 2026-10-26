@@ -1,0 +1,183 @@
+<!DOCTYPE html> <html lang="en"> <head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <title> Vision-Guided SCARA Pick-and-Place Robot (4 DoF) | Paulina L. Ruíz Servín </title> <meta name="author" content="Paulina L. Ruíz Servín"> <meta name="description" content="Firmware &amp; electronics lead — 4-DOF SCARA with YOLOv11n vision (mAP 0.72), 5/6 picks at ~14 s/cycle, custom Altium PCB"> <meta name="keywords" content="Embedded Systems, PCB Design, Altium Designer, ESP32, FreeRTOS, PLC, TIA Portal, Digital Twin, Process Simulate, Mechatronics Engineering, Elektrotechnik, Shell Eco-marathon"> <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; media-src 'self' https:; frame-src 'self' https:; connect-src 'self' https:;"> <style>
+  :root {
+    --max-content-width: 930px;
+  }
+</style> <link rel="stylesheet" href="/assets/css/tailwind.css?v=50c64c15cbb9fd1ce6056fdb8bcb4b62"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css" integrity="sha256-MVopmdyC2tYTiJ8wlktf0uh0v4NgT+vNdyVFepi7Q0c=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.5/css/academicons.min.css" integrity="sha256-SzrCOBJbGVFMahewkgjwnApaV2+av1DwMAA+/QGLyZw=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/scholar-icons@1.0.3/css/scholar-icons.css" integrity="sha256-VY3hHVj/hNX3fYG6wtbA6TcKJQl7+FthzGSyIB64klY=" crossorigin="anonymous"> <link defer rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons&amp;display=swap"> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-github.css?v=591dab5a4e56573bf4ef7fd332894c99" media="" id="highlight_theme_light"> <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%F0%9F%91%A9%E2%80%8D%F0%9F%92%BB&lt;/text&gt;&lt;/svg&gt;"> <link rel="stylesheet" href="/assets/css/main.css?v=3116ba77db9ee1581d05bb3e86fbf7f1"> <link rel="canonical" href="https://paulinism.github.io/projects/scara-robot/"> <script src="/assets/js/theme.js?v=5286c3e4c334d0ecb8fc0c40ff4fa7ec"></script> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-native.css?v=5847e5ed4a4568527aa6cfab446049ca" media="none" id="highlight_theme_dark"> <script>
+    initTheme();
+  </script> </head> <body class="fixed-top-nav "> <header> <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top" role="navigation"> <div class="container"> <a class="navbar-brand title font-weight-lighter" href="/"> <span class="font-weight-bold">Paulina</span> L. Ruíz Servín </a> <button class="navbar-toggler collapsed navbar-toggler-main" type="button" data-nav-toggle="navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar top-bar"></span> <span class="icon-bar middle-bar"></span> <span class="icon-bar bottom-bar"></span> </button> <div class="collapse navbar-collapse navbar-collapse-main" id="navbarNav"> <ul class="navbar-nav navbar-menu-list flex-nowrap"> <li class="nav-item "> <a class="nav-link" href="/">about </a> </li> <li class="nav-item active"> <a class="nav-link" href="/projects/">projects <span class="sr-only">(current)</span> </a> </li> <li class="nav-item "> <a class="nav-link" href="/achievements/">achievements </a> </li> <li class="nav-item "> <a class="nav-link" href="/publications/">publications </a> </li> <li class="nav-item "> <a class="nav-link" href="/repositories/">repositories </a> </li> <li class="nav-item "> <a class="nav-link" href="/cv/">CV </a> </li> <li class="nav-item "> <a class="nav-link" href="/contact/">contact </a> </li> <li class="nav-item"> <button id="search-toggle" type="button" title="Search" aria-label="Open search"> <span class="nav-link">ctrl k <i class="fa-solid fa-magnifying-glass"></i></span> </button> </li> <li class="toggle-container"> <button id="light-toggle" type="button" title="Change theme" aria-label="Change color theme"> <i class="fa-half-sun-moon" id="light-toggle-system"></i> <i class="fa-solid fa-moon" id="light-toggle-dark"></i> <i class="fa-solid fa-sun" id="light-toggle-light"></i> </button> </li> </ul> </div> </div> </nav> <progress id="progress" value="0"> <div class="progress-container"> <span class="progress-bar"></span> </div> </progress> </header> <div class="container mt-5" role="main"> <div class="post"> <header class="post-header"> <h1 class="post-title">Vision-Guided SCARA Pick-and-Place Robot (4 DoF)</h1> <p class="post-description">Firmware &amp; electronics lead — 4-DOF SCARA with YOLOv11n vision (mAP 0.72), 5/6 picks at ~14 s/cycle, custom Altium PCB</p> </header> <article> <style>
+  img[data-zoomable] { cursor: zoom-in; }
+  .medium-zoom-image--opened { object-fit: contain !important; background: transparent !important; }
+  .medium-zoom-overlay, .medium-zoom-image--opened { z-index: 1050; }
+</style> <style>
+  .sc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; margin: 1.5rem 0; align-items: start; }
+  .sc-grid.single { grid-template-columns: minmax(0, 860px); justify-content: center; }
+  .sc-fig { margin: 0; border: 1px solid rgba(128, 128, 128, 0.25); border-radius: 12px; overflow: hidden; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08); }
+  .sc-fig img, .sc-fig video { display: block; width: 100%; height: auto; background: rgba(128, 128, 128, 0.06); }
+  .sc-fig.tall img, .sc-fig.tall video { height: 460px; object-fit: contain; }
+  .sc-fig figcaption { padding: 0.6rem 0.9rem; font-size: 0.85rem; line-height: 1.4; opacity: 0.85; border-top: 1px solid rgba(128, 128, 128, 0.2); }
+  .sc-table { width: 100%; border-collapse: collapse; margin: 1rem 0 1.5rem; font-size: 0.92rem; }
+  .sc-table th, .sc-table td { border: 1px solid rgba(128, 128, 128, 0.3); padding: 0.5rem 0.65rem; vertical-align: top; text-align: left; }
+  .sc-table th { background: rgba(128, 128, 128, 0.08); }
+</style> <p><strong>5 out of 6 pieces picked and placed correctly in the final demonstration, at approximately 14 seconds per cycle.</strong> The robot classifies pieces by shape and colour with a YOLOv11n model (mAP@0.5 = 0.72) running on my own computer, then picks and places them autonomously — coordinates flow from Python over MQTT to C++ firmware on an ESP32.</p> <div class="sc-grid single"> <figure class="sc-fig"><video src="/assets/img/scara-demo.mp4" poster="/assets/img/scara-demo-poster.jpg" autoplay="" muted="" loop="" playsinline=""></video><figcaption>Final project presentation: testing the gripper's grip, demonstrating joint control through the HMI and by sending commands directly to the MQTT broker, and explaining how the real-time vision system works.</figcaption></figure> </div> <style>
+  .dag-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.9rem; margin: 1rem 0 1.25rem; }
+  .dag-fig { margin: 0; border: 1px solid rgba(128,128,128,.25); border-radius: 10px; overflow: hidden; }
+  .dag-fig img { display: block; width: 100%; height: 190px; object-fit: contain; background: rgba(128,128,128,.06); }
+  .dag-fig figcaption { padding: .4rem .6rem; font-size: .78rem; line-height: 1.3; opacity: .85; border-top: 1px solid rgba(128,128,128,.2); }
+  .dag-table { width: 100%; border-collapse: collapse; font-size: .9rem; margin: .5rem 0 1rem; }
+  .dag-table th, .dag-table td { border: 1px solid rgba(128,128,128,.3); padding: .45rem .6rem; vertical-align: top; text-align: left; }
+  .dag-table th { background: rgba(128,128,128,.08); }
+  details.writeup { margin: 1.5rem 0; border: 1px solid rgba(128,128,128,.3); border-radius: 10px; padding: .6rem 1rem; }
+  details.writeup > summary { cursor: pointer; font-weight: 700; font-size: 1.05rem; margin-bottom: 1.25rem; }
+  details.writeup > summary + * { margin-top: 0.5rem; }
+</style> <h2 id="design-at-a-glance">Design at a glance</h2> <div class="dag-grid"> <figure class="dag-fig"><img data-zoomable="" src="/assets/img/scara-cad.png" alt="CAD model (4 DoF)" loading="lazy"><figcaption>CAD model (4 DoF)</figcaption></figure> <figure class="dag-fig"><img data-zoomable="" src="/assets/img/scara-workspace.png" alt="Reachable workspace 50–250 mm" loading="lazy"><figcaption>Reachable workspace 50–250 mm</figcaption></figure> <figure class="dag-fig"><img data-zoomable="" src="/assets/img/scara-pcb-3d.png" alt="Control PCB, 3D view (Altium)" loading="lazy"><figcaption>Control PCB, 3D view (Altium)</figcaption></figure> <figure class="dag-fig"><img data-zoomable="" src="/assets/img/scara-cv-detection.jpg" alt="Shape/colour detection" loading="lazy"><figcaption>Shape/colour detection</figcaption></figure> </div> <p><strong>Design decisions, from first principles</strong></p> <table class="dag-table"> <tr> <th>Decision</th> <th>Engineering reasoning</th> <th>Result</th> </tr> <tr> <td>All joint axes vertical</td> <td>Decouples the problem: planar position from shoulder and elbow, height from the Z stage; inverse kinematics in closed form with the law of cosines</td> <td>Forward kinematics mean error 4.0 mm, inverse 6.9 mm</td> </tr> <tr> <td>L1 = 150 mm, L2 = 110 mm</td> <td>Annular workspace from |L1−L2| to L1+L2 covers the 25 cm task radius</td> <td>Reachable area 50–250 mm from the base</td> </tr> <tr> <td>Steppers on J1/J2, absolute encoder on the wrist, limit-switch homing</td> <td>Steppers give position without feedback, so accuracy depends on a correct home reference</td> <td>Homing identified as the main error source</td> </tr> <tr> <td>YOLOv11n on top of the HSV pipeline</td> <td>HSV thresholds shift with lighting; a trained detector is more robust</td> <td>mAP@0.5 = 0.72; 5 of 6 parts sorted, ~14 s/cycle</td> </tr> </table> <details class="writeup" open=""> <summary>Full technical write-up</summary> <p><strong>Challenge</strong></p> <p>Identify, pick and place flat pieces that differ in shape, colour and orientation inside a 25 cm-radius workspace, and sort each one into its designated area without human intervention. The pieces come in five shapes (square, circle, triangle, cross, pentagon) and four colours. The arm has two revolute joints driven by NEMA 17 steppers (shoulder and elbow), a lead-screw vertical stage driven by a DC motor with encoder, a wrist closed around an AS5600 absolute encoder and a servo gripper, built in PETG with aluminium bars. Design and Development of Robots, Tec de Monterrey, team of four.</p> <p><strong>My contribution</strong></p> <ul> <li> <strong>Computer vision:</strong> the classical OpenCV pipeline (edge detection, HSV segmentation, shape classification, grip angle) and its integration with the robot over MQTT</li> <li> <strong>Pixel-to-robot coordinates:</strong> the ArUco homography that converts image pixels into robot millimetres</li> <li> <strong>Machine learning:</strong> the YOLOv11n workflow: automatic pre-annotation, dataset split, training and evaluation</li> <li> <strong>PCB design:</strong> the single-layer control board in Altium Designer (ESP32, stepper and DC drivers, encoders, power distribution)</li> <li> <strong>Kinematics:</strong> my own forward and inverse kinematics in MATLAB (each member derived them individually)</li> <li> <strong>With the team:</strong> breadboard prototype, motor and driver selection, and the homing sensors — the Z-axis limit switch and the AS5600 on the wrist, validated against known reference angles; the MQTT link between the vision host, the broker and the ESP32; co-author of the robot datasheet</li> </ul> <p>Teammates built the C++ kinematics and firmware architecture on the ESP32, the MATLAB App Designer HMI, the final Simscape model of the SCARA and the mechanical structure.</p> <p><strong>Kinematics &amp; mechanism</strong></p> <p>All four joint axes are vertical, so the problem splits cleanly: the planar position depends only on the shoulder and elbow, the height only on the vertical stage, and the tool angle is the sum of the three rotations. Forward kinematics chain four Denavit–Hartenberg transforms; inverse kinematics use the law of cosines for the two-link arm (L1 = 150 mm, L2 = 110 mm), give an elbow-up and an elbow-down solution and keep the one closest to the current pose. A target is reachable only between 50 and 250 mm from the base.</p> <div class="sc-grid"> <figure class="sc-fig"><img data-zoomable="" src="/assets/img/scara-cad.png" alt="CAD model of the SCARA robot"><figcaption>CAD model of the robot.</figcaption></figure> <figure class="sc-fig"><img data-zoomable="" src="/assets/img/scara-workspace.png" alt="Reachable workspace"><figcaption>Top view of the reachable workspace (250 mm radius).</figcaption></figure> <figure class="sc-fig"><video src="/assets/img/scara-simscape.mp4" poster="/assets/img/scara-simscape-poster.jpg" autoplay="" muted="" loop="" playsinline=""></video><figcaption>Simscape Multibody model of the SCARA, built from the CAD geometry, with PID control of the two planar joints (final version by a teammate).</figcaption></figure> </div> <p>Before the SCARA, the team modelled other manipulators to study motion and control. For a gantry with a 1-DOF arm we derived the equations of motion with Euler–Lagrange and built the model twice — from the equations in Simulink and in Simscape Multibody — with PID loops for the cart position and the arm angle. Both agreed on the overall behaviour, including the small jiggle at the end of each move caused by the coupling between cart and arm.</p> <div class="sc-grid"> <figure class="sc-fig"><video src="/assets/img/sim-gantry.mp4" poster="/assets/img/sim-gantry-poster.jpg" autoplay="" muted="" loop="" playsinline=""></video><figcaption>Gantry robot simulation (team coursework).</figcaption></figure> <figure class="sc-fig"><video src="/assets/img/sim-arm.mp4" poster="/assets/img/sim-arm-poster.jpg" autoplay="" muted="" loop="" playsinline=""></video><figcaption>Industrial arm simulation (team coursework).</figcaption></figure> </div> <div class="sc-grid"> <figure class="sc-fig"><img data-zoomable="" src="/assets/img/gantry-simulink.jpg" alt="Simulink block diagram of the gantry robot model"><figcaption>Simulink model of the gantry: the nonlinear state equations in a MATLAB Function block, two PID loops (x and θ) and scopes, with step references (left) and sinusoidal references (right).</figcaption></figure> <figure class="sc-fig"><img data-zoomable="" src="/assets/img/gantry-simscape-top.jpg" alt="Top-level Simscape model with the gantry and arm subsystems"><figcaption>Top level of the Simscape model: the gantry subsystem (rail, cart and arm) and the robot arm subsystem, each driven by a motion reference and logged to scopes.</figcaption></figure> </div> <div class="sc-grid"> <figure class="sc-fig"><img data-zoomable="" src="/assets/img/gantry-simscape-diagram.jpg" alt="Simscape Multibody connection diagram for the gantry robot"><figcaption>Simscape Multibody connection diagram: the gantry and arm subsystems, the motion references, and the same PID loops as the analytical model for comparison.</figcaption></figure> <figure class="sc-fig"><img data-zoomable="" src="/assets/img/gantry-simscape-outputs.jpg" alt="Simscape outputs: angle, angular velocity, torque and control signal"><figcaption>Simscape outputs: arm angle θ against its reference, angular velocity, output torque and PID control signal. The control signal overshoots at the start of each step and then settles.</figcaption></figure> </div> <p><strong>Computer vision</strong></p> <p>A smartphone mounted 500 mm above the workspace, optical axis vertical, streams to the PC; a script captures one frame at 1280 × 720 px. Four ArUco markers at known corners of a 562 × 562 mm area define a homography from image pixels to robot millimetres.</p> <div class="sc-grid"> <figure class="sc-fig tall"><img data-zoomable="" src="/assets/img/scara-camera.jpg" alt="Overhead camera setup"><figcaption>Overhead camera 500 mm above the workspace, with the ArUco markers at the corners.</figcaption></figure> <figure class="sc-fig"><img data-zoomable="" src="/assets/img/scara-cv-homography.jpg" alt="ArUco markers detected for the homography"><figcaption>ArUco detection: the marker centroids (red) define the pixel-to-millimetre homography.</figcaption></figure> </div> <p>The classical pipeline builds an edge map (Gaussian blur, Laplacian, Otsu), segments each colour in HSV (red needs two hue ranges because hue wraps around) and splits touching pieces with a watershed. Shapes are classified by solidity, convexity deficit and circularity: the cross is caught first because it is the only non-convex piece, and the others are decided by a vote of <code class="language-plaintext highlighter-rouge">approxPolyDP</code> at three tolerances. The grip angle comes from the minimum-area rectangle, adjusted to each shape’s symmetry so the wrist turns as little as possible, and every piece is published over MQTT as <code class="language-plaintext highlighter-rouge">shape, colour, x, y, angle</code>.</p> <div class="sc-grid"> <figure class="sc-fig"><img data-zoomable="" src="/assets/img/scara-cv-detection.jpg" alt="Classified shapes on the workspace"><figcaption>Final detection: each piece labelled with its ID, shape and colour.</figcaption></figure> <figure class="sc-fig"><img data-zoomable="" src="/assets/img/scara-cv-grip.jpg" alt="Grip angles overlaid on the workspace"><figcaption>Grip angles computed for each piece, using its symmetry to minimise wrist travel.</figcaption></figure> </div> <p>Because HSV thresholds are sensitive to lighting and to close colours, I trained a YOLOv11n detector on images of the real workspace (16 classes, 80/20 split, 50 epochs). The classical pipeline pre-annotated every image, so labelling took about 30 minutes instead of 3–4 hours. The model reached mAP@0.5 = 0.72; the weakest classes were the crosses, which had only 62–94 examples against 1,580 for the blue square — the class imbalance, not the model, is the main limit.</p> <div class="sc-grid"> <figure class="sc-fig"><img data-zoomable="" src="/assets/img/scara-yolo-preannot.jpg" alt="Training image of the workspace"><figcaption>Training image captured on the real workspace, with pieces in varied positions, orientations and colours.</figcaption></figure> <figure class="sc-fig"><img data-zoomable="" src="/assets/img/scara-yolo-loss.png" alt="YOLOv11n loss and mAP curves"><figcaption>Training and validation losses and mAP over 50 epochs.</figcaption></figure> <figure class="sc-fig"><img data-zoomable="" src="/assets/img/scara-yolo-confusion.png" alt="Normalised confusion matrix"><figcaption>Normalised confusion matrix: green pieces are recognised best, crosses worst.</figcaption></figure> </div> <p><strong>Electronics &amp; PCB</strong></p> <p>The control board integrates the ESP32, two DRV8825 drivers for the steppers, a TB6612FNG for the DC motors, the encoder and sensor connectors and the power distribution. Single-layer was a manufacturing constraint, so placement and routing were planned to avoid crossings, and polygon pours carry power and ground to reduce the voltage drop between drivers and supply. The board was completed but not integrated: in the last weeks the team prioritised debugging mechanics, control and vision, and the demo ran from the breadboard electronics.</p> <div class="sc-grid"> <figure class="sc-fig"><img data-zoomable="" src="/assets/img/scara-schematic.png" alt="Control board schematic"><figcaption>Schematic: ESP32, stepper drivers, DC motor driver and connectors.</figcaption></figure> <figure class="sc-fig tall"><img data-zoomable="" src="/assets/img/scara-pcb-layout.png" alt="Single-layer PCB layout"><figcaption>Single-layer layout with power polygon pours.</figcaption></figure> <figure class="sc-fig tall"><img data-zoomable="" src="/assets/img/scara-pcb-3d.png" alt="3D view of the PCB"><figcaption>3D view of the board.</figcaption></figure> </div> <p><strong>HMI &amp; integration</strong></p> <p>The vision host, the ESP32 and the HMI never talk directly: they publish and subscribe through a Mosquitto broker, so each part can run on a different machine — during tests the robot was even operated from another city. In pick-and-place mode the ESP32 solves the inverse kinematics, approaches 30 mm above the piece, descends, grips, lifts and places it.</p> <div class="sc-grid"> <figure class="sc-fig"><img data-zoomable="" src="/assets/img/scara-hmi.png" alt="HMI teach pendant"><figcaption>HMI teach pendant (built by a teammate).</figcaption></figure> <figure class="sc-fig tall"><video src="/assets/img/scara-pick.mp4" poster="/assets/img/scara-pick-poster.jpg" autoplay="" muted="" loop="" playsinline=""></video><figcaption>Gripper picking up a blue square.</figcaption></figure> </div> <div class="sc-grid"> <figure class="sc-fig tall"><video src="/assets/img/scara-mqtt-joint.mp4" poster="/assets/img/scara-mqtt-joint-poster.jpg" autoplay="" muted="" loop="" playsinline=""></video><figcaption>Shoulder joint rotating via MQTT command during early integration — arm links not yet attached.</figcaption></figure> <figure class="sc-fig tall"><video src="/assets/img/scara-mqtt-zaxis.mp4" poster="/assets/img/scara-mqtt-zaxis-poster.jpg" autoplay="" muted="" loop="" playsinline=""></video><figcaption>Z-axis movement test during sensor integration — limit switch and encoder triggering validated at this stage.</figcaption></figure> <figure class="sc-fig"><video src="/assets/img/scara-mqtt-hmi.mp4" poster="/assets/img/scara-mqtt-hmi-poster.jpg" autoplay="" muted="" loop="" playsinline=""></video><figcaption>Bench session with HMI SCARA interface visible: joint jog commands sent over MQTT from MATLAB to the ESP32.</figcaption></figure> </div> <p><strong>Tools &amp; technologies</strong></p> <ul> <li> <strong>Python, OpenCV, YOLOv11n, LabelImg:</strong> vision pipeline, homography, dataset tooling</li> <li> <strong>ESP32 (C++, ESP-IDF, PlatformIO, FreeRTOS):</strong> firmware; MQTT over Wi-Fi with a Mosquitto broker</li> <li> <strong>Altium Designer:</strong> single-layer control board</li> <li> <strong>MATLAB, Simulink, Simscape Multibody:</strong> kinematics, PID joint control, multibody simulation</li> </ul> <p><strong>Results &amp; lessons</strong></p> <ul> <li> <strong>Pick-and-place:</strong> 5 of 6 pieces placed correctly, about 14 s per cycle</li> <li> <strong>Accuracy:</strong> forward kinematics mean error 4.0 mm (calipers, 3 poses); inverse kinematics 6.9 mm mean, 8.6 mm max (5 targets); vision localisation about 15 mm</li> <li> <strong>Robust link:</strong> control restored about 2 s after a Wi-Fi drop</li> <li> <strong>Homing dominates accuracy:</strong> the steppers have no position feedback, so every session depended on a correct home reference; belt backlash and printed couplings were the main mechanical error sources</li> <li> <strong>Vision-to-gripper offset:</strong> most failed picks came from the offset between the estimated piece centre and the real gripper centre; better lens calibration is the next fix</li> <li> <strong>Small validation set:</strong> six attempts are an indication, not a measured success rate</li> <li> <strong>Next steps:</strong> more images for the under-represented classes, integrate the PCB and close the loop on the stepper joints</li> </ul> </details> <p><strong>Stack:</strong> Python, OpenCV, NumPy, Ultralytics YOLOv11n, LabelImg · ESP32, C++ (ESP-IDF, PlatformIO), FreeRTOS · MQTT (Mosquitto), I²C · Altium Designer · MATLAB, Simulink, Simscape Multibody</p> <div class="back-to-projects" style="margin: 3rem 0 1rem; text-align: center"> <a class="btn btn-sm z-depth-0" role="button" href="/projects/#academic">← Back to projects</a> </div> </article> </div> </div> <footer class="fixed-bottom" role="contentinfo"> <div class="container mt-0"> © Copyright 2026 Paulina L. Ruíz Servín. <span class="footer-social" style="display:inline-flex;gap:.9rem;margin:0 .8rem 0 .5rem;vertical-align:middle"> <a href="mailto:pruizservin27@gmail.com" title="Email" style="color:var(--global-theme-color)"><i class="fa-solid fa-envelope"></i></a> <a href="https://www.linkedin.com/in/pruizservin27/" target="_blank" rel="noopener" title="LinkedIn" style="color:var(--global-theme-color)"><i class="fa-brands fa-linkedin"></i></a> <a href="https://github.com/paulinism" target="_blank" rel="noopener" title="GitHub" style="color:var(--global-theme-color)"><i class="fa-brands fa-github"></i></a> <a href="https://wa.me/4915233878708" target="_blank" rel="noopener" title="WhatsApp" style="color:var(--global-theme-color)"><i class="fa-brands fa-whatsapp"></i></a> </span> <span style="font-size:.85em;opacity:.7;color:var(--global-footer-text-color)">Hosted by <a href="https://pages.github.com/" target="_blank" rel="external nofollow noopener">GitHub Pages</a> · Powered by <a href="https://jekyllrb.com/" target="_blank" rel="external nofollow noopener">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio" rel="external nofollow noopener" target="_blank">al-folio</a>.</span> <script src="/assets/js/lang-switch.js"></script> </div> </footer> <script>
+  window.alFolio = {
+    compatBootstrap: false
+  };
+</script> <script src="/assets/js/nav-toggle.js?v=141bd79a73ebc0f0b6ea58e440ae79fc"></script> <script defer src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script> <script defer src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script> <script defer src="/assets/js/masonry.js?v=e49affc7bd2646f6acdad1dbe02c2359" type="text/javascript"></script> <script src="/assets/js/tooltips-setup.js?v=fe487e99db6c43751e6e7bdb2d6a0611"></script> <script src="/assets/js/no_defer.js?v=53b1b1a645525975c963ce8bf8bfefcf"></script> <script defer src="/assets/js/common.js?v=87baac90f765f2f3362dcf6aaf312a8a"></script> <script defer src="/assets/js/copy_code.js?v=c8a01c11a92744d44b093fc3bda915df" type="text/javascript"></script> <script defer src="/assets/js/jupyter_new_tab.js?v=896d254890d9b47f0281f63bfccf0dee"></script> <script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous"></script> <script defer src="/assets/al_img_tools/js/zoom.js"></script> <script defer src="/assets/js/progress-bar.js?v=499464c5c63ced6cf7ad62509f1e2610" type="text/javascript"></script> <script src="https://cdn.jsdelivr.net/npm/vanilla-back-to-top@7.2.1/dist/vanilla-back-to-top.min.js" integrity="sha256-uMJJ3EoTyfRBoTbR+lrfu1uRQ87RZG8AR3cVNuQVeFg=" crossorigin="anonymous"></script> <script>
+    addBackToTop();
+  </script> <script type="module" src="/assets/al_search/js/search/ninja-keys.min.js"></script> <ninja-keys hidebreadcrumbs noautoloadmdicons placeholder="Type to start searching"></ninja-keys> <script src="/assets/al_search/js/search-setup.js"></script> <script>
+// get the ninja-keys element
+const ninja = document.querySelector('ninja-keys');
+
+// add the home and posts menu items
+ninja.data = [{
+    id: "nav-about",
+    title: "about",
+    section: "Navigation",
+    handler: () => {
+      window.location.href = "/";
+    },
+  },{id: "nav-projects",
+          title: "projects",
+          description: "Academic and hands-on engineering work, plus professional/lab experience.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/projects/";
+          },
+        },{id: "nav-achievements",
+          title: "achievements",
+          description: "Awards, participations, co-authored papers, and certifications.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/achievements/";
+          },
+        },{id: "nav-publications",
+          title: "publications",
+          description: "Conference paper and technical reports.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/publications/";
+          },
+        },{id: "nav-repositories",
+          title: "repositories",
+          description: "Selected repositories.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/repositories/";
+          },
+        },{id: "nav-cv",
+          title: "CV",
+          description: "Curriculum Vitae of Paulina L. Ruíz Servín.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/cv/";
+          },
+        },{id: "nav-contact",
+          title: "contact",
+          description: "Currently looking for a Pflichtpraktikum &amp; Abschlussarbeit position.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/contact/";
+          },
+        },{id: "projects-scissor-lift-amp-agv-automated-material-handling-platform",
+          title: 'Scissor Lift &amp;amp; AGV — Automated Material Handling Platform',
+          description: "Mechanical design &amp; electronics lead — scissor lift (load-tested &gt;100 kg, 40 × 30 × 76 cm) with custom load-cell PCB (no HX711) and machined aluminum parts",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/agv-platform/";
+            },},{id: "projects-automated-ppe-amp-inventory-management-system",
+          title: 'Automated PPE &amp;amp; Inventory Management System',
+          description: "Solo project — QR tracking for Shell Eco-marathon paddock ops — customs-ready Excel export, under 80 ms QR reading, web dashboard with loan management",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/ecovolt-inventory/";
+            },},{id: "projects-telemetry-amp-energy-optimization-platform",
+          title: 'Telemetry &amp;amp; Energy-Optimization Platform',
+          description: "PCB lead &amp; firmware — three generations of telemetry for a Shell Eco-marathon car — 1st (2025) and 2nd (2026) Data &amp; Telemetry Award",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/ecovolt-telemetry/";
+            },},{id: "projects-automated-viscosity-measurement-system",
+          title: 'Automated Viscosity Measurement System',
+          description: "PCB &amp; embedded lead with Endress+Hauser — 400× gain signal chain separating 252 cP from 1676 cP; three Altium boards, two manufactured by JLCPCB",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/endress-viscosity/";
+            },},{id: "projects-semiconductor-microfabrication-mit-nano",
+          title: 'Semiconductor Microfabrication — MIT.nano',
+          description: "MIT.nano cleanroom intensive — solar cell PCE 15.87 % (Voc 0.60 V), functional MEMS cantilevers and microfluidic mixer — one week, Class 100/1K/10K",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/mit-nano-fabrication/";
+            },},{id: "projects-digital-twin-of-a-flexible-cnc-manufacturing-cell",
+          title: 'Digital Twin of a Flexible CNC Manufacturing Cell',
+          description: "Industry challenge with ORZA Tech — virtual CNC cell commissioned 100 % in software (S7-1500 PLC programming in TIA Portal, UR5 VRC, CAM and G-code, Cognex vision, SCADA/KPIs)",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/orza-digital-twin/";
+            },},{id: "projects-vision-guided-scara-pick-and-place-robot-4-dof",
+          title: 'Vision-Guided SCARA Pick-and-Place Robot (4 DoF)',
+          description: "Firmware &amp; electronics lead — 4-DOF SCARA with YOLOv11n vision (mAP 0.72), 5/6 picks at ~14 s/cycle, custom Altium PCB",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/scara-robot/";
+            },},{
+        id: 'social-email',
+        title: 'email',
+        section: 'Socials',
+        handler: () => {
+          window.open("mailto:%70%72%75%69%7A%73%65%72%76%69%6E%32%37@%67%6D%61%69%6C.%63%6F%6D", "_blank");
+        },
+      },{
+        id: 'social-linkedin',
+        title: 'LinkedIn',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://www.linkedin.com/in/pruizservin27", "_blank");
+        },
+      },{
+        id: 'social-github',
+        title: 'GitHub',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://github.com/paulinism", "_blank");
+        },
+      },{
+        id: 'social-whatsapp',
+        title: 'whatsapp',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://wa.me/4915233878708", "_blank");
+        },
+      },{
+      id: 'light-theme',
+      title: 'Change theme to light',
+      description: 'Change the theme of the site to Light',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("light");
+      },
+    },
+    {
+      id: 'dark-theme',
+      title: 'Change theme to dark',
+      description: 'Change the theme of the site to Dark',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("dark");
+      },
+    },
+    {
+      id: 'system-theme',
+      title: 'Use system default theme',
+      description: 'Change the theme of the site to System Default',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("system");
+      },
+    },];
+
+</script> <script src="/assets/al_search/js/shortcut-key.js"></script> </body> </html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html> <html lang="en"> <head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <title> Digital Twin of a Flexible CNC Manufacturing Cell | Paulina L. Ruíz Servín </title> <meta name="author" content="Paulina L. Ruíz Servín"> <meta name="description" content="Industry challenge with ORZA Tech — virtual CNC cell commissioned 100 % in software (S7-1500 PLC programming in TIA Portal, UR5 VRC, CAM and G-code, Cognex vision, SCADA/KPIs)"> <meta name="keywords" content="Embedded Systems, PCB Design, Altium Designer, ESP32, FreeRTOS, PLC, TIA Portal, Digital Twin, Process Simulate, Mechatronics Engineering, Elektrotechnik, Shell Eco-marathon"> <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; media-src 'self' https:; frame-src 'self' https:; connect-src 'self' https:;"> <style>
+  :root {
+    --max-content-width: 930px;
+  }
+</style> <link rel="stylesheet" href="/assets/css/tailwind.css?v=50c64c15cbb9fd1ce6056fdb8bcb4b62"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css" integrity="sha256-MVopmdyC2tYTiJ8wlktf0uh0v4NgT+vNdyVFepi7Q0c=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.5/css/academicons.min.css" integrity="sha256-SzrCOBJbGVFMahewkgjwnApaV2+av1DwMAA+/QGLyZw=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/scholar-icons@1.0.3/css/scholar-icons.css" integrity="sha256-VY3hHVj/hNX3fYG6wtbA6TcKJQl7+FthzGSyIB64klY=" crossorigin="anonymous"> <link defer rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons&amp;display=swap"> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-github.css?v=591dab5a4e56573bf4ef7fd332894c99" media="" id="highlight_theme_light"> <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%F0%9F%91%A9%E2%80%8D%F0%9F%92%BB&lt;/text&gt;&lt;/svg&gt;"> <link rel="stylesheet" href="/assets/css/main.css?v=3116ba77db9ee1581d05bb3e86fbf7f1"> <link rel="canonical" href="https://paulinism.github.io/projects/orza-digital-twin/"> <script src="/assets/js/theme.js?v=5286c3e4c334d0ecb8fc0c40ff4fa7ec"></script> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-native.css?v=5847e5ed4a4568527aa6cfab446049ca" media="none" id="highlight_theme_dark"> <script>
+    initTheme();
+  </script> </head> <body class="fixed-top-nav "> <header> <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top" role="navigation"> <div class="container"> <a class="navbar-brand title font-weight-lighter" href="/"> <span class="font-weight-bold">Paulina</span> L. Ruíz Servín </a> <button class="navbar-toggler collapsed navbar-toggler-main" type="button" data-nav-toggle="navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar top-bar"></span> <span class="icon-bar middle-bar"></span> <span class="icon-bar bottom-bar"></span> </button> <div class="collapse navbar-collapse navbar-collapse-main" id="navbarNav"> <ul class="navbar-nav navbar-menu-list flex-nowrap"> <li class="nav-item "> <a class="nav-link" href="/">about </a> </li> <li class="nav-item active"> <a class="nav-link" href="/projects/">projects <span class="sr-only">(current)</span> </a> </li> <li class="nav-item "> <a class="nav-link" href="/achievements/">achievements </a> </li> <li class="nav-item "> <a class="nav-link" href="/publications/">publications </a> </li> <li class="nav-item "> <a class="nav-link" href="/repositories/">repositories </a> </li> <li class="nav-item "> <a class="nav-link" href="/cv/">CV </a> </li> <li class="nav-item "> <a class="nav-link" href="/contact/">contact </a> </li> <li class="nav-item"> <button id="search-toggle" type="button" title="Search" aria-label="Open search"> <span class="nav-link">ctrl k <i class="fa-solid fa-magnifying-glass"></i></span> </button> </li> <li class="toggle-container"> <button id="light-toggle" type="button" title="Change theme" aria-label="Change color theme"> <i class="fa-half-sun-moon" id="light-toggle-system"></i> <i class="fa-solid fa-moon" id="light-toggle-dark"></i> <i class="fa-solid fa-sun" id="light-toggle-light"></i> </button> </li> </ul> </div> </div> </nav> <progress id="progress" value="0"> <div class="progress-container"> <span class="progress-bar"></span> </div> </progress> </header> <div class="container mt-5" role="main"> <div class="post"> <header class="post-header"> <h1 class="post-title">Digital Twin of a Flexible CNC Manufacturing Cell</h1> <p class="post-description">Industry challenge with ORZA Tech — virtual CNC cell commissioned 100 % in software (S7-1500 PLC programming in TIA Portal, UR5 VRC, CAM and G-code, Cognex vision, SCADA/KPIs)</p> </header> <article> <style>
+  img[data-zoomable] { cursor: zoom-in; }
+  .medium-zoom-image--opened { object-fit: contain !important; background: transparent !important; }
+  .medium-zoom-overlay, .medium-zoom-image--opened { z-index: 1050; }
+</style> <style>
+  .oz-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; margin: 1.5rem 0; align-items: start; }
+  .oz-grid.oz-row3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .oz-grid.oz-row2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  @media (max-width: 767px) { .oz-grid.oz-row3, .oz-grid.oz-row2 { grid-template-columns: minmax(0, 1fr); } }
+  .oz-hmi .oz-fig img { aspect-ratio: 1000 / 570; object-fit: cover; }
+  .oz-grid.single { grid-template-columns: minmax(0, 900px); justify-content: center; }
+  .oz-fig { margin: 0; border: 1px solid rgba(128, 128, 128, 0.25); border-radius: 12px; overflow: hidden; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08); }
+  .oz-fig img, .oz-fig video { display: block; width: 100%; height: auto; background: rgba(128, 128, 128, 0.06); }
+  .oz-fig figcaption { padding: 0.6rem 0.9rem; font-size: 0.85rem; line-height: 1.4; opacity: 0.85; border-top: 1px solid rgba(128, 128, 128, 0.2); }
+  .oz-table { width: 100%; border-collapse: collapse; margin: 1rem 0 1.5rem; font-size: 0.92rem; }
+  .oz-table th, .oz-table td { border: 1px solid rgba(128, 128, 128, 0.3); padding: 0.5rem 0.65rem; vertical-align: top; text-align: left; }
+  .oz-table th { background: rgba(128, 128, 128, 0.08); }
+</style> <p><strong>A fully virtual CNC milling cell commissioned with zero physical hardware.</strong> A virtual S7-1500 runs the ladder program, Process Simulate drives the 3D cell, a Virtual Robot Controller runs the UR5 pick-and-place program, a Cognex inspector classifies each part (pass / rework / scrap), a WinCC HMI gives the operator automatic and manual control, and a SCADA dashboard tracks OEE and KPIs in real time. Behind the machining step is a six-tool milling program for an aluminium piston body that I analysed down to chip load and cycle time (≈ 12.8 min), and the same course added a Cognex inspection exam and a lathe CAM exercise that I carried from stock definition to G-code.</p> <div class="oz-grid single"> <figure class="oz-fig"><video src="/assets/img/orza-general-dt.mp4" poster="/assets/img/orza-general-dt-poster.jpg" controls="" preload="metadata" playsinline=""></video><figcaption>Walkthrough with narration: scrapping a part, the CNC cell working in Process Simulate, and an explanation of how the HMI and the PLC logic run together with the simulation.</figcaption></figure> </div> <style>
+  .dag-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.9rem; margin: 1rem 0 1.25rem; }
+  .dag-fig { margin: 0; border: 1px solid rgba(128,128,128,.25); border-radius: 10px; overflow: hidden; }
+  .dag-fig img { display: block; width: 100%; height: 190px; object-fit: contain; background: rgba(128,128,128,.06); }
+  .dag-fig figcaption { padding: .4rem .6rem; font-size: .78rem; line-height: 1.3; opacity: .85; border-top: 1px solid rgba(128,128,128,.2); }
+  .dag-table { width: 100%; border-collapse: collapse; font-size: .9rem; margin: .5rem 0 1rem; }
+  .dag-table th, .dag-table td { border: 1px solid rgba(128,128,128,.3); padding: .45rem .6rem; vertical-align: top; text-align: left; }
+  .dag-table th { background: rgba(128,128,128,.08); }
+  details.writeup { margin: 1.5rem 0; border: 1px solid rgba(128,128,128,.3); border-radius: 10px; padding: .6rem 1rem; }
+  details.writeup > summary { cursor: pointer; font-weight: 700; font-size: 1.05rem; margin-bottom: 1.25rem; }
+  details.writeup > summary + * { margin-top: 0.5rem; }
+</style> <h2 id="design-at-a-glance">Design at a glance</h2> <div class="dag-grid"> <figure class="dag-fig"><img data-zoomable="" src="/assets/img/orza-layout-iso.jpg" alt="Cell layout in Process Simulate" loading="lazy"><figcaption>Cell layout in Process Simulate</figcaption></figure> <figure class="dag-fig"><img data-zoomable="" src="/assets/img/orza-p2-cam-model.jpg" alt="Part P2 in SOLIDWORKS CAM" loading="lazy"><figcaption>Part P2 in SOLIDWORKS CAM</figcaption></figure> <figure class="dag-fig"><img data-zoomable="" src="/assets/img/orza-cnc-station.jpg" alt="My CNC milling station" loading="lazy"><figcaption>My CNC milling station</figcaption></figure> <figure class="dag-fig"><img data-zoomable="" src="/assets/img/orza-scada-kpi.png" alt="SCADA: OEE, cycle time, scrap" loading="lazy"><figcaption>SCADA: OEE, cycle time, scrap</figcaption></figure> </div> <p><strong>Design decisions, from first principles</strong></p> <table class="dag-table"> <tr> <th>Decision</th> <th>Engineering reasoning</th> <th>Result</th> </tr> <tr> <td>Interlock every move against twin sensors, no timers</td> <td>The PLC program is what goes to the real machine unchanged, so it must react to the plant, not to assumed times</td> <td>Full cycles incl. rework and scrap branches</td> </tr> <tr> <td>Check the chip load by hand</td> <td>f<sub>z</sub> = 1645.9 / (12 000 × 2) ≈ 0.069 mm/tooth, inside 0.05–0.13 mm for aluminium</td> <td>Cycle ≈ 12.8 min; spindle speed flagged as too high for the lab machine</td> </tr> <tr> <td>Spot-drill before the small holes</td> <td>A short, stiff spot drill keeps the thin Ø1.75 mm drill from wandering</td> <td>Correct hole positions in simulation</td> </tr> <tr> <td>Validate the Cognex inspection against calipers</td> <td>Reflective foil creates bright edges that the outline tool reads as part edges</td> <td>Found a 3.7–3.9 % oversize and documented the fix</td> </tr> </table> <details class="writeup" open=""> <summary>Full technical write-up</summary> <p><strong>Challenge</strong></p> <p>Design, implement and validate a virtual digital twin of a flexible manufacturing cell — supplier, three CNC stations, intralogistics, quality inspection, assembly and warehouse — with simulated industrial communication, two operating modes, traceability and KPIs. Everything is virtual: no physical PLCs, robots or AGVs. Automation of Manufacturing Systems, Tec de Monterrey, challenge proposed by ORZA Tech; team of three, one CNC station per member.</p> <div class="oz-grid"> <figure class="oz-fig"><img data-zoomable="" src="/assets/img/orza-workflow.png" alt="Manufacturing cell workflow"><figcaption>Material flow: supplier, transport, CNC machining, quality inspection (pass, rework or scrap), assembly and warehouse.</figcaption></figure> <figure class="oz-fig"><img data-zoomable="" src="/assets/img/orza-network.jpg" alt="Network diagram of the three workstations"><figcaption>Real network: three workstations on one Ethernet switch, each running Process Simulate, a VMware Tecnomatix server, a Modbus sensor and a PLCSIM Advanced instance.</figcaption></figure> </div> <p><strong>My contribution — CNC milling cell (Station 3)</strong></p> <ul> <li> <strong>PLC program (core of the challenge):</strong> the complete ladder program in TIA Portal for a virtual S7-1500 in PLCSIM Advanced: 35-step sequence, interlocks, safety stop, manual mode, quality routing, recipes, KPIs and logging</li> <li> <strong>Digital twin:</strong> my cell in Process Simulate (supplier rack with pneumatic actuator, AGV, two conveyors, three UR5 robots, CNC milling machine and inspection camera), with every actuator and sensor mapped to PLC I/O</li> <li> <strong>Robot integration:</strong> a UR5 in Virtual Robot Controller mode running its own PolyScope program, synchronised with the PLC through a digital handshake</li> <li> <strong>HMI and SCADA:</strong> the WinCC operator screens of the cell and the plant-wide KPI screen</li> <li> <strong>Machining:</strong> the SOLIDWORKS CAM model of part P2 and a block-by-block analysis of its G-code</li> <li> <strong>Communication:</strong> a C# Modbus TCP field sensor and the S7 GET/PUT link to the assembly station, with an alarm when the link fails</li> <li> <strong>Layout concept:</strong> proposed the ladder-type layout of the full system</li> </ul> <p>The team built the full layout in Process Simulate and integrated the three PCs over one Ethernet switch.</p> <div class="oz-grid"> <figure class="oz-fig"><img data-zoomable="" src="/assets/img/orza-layout-top.jpg" alt="Top view of the cell layout"><figcaption>Top view of the line operation in Process Simulate: conveyors, AGV path, CNC cells and robots.</figcaption></figure> <figure class="oz-fig"><img data-zoomable="" src="/assets/img/orza-cnc-station.jpg" alt="CNC station with UR5 robots"><figcaption>CNC station: two UR5 robots load and unload the milling machine and present the part to the camera.</figcaption></figure> </div> <p><strong>PLC program</strong></p> <p>The cell runs as a chain of step flags (K1 … K35): supply, AGV transport, loading by a UR5, machining, unloading and inspection, routing and cycle close. A step advances only when the twin confirms the previous action really finished — a sensor, a door, the machine’s done signal — never on a timer. In a virtual commissioning the PLC is the part that would go to the real machine unchanged, so any wrong assumption showed up as a stuck part, a collision or a cell that never finished.</p> <ul> <li> <strong>Interlocks:</strong> a function block turns raw sensor signals into named bits (part present, CNC ready, conveyor clear), so wiring and sequence stay decoupled</li> <li> <strong>Safety:</strong> one global stop contact sits in every step rung; any alarm puts the cell in Fault until it is reset from the HMI</li> <li> <strong>Manual mode:</strong> every step can be driven from the HMI, but only in manual mode, so manual and automatic commands cannot fight each other</li> <li> <strong>Routing and recipes:</strong> the inspection result (OK, rework, scrap) is locked by the PLC and decides the next conveyor; a FIFO recipe queue sets which stations a part type needs and the batch size</li> <li> <strong>KPIs:</strong> yield, scrap rate and Micro OEE computed in the PLC every cycle, with a 100-entry retentive log that survives a restart</li> </ul> <div class="oz-grid"> <figure class="oz-fig"><img data-zoomable="" src="/assets/img/orza-hmi-menu.jpg" alt="HMI main menu"><figcaption>Main menu.</figcaption></figure> <figure class="oz-fig"><img data-zoomable="" src="/assets/img/orza-hmi-monitor.jpg" alt="Station monitor screen"><figcaption>Station monitor: mode, current process, station progress and batch quantity.</figcaption></figure> </div> <div class="oz-grid"> <figure class="oz-fig"><img data-zoomable="" src="/assets/img/orza-hmi-supply.jpg" alt="Supplier and conveyor screen"><figcaption>Supplier and conveyor screen with manual commands.</figcaption></figure> <figure class="oz-fig"><img data-zoomable="" src="/assets/img/orza-hmi-cnc-qi.jpg" alt="CNC and quality inspection screen"><figcaption>CNC and quality inspection: manual machining commands and the OK / rework / scrap result.</figcaption></figure> </div> <div class="oz-grid"> <figure class="oz-fig"><img data-zoomable="" src="/assets/img/orza-db22.png" alt="DATA_LOG data block"><figcaption>The retentive DATA_LOG block with counters, KPIs, alarm bits and the 100-entry log.</figcaption></figure> <figure class="oz-fig"><img data-zoomable="" src="/assets/img/orza-scada-kpi.png" alt="SCADA counters and trends"><figcaption>Global SCADA screen at the end of a demonstration run: 11 parts, 11 OK, 0 scrap, with yield, scrap and Micro OEE trends.</figcaption></figure> </div> <p><strong>CAM &amp; G-code</strong></p> <p>Part P2 is an aluminium piston body of 32 × 20 × 20 mm with a Ø16 bore, a pocket and two pairs of small holes, machined with six tools: spot drill and Ø16 peck drilling, a centre drill before the small holes so the thin drill does not wander, pocket roughing in eight Z levels, and seven contour passes with cutter compensation (G41), so tool wear is corrected with one offset value. I recalculated every surface speed (v<sub>c</sub> = π·D·n/1000) and the chip load, f<sub>z</sub> ≈ 0.069 mm/tooth, inside the 0.05–0.13 mm range for aluminium. The estimated cycle is 12.8 min, 72 % of it roughing; the weak point is the 12 000 rpm spindle speed, fine in simulation but above what the lab machine runs.</p> <div class="oz-grid"> <figure class="oz-fig"><img data-zoomable="" src="/assets/img/orza-p2-drawing.png" alt="Technical drawing of part P2"><figcaption>Technical drawing of P2 (SOLIDWORKS, scale 2:1).</figcaption></figure> <figure class="oz-fig"><img data-zoomable="" src="/assets/img/orza-p2-cam-model.jpg" alt="P2 inside its billet in SOLIDWORKS CAM"><figcaption>P2 inside the billet in SOLIDWORKS CAM.</figcaption></figure> </div> <div class="oz-grid single"> <figure class="oz-fig"><video src="/assets/img/orza-cam.mp4" poster="/assets/img/orza-cam-poster.jpg" autoplay="" muted="" loop="" playsinline=""></video><figcaption>CAM toolpath simulation of P2 (2× speed).</figcaption></figure> </div> <p>In a second exercise I programmed a turned AISI 304 shaft from stock to post-processed G-code (8 operations, 9.0 min) and found what I would fix before a real lathe: a missing spindle-speed clamp (G50) and a cut-off that takes 62 % of the cycle.</p> <div class="oz-grid"> <figure class="oz-fig"><img data-zoomable="" src="/assets/img/cam-turn-ops.jpg" alt="Operation tree in SOLIDWORKS CAM"><figcaption>Operation tree: facing, drilling, turning, groove and cut-off.</figcaption></figure> <figure class="oz-fig"><img data-zoomable="" src="/assets/img/cam-turn-sim.jpg" alt="Toolpath simulation of the turned shaft"><figcaption>Toolpath simulation with the stock in the chuck.</figcaption></figure> </div> <p><strong>Robot: from virtual to real</strong></p> <p>The AGV-to-conveyor UR5 runs its own PolyScope program in URSim, Universal Robots’ official emulator, so the program is real and portable instead of a simulation-only path. The PLC treats it as an external device and only exchanges seven agreed handshake signals (start, grip confirmed, release confirmed, pick in progress, place complete). Before trusting the virtual robot, I programmed the lab’s physical UR5e — here a vacuum-gripper pick-and-place in a 2 × 2 pattern.</p> <div class="oz-grid"> <figure class="oz-fig" style="max-width: 640px; margin: 0 auto"><img data-zoomable="" src="/assets/img/orza-polyscope.png" alt="PolyScope program for pick and place"><figcaption>PolyScope program in URSim: BeforeStart, the trigger loop, and the pick and place routines with their wait-for-confirmation steps.</figcaption></figure> <figure class="oz-fig" style="max-width: 420px; margin: 0 auto"><video src="/assets/img/ur5e-physical-pnp.mp4" poster="/assets/img/ur5e-physical-pnp-poster.jpg" autoplay="" muted="" loop="" playsinline="" style="max-height: 640px; object-fit: contain"></video><figcaption>Physical UR5e in the lab: vacuum-gripper pick-and-place programmed in PolyScope.</figcaption></figure> </div> <p><strong>Communication</strong></p> <p>S7 GET/PUT links my PLC to the assembly station on another PC, and a C# Modbus TCP sensor exchanges holding registers with the PLC. When the link is cut, the GET block reports the error, the HMI raises an alarm and the station stops passing stale data downstream.</p> <div class="oz-grid"> <figure class="oz-fig"><img data-zoomable="" src="/assets/img/orza-s7-get.png" alt="S7 GET block"><figcaption>S7 GET block reading a byte from the partner PLC, triggered at 10 Hz.</figcaption></figure> <figure class="oz-fig"><img data-zoomable="" src="/assets/img/orza-modbus-app.png" alt="C# Modbus sensor application"><figcaption>C# Modbus TCP sensor simulator exchanging the supplier stock value with the PLC.</figcaption></figure> </div> <p><strong>Quality inspection (Cognex In-Sight)</strong></p> <p>A complete inspection built on my own on a reflective anti-static bag: 20 images with deliberate errors, grid calibration (0.33 px average error over 823 points), a PatMax reference frame that follows the part as it moves, circle and caliper measurements in millimetres, QR, barcode and OCR reading, and a spreadsheet that passes a part only if every feature passes. Seals and label matched a vernier caliper within ±3 %; the package outline came out 3.7–3.9 % too large, because the foil’s highlights were read as edges.</p> <div class="oz-grid oz-row3"> <figure class="oz-fig"><img data-zoomable="" src="/assets/img/cognex-golden.jpg" alt="Golden reference image of the package"><figcaption>Golden image: two colour seals, QR code, barcode, "QTY" text and the label.</figcaption></figure> <figure class="oz-fig"><img data-zoomable="" src="/assets/img/cognex-faulty.jpg" alt="Deliberately faulty sample"><figcaption>Deliberately faulty sample: one seal only partly present and a QR code that does not match the part inside.</figcaption></figure> <figure class="oz-fig"><img data-zoomable="" src="/assets/img/cognex-setup-vertical.jpg" alt="Image acquisition setup"><figcaption>Acquisition setup: phone fixed above a matte black surface, ceiling light only, calibration checkerboard at the side.</figcaption></figure> </div> <style>
+  .oz-grid.oz-bw .oz-fig img { aspect-ratio: 4 / 3; object-fit: contain; background: #555; }
+</style> <div class="oz-grid oz-row3 oz-bw"> <figure class="oz-fig"><img data-zoomable="" src="/assets/img/cognex-pattern.jpg" alt="PatMax reference frame on the package"><figcaption>PatMax reference frame that anchors every inspection tool.</figcaption></figure> <figure class="oz-fig"><img data-zoomable="" src="/assets/img/cognex-circle.jpg" alt="Circle tool on a seal"><figcaption>FindCircle measuring the radius of a colour seal.</figcaption></figure> <figure class="oz-fig"><img data-zoomable="" src="/assets/img/cognex-reflection.jpg" alt="Caliper failure due to reflection"><figcaption>Failure case: a specular highlight on the foil is taken as an edge by the caliper.</figcaption></figure> </div> <div class="oz-grid oz-row2"> <figure class="oz-fig"><img data-zoomable="" src="/assets/img/cognex-calibration.jpg" alt="Calibration result"><figcaption>Grid calibration: 0.33 px average error over 823 points.</figcaption></figure> <figure class="oz-fig"><img data-zoomable="" src="/assets/img/cognex-caliper.jpg" alt="Vernier caliper measurement of a seal"><figcaption>Physical validation: measuring a seal with the vernier caliper.</figcaption></figure> </div> <div class="oz-grid single"> <figure class="oz-fig"><img data-zoomable="" src="/assets/img/cognex-spreadsheet.jpg" alt="Cognex In-Sight spreadsheet"><figcaption>In-Sight spreadsheet: raw tool outputs on the left, and the quality-control table with nominal, limits and pass flags on the right.</figcaption></figure> </div> <p><strong>Tools &amp; technologies</strong></p> <ul> <li> <strong>TIA Portal, S7-1500, PLCSIM Advanced, WinCC:</strong> PLC program, HMI and SCADA</li> <li> <strong>Tecnomatix Process Simulate:</strong> digital twin and virtual commissioning</li> <li> <strong>URSim / PolyScope, physical UR5e:</strong> robot programming</li> <li> <strong>SOLIDWORKS CAM:</strong> milling and turning toolpaths, G-code analysis</li> <li> <strong>C# (Modbus TCP), S7 GET/PUT:</strong> communication between stations and sensors</li> <li> <strong>Cognex In-Sight:</strong> calibrated vision inspection</li> </ul> <p><strong>Results &amp; lessons</strong></p> <div class="oz-grid single"> <figure class="oz-fig"><video src="/assets/img/orza-full-demo.mp4" poster="/assets/img/orza-full-demo-poster.jpg" controls="" preload="none" playsinline=""></video><figcaption>Full demonstration of the CNC cell: Process Simulate, PLC and HMI running together.</figcaption></figure> </div> <ul> <li> <strong>Closed loop:</strong> every PLC output drives the 3D scene and every virtual sensor feeds back; the cell completes full automatic cycles, including the rework and scrap branches</li> <li> <strong>Communication:</strong> Modbus TCP verified in both directions; a cut link raises an alarm and stops stale data</li> <li> <strong>Integration:</strong> each S7 link worked alone, but the full three-station interconnection was not completed because of IP conflicts, duplicate tags and stale PLCSIM connections</li> <li> <strong>Integration is its own engineering task:</strong> one IP plan and tag namespace agreed first would have saved most of the lost time</li> <li> <strong>Limits come from the requirement:</strong> my inspection pass limits were ±10 %, wider than the ±3 % target; next time I would derive them first and build the tools around them</li> </ul> </details> <p><strong>Stack:</strong> Tecnomatix Process Simulate · TIA Portal, S7-1500, PLCSIM Advanced, ladder logic · WinCC Runtime Advanced · URSim / PolyScope (UR5 VRC), physical UR5e · S7 GET/PUT, Modbus TCP · C# (Modbus simulator) · SOLIDWORKS CAM (milling and turning), G-code (G71/G72, G82/G83, G41/G43, G96/G97) · Cognex In-Sight (PatMax RedLine, FindCircle, Caliper, ReadIDMax, OCRMax)</p> <div class="back-to-projects" style="margin: 3rem 0 1rem; text-align: center"> <a class="btn btn-sm z-depth-0" role="button" href="/projects/#academic">← Back to projects</a> </div> </article> </div> </div> <footer class="fixed-bottom" role="contentinfo"> <div class="container mt-0"> © Copyright 2026 Paulina L. Ruíz Servín. <span class="footer-social" style="display:inline-flex;gap:.9rem;margin:0 .8rem 0 .5rem;vertical-align:middle"> <a href="mailto:pruizservin27@gmail.com" title="Email" style="color:var(--global-theme-color)"><i class="fa-solid fa-envelope"></i></a> <a href="https://www.linkedin.com/in/pruizservin27/" target="_blank" rel="noopener" title="LinkedIn" style="color:var(--global-theme-color)"><i class="fa-brands fa-linkedin"></i></a> <a href="https://github.com/paulinism" target="_blank" rel="noopener" title="GitHub" style="color:var(--global-theme-color)"><i class="fa-brands fa-github"></i></a> <a href="https://wa.me/4915233878708" target="_blank" rel="noopener" title="WhatsApp" style="color:var(--global-theme-color)"><i class="fa-brands fa-whatsapp"></i></a> </span> <span style="font-size:.85em;opacity:.7;color:var(--global-footer-text-color)">Hosted by <a href="https://pages.github.com/" target="_blank" rel="external nofollow noopener">GitHub Pages</a> · Powered by <a href="https://jekyllrb.com/" target="_blank" rel="external nofollow noopener">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio" rel="external nofollow noopener" target="_blank">al-folio</a>.</span> <script src="/assets/js/lang-switch.js"></script> </div> </footer> <script>
+  window.alFolio = {
+    compatBootstrap: false
+  };
+</script> <script src="/assets/js/nav-toggle.js?v=141bd79a73ebc0f0b6ea58e440ae79fc"></script> <script defer src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script> <script defer src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script> <script defer src="/assets/js/masonry.js?v=e49affc7bd2646f6acdad1dbe02c2359" type="text/javascript"></script> <script src="/assets/js/tooltips-setup.js?v=fe487e99db6c43751e6e7bdb2d6a0611"></script> <script src="/assets/js/no_defer.js?v=53b1b1a645525975c963ce8bf8bfefcf"></script> <script defer src="/assets/js/common.js?v=87baac90f765f2f3362dcf6aaf312a8a"></script> <script defer src="/assets/js/copy_code.js?v=c8a01c11a92744d44b093fc3bda915df" type="text/javascript"></script> <script defer src="/assets/js/jupyter_new_tab.js?v=896d254890d9b47f0281f63bfccf0dee"></script> <script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous"></script> <script defer src="/assets/al_img_tools/js/zoom.js"></script> <script defer src="/assets/js/progress-bar.js?v=499464c5c63ced6cf7ad62509f1e2610" type="text/javascript"></script> <script src="https://cdn.jsdelivr.net/npm/vanilla-back-to-top@7.2.1/dist/vanilla-back-to-top.min.js" integrity="sha256-uMJJ3EoTyfRBoTbR+lrfu1uRQ87RZG8AR3cVNuQVeFg=" crossorigin="anonymous"></script> <script>
+    addBackToTop();
+  </script> <script type="module" src="/assets/al_search/js/search/ninja-keys.min.js"></script> <ninja-keys hidebreadcrumbs noautoloadmdicons placeholder="Type to start searching"></ninja-keys> <script src="/assets/al_search/js/search-setup.js"></script> <script>
+// get the ninja-keys element
+const ninja = document.querySelector('ninja-keys');
+
+// add the home and posts menu items
+ninja.data = [{
+    id: "nav-about",
+    title: "about",
+    section: "Navigation",
+    handler: () => {
+      window.location.href = "/";
+    },
+  },{id: "nav-projects",
+          title: "projects",
+          description: "Academic and hands-on engineering work, plus professional/lab experience.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/projects/";
+          },
+        },{id: "nav-achievements",
+          title: "achievements",
+          description: "Awards, participations, co-authored papers, and certifications.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/achievements/";
+          },
+        },{id: "nav-publications",
+          title: "publications",
+          description: "Conference paper and technical reports.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/publications/";
+          },
+        },{id: "nav-repositories",
+          title: "repositories",
+          description: "Selected repositories.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/repositories/";
+          },
+        },{id: "nav-cv",
+          title: "CV",
+          description: "Curriculum Vitae of Paulina L. Ruíz Servín.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/cv/";
+          },
+        },{id: "nav-contact",
+          title: "contact",
+          description: "Currently looking for a Pflichtpraktikum &amp; Abschlussarbeit position.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/contact/";
+          },
+        },{id: "projects-scissor-lift-amp-agv-automated-material-handling-platform",
+          title: 'Scissor Lift &amp;amp; AGV — Automated Material Handling Platform',
+          description: "Mechanical design &amp; electronics lead — scissor lift (load-tested &gt;100 kg, 40 × 30 × 76 cm) with custom load-cell PCB (no HX711) and machined aluminum parts",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/agv-platform/";
+            },},{id: "projects-automated-ppe-amp-inventory-management-system",
+          title: 'Automated PPE &amp;amp; Inventory Management System',
+          description: "Solo project — QR tracking for Shell Eco-marathon paddock ops — customs-ready Excel export, under 80 ms QR reading, web dashboard with loan management",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/ecovolt-inventory/";
+            },},{id: "projects-telemetry-amp-energy-optimization-platform",
+          title: 'Telemetry &amp;amp; Energy-Optimization Platform',
+          description: "PCB lead &amp; firmware — three generations of telemetry for a Shell Eco-marathon car — 1st (2025) and 2nd (2026) Data &amp; Telemetry Award",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/ecovolt-telemetry/";
+            },},{id: "projects-automated-viscosity-measurement-system",
+          title: 'Automated Viscosity Measurement System',
+          description: "PCB &amp; embedded lead with Endress+Hauser — 400× gain signal chain separating 252 cP from 1676 cP; three Altium boards, two manufactured by JLCPCB",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/endress-viscosity/";
+            },},{id: "projects-semiconductor-microfabrication-mit-nano",
+          title: 'Semiconductor Microfabrication — MIT.nano',
+          description: "MIT.nano cleanroom intensive — solar cell PCE 15.87 % (Voc 0.60 V), functional MEMS cantilevers and microfluidic mixer — one week, Class 100/1K/10K",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/mit-nano-fabrication/";
+            },},{id: "projects-digital-twin-of-a-flexible-cnc-manufacturing-cell",
+          title: 'Digital Twin of a Flexible CNC Manufacturing Cell',
+          description: "Industry challenge with ORZA Tech — virtual CNC cell commissioned 100 % in software (S7-1500 PLC programming in TIA Portal, UR5 VRC, CAM and G-code, Cognex vision, SCADA/KPIs)",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/orza-digital-twin/";
+            },},{id: "projects-vision-guided-scara-pick-and-place-robot-4-dof",
+          title: 'Vision-Guided SCARA Pick-and-Place Robot (4 DoF)',
+          description: "Firmware &amp; electronics lead — 4-DOF SCARA with YOLOv11n vision (mAP 0.72), 5/6 picks at ~14 s/cycle, custom Altium PCB",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/scara-robot/";
+            },},{
+        id: 'social-email',
+        title: 'email',
+        section: 'Socials',
+        handler: () => {
+          window.open("mailto:%70%72%75%69%7A%73%65%72%76%69%6E%32%37@%67%6D%61%69%6C.%63%6F%6D", "_blank");
+        },
+      },{
+        id: 'social-linkedin',
+        title: 'LinkedIn',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://www.linkedin.com/in/pruizservin27", "_blank");
+        },
+      },{
+        id: 'social-github',
+        title: 'GitHub',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://github.com/paulinism", "_blank");
+        },
+      },{
+        id: 'social-whatsapp',
+        title: 'whatsapp',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://wa.me/4915233878708", "_blank");
+        },
+      },{
+      id: 'light-theme',
+      title: 'Change theme to light',
+      description: 'Change the theme of the site to Light',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("light");
+      },
+    },
+    {
+      id: 'dark-theme',
+      title: 'Change theme to dark',
+      description: 'Change the theme of the site to Dark',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("dark");
+      },
+    },
+    {
+      id: 'system-theme',
+      title: 'Use system default theme',
+      description: 'Change the theme of the site to System Default',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("system");
+      },
+    },];
+
+</script> <script src="/assets/al_search/js/shortcut-key.js"></script> </body> </html>

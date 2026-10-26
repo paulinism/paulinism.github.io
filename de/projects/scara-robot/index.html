@@ -1,0 +1,183 @@
+<!DOCTYPE html> <html lang="de"> <head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <title> Kamerageführter SCARA-Roboter für Pick-and-Place (4 DoF) | Paulina L. Ruíz Servín </title> <meta name="author" content="Paulina L. Ruíz Servín"> <meta name="description" content="Firmware &amp; Elektronik — 4-DOF-SCARA mit YOLOv11n-Bildverarbeitung (mAP 0,72), 5 von 6 Teilen bei ~14 s pro Zyklus, eigene Altium-Platine"> <meta name="keywords" content="Embedded Systems, PCB Design, Altium Designer, ESP32, FreeRTOS, PLC, TIA Portal, Digital Twin, Process Simulate, Mechatronics Engineering, Elektrotechnik, Shell Eco-marathon"> <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; media-src 'self' https:; frame-src 'self' https:; connect-src 'self' https:;"> <style>
+  :root {
+    --max-content-width: 930px;
+  }
+</style> <link rel="stylesheet" href="/assets/css/tailwind.css?v=50c64c15cbb9fd1ce6056fdb8bcb4b62"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css" integrity="sha256-MVopmdyC2tYTiJ8wlktf0uh0v4NgT+vNdyVFepi7Q0c=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.5/css/academicons.min.css" integrity="sha256-SzrCOBJbGVFMahewkgjwnApaV2+av1DwMAA+/QGLyZw=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/scholar-icons@1.0.3/css/scholar-icons.css" integrity="sha256-VY3hHVj/hNX3fYG6wtbA6TcKJQl7+FthzGSyIB64klY=" crossorigin="anonymous"> <link defer rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons&amp;display=swap"> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-github.css?v=591dab5a4e56573bf4ef7fd332894c99" media="" id="highlight_theme_light"> <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%F0%9F%91%A9%E2%80%8D%F0%9F%92%BB&lt;/text&gt;&lt;/svg&gt;"> <link rel="stylesheet" href="/assets/css/main.css?v=3116ba77db9ee1581d05bb3e86fbf7f1"> <link rel="canonical" href="https://paulinism.github.io/de/projects/scara-robot/"> <script src="/assets/js/theme.js?v=5286c3e4c334d0ecb8fc0c40ff4fa7ec"></script> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-native.css?v=5847e5ed4a4568527aa6cfab446049ca" media="none" id="highlight_theme_dark"> <script>
+    initTheme();
+  </script> </head> <body class="fixed-top-nav "> <header> <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top" role="navigation"> <div class="container"> <a class="navbar-brand title font-weight-lighter" href="/"> <span class="font-weight-bold">Paulina</span> L. Ruíz Servín </a> <button class="navbar-toggler collapsed navbar-toggler-main" type="button" data-nav-toggle="navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar top-bar"></span> <span class="icon-bar middle-bar"></span> <span class="icon-bar bottom-bar"></span> </button> <div class="collapse navbar-collapse navbar-collapse-main" id="navbarNav"> <ul class="navbar-nav navbar-menu-list flex-nowrap"> <li class="nav-item "> <a class="nav-link" href="/">about </a> </li> <li class="nav-item active"> <a class="nav-link" href="/projects/">projects <span class="sr-only">(current)</span> </a> </li> <li class="nav-item "> <a class="nav-link" href="/achievements/">achievements </a> </li> <li class="nav-item "> <a class="nav-link" href="/publications/">publications </a> </li> <li class="nav-item "> <a class="nav-link" href="/repositories/">repositories </a> </li> <li class="nav-item "> <a class="nav-link" href="/cv/">CV </a> </li> <li class="nav-item "> <a class="nav-link" href="/contact/">contact </a> </li> <li class="nav-item"> <button id="search-toggle" type="button" title="Search" aria-label="Open search"> <span class="nav-link">ctrl k <i class="fa-solid fa-magnifying-glass"></i></span> </button> </li> <li class="toggle-container"> <button id="light-toggle" type="button" title="Change theme" aria-label="Change color theme"> <i class="fa-half-sun-moon" id="light-toggle-system"></i> <i class="fa-solid fa-moon" id="light-toggle-dark"></i> <i class="fa-solid fa-sun" id="light-toggle-light"></i> </button> </li> </ul> </div> </div> </nav> <progress id="progress" value="0"> <div class="progress-container"> <span class="progress-bar"></span> </div> </progress> </header> <div class="container mt-5" role="main"> <div class="post"> <header class="post-header"> <h1 class="post-title">Kamerageführter SCARA-Roboter für Pick-and-Place (4 DoF)</h1> <p class="post-description">Firmware &amp; Elektronik — 4-DOF-SCARA mit YOLOv11n-Bildverarbeitung (mAP 0,72), 5 von 6 Teilen bei ~14 s pro Zyklus, eigene Altium-Platine</p> </header> <article> <style>
+  img[data-zoomable] { cursor: zoom-in; }
+  .medium-zoom-image--opened { object-fit: contain !important; background: transparent !important; }
+  .medium-zoom-overlay, .medium-zoom-image--opened { z-index: 1050; }
+</style> <style>
+  .sc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; margin: 1.5rem 0; align-items: start; }
+  .sc-grid.single { grid-template-columns: minmax(0, 860px); justify-content: center; }
+  .sc-fig { margin: 0; border: 1px solid rgba(128, 128, 128, 0.25); border-radius: 12px; overflow: hidden; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08); }
+  .sc-fig img, .sc-fig video { display: block; width: 100%; height: auto; background: rgba(128, 128, 128, 0.06); }
+  .sc-fig.tall img, .sc-fig.tall video { height: 460px; object-fit: contain; }
+  .sc-fig figcaption { padding: 0.6rem 0.9rem; font-size: 0.85rem; line-height: 1.4; opacity: 0.85; border-top: 1px solid rgba(128, 128, 128, 0.2); }
+  .sc-table { width: 100%; border-collapse: collapse; margin: 1rem 0 1.5rem; font-size: 0.92rem; }
+  .sc-table th, .sc-table td { border: 1px solid rgba(128, 128, 128, 0.3); padding: 0.5rem 0.65rem; vertical-align: top; text-align: left; }
+  .sc-table th { background: rgba(128, 128, 128, 0.08); }
+</style> <p><strong>In der Abschlussvorführung wurden 5 von 6 Teilen korrekt gegriffen und abgelegt, mit etwa 14 Sekunden pro Zyklus.</strong> Der Roboter klassifiziert die Teile nach Form und Farbe mit einem YOLOv11n-Modell (mAP@0,5 = 0,72), das auf meinem eigenen Rechner läuft, und greift und legt sie dann selbstständig ab — die Koordinaten gehen von Python per MQTT an die C++-Firmware auf einem ESP32.</p> <div class="sc-grid single"> <figure class="sc-fig"><video src="/assets/img/scara-demo.mp4" poster="/assets/img/scara-demo-poster.jpg" autoplay="" muted="" loop="" playsinline=""></video><figcaption>Abschlusspräsentation: Test des Greifers, Gelenksteuerung über die HMI und über direkte Befehle an den MQTT-Broker sowie Erklärung des Echtzeit-Bildverarbeitungssystems.</figcaption></figure> </div> <style>
+  .dag-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.9rem; margin: 1rem 0 1.25rem; }
+  .dag-fig { margin: 0; border: 1px solid rgba(128,128,128,.25); border-radius: 10px; overflow: hidden; }
+  .dag-fig img { display: block; width: 100%; height: 190px; object-fit: contain; background: rgba(128,128,128,.06); }
+  .dag-fig figcaption { padding: .4rem .6rem; font-size: .78rem; line-height: 1.3; opacity: .85; border-top: 1px solid rgba(128,128,128,.2); }
+  .dag-table { width: 100%; border-collapse: collapse; font-size: .9rem; margin: .5rem 0 1rem; }
+  .dag-table th, .dag-table td { border: 1px solid rgba(128,128,128,.3); padding: .45rem .6rem; vertical-align: top; text-align: left; }
+  .dag-table th { background: rgba(128,128,128,.08); }
+  details.writeup { margin: 1.5rem 0; border: 1px solid rgba(128,128,128,.3); border-radius: 10px; padding: .6rem 1rem; }
+  details.writeup > summary { cursor: pointer; font-weight: 700; font-size: 1.05rem; margin-bottom: 1.25rem; }
+  details.writeup > summary + * { margin-top: 0.5rem; }
+</style> <h2 id="konstruktion-auf-einen-blick">Konstruktion auf einen Blick</h2> <div class="dag-grid"> <figure class="dag-fig"><img data-zoomable="" src="/assets/img/scara-cad.png" alt="CAD-Modell (4 DoF)" loading="lazy"><figcaption>CAD-Modell (4 DoF)</figcaption></figure> <figure class="dag-fig"><img data-zoomable="" src="/assets/img/scara-workspace.png" alt="Erreichbarer Arbeitsraum 50–250 mm" loading="lazy"><figcaption>Erreichbarer Arbeitsraum 50–250 mm</figcaption></figure> <figure class="dag-fig"><img data-zoomable="" src="/assets/img/scara-pcb-3d.png" alt="Steuerplatine, 3D-Ansicht (Altium)" loading="lazy"><figcaption>Steuerplatine, 3D-Ansicht (Altium)</figcaption></figure> <figure class="dag-fig"><img data-zoomable="" src="/assets/img/scara-cv-detection.jpg" alt="Form-/Farberkennung" loading="lazy"><figcaption>Form-/Farberkennung</figcaption></figure> </div> <p><strong>Konstruktionsentscheidungen, aus den Grundlagen hergeleitet</strong></p> <table class="dag-table"> <tr> <th>Entscheidung</th> <th>Technische Begründung</th> <th>Ergebnis</th> </tr> <tr> <td>Alle Gelenkachsen vertikal</td> <td>Entkoppelt das Problem: ebene Position aus Schulter und Ellbogen, Höhe aus der Z-Achse; inverse Kinematik geschlossen lösbar mit dem Kosinussatz</td> <td>Mittlerer Fehler der Vorwärtskinematik 4,0 mm, der inversen 6,9 mm</td> </tr> <tr> <td>L1 = 150 mm, L2 = 110 mm</td> <td>Ringförmiger Arbeitsraum von |L1−L2| bis L1+L2 deckt den geforderten Radius von 25 cm ab</td> <td>Erreichbarer Bereich 50–250 mm von der Basis</td> </tr> <tr> <td>Schrittmotoren an J1/J2, Absolutencoder am Handgelenk, Referenzfahrt mit Endschalter</td> <td>Schrittmotoren liefern die Position ohne Rückführung, die Genauigkeit hängt also von einer korrekten Referenz ab</td> <td>Referenzfahrt als größte Fehlerquelle identifiziert</td> </tr> <tr> <td>YOLOv11n zusätzlich zur HSV-Pipeline</td> <td>HSV-Schwellwerte verschieben sich mit der Beleuchtung; ein trainierter Detektor ist robuster</td> <td>mAP@0,5 = 0,72; 5 von 6 Teilen sortiert, ~14 s/Zyklus</td> </tr> </table> <details class="writeup" open=""> <summary>Vollständige technische Beschreibung</summary> <p><strong>Aufgabe</strong></p> <p>Flache Teile mit unterschiedlicher Form, Farbe und Ausrichtung in einem Arbeitsraum mit 25 cm Radius erkennen, greifen und ablegen und jedes Teil ohne menschlichen Eingriff in seinen Zielbereich sortieren. Es gibt fünf Formen (Quadrat, Kreis, Dreieck, Kreuz, Fünfeck) und vier Farben. Der Arm hat zwei Drehgelenke mit NEMA-17-Schrittmotoren (Schulter und Ellbogen), eine Vertikalachse mit Gewindespindel und DC-Motor mit Encoder, ein Handgelenk mit AS5600-Absolutencoder und einen Servogreifer, gebaut aus PETG mit Aluminiumprofilen. Kurs „Design and Development of Robots“, Tec de Monterrey, Team aus vier Personen.</p> <p><strong>Mein Beitrag</strong></p> <ul> <li> <strong>Bildverarbeitung:</strong> die klassische OpenCV-Pipeline (Kantenerkennung, HSV-Segmentierung, Formklassifikation, Greifwinkel) und ihre Anbindung an den Roboter über MQTT</li> <li> <strong>Pixel- in Roboterkoordinaten:</strong> die ArUco-Homografie, die Bildpixel in Robotermillimeter umrechnet</li> <li> <strong>Maschinelles Lernen:</strong> der YOLOv11n-Ablauf: automatische Vorannotation, Aufteilung des Datensatzes, Training und Auswertung</li> <li> <strong>Platinenentwurf:</strong> die einseitige Steuerplatine in Altium Designer (ESP32, Schrittmotor- und DC-Treiber, Encoder, Spannungsversorgung)</li> <li> <strong>Kinematik:</strong> meine eigene Vorwärts- und inverse Kinematik in MATLAB (jedes Teammitglied hat sie einzeln hergeleitet)</li> <li> <strong>Im Team:</strong> Steckbrett-Prototyp, Auswahl von Motoren und Treibern sowie die Referenzsensoren — Endschalter der Z-Achse und AS5600 am Handgelenk, gegen bekannte Referenzwinkel validiert; die MQTT-Verbindung zwischen Bildverarbeitungsrechner, Broker und ESP32; Mitautorin des Roboter-Datenblatts</li> </ul> <p>Teammitglieder haben die C++-Kinematik und die Firmware-Architektur auf dem ESP32, die HMI in MATLAB App Designer, das finale Simscape-Modell des SCARA und die mechanische Struktur erstellt.</p> <p><strong>Kinematik &amp; Mechanik</strong></p> <p>Alle vier Gelenkachsen sind vertikal, daher lässt sich das Problem sauber aufteilen: Die ebene Position hängt nur von Schulter und Ellbogen ab, die Höhe nur von der Vertikalachse, und der Werkzeugwinkel ist die Summe der drei Drehungen. Die Vorwärtskinematik verkettet vier Denavit-Hartenberg-Transformationen; die inverse Kinematik nutzt den Kosinussatz für den Zweigelenkarm (L1 = 150 mm, L2 = 110 mm), liefert eine Lösung mit Ellbogen oben und eine mit Ellbogen unten und behält die, die der aktuellen Stellung am nächsten ist. Ein Ziel ist nur zwischen 50 und 250 mm von der Basis erreichbar.</p> <div class="sc-grid"> <figure class="sc-fig"><img data-zoomable="" src="/assets/img/scara-cad.png" alt="CAD-Modell des SCARA-Roboters"><figcaption>CAD-Modell des Roboters.</figcaption></figure> <figure class="sc-fig"><img data-zoomable="" src="/assets/img/scara-workspace.png" alt="Erreichbarer Arbeitsraum"><figcaption>Draufsicht auf den erreichbaren Arbeitsraum (Radius 250 mm).</figcaption></figure> <figure class="sc-fig"><video src="/assets/img/scara-simscape.mp4" poster="/assets/img/scara-simscape-poster.jpg" autoplay="" muted="" loop="" playsinline=""></video><figcaption>Simscape-Multibody-Modell des SCARA, aus der CAD-Geometrie aufgebaut, mit PID-Regelung der beiden ebenen Gelenke (finale Version von einem Teammitglied).</figcaption></figure> </div> <p>Vor dem SCARA hat das Team andere Manipulatoren modelliert, um Bewegung und Regelung zu untersuchen. Für ein Portal mit einem Arm mit einem Freiheitsgrad haben wir die Bewegungsgleichungen nach Euler-Lagrange hergeleitet und das Modell zweimal aufgebaut — aus den Gleichungen in Simulink und in Simscape Multibody — mit PID-Regelkreisen für die Wagenposition und den Armwinkel. Beide Modelle stimmten im Gesamtverhalten überein, einschließlich des leichten Nachschwingens am Ende jeder Bewegung durch die Kopplung zwischen Wagen und Arm.</p> <div class="sc-grid"> <figure class="sc-fig"><video src="/assets/img/sim-gantry.mp4" poster="/assets/img/sim-gantry-poster.jpg" autoplay="" muted="" loop="" playsinline=""></video><figcaption>Simulation des Portalroboters (Teamarbeit im Kurs).</figcaption></figure> <figure class="sc-fig"><video src="/assets/img/sim-arm.mp4" poster="/assets/img/sim-arm-poster.jpg" autoplay="" muted="" loop="" playsinline=""></video><figcaption>Simulation eines Industrieroboterarms (Teamarbeit im Kurs).</figcaption></figure> </div> <div class="sc-grid"> <figure class="sc-fig"><img data-zoomable="" src="/assets/img/gantry-simulink.jpg" alt="Simulink-Blockdiagramm des Portalroboter-Modells"><figcaption>Simulink-Modell des Portals: die nichtlinearen Zustandsgleichungen in einem MATLAB-Function-Block, zwei PID-Regelkreise (x und θ) und Scopes, mit Sprung-Sollwerten (links) und sinusförmigen Sollwerten (rechts).</figcaption></figure> <figure class="sc-fig"><img data-zoomable="" src="/assets/img/gantry-simscape-top.jpg" alt="Oberste Ebene des Simscape-Modells mit Portal- und Arm-Subsystem"><figcaption>Oberste Ebene des Simscape-Modells: das Portal-Subsystem (Schiene, Wagen und Arm) und das Roboterarm-Subsystem, jeweils mit Bewegungsvorgabe und Aufzeichnung in Scopes.</figcaption></figure> </div> <div class="sc-grid"> <figure class="sc-fig"><img data-zoomable="" src="/assets/img/gantry-simscape-diagram.jpg" alt="Simscape-Multibody-Verbindungsdiagramm des Portalroboters"><figcaption>Simscape-Multibody-Verbindungsdiagramm: Portal- und Arm-Subsystem, die Bewegungsvorgaben und zum Vergleich dieselben PID-Regelkreise wie im analytischen Modell.</figcaption></figure> <figure class="sc-fig"><img data-zoomable="" src="/assets/img/gantry-simscape-outputs.jpg" alt="Simscape-Ausgaben: Winkel, Winkelgeschwindigkeit, Drehmoment und Stellgröße"><figcaption>Simscape-Ausgaben: Armwinkel θ gegenüber seinem Sollwert, Winkelgeschwindigkeit, Ausgangsdrehmoment und PID-Stellgröße. Die Stellgröße schwingt zu Beginn jedes Sprungs über und stellt sich dann ein.</figcaption></figure> </div> <p><strong>Bildverarbeitung</strong></p> <p>Ein Smartphone 500 mm über dem Arbeitsraum mit senkrechter optischer Achse überträgt das Bild an den PC; ein Skript nimmt ein Einzelbild mit 1280 × 720 px auf. Vier ArUco-Marker an bekannten Ecken einer Fläche von 562 × 562 mm definieren eine Homografie von Bildpixeln in Robotermillimeter.</p> <div class="sc-grid"> <figure class="sc-fig tall"><img data-zoomable="" src="/assets/img/scara-camera.jpg" alt="Kameraaufbau von oben"><figcaption>Kamera 500 mm über dem Arbeitsraum, mit den ArUco-Markern an den Ecken.</figcaption></figure> <figure class="sc-fig"><img data-zoomable="" src="/assets/img/scara-cv-homography.jpg" alt="Für die Homografie erkannte ArUco-Marker"><figcaption>ArUco-Erkennung: Die Markermittelpunkte (rot) definieren die Homografie von Pixeln in Millimeter.</figcaption></figure> </div> <p>Die klassische Pipeline erzeugt eine Kantenkarte (Gauß-Filter, Laplace, Otsu), segmentiert jede Farbe im HSV-Raum (Rot braucht zwei Farbtonbereiche, weil der Farbton zyklisch ist) und trennt sich berührende Teile mit einem Watershed-Verfahren. Die Formen werden über Solidität, Konvexitätsdefizit und Kreisförmigkeit klassifiziert: Das Kreuz wird zuerst erkannt, weil es das einzige nicht konvexe Teil ist, die übrigen entscheidet eine Abstimmung von <code class="language-plaintext highlighter-rouge">approxPolyDP</code> mit drei Toleranzen. Der Greifwinkel ergibt sich aus dem Rechteck minimaler Fläche, angepasst an die Symmetrie jeder Form, damit sich das Handgelenk so wenig wie möglich dreht, und jedes Teil wird per MQTT als <code class="language-plaintext highlighter-rouge">shape, colour, x, y, angle</code> veröffentlicht.</p> <div class="sc-grid"> <figure class="sc-fig"><img data-zoomable="" src="/assets/img/scara-cv-detection.jpg" alt="Klassifizierte Formen im Arbeitsraum"><figcaption>Endgültige Erkennung: jedes Teil mit ID, Form und Farbe beschriftet.</figcaption></figure> <figure class="sc-fig"><img data-zoomable="" src="/assets/img/scara-cv-grip.jpg" alt="Greifwinkel über dem Arbeitsraum"><figcaption>Für jedes Teil berechnete Greifwinkel, die seine Symmetrie nutzen, um den Weg des Handgelenks zu minimieren.</figcaption></figure> </div> <p>Da HSV-Schwellwerte empfindlich auf Beleuchtung und ähnliche Farben reagieren, habe ich einen YOLOv11n-Detektor mit Bildern des realen Arbeitsraums trainiert (16 Klassen, Aufteilung 80/20, 50 Epochen). Die klassische Pipeline hat jedes Bild vorannotiert, sodass das Labeln etwa 30 Minuten statt 3–4 Stunden dauerte. Das Modell erreichte mAP@0,5 = 0,72; am schwächsten waren die Kreuze mit nur 62–94 Beispielen gegenüber 1.580 für das blaue Quadrat — die Klassenungleichheit, nicht das Modell, ist die wichtigste Grenze.</p> <div class="sc-grid"> <figure class="sc-fig"><img data-zoomable="" src="/assets/img/scara-yolo-preannot.jpg" alt="Trainingsbild des Arbeitsraums"><figcaption>Trainingsbild aus dem realen Arbeitsraum, mit Teilen in unterschiedlichen Positionen, Ausrichtungen und Farben.</figcaption></figure> <figure class="sc-fig"><img data-zoomable="" src="/assets/img/scara-yolo-loss.png" alt="Verlust- und mAP-Kurven von YOLOv11n"><figcaption>Trainings- und Validierungsverluste sowie mAP über 50 Epochen.</figcaption></figure> <figure class="sc-fig"><img data-zoomable="" src="/assets/img/scara-yolo-confusion.png" alt="Normierte Konfusionsmatrix"><figcaption>Normierte Konfusionsmatrix: Grüne Teile werden am besten erkannt, Kreuze am schlechtesten.</figcaption></figure> </div> <p><strong>Elektronik &amp; Platine</strong></p> <p>Die Steuerplatine vereint den ESP32, zwei DRV8825-Treiber für die Schrittmotoren, einen TB6612FNG für die DC-Motoren, die Anschlüsse für Encoder und Sensoren sowie die Spannungsversorgung. Einseitig war eine Fertigungsvorgabe, daher wurden Platzierung und Leitungsführung so geplant, dass Kreuzungen vermieden werden, und Kupferflächen führen Versorgung und Masse, um den Spannungsabfall zwischen Treibern und Versorgung zu verringern. Die Platine wurde fertig entworfen, aber nicht integriert: In den letzten Wochen hat das Team die Fehlersuche an Mechanik, Regelung und Bildverarbeitung priorisiert, und die Vorführung lief mit der Steckbrett-Elektronik.</p> <div class="sc-grid"> <figure class="sc-fig"><img data-zoomable="" src="/assets/img/scara-schematic.png" alt="Schaltplan der Steuerplatine"><figcaption>Schaltplan: ESP32, Schrittmotortreiber, DC-Motortreiber und Anschlüsse.</figcaption></figure> <figure class="sc-fig tall"><img data-zoomable="" src="/assets/img/scara-pcb-layout.png" alt="Einseitiges Platinenlayout"><figcaption>Einseitiges Layout mit Kupferflächen für die Versorgung.</figcaption></figure> <figure class="sc-fig tall"><img data-zoomable="" src="/assets/img/scara-pcb-3d.png" alt="3D-Ansicht der Platine"><figcaption>3D-Ansicht der Platine.</figcaption></figure> </div> <p><strong>HMI &amp; Integration</strong></p> <p>Bildverarbeitungsrechner, ESP32 und HMI kommunizieren nie direkt: Sie veröffentlichen und abonnieren über einen Mosquitto-Broker, sodass jeder Teil auf einem anderen Rechner laufen kann — bei Tests wurde der Roboter sogar aus einer anderen Stadt bedient. Im Pick-and-Place-Modus löst der ESP32 die inverse Kinematik, fährt 30 mm über das Teil, senkt sich ab, greift, hebt an und legt es ab.</p> <div class="sc-grid"> <figure class="sc-fig"><img data-zoomable="" src="/assets/img/scara-hmi.png" alt="HMI-Bedienoberfläche"><figcaption>HMI-Bedienoberfläche (von einem Teammitglied erstellt).</figcaption></figure> <figure class="sc-fig tall"><video src="/assets/img/scara-pick.mp4" poster="/assets/img/scara-pick-poster.jpg" autoplay="" muted="" loop="" playsinline=""></video><figcaption>Greifer nimmt ein blaues Quadrat auf.</figcaption></figure> </div> <div class="sc-grid"> <figure class="sc-fig tall"><video src="/assets/img/scara-mqtt-joint.mp4" poster="/assets/img/scara-mqtt-joint-poster.jpg" autoplay="" muted="" loop="" playsinline=""></video><figcaption>Schultergelenk dreht sich per MQTT-Befehl während der frühen Integration — Armglieder noch nicht montiert.</figcaption></figure> <figure class="sc-fig tall"><video src="/assets/img/scara-mqtt-zaxis.mp4" poster="/assets/img/scara-mqtt-zaxis-poster.jpg" autoplay="" muted="" loop="" playsinline=""></video><figcaption>Bewegungstest der Z-Achse während der Sensorintegration — Auslösen von Endschalter und Encoder in dieser Phase validiert.</figcaption></figure> <figure class="sc-fig"><video src="/assets/img/scara-mqtt-hmi.mp4" poster="/assets/img/scara-mqtt-hmi-poster.jpg" autoplay="" muted="" loop="" playsinline=""></video><figcaption>Testsitzung mit sichtbarer SCARA-HMI: Tippbefehle für die Gelenke werden per MQTT von MATLAB an den ESP32 gesendet.</figcaption></figure> </div> <p><strong>Werkzeuge &amp; Technologien</strong></p> <ul> <li> <strong>Python, OpenCV, YOLOv11n, LabelImg:</strong> Bildverarbeitungspipeline, Homografie, Werkzeuge für den Datensatz</li> <li> <strong>ESP32 (C++, ESP-IDF, PlatformIO, FreeRTOS):</strong> Firmware; MQTT über WLAN mit einem Mosquitto-Broker</li> <li> <strong>Altium Designer:</strong> einseitige Steuerplatine</li> <li> <strong>MATLAB, Simulink, Simscape Multibody:</strong> Kinematik, PID-Gelenkregelung, Mehrkörpersimulation</li> </ul> <p><strong>Ergebnisse &amp; Erkenntnisse</strong></p> <ul> <li> <strong>Pick-and-Place:</strong> 5 von 6 Teilen korrekt abgelegt, etwa 14 s pro Zyklus</li> <li> <strong>Genauigkeit:</strong> mittlerer Fehler der Vorwärtskinematik 4,0 mm (Messschieber, 3 Stellungen); inverse Kinematik 6,9 mm im Mittel, 8,6 mm maximal (5 Ziele); Lokalisierung durch die Bildverarbeitung etwa 15 mm</li> <li> <strong>Robuste Verbindung:</strong> Steuerung etwa 2 s nach einem WLAN-Ausfall wiederhergestellt</li> <li> <strong>Die Referenzfahrt bestimmt die Genauigkeit:</strong> Die Schrittmotoren haben keine Positionsrückführung, daher hing jede Sitzung von einer korrekten Referenz ab; Riemenspiel und gedruckte Kupplungen waren die wichtigsten mechanischen Fehlerquellen</li> <li> <strong>Versatz zwischen Bild und Greifer:</strong> Die meisten Fehlgriffe kamen vom Versatz zwischen dem geschätzten Teilemittelpunkt und dem realen Greifermittelpunkt; eine bessere Objektivkalibrierung ist der nächste Schritt</li> <li> <strong>Kleiner Validierungsumfang:</strong> Sechs Versuche sind ein Hinweis, keine gemessene Erfolgsquote</li> <li> <strong>Nächste Schritte:</strong> mehr Bilder für die unterrepräsentierten Klassen, die Platine integrieren und den Regelkreis an den Schrittmotorgelenken schließen</li> </ul> </details> <p><strong>Stack:</strong> Python, OpenCV, NumPy, Ultralytics YOLOv11n, LabelImg · ESP32, C++ (ESP-IDF, PlatformIO), FreeRTOS · MQTT (Mosquitto), I²C · Altium Designer · MATLAB, Simulink, Simscape Multibody</p> <div class="back-to-projects" style="margin: 3rem 0 1rem; text-align: center"> <a class="btn btn-sm z-depth-0" role="button" href="/de/projects/#academic">← Zurück zu den Projekten</a> </div> </article> </div> </div> <footer class="fixed-bottom" role="contentinfo"> <div class="container mt-0"> © Copyright 2026 Paulina L. Ruíz Servín. <span class="footer-social" style="display:inline-flex;gap:.9rem;margin:0 .8rem 0 .5rem;vertical-align:middle"> <a href="mailto:pruizservin27@gmail.com" title="Email" style="color:var(--global-theme-color)"><i class="fa-solid fa-envelope"></i></a> <a href="https://www.linkedin.com/in/pruizservin27/" target="_blank" rel="noopener" title="LinkedIn" style="color:var(--global-theme-color)"><i class="fa-brands fa-linkedin"></i></a> <a href="https://github.com/paulinism" target="_blank" rel="noopener" title="GitHub" style="color:var(--global-theme-color)"><i class="fa-brands fa-github"></i></a> <a href="https://wa.me/4915233878708" target="_blank" rel="noopener" title="WhatsApp" style="color:var(--global-theme-color)"><i class="fa-brands fa-whatsapp"></i></a> </span> <span style="font-size:.85em;opacity:.7;color:var(--global-footer-text-color)">Hosted by <a href="https://pages.github.com/" target="_blank" rel="external nofollow noopener">GitHub Pages</a> · Powered by <a href="https://jekyllrb.com/" target="_blank" rel="external nofollow noopener">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio" rel="external nofollow noopener" target="_blank">al-folio</a>.</span> <script src="/assets/js/lang-switch.js"></script> </div> </footer> <script>
+  window.alFolio = {
+    compatBootstrap: false
+  };
+</script> <script src="/assets/js/nav-toggle.js?v=141bd79a73ebc0f0b6ea58e440ae79fc"></script> <script defer src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script> <script defer src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script> <script defer src="/assets/js/masonry.js?v=e49affc7bd2646f6acdad1dbe02c2359" type="text/javascript"></script> <script src="/assets/js/tooltips-setup.js?v=fe487e99db6c43751e6e7bdb2d6a0611"></script> <script src="/assets/js/no_defer.js?v=53b1b1a645525975c963ce8bf8bfefcf"></script> <script defer src="/assets/js/common.js?v=87baac90f765f2f3362dcf6aaf312a8a"></script> <script defer src="/assets/js/copy_code.js?v=c8a01c11a92744d44b093fc3bda915df" type="text/javascript"></script> <script defer src="/assets/js/jupyter_new_tab.js?v=896d254890d9b47f0281f63bfccf0dee"></script> <script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous"></script> <script defer src="/assets/al_img_tools/js/zoom.js"></script> <script defer src="/assets/js/progress-bar.js?v=499464c5c63ced6cf7ad62509f1e2610" type="text/javascript"></script> <script src="https://cdn.jsdelivr.net/npm/vanilla-back-to-top@7.2.1/dist/vanilla-back-to-top.min.js" integrity="sha256-uMJJ3EoTyfRBoTbR+lrfu1uRQ87RZG8AR3cVNuQVeFg=" crossorigin="anonymous"></script> <script>
+    addBackToTop();
+  </script> <script type="module" src="/assets/al_search/js/search/ninja-keys.min.js"></script> <ninja-keys hidebreadcrumbs noautoloadmdicons placeholder="Type to start searching"></ninja-keys> <script src="/assets/al_search/js/search-setup.js"></script> <script>
+// get the ninja-keys element
+const ninja = document.querySelector('ninja-keys');
+
+// add the home and posts menu items
+ninja.data = [{
+    id: "nav-about",
+    title: "about",
+    section: "Navigation",
+    handler: () => {
+      window.location.href = "/";
+    },
+  },{id: "nav-projects",
+          title: "projects",
+          description: "Academic and hands-on engineering work, plus professional/lab experience.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/projects/";
+          },
+        },{id: "nav-achievements",
+          title: "achievements",
+          description: "Awards, participations, co-authored papers, and certifications.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/achievements/";
+          },
+        },{id: "nav-publications",
+          title: "publications",
+          description: "Conference paper and technical reports.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/publications/";
+          },
+        },{id: "nav-repositories",
+          title: "repositories",
+          description: "Selected repositories.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/repositories/";
+          },
+        },{id: "nav-cv",
+          title: "CV",
+          description: "Curriculum Vitae of Paulina L. Ruíz Servín.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/cv/";
+          },
+        },{id: "nav-contact",
+          title: "contact",
+          description: "Currently looking for a Pflichtpraktikum &amp; Abschlussarbeit position.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/contact/";
+          },
+        },{id: "projects-scissor-lift-amp-agv-automated-material-handling-platform",
+          title: 'Scissor Lift &amp;amp; AGV — Automated Material Handling Platform',
+          description: "Mechanical design &amp; electronics lead — scissor lift (load-tested &gt;100 kg, 40 × 30 × 76 cm) with custom load-cell PCB (no HX711) and machined aluminum parts",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/agv-platform/";
+            },},{id: "projects-automated-ppe-amp-inventory-management-system",
+          title: 'Automated PPE &amp;amp; Inventory Management System',
+          description: "Solo project — QR tracking for Shell Eco-marathon paddock ops — customs-ready Excel export, under 80 ms QR reading, web dashboard with loan management",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/ecovolt-inventory/";
+            },},{id: "projects-telemetry-amp-energy-optimization-platform",
+          title: 'Telemetry &amp;amp; Energy-Optimization Platform',
+          description: "PCB lead &amp; firmware — three generations of telemetry for a Shell Eco-marathon car — 1st (2025) and 2nd (2026) Data &amp; Telemetry Award",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/ecovolt-telemetry/";
+            },},{id: "projects-automated-viscosity-measurement-system",
+          title: 'Automated Viscosity Measurement System',
+          description: "PCB &amp; embedded lead with Endress+Hauser — 400× gain signal chain separating 252 cP from 1676 cP; three Altium boards, two manufactured by JLCPCB",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/endress-viscosity/";
+            },},{id: "projects-semiconductor-microfabrication-mit-nano",
+          title: 'Semiconductor Microfabrication — MIT.nano',
+          description: "MIT.nano cleanroom intensive — solar cell PCE 15.87 % (Voc 0.60 V), functional MEMS cantilevers and microfluidic mixer — one week, Class 100/1K/10K",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/mit-nano-fabrication/";
+            },},{id: "projects-digital-twin-of-a-flexible-cnc-manufacturing-cell",
+          title: 'Digital Twin of a Flexible CNC Manufacturing Cell',
+          description: "Industry challenge with ORZA Tech — virtual CNC cell commissioned 100 % in software (S7-1500 PLC programming in TIA Portal, UR5 VRC, CAM and G-code, Cognex vision, SCADA/KPIs)",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/orza-digital-twin/";
+            },},{id: "projects-vision-guided-scara-pick-and-place-robot-4-dof",
+          title: 'Vision-Guided SCARA Pick-and-Place Robot (4 DoF)',
+          description: "Firmware &amp; electronics lead — 4-DOF SCARA with YOLOv11n vision (mAP 0.72), 5/6 picks at ~14 s/cycle, custom Altium PCB",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/scara-robot/";
+            },},{
+        id: 'social-email',
+        title: 'email',
+        section: 'Socials',
+        handler: () => {
+          window.open("mailto:%70%72%75%69%7A%73%65%72%76%69%6E%32%37@%67%6D%61%69%6C.%63%6F%6D", "_blank");
+        },
+      },{
+        id: 'social-linkedin',
+        title: 'LinkedIn',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://www.linkedin.com/in/pruizservin27", "_blank");
+        },
+      },{
+        id: 'social-github',
+        title: 'GitHub',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://github.com/paulinism", "_blank");
+        },
+      },{
+        id: 'social-whatsapp',
+        title: 'whatsapp',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://wa.me/4915233878708", "_blank");
+        },
+      },{
+      id: 'light-theme',
+      title: 'Change theme to light',
+      description: 'Change the theme of the site to Light',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("light");
+      },
+    },
+    {
+      id: 'dark-theme',
+      title: 'Change theme to dark',
+      description: 'Change the theme of the site to Dark',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("dark");
+      },
+    },
+    {
+      id: 'system-theme',
+      title: 'Use system default theme',
+      description: 'Change the theme of the site to System Default',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("system");
+      },
+    },];
+
+</script> <script src="/assets/al_search/js/shortcut-key.js"></script> </body> </html>
