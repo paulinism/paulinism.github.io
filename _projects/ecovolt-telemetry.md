@@ -92,6 +92,8 @@ hide_from_grid: true # shown in the "Professional & lab experience" section inst
 
 In the Shell Eco-marathon, teams compete on energy efficiency, not speed: the winner covers the distance on the least energy. Two things decide the result — how the driver uses the throttle, and whether the team can see what the powertrain is doing. When I joined the electronics team, EcoVolt CCM had no telemetry. The goals: measure battery voltage and bidirectional motor current plus position, acceleration and driver inputs; get the data off a moving carbon-fibre car; never lose a run's data; and turn data into driving decisions.
 
+<a id="my-contribution"></a>
+
 **My contribution**
 
 Electronics Co-Lead and reserve driver (2024–25), Team Captain, Telemetry Lead and main driver (2025–26), and mentor (2026).

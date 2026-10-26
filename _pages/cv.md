@@ -46,6 +46,10 @@ toc:
   .cv-mini li span { opacity: .7; }
   .cv-h { color: var(--global-theme-color); display: flex; align-items: center; gap: .6rem; padding-bottom: .4rem; border-bottom: 2px solid var(--global-theme-color); }
   .cv-h i { font-size: .8em; }
+  .cv-h a, .cv-what a { color: inherit !important; text-decoration: none !important; }
+  .cv-h a:hover, .cv-what a:hover { text-decoration: underline !important; }
+  .cv-h-arrow { font-size: .6em; opacity: .8; }
+  .cv-more { display: inline-block; margin-top: .4rem; font-size: .88rem; font-weight: 600; }
   .cv-card .cv-what { color: var(--global-theme-color); }
   .cv-tl-item .cv-what { color: var(--global-theme-color); }
   .cv-mini li { border-left: 3px solid var(--global-theme-color); padding-left: .7rem; border-bottom: none; margin-bottom: .45rem; background: rgba(128,128,128,.06); border-radius: 0 8px 8px 0; }
@@ -66,8 +70,8 @@ toc:
   </div>
   <div class="cv-dl">
     <p><strong>Full CV (PDF)</strong><br><span style="opacity:.8">Available from February/March 2027</span></p>
-    <a class="pc-btn primary" href="{{ '/assets/pdf/CV_Paulina_EN.pdf' | relative_url }}" target="_blank" rel="noopener"><i class="fa-solid fa-file-arrow-down"></i> CV (English)</a>
-    <a class="pc-btn" href="{{ '/assets/pdf/CV_Paulina_DE.pdf' | relative_url }}" target="_blank" rel="noopener"><i class="fa-solid fa-file-arrow-down"></i> Lebenslauf (Deutsch)</a>
+    <a class="pc-btn primary" href="{{ '/assets/pdf/CV_Paulina_EN.pdf' | relative_url }}?v=20261026" target="_blank" rel="noopener"><i class="fa-solid fa-file-arrow-down"></i> CV (English)</a>
+    <a class="pc-btn" href="{{ '/assets/pdf/CV_Paulina_DE.pdf' | relative_url }}?v=20261026" target="_blank" rel="noopener"><i class="fa-solid fa-file-arrow-down"></i> Lebenslauf (Deutsch)</a>
   </div>
 </div>
 <h2 class="pc-h cv-h"><i class="fa-solid fa-graduation-cap"></i> Education</h2>
@@ -87,33 +91,35 @@ toc:
 </div>
 <h2 class="pc-h cv-h"><i class="fa-solid fa-briefcase"></i> Experience</h2>
 <div class="pc-card cv-card">
-  <div class="cv-head"><div><div class="cv-what">Team Captain, Electronics Lead &amp; Mentor</div><div class="cv-where">EcoVolt CCM EV Racing Team (Shell Eco-marathon) · Mexico City, Mexico</div></div><div class="cv-when">Aug 2023 – Aug 2026</div></div>
+  <div class="cv-head"><div><div class="cv-what"><a href="{{ '/projects/ecovolt-telemetry/#my-contribution' | relative_url }}">Team Captain, Electronics Lead &amp; Mentor</a></div><div class="cv-where">EcoVolt CCM EV Racing Team (Shell Eco-marathon) · Mexico City, Mexico</div></div><div class="cv-when">Aug 2023 – Aug 2026</div></div>
   <p style="margin:.4rem 0 0;font-size:.93rem">Led and mentored a 30+ person multidisciplinary team across mechanical, electrical, telemetry, and data-analysis systems for Shell Eco-marathon Americas, Brazil, and United States 2025–2026.</p>
   <ul><li>Designed the telemetry PCBs in Altium Designer (schematic, layout, BOM) — the Brazil 2025 board, main contributor to US 2026 and co-designer of Brazil 2026 — and brought them up and debugged them on the vehicle</li><li>Linked the in-house motor controller to the telemetry system by implementing the CAN communication (incl. transceiver circuit) and writing ESP32 firmware in C++ with SPI, I2C, UART and SD drivers, logging current, voltage and GPS position in real time</li><li>Developed a bidirectional INA240 shunt current sensor from a self-etched prototype to a manufactured board, verified with oscilloscope and multimeter</li><li>Performed BLDC drive measurements and contributed to the transfer functions of its current and speed loops in MATLAB/Simulink</li><li>Characterized transistors and Zener, Schottky and rectifier diodes in the lab to select the components of a supercapacitor energy backup system</li><li>Built, with the team, a Python HiL test bench (real traction motor and driving simulator) showing with measured data that constant throttle is more efficient than pulse-and-glide</li><li>Validated cockpit layout and seating position with an ergonomic RULA analysis (virtual human model in Tecnomatix Process Simulate), contributing to the 2026 Vehicle Design Award</li><li>Proposed a QR inventory system for tools and PPE and programmed its first Python/OpenCV version (generated QR codes, automatic detection, scan logging) to track material at competitions</li></ul>
+  <a class="cv-more" href="{{ '/projects/ecovolt-telemetry/#my-contribution' | relative_url }}">See the project →</a>
 </div>
 <div class="pc-card cv-card">
-  <div class="cv-head"><div><div class="cv-what">Visiting Student — Semiconductor Fabrication Intensive</div><div class="cv-where">MIT.nano Lab, Massachusetts Institute of Technology · Cambridge, MA, USA</div></div><div class="cv-when">Oct 2025</div></div>
+  <div class="cv-head"><div><div class="cv-what"><a href="{{ '/projects/mit-nano-fabrication/' | relative_url }}">Visiting Student — Semiconductor Fabrication Intensive</a></div><div class="cv-where">MIT.nano Lab, Massachusetts Institute of Technology · Cambridge, MA, USA</div></div><div class="cv-when">Oct 2025</div></div>
   <ul><li>Hands-on device fabrication (semiconductors, solar cells, microfluidics) via thin-film deposition (PECVD/PVD) and chemical etching</li><li>Ran photolithography and characterization processes in Class 100/1K/10K cleanrooms under strict safety protocols</li><li>Characterized the fabricated devices: IV curve of the solar cell, force–displacement test of the MEMS cantilever and flow tests of the microfluidic mixer</li></ul>
+  <a class="cv-more" href="{{ '/projects/mit-nano-fabrication/' | relative_url }}">See the project →</a>
 </div>
 <h2 class="pc-h cv-h"><i class="fa-solid fa-diagram-project"></i> Projects</h2>
 <div class="cv-proj">
   <div class="pc-card cv-card">
-    <div class="cv-head"><div class="cv-what">Digital Twin of a Flexible CNC Manufacturing Cell</div><a href="{{ '/projects/orza-digital-twin/' | relative_url }}">Details →</a></div>
+    <div class="cv-head"><div class="cv-what"><a href="{{ '/projects/orza-digital-twin/' | relative_url }}">Digital Twin of a Flexible CNC Manufacturing Cell</a></div><a href="{{ '/projects/orza-digital-twin/' | relative_url }}">Details →</a></div>
     <div class="cv-when">Feb 2026 – Jun 2026 · Team of 3, one station per member · virtual commissioning with no physical hardware</div>
     <ul><li>Commissioned my station fully in simulation: digital twin in Process Simulate (3 UR5 cobots, AGV, conveyors, CNC mill, camera) driven by a virtual S7-1500 (PLCSIM Advanced)</li><li>Programmed the TIA Portal ladder logic (step sequence, interlocks, manual mode, quality routing) and the WinCC HMI</li><li>Built the plant-wide SCADA screen (OEE, cycle time, scrap rate), a C# Modbus TCP sensor and an S7 GET/PUT link with link-loss alarm</li></ul>
   </div>
   <div class="pc-card cv-card">
-    <div class="cv-head"><div class="cv-what">Vision-Guided SCARA Pick-and-Place Robot (4 DoF)</div><a href="{{ '/projects/scara-robot/' | relative_url }}">Details →</a></div>
+    <div class="cv-head"><div class="cv-what"><a href="{{ '/projects/scara-robot/' | relative_url }}">Vision-Guided SCARA Pick-and-Place Robot (4 DoF)</a></div><a href="{{ '/projects/scara-robot/' | relative_url }}">Details →</a></div>
     <div class="cv-when">Feb 2026 – Jun 2026 · Team of 4 · firmware, electronics and computer-vision integration</div>
     <ul><li>Built the vision pipeline: YOLOv11n shape/color classification (mAP@0.5 = 0.72) and ArUco-based pixel-to-mm homography, publishing pick coordinates over MQTT to the ESP32 firmware (C++, ESP-IDF, FreeRTOS)</li><li>Designed the control board in Altium Designer (ESP32, stepper/DC drivers, encoders, power distribution); selected motors and drivers and integrated the homing sensors (limit switch, AS5600 magnetic encoder)</li><li>Modeled forward/inverse kinematics and PID joint control in MATLAB/Simulink; final demo placed <strong>5 of 6 parts</strong> correctly at ~14 s per cycle</li></ul>
   </div>
   <div class="pc-card cv-card">
-    <div class="cv-head"><div class="cv-what">Automated Viscosity Measurement System</div><a href="{{ '/projects/endress-viscosity/' | relative_url }}">Details →</a></div>
+    <div class="cv-head"><div class="cv-what"><a href="{{ '/projects/endress-viscosity/' | relative_url }}">Automated Viscosity Measurement System</a></div><a href="{{ '/projects/endress-viscosity/' | relative_url }}">Details →</a></div>
     <div class="cv-when">Aug 2025 – Dec 2025 · Team of 4 · PCB and embedded lead</div>
     <ul><li>Designed all three boards in Altium Designer: ESP32 master and slave (IPC-2221 trace sizing, fabricated by JLCPCB) and the op-amp measurement board</li><li>Co-developed a two-stage op-amp signal chain (1 Ω shunt, ~400× gain) that maps a 6 mA current window onto the ESP32 ADC range, <strong>separating 252 cP from 1676 cP</strong>; verified in Multisim and on hardware</li><li>Co-wrote the ESP32 firmware (homing and measurement routines, filtering, I²C color sensor, Bluetooth to a LabVIEW HMI, inter-board UART) and co-programmed the OpenPLC ladder logic for the sorting conveyors</li></ul>
   </div>
   <div class="pc-card cv-card">
-    <div class="cv-head"><div class="cv-what">Scissor Lift &amp; AGV</div><a href="{{ '/projects/agv-platform/' | relative_url }}">Details →</a></div>
+    <div class="cv-head"><div class="cv-what"><a href="{{ '/projects/agv-platform/' | relative_url }}">Scissor Lift &amp; AGV</a></div><a href="{{ '/projects/agv-platform/' | relative_url }}">Details →</a></div>
     <div class="cv-when">Feb 2025 – Jun 2025 · Team of 5 · mechanical design and load-cell electronics</div>
     <ul><li>Built the full SolidWorks assembly; ran NX motion and SolidWorks static studies (max. arm deflection 0.28 mm); designed and 3D-printed the tilting cam (≥30° dump angle vs. ≥25° required)</li><li>Designed a load-cell conditioning PCB (Wheatstone bridge, op-amp stages, RC low-pass) without an HX711, giving a linear 0–3 V output over 0–5 kg into the ESP32 ADC</li><li>Turned and milled the aluminum motor coupler and connecting rod; frame load-tested <strong>above 100 kg</strong>, carried 7 kg at the final demo (5 kg required)</li></ul>
   </div>
@@ -130,8 +136,8 @@ toc:
   <div><strong><i class="fa-solid fa-code" style="color:var(--global-theme-color)"></i> Programming</strong><span class="pc-tag">C</span><span class="pc-tag">C++</span><span class="pc-tag">Python</span><span class="pc-tag">SQL</span></div>
 </div>
 <div class="cv-two">
-  <div><h2 class="pc-h cv-h"><i class="fa-solid fa-trophy"></i> Awards</h2><ul class="cv-mini"><li>Vehicle Design Award – Prototype category <span>· Shell Eco-marathon (United States 2026)</span></li><li>Data &amp; Telemetry Award — 1st place <span>· Shell Eco-marathon (Americas 2025)</span></li><li>Data &amp; Telemetry Award — 2nd place <span>· Shell Eco-marathon (United States 2026)</span></li><li>Honorable Mention <span>· Altair Global Student Contest 2025</span></li></ul><p style="margin-top:.6rem"><a href="{{ '/achievements/' | relative_url }}">All achievements →</a></p></div>
-  <div><h2 class="pc-h cv-h"><i class="fa-solid fa-certificate"></i> Certifications</h2><ul class="cv-mini"><li>Process Simulate Standalone Associate <span>· Siemens</span></li><li>Educational Robotics Training – Core <span>· Universal Robots</span></li><li>Certified SolidWorks Associate (CSWA) <span>· Dassault Systèmes</span></li><li>MATLAB, Simulink and Simscape Onramp <span>· MathWorks</span></li><li>Educational PCB Basic Design <span>· Altium Designer</span></li></ul>
+  <div><h2 class="pc-h cv-h"><i class="fa-solid fa-trophy"></i> <a href="{{ '/achievements/' | relative_url }}#awards">Awards <span class="cv-h-arrow">→</span></a></h2><ul class="cv-mini"><li>Vehicle Design Award – Prototype category <span>· Shell Eco-marathon (United States 2026)</span></li><li>Data &amp; Telemetry Award — 1st place <span>· Shell Eco-marathon (Americas 2025)</span></li><li>Data &amp; Telemetry Award — 2nd place <span>· Shell Eco-marathon (United States 2026)</span></li><li>Honorable Mention <span>· Altair Global Student Contest 2025</span></li></ul><p style="margin-top:.6rem"><a href="{{ '/achievements/' | relative_url }}">All achievements →</a></p></div>
+  <div><h2 class="pc-h cv-h"><i class="fa-solid fa-certificate"></i> <a href="{{ '/achievements/' | relative_url }}#certifications">Certifications <span class="cv-h-arrow">→</span></a></h2><ul class="cv-mini"><li>Process Simulate Standalone Associate <span>· Siemens</span></li><li>Educational Robotics Training – Core <span>· Universal Robots</span></li><li>Certified SolidWorks Associate (CSWA) <span>· Dassault Systèmes</span></li><li>MATLAB, Simulink and Simscape Onramp <span>· MathWorks</span></li><li>Educational PCB Basic Design <span>· Altium Designer</span></li></ul>
 </div>
 </div>
 <h2 class="pc-h cv-h"><i class="fa-solid fa-language"></i> Languages</h2>

@@ -117,7 +117,7 @@ certificates:
   <div class="ach-kpi"><b>1</b><span>IEEE paper (first author)</span></div>
 </div>
 
-<h2 class="ach-h">Awards</h2>
+<h2 class="ach-h" id="awards">Awards</h2>
 <p class="ach-sub">EcoVolt CCM EV Racing Team (Escudería) — Team Captain &amp; Electronics Lead, 2023–2026</p>
 
 <div class="ach-awards">
@@ -177,7 +177,7 @@ certificates:
   </div>
 </div>
 
-<h2 class="ach-h">Certifications at a glance</h2>
+<h2 class="ach-h" id="certifications">Certifications at a glance</h2>
 <div class="ach-certs">
   <div class="ach-cert"><div class="iss">Siemens</div><div class="nm">Process Simulate Standalone Associate</div><div class="dt">Jun 2026</div></div>
   <div class="ach-cert"><div class="iss">Dassault Systèmes</div><div class="nm">Certified SOLIDWORKS Associate (CSWA)</div><div class="dt">Aug 2026</div></div>
