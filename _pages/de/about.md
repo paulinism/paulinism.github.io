@@ -96,15 +96,6 @@ latest_posts:
   @media (max-width: 860px) { .hm-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 150px; } }
   @media (max-width: 480px) { .hm-gallery { grid-auto-rows: 125px; } .hm-tile figcaption { font-size: .72rem; } }
 
-  /* ---- Home: skills cards ---- */
-  .sk-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .9rem; margin: .4rem 0 1.2rem; }
-  .sk-card { border: 1px solid rgba(128,128,128,.3); border-radius: 12px; padding: .9rem 1rem; transition: border-color .15s ease, transform .15s ease; }
-  .sk-card:hover { border-color: var(--global-theme-color); transform: translateY(-2px); }
-  .sk-ico { display: inline-flex; align-items: center; justify-content: center; width: 2.2rem; height: 2.2rem; border-radius: 8px; background: rgba(128,128,128,.12); color: var(--global-theme-color); font-size: 1.05rem; margin-bottom: .45rem; }
-  .sk-card h3 { font-size: 1rem; font-weight: 700; margin: 0 0 .3rem; }
-  .sk-card p { font-size: .85rem; line-height: 1.45; opacity: .85; margin: 0 0 .5rem; }
-  @media (max-width: 860px) { .sk-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-  @media (max-width: 560px) { .sk-grid { grid-template-columns: minmax(0, 1fr); } }
 </style>
 
 <section class="hero">
@@ -145,17 +136,18 @@ latest_posts:
   </div>
 </section>
 
-<h2 class="hm-h" id="skills">Kenntnisse</h2>
-<p class="hm-sub">Woran ich arbeite — und mit welchen Werkzeugen.</p>
-<div class="sk-grid">
-  <div class="sk-card"><span class="sk-ico"><i class="fa-solid fa-microchip"></i></span><h3>Embedded Systems &amp; Firmware</h3><p>ESP32-Firmware in C/C++ für Telemetrie und Roboter: Bustreiber, Datenaufzeichnung und Funkverbindungen.</p><div><span class="ab-tag">ESP32</span><span class="ab-tag">C/C++</span><span class="ab-tag">CAN</span><span class="ab-tag">SPI · I2C · UART</span><span class="ab-tag">MQTT</span><span class="ab-tag">PlatformIO</span><span class="ab-tag">Git</span></div></div>
-  <div class="sk-card"><span class="sk-ico"><i class="fa-solid fa-bolt"></i></span><h3>Platinenentwurf &amp; Elektronik</h3><p>Vom Schaltplan bis zur Inbetriebnahme in Altium: Messketten, Strommessung, Mehrlagenplatinen und SMD/THT-Bestückung.</p><div><span class="ab-tag">Altium Designer</span><span class="ab-tag">Multisim</span><span class="ab-tag">OPV-Schaltungen</span><span class="ab-tag">INA240</span><span class="ab-tag">Löten</span><span class="ab-tag">Laborgeräte</span><span class="ab-tag">LabVIEW</span></div></div>
-  <div class="sk-card"><span class="sk-ico"><i class="fa-solid fa-sliders"></i></span><h3>Regelung &amp; Simulation</h3><p>Modellbasierte Entwicklung: Übertragungsfunktionen, PID-Regelkreise und Model-/Hardware-in-the-Loop-Tests.</p><div><span class="ab-tag">MATLAB</span><span class="ab-tag">Simulink</span><span class="ab-tag">Simscape</span><span class="ab-tag">PID</span><span class="ab-tag">Nichtlineare Regelung</span><span class="ab-tag">MiL / HiL</span></div></div>
-  <div class="sk-card"><span class="sk-ico"><i class="fa-solid fa-industry"></i></span><h3>Industrielle Automatisierung</h3><p>SPS-Ablaufketten, HMI/SCADA und virtuelle Inbetriebnahme eines digitalen Zwillings mit Cobots.</p><div><span class="ab-tag">TIA Portal</span><span class="ab-tag">S7-1500</span><span class="ab-tag">WinCC</span><span class="ab-tag">PLCSIM Adv.</span><span class="ab-tag">Process Simulate</span><span class="ab-tag">UR-Cobots</span></div></div>
-  <div class="sk-card"><span class="sk-ico"><i class="fa-solid fa-eye"></i></span><h3>Bildverarbeitung &amp; Daten</h3><p>Bildverarbeitung in Python, Objekterkennung, industrielle Prüfung und Datenanalyse.</p><div><span class="ab-tag">Python</span><span class="ab-tag">OpenCV</span><span class="ab-tag">YOLOv11</span><span class="ab-tag">Cognex In-Sight</span><span class="ab-tag">NumPy</span><span class="ab-tag">Altair AI Studio</span></div></div>
-  <div class="sk-card"><span class="sk-ico"><i class="fa-solid fa-gears"></i></span><h3>Konstruktion &amp; Fertigung</h3><p>CAD-Baugruppen, Bewegungs- und Festigkeitsanalysen, CAM und praktische Fertigung bis zum Reinraum.</p><div><span class="ab-tag">SolidWorks (CSWA)</span><span class="ab-tag">Siemens NX</span><span class="ab-tag">CAM</span><span class="ab-tag">3D-Druck</span><span class="ab-tag">Drehen · Fräsen</span><span class="ab-tag">Reinraum</span></div></div>
+<div class="ab-bottom">
+<div class="ab-areas">
+  <div class="ab-area"><strong>Embedded &amp; Elektronik</strong><span class="ab-tag">ESP32</span><span class="ab-tag">C/C++</span><span class="ab-tag">CAN</span><span class="ab-tag">SPI · I2C · UART</span><span class="ab-tag">MQTT</span><span class="ab-tag">PlatformIO</span><span class="ab-tag">Git</span></div>
+  <div class="ab-area"><strong>Platinenentwurf &amp; Messtechnik</strong><span class="ab-tag">Altium Designer</span><span class="ab-tag">Platinenentwurf</span><span class="ab-tag">Multisim</span><span class="ab-tag">OPV-Schaltungen</span><span class="ab-tag">Messtechnik</span><span class="ab-tag">Löten (SMD/THT)</span><span class="ab-tag">LabVIEW</span></div>
+  <div class="ab-area"><strong>Regelung &amp; Simulation</strong><span class="ab-tag">MATLAB/Simulink</span><span class="ab-tag">Simscape</span><span class="ab-tag">Python</span><span class="ab-tag">PID</span><span class="ab-tag">Nichtlineare Regelung</span><span class="ab-tag">MiL / HiL</span></div>
+  <div class="ab-area"><strong>Automatisierung &amp; Robotik</strong><span class="ab-tag">Siemens TIA Portal</span><span class="ab-tag">S7-1500</span><span class="ab-tag">WinCC</span><span class="ab-tag">PLCSIM Advanced</span><span class="ab-tag">Rockwell SPS/HMI</span><span class="ab-tag">UR-Cobots</span><span class="ab-tag">Process Simulate</span></div>
+  <div class="ab-area"><strong>Bildverarbeitung &amp; Daten</strong><span class="ab-tag">Python</span><span class="ab-tag">OpenCV</span><span class="ab-tag">YOLO</span><span class="ab-tag">Cognex In-Sight</span><span class="ab-tag">NumPy</span><span class="ab-tag">Altair AI Studio</span></div>
+  <div class="ab-area"><strong>Konstruktion &amp; Fertigung</strong><span class="ab-tag">SolidWorks CAD/CAM</span><span class="ab-tag">NX</span><span class="ab-tag">3D-Druck</span><span class="ab-tag">Drehen · Fräsen</span><span class="ab-tag">Reinraum (MIT.nano)</span></div>
 </div>
+
 <div class="ab-cta"><strong>Verfügbar ab Februar/März 2027</strong> für ein Praktikum in Embedded Systems, Hardware oder industrieller Automatisierung.</div>
+</div>
 
 ## Ausgewählte Projekte
 

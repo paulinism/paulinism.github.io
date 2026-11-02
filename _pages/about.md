@@ -94,15 +94,6 @@ latest_posts:
   @media (max-width: 860px) { .hm-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 150px; } }
   @media (max-width: 480px) { .hm-gallery { grid-auto-rows: 125px; } .hm-tile figcaption { font-size: .72rem; } }
 
-  /* ---- Home: skills cards ---- */
-  .sk-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .9rem; margin: .4rem 0 1.2rem; }
-  .sk-card { border: 1px solid rgba(128,128,128,.3); border-radius: 12px; padding: .9rem 1rem; transition: border-color .15s ease, transform .15s ease; }
-  .sk-card:hover { border-color: var(--global-theme-color); transform: translateY(-2px); }
-  .sk-ico { display: inline-flex; align-items: center; justify-content: center; width: 2.2rem; height: 2.2rem; border-radius: 8px; background: rgba(128,128,128,.12); color: var(--global-theme-color); font-size: 1.05rem; margin-bottom: .45rem; }
-  .sk-card h3 { font-size: 1rem; font-weight: 700; margin: 0 0 .3rem; }
-  .sk-card p { font-size: .85rem; line-height: 1.45; opacity: .85; margin: 0 0 .5rem; }
-  @media (max-width: 860px) { .sk-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-  @media (max-width: 560px) { .sk-grid { grid-template-columns: minmax(0, 1fr); } }
 </style>
 
 <section class="hero">
@@ -143,17 +134,18 @@ latest_posts:
   </div>
 </section>
 
-<h2 class="hm-h" id="skills">Skills</h2>
-<p class="hm-sub">What I work on — and the tools I use for it.</p>
-<div class="sk-grid">
-  <div class="sk-card"><span class="sk-ico"><i class="fa-solid fa-microchip"></i></span><h3>Embedded Systems &amp; Firmware</h3><p>ESP32 firmware in C/C++ for telemetry and robots: bus drivers, data logging and wireless links.</p><div><span class="ab-tag">ESP32</span><span class="ab-tag">C/C++</span><span class="ab-tag">CAN</span><span class="ab-tag">SPI · I2C · UART</span><span class="ab-tag">MQTT</span><span class="ab-tag">PlatformIO</span><span class="ab-tag">Git</span></div></div>
-  <div class="sk-card"><span class="sk-ico"><i class="fa-solid fa-bolt"></i></span><h3>PCB Design &amp; Electronics</h3><p>Schematic to bring-up in Altium: measurement chains, current sensing, multilayer boards and SMD/THT assembly.</p><div><span class="ab-tag">Altium Designer</span><span class="ab-tag">Multisim</span><span class="ab-tag">Op-amp circuits</span><span class="ab-tag">INA240</span><span class="ab-tag">Soldering</span><span class="ab-tag">Lab equipment</span><span class="ab-tag">LabVIEW</span></div></div>
-  <div class="sk-card"><span class="sk-ico"><i class="fa-solid fa-sliders"></i></span><h3>Control &amp; Simulation</h3><p>Model-based design: transfer functions, PID loops and model/hardware-in-the-loop testing.</p><div><span class="ab-tag">MATLAB</span><span class="ab-tag">Simulink</span><span class="ab-tag">Simscape</span><span class="ab-tag">PID</span><span class="ab-tag">Nonlinear control</span><span class="ab-tag">MiL / HIL</span></div></div>
-  <div class="sk-card"><span class="sk-ico"><i class="fa-solid fa-industry"></i></span><h3>Industrial Automation</h3><p>PLC sequences, HMI/SCADA and virtual commissioning of a digital twin with cobots.</p><div><span class="ab-tag">TIA Portal</span><span class="ab-tag">S7-1500</span><span class="ab-tag">WinCC</span><span class="ab-tag">PLCSIM Adv.</span><span class="ab-tag">Process Simulate</span><span class="ab-tag">UR cobots</span></div></div>
-  <div class="sk-card"><span class="sk-ico"><i class="fa-solid fa-eye"></i></span><h3>Computer Vision &amp; Data</h3><p>Python vision pipelines, object detection, industrial inspection and data analysis.</p><div><span class="ab-tag">Python</span><span class="ab-tag">OpenCV</span><span class="ab-tag">YOLOv11</span><span class="ab-tag">Cognex In-Sight</span><span class="ab-tag">NumPy</span><span class="ab-tag">Altair AI Studio</span></div></div>
-  <div class="sk-card"><span class="sk-ico"><i class="fa-solid fa-gears"></i></span><h3>Mechanical Design &amp; Fabrication</h3><p>CAD assemblies, motion and static studies, CAM and hands-on fabrication up to the cleanroom.</p><div><span class="ab-tag">SolidWorks (CSWA)</span><span class="ab-tag">Siemens NX</span><span class="ab-tag">CAM</span><span class="ab-tag">3D printing</span><span class="ab-tag">Turning · Milling</span><span class="ab-tag">Cleanroom</span></div></div>
+<div class="ab-bottom">
+<div class="ab-areas">
+  <div class="ab-area"><strong>Embedded &amp; Electronics</strong><span class="ab-tag">ESP32</span><span class="ab-tag">C/C++</span><span class="ab-tag">CAN</span><span class="ab-tag">SPI · I2C · UART</span><span class="ab-tag">MQTT</span><span class="ab-tag">PlatformIO</span><span class="ab-tag">Git</span></div>
+  <div class="ab-area"><strong>PCB Design &amp; Measurement</strong><span class="ab-tag">Altium Designer</span><span class="ab-tag">PCB design</span><span class="ab-tag">Multisim</span><span class="ab-tag">Op-amp circuits</span><span class="ab-tag">Instrumentation</span><span class="ab-tag">Soldering (SMD/THT)</span><span class="ab-tag">LabVIEW</span></div>
+  <div class="ab-area"><strong>Control &amp; Simulation</strong><span class="ab-tag">MATLAB/Simulink</span><span class="ab-tag">Simscape</span><span class="ab-tag">Python</span><span class="ab-tag">PID</span><span class="ab-tag">Nonlinear control</span><span class="ab-tag">MiL / HIL</span></div>
+  <div class="ab-area"><strong>Automation &amp; Robotics</strong><span class="ab-tag">Siemens TIA Portal</span><span class="ab-tag">S7-1500</span><span class="ab-tag">WinCC</span><span class="ab-tag">PLCSIM Advanced</span><span class="ab-tag">Rockwell PLC/HMI</span><span class="ab-tag">UR cobots</span><span class="ab-tag">Process Simulate</span></div>
+  <div class="ab-area"><strong>Vision &amp; Data</strong><span class="ab-tag">Python</span><span class="ab-tag">OpenCV</span><span class="ab-tag">YOLO</span><span class="ab-tag">Cognex In-Sight</span><span class="ab-tag">NumPy</span><span class="ab-tag">Altair AI Studio</span></div>
+  <div class="ab-area"><strong>Design &amp; Fabrication</strong><span class="ab-tag">SolidWorks CAD/CAM</span><span class="ab-tag">NX</span><span class="ab-tag">3D printing</span><span class="ab-tag">Turning · Milling</span><span class="ab-tag">Cleanroom (MIT.nano)</span></div>
 </div>
+
 <div class="ab-cta"><strong>Available from February/March 2027</strong> for a mandatory internship (Praktikum) in embedded systems, hardware or industrial automation.</div>
+</div>
 
 ## Featured projects
 
