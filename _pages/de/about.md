@@ -81,6 +81,33 @@ latest_posts:
   .ab-bottom { display: grid; grid-template-columns: minmax(0, 2.1fr) minmax(0, 1fr); gap: 2.5rem; align-items: center; margin-bottom: 1.5rem; }
   .ab-bottom .ab-cta { margin: 0; padding: 1rem 1.1rem; font-size: 1.05rem; line-height: 1.5; border: 1px solid rgba(128,128,128,.3); border-left: 4px solid var(--global-theme-color); border-radius: 10px; }
   @media (max-width: 860px) { .ab-bottom { grid-template-columns: minmax(0, 1fr); gap: 0; } .ab-bottom .ab-cta { margin: 1.25rem 0 .75rem; } }
+
+  /* ---- Home: photo highlights ---- */
+  .hm-h { font-size: 1.45rem; font-weight: 700; margin: 2.2rem 0 .35rem; }
+  .hm-sub { opacity: .8; margin: 0 0 1rem; font-size: .95rem; }
+  .hm-gallery { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-auto-rows: 170px; gap: .75rem; }
+  .hm-tile { position: relative; margin: 0; overflow: hidden; border-radius: 12px; border: 1px solid rgba(128,128,128,.3); }
+  .hm-tile img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .35s ease; }
+  .hm-tile:hover img { transform: scale(1.04); }
+  .hm-tile figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 1.4rem .7rem .55rem; font-size: .8rem; line-height: 1.3; color: #fff; background: linear-gradient(transparent, rgba(0,0,0,.78)); }
+  .hm-tile figcaption strong { display: block; font-size: .86rem; color: #fff; }
+  .hm-big { grid-column: span 2; grid-row: span 2; }
+  .hm-wide { grid-column: span 2; }
+  @media (max-width: 860px) { .hm-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 150px; } }
+  @media (max-width: 480px) { .hm-gallery { grid-auto-rows: 125px; } .hm-tile figcaption { font-size: .72rem; } }
+  /* ---- Home: experience timeline ---- */
+  .hm-tl { position: relative; margin: .5rem 0 1.5rem; padding-left: 1.6rem; }
+  .hm-tl::before { content: ""; position: absolute; left: .45rem; top: .4rem; bottom: .4rem; width: 2px; background: rgba(128,128,128,.35); }
+  .hm-item { position: relative; display: grid; grid-template-columns: 112px minmax(0, 1fr); gap: 1rem; align-items: start; border: 1px solid rgba(128,128,128,.3); border-radius: 12px; padding: .85rem; margin-bottom: .9rem; }
+  .hm-item::before { content: ""; position: absolute; left: -1.5rem; top: 1.1rem; width: .8rem; height: .8rem; border-radius: 50%; background: var(--global-theme-color); box-shadow: 0 0 0 3px var(--global-bg-color); }
+  .hm-item img { width: 112px; height: 112px; object-fit: cover; border-radius: 10px; display: block; }
+  .hm-when { font-family: "Roboto Mono", ui-monospace, monospace; font-size: .8rem; color: var(--global-theme-color); font-weight: 600; }
+  .hm-role { font-weight: 700; font-size: 1.02rem; margin: .1rem 0 0; }
+  .hm-org { font-size: .88rem; opacity: .8; margin: 0 0 .35rem; }
+  .hm-item ul { margin: 0; padding-left: 1.1rem; font-size: .88rem; line-height: 1.45; }
+  .hm-item ul li { margin: 0 0 .15rem; }
+  .hm-item a.hm-more { font-size: .85rem; font-weight: 600; }
+  @media (max-width: 560px) { .hm-item { grid-template-columns: minmax(0, 1fr); } .hm-item img { width: 100%; height: 160px; } }
 </style>
 
 <section class="hero">
@@ -130,6 +157,64 @@ latest_posts:
 </div>
 
 <div class="ab-cta"><strong>Verfügbar ab Februar/März 2027</strong> für ein Praktikum in Embedded Systems, Hardware oder industrieller Automatisierung.</div>
+</div>
+
+
+<h2 class="hm-h" id="highlights">Auf der Strecke, im Labor, auf der Bühne</h2>
+<p class="hm-sub">Einige Momente hinter den Projekten — Wettbewerbe, Reinraumarbeit und die Hardware selbst.</p>
+<div class="hm-gallery">
+  <figure class="hm-tile hm-big"><img src="/assets/img/home/track.jpg" alt="Prototyp von EcoVolt CCM auf der Strecke" loading="lazy"><figcaption><strong>Prototyp EcoVolt CCM</strong>Energieeffizientes E-Fahrzeug, ca. 200 km/kWh bei ca. 28 km/h</figcaption></figure>
+  <figure class="hm-tile"><img src="/assets/img/home/award-2025.jpg" alt="Data and Telemetry Award 2025" loading="lazy"><figcaption><strong>1. Platz 2025</strong>Data &amp; Telemetry Award</figcaption></figure>
+  <figure class="hm-tile"><img src="/assets/img/home/soldering.jpg" alt="Löten der Telemetrie-Elektronik" loading="lazy"><figcaption><strong>Telemetrie-Hardware</strong>Bestückung &amp; Inbetriebnahme</figcaption></figure>
+  <figure class="hm-tile hm-wide"><img src="/assets/img/home/award-us26.jpg" alt="Shell Eco-marathon United States 2026" loading="lazy"><figcaption><strong>Shell Eco-marathon US 2026</strong>Vehicle Design Award &amp; 2. Platz Data &amp; Telemetry</figcaption></figure>
+  <figure class="hm-tile"><img src="/assets/img/home/mit-cleanroom.jpg" alt="Reinraum MIT.nano" loading="lazy"><figcaption><strong>MIT.nano</strong>Mikrofertigung im Reinraum</figcaption></figure>
+  <figure class="hm-tile"><img src="/assets/img/home/assembly.jpg" alt="Arbeit im Fahrerlager" loading="lazy"><figcaption><strong>Fahrerlager</strong>Fahrzeugelektronik vor Ort</figcaption></figure>
+  <figure class="hm-tile hm-wide"><img src="/assets/img/home/endress.jpg" alt="Besuch bei Endress+Hauser" loading="lazy"><figcaption><strong>Endress+Hauser</strong>Viskositätsprojekt mit Industriepartner</figcaption></figure>
+  <figure class="hm-tile hm-wide"><img src="/assets/img/home/shell-explaining.jpg" alt="Präsentation beim Shell Eco-marathon" loading="lazy"><figcaption><strong>Unsere Systeme vorstellen</strong>Off-Track-Awards beim Shell Eco-marathon</figcaption></figure>
+</div>
+
+<h2 class="hm-h" id="experience">Praxis &amp; Studium</h2>
+<div class="hm-tl">
+  <div class="hm-item"><img src="/assets/img/home/assembly.jpg" alt="EcoVolt CCM" loading="lazy"><div>
+    <div class="hm-when">08/2023 – 08/2026</div>
+    <p class="hm-role">Teamkapitänin, Leiterin Elektronik &amp; Mentorin</p>
+    <p class="hm-org">Elektro-Rennteam EcoVolt CCM · Shell Eco-marathon</p>
+    <ul>
+      <li>Leitung eines Teams mit ca. 30 Mitgliedern; energieeffizientes E-Fahrzeug mit ca. 200 km/kWh bei ca. 28 km/h</li>
+      <li>Telemetrie-Platinen in Altium entwickelt und ESP32-Firmware in C++ geschrieben (CAN, SPI, I2C, UART)</li>
+      <li>Data &amp; Telemetry Award: 1. Platz 2025, 2. Platz 2026 · Vehicle Design Award 2026</li>
+    </ul>
+    <a class="hm-more" href="/de/projects/ecovolt-telemetry/">Zum Telemetrie-Projekt →</a>
+  </div></div>
+  <div class="hm-item"><img src="/assets/img/home/solar.jpg" alt="Solarzelle MIT.nano" loading="lazy"><div>
+    <div class="hm-when">10/2025</div>
+    <p class="hm-role">Gaststudentin — NanoLab Microfabrication Program</p>
+    <p class="hm-org">MIT.nano · Massachusetts Institute of Technology</p>
+    <ul>
+      <li>Solarzelle, MEMS-Cantilever und Mikrofluidik-Mischer gefertigt (Lithografie, PECVD/PVD, Ätzen)</li>
+      <li>Bauelemente charakterisiert: IV-Kennlinie, mechanische und Fluidtests</li>
+    </ul>
+    <a class="hm-more" href="/de/projects/mit-nano-fabrication/">Zum MIT.nano-Projekt →</a>
+  </div></div>
+  <div class="hm-item"><img src="/assets/img/home/orza.jpg" alt="Layout des digitalen Zwillings" loading="lazy"><div>
+    <div class="hm-when">2025 – 2026</div>
+    <p class="hm-role">Projekte mit Industriepartnern</p>
+    <p class="hm-org">Endress+Hauser · ORZA Tech · mit dem Tecnológico de Monterrey</p>
+    <ul>
+      <li>Messelektronik für ein Viskositätssystem auf drei eigenen Platinen — 252 cP und 1676 cP zuverlässig unterschieden</li>
+      <li>Digitaler Zwilling einer CNC-Zelle: S7-1500 mit 35-stufiger Ablaufkette, SCADA und KPI (Yield, Ausschuss, OEE)</li>
+    </ul>
+    <a class="hm-more" href="/de/projects/">Alle Projekte →</a>
+  </div></div>
+  <div class="hm-item"><img src="/assets/img/home/pcb.jpg" alt="Telemetrie-Platine" loading="lazy"><div>
+    <div class="hm-when">08/2023 – 12/2027</div>
+    <p class="hm-role">Studium: B.Sc. Mechatronik &amp; B.Eng. Elektrotechnik (DHIK-Doppelabschluss)</p>
+    <p class="hm-org">Tecnológico de Monterrey · Hochschule Zittau/Görlitz (seit 09/2026)</p>
+    <ul>
+      <li>Notenschnitt 92/100 (≈ 1,8) · Leistungsstipendium (30 %)</li>
+      <li>Aktuelle Module: Kollaborative Roboter, Neuronale Netze, Mikrocontroller, Bildverarbeitung, Advanced Control Theory</li>
+    </ul>
+  </div></div>
 </div>
 
 ## Ausgewählte Projekte
