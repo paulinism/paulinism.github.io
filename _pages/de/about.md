@@ -85,7 +85,7 @@ latest_posts:
   /* ---- Home: photo highlights ---- */
   .hm-h { font-size: 1.45rem; font-weight: 700; margin: 2.2rem 0 .35rem; }
   .hm-sub { opacity: .8; margin: 0 0 1rem; font-size: .95rem; }
-  .hm-gallery { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-auto-rows: 170px; gap: .75rem; }
+  .hm-gallery { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-auto-rows: 170px; gap: .75rem; margin-bottom: 2rem; }
   .hm-tile { position: relative; margin: 0; overflow: hidden; border-radius: 12px; border: 1px solid rgba(128,128,128,.3); }
   .hm-tile img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .35s ease; }
   .hm-tile:hover img { transform: scale(1.04); }
