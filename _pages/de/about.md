@@ -149,7 +149,7 @@ latest_posts:
 <div class="ab-cta"><strong>Verfügbar ab Februar/März 2027</strong> für ein Praktikum in Embedded Systems, Hardware oder industrieller Automatisierung.</div>
 </div>
 
-## Ausgewählte Projekte
+## Ausgewählte Projekte {#featured-projects}
 
 <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:1.5rem; margin-top:1.5rem;">
 {% assign featured = site.pages | where: "de_project", true | where: "featured", true | sort: "importance" %}
