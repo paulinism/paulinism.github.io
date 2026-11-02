@@ -107,7 +107,7 @@ latest_posts:
   .hm-item ul { margin: 0; padding-left: 1.1rem; font-size: .88rem; line-height: 1.45; }
   .hm-item ul li { margin: 0 0 .15rem; }
   .hm-item a.hm-more { font-size: .85rem; font-weight: 600; }
-  @media (max-width: 560px) { .hm-item { grid-template-columns: minmax(0, 1fr); } .hm-item img { width: 100%; height: 160px; } }
+  @media (max-width: 560px) { .hm-item { grid-template-columns: 72px minmax(0, 1fr); gap: .7rem; padding: .7rem; } .hm-item img { width: 72px; height: 72px; } }
 </style>
 
 <section class="hero">
@@ -169,13 +169,12 @@ latest_posts:
   <figure class="hm-tile hm-wide"><img src="/assets/img/home/award-us26.jpg" alt="Shell Eco-marathon United States 2026" loading="lazy"><figcaption><strong>Shell Eco-marathon US 2026</strong>Vehicle Design Award &amp; 2. Platz Data &amp; Telemetry</figcaption></figure>
   <figure class="hm-tile"><img src="/assets/img/home/mit-cleanroom.jpg" alt="Reinraum MIT.nano" loading="lazy"><figcaption><strong>MIT.nano</strong>Mikrofertigung im Reinraum</figcaption></figure>
   <figure class="hm-tile"><img src="/assets/img/home/assembly.jpg" alt="Arbeit im Fahrerlager" loading="lazy"><figcaption><strong>Fahrerlager</strong>Fahrzeugelektronik vor Ort</figcaption></figure>
-  <figure class="hm-tile hm-wide"><img src="/assets/img/home/endress.jpg" alt="Besuch bei Endress+Hauser" loading="lazy"><figcaption><strong>Endress+Hauser</strong>Viskositätsprojekt mit Industriepartner</figcaption></figure>
   <figure class="hm-tile hm-wide"><img src="/assets/img/home/shell-explaining.jpg" alt="Präsentation beim Shell Eco-marathon" loading="lazy"><figcaption><strong>Unsere Systeme vorstellen</strong>Off-Track-Awards beim Shell Eco-marathon</figcaption></figure>
 </div>
 
 <h2 class="hm-h" id="experience">Praxis &amp; Studium</h2>
 <div class="hm-tl">
-  <div class="hm-item"><img src="/assets/img/home/assembly.jpg" alt="EcoVolt CCM" loading="lazy"><div>
+  <div class="hm-item"><img src="/assets/img/home/pcb.jpg" alt="EcoVolt CCM" loading="lazy"><div>
     <div class="hm-when">08/2023 – 08/2026</div>
     <p class="hm-role">Teamkapitänin, Leiterin Elektronik &amp; Mentorin</p>
     <p class="hm-org">Elektro-Rennteam EcoVolt CCM · Shell Eco-marathon</p>
@@ -196,7 +195,7 @@ latest_posts:
     </ul>
     <a class="hm-more" href="/de/projects/mit-nano-fabrication/">Zum MIT.nano-Projekt →</a>
   </div></div>
-  <div class="hm-item"><img src="/assets/img/home/orza.jpg" alt="Layout des digitalen Zwillings" loading="lazy"><div>
+  <div class="hm-item"><img src="/assets/img/home/endress.jpg" alt="Endress+Hauser" loading="lazy"><div>
     <div class="hm-when">2025 – 2026</div>
     <p class="hm-role">Projekte mit Industriepartnern</p>
     <p class="hm-org">Endress+Hauser · ORZA Tech · mit dem Tecnológico de Monterrey</p>
@@ -206,7 +205,7 @@ latest_posts:
     </ul>
     <a class="hm-more" href="/de/projects/">Alle Projekte →</a>
   </div></div>
-  <div class="hm-item"><img src="/assets/img/home/pcb.jpg" alt="Telemetrie-Platine" loading="lazy"><div>
+  <div class="hm-item"><img src="/assets/img/home/scara.jpg" alt="SCARA" loading="lazy"><div>
     <div class="hm-when">08/2023 – 12/2027</div>
     <p class="hm-role">Studium: B.Sc. Mechatronik &amp; B.Eng. Elektrotechnik (DHIK-Doppelabschluss)</p>
     <p class="hm-org">Tecnológico de Monterrey · Hochschule Zittau/Görlitz (seit 09/2026)</p>
