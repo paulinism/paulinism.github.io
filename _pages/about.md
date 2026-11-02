@@ -93,29 +93,6 @@ latest_posts:
   .hm-wide { grid-column: span 2; }
   @media (max-width: 860px) { .hm-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 150px; } }
   @media (max-width: 480px) { .hm-gallery { grid-auto-rows: 125px; } .hm-tile figcaption { font-size: .72rem; } }
-  /* ---- Home: experience timeline ---- */
-  .hm-tl { position: relative; margin: .5rem 0 1.5rem; padding-left: 1.6rem; }
-  .hm-tl::before { content: ""; position: absolute; left: .45rem; top: .4rem; bottom: .4rem; width: 2px; background: rgba(128,128,128,.35); }
-  .hm-item { position: relative; display: grid; grid-template-columns: 112px minmax(0, 1fr); gap: 1rem; align-items: start; border: 1px solid rgba(128,128,128,.3); border-radius: 12px; padding: .85rem; margin-bottom: .9rem; }
-  .hm-item::before { content: ""; position: absolute; left: -1.5rem; top: 1.1rem; width: .8rem; height: .8rem; border-radius: 50%; background: var(--global-theme-color); box-shadow: 0 0 0 3px var(--global-bg-color); }
-  .hm-item img { width: 112px; height: 112px; object-fit: cover; border-radius: 10px; display: block; }
-  .hm-when { font-family: "Roboto Mono", ui-monospace, monospace; font-size: .8rem; color: var(--global-theme-color); font-weight: 600; }
-  .hm-role { font-weight: 700; font-size: 1.02rem; margin: .1rem 0 0; }
-  .hm-org { font-size: .88rem; opacity: .8; margin: 0 0 .35rem; }
-  .hm-item ul { margin: 0; padding-left: 1.1rem; font-size: .88rem; line-height: 1.45; }
-  .hm-item ul li { margin: 0 0 .15rem; }
-  .hm-item a.hm-more { font-size: .85rem; font-weight: 600; }
-  @media (max-width: 560px) { .hm-item { grid-template-columns: 72px minmax(0, 1fr); gap: .7rem; padding: .7rem; } .hm-item img { width: 72px; height: 72px; } }
-
-  /* ---- Home: skills cards ---- */
-  .sk-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .9rem; margin: .4rem 0 1.2rem; }
-  .sk-card { border: 1px solid rgba(128,128,128,.3); border-radius: 12px; padding: .9rem 1rem; transition: border-color .15s ease, transform .15s ease; }
-  .sk-card:hover { border-color: var(--global-theme-color); transform: translateY(-2px); }
-  .sk-ico { display: inline-flex; align-items: center; justify-content: center; width: 2.2rem; height: 2.2rem; border-radius: 8px; background: rgba(128,128,128,.12); color: var(--global-theme-color); font-size: 1.05rem; margin-bottom: .45rem; }
-  .sk-card h3 { font-size: 1rem; font-weight: 700; margin: 0 0 .3rem; }
-  .sk-card p { font-size: .85rem; line-height: 1.45; opacity: .85; margin: 0 0 .5rem; }
-  @media (max-width: 860px) { .sk-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-  @media (max-width: 560px) { .sk-grid { grid-template-columns: minmax(0, 1fr); } }
 </style>
 
 <section class="hero">
@@ -168,50 +145,6 @@ latest_posts:
 </div>
 <div class="ab-cta"><strong>Available from February/March 2027</strong> for a mandatory internship (Praktikum) in embedded systems, hardware or industrial automation.</div>
 
-<h2 class="hm-h" id="experience">Experience &amp; education</h2>
-<div class="hm-tl">
-  <div class="hm-item"><img src="/assets/img/home/pcb.jpg" alt="EcoVolt CCM" loading="lazy"><div>
-    <div class="hm-when">08/2023 – 08/2026</div>
-    <p class="hm-role">Team Captain, Electronics Lead &amp; Mentor</p>
-    <p class="hm-org">EcoVolt CCM EV Racing Team · Shell Eco-marathon</p>
-    <ul>
-      <li>Led a ~30-member team developing an energy-efficient EV that reached ~200 km/kWh at ~28 km/h</li>
-      <li>Designed the telemetry PCBs in Altium and wrote the C++ ESP32 firmware (CAN, SPI, I2C, UART)</li>
-      <li>Data &amp; Telemetry Award: 1st place 2025, 2nd place 2026 · Vehicle Design Award 2026</li>
-    </ul>
-    <a class="hm-more" href="/projects/ecovolt-telemetry/">Telemetry project →</a>
-  </div></div>
-  <div class="hm-item"><img src="/assets/img/home/solar.jpg" alt="MIT.nano solar cell" loading="lazy"><div>
-    <div class="hm-when">10/2025</div>
-    <p class="hm-role">Visiting Student — NanoLab Microfabrication Program</p>
-    <p class="hm-org">MIT.nano · Massachusetts Institute of Technology</p>
-    <ul>
-      <li>Fabricated a solar cell, a MEMS cantilever and a microfluidic mixer (lithography, PECVD/PVD, etching)</li>
-      <li>Characterized the devices: IV curve, mechanical and fluid tests</li>
-    </ul>
-    <a class="hm-more" href="/projects/mit-nano-fabrication/">MIT.nano project →</a>
-  </div></div>
-  <div class="hm-item"><img src="/assets/img/home/endress.jpg" alt="Endress+Hauser" loading="lazy"><div>
-    <div class="hm-when">2025 – 2026</div>
-    <p class="hm-role">Industry-partner projects</p>
-    <p class="hm-org">Endress+Hauser · ORZA Tech · with Tecnológico de Monterrey</p>
-    <ul>
-      <li>Viscosity measurement electronics on three own PCBs — reliably separated 252 cP and 1676 cP</li>
-      <li>Digital twin of a CNC cell: S7-1500 with a 35-step sequence, SCADA and KPIs (yield, scrap, OEE)</li>
-    </ul>
-    <a class="hm-more" href="/projects/">All projects →</a>
-  </div></div>
-  <div class="hm-item"><img src="/assets/img/home/scara.jpg" alt="SCARA" loading="lazy"><div>
-    <div class="hm-when">08/2023 – 12/2027</div>
-    <p class="hm-role">B.Sc. Mechatronics &amp; B.Eng. Electrical Engineering (DHIK double degree)</p>
-    <p class="hm-org">Tecnológico de Monterrey · Hochschule Zittau/Görlitz (since 09/2026)</p>
-    <ul>
-      <li>GPA 92/100 (≈ 1.8) · 30% merit scholarship</li>
-      <li>Current modules: Collaborative Robots, Neural Networks, Microcontrollers, Image Processing, Advanced Control Theory</li>
-    </ul>
-  </div></div>
-</div>
-
 ## Featured projects
 
 <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:1.5rem; margin-top:1.5rem;">
@@ -236,10 +169,7 @@ latest_posts:
 <div class="hm-gallery">
   <figure class="hm-tile hm-big"><img src="/assets/img/home/track.jpg" alt="EcoVolt CCM prototype on track" loading="lazy"><figcaption><strong>EcoVolt CCM prototype</strong>Energy-efficient EV, ~200 km/kWh at ~28 km/h</figcaption></figure>
   <figure class="hm-tile"><img src="/assets/img/home/award-2025.jpg" alt="Data and Telemetry Award 2025" loading="lazy"><figcaption><strong>1st place 2025</strong>Data &amp; Telemetry Award</figcaption></figure>
-  <figure class="hm-tile"><img src="/assets/img/home/soldering.jpg" alt="Soldering telemetry electronics" loading="lazy"><figcaption><strong>Telemetry hardware</strong>Assembly &amp; bring-up</figcaption></figure>
-  <figure class="hm-tile hm-wide"><img src="/assets/img/home/award-us26.jpg" alt="Shell Eco-marathon United States 2026 awards" loading="lazy"><figcaption><strong>Shell Eco-marathon US 2026</strong>Vehicle Design Award &amp; 2nd place Data &amp; Telemetry</figcaption></figure>
   <figure class="hm-tile"><img src="/assets/img/home/mit-cleanroom.jpg" alt="MIT.nano cleanroom" loading="lazy"><figcaption><strong>MIT.nano</strong>Cleanroom microfabrication</figcaption></figure>
-  <figure class="hm-tile"><img src="/assets/img/home/assembly.jpg" alt="Competition assembly in the paddock" loading="lazy"><figcaption><strong>Paddock work</strong>Vehicle electronics at the event</figcaption></figure>
-  <figure class="hm-tile hm-wide"><img src="/assets/img/home/shell-explaining.jpg" alt="Presenting to Shell Eco-marathon staff" loading="lazy"><figcaption><strong>Presenting our systems</strong>Off-track awards at Shell Eco-marathon</figcaption></figure>
+  <figure class="hm-tile hm-wide"><img src="/assets/img/home/award-us26.jpg" alt="Shell Eco-marathon United States 2026 awards" loading="lazy"><figcaption><strong>Shell Eco-marathon US 2026</strong>Vehicle Design Award &amp; 2nd place Data &amp; Telemetry</figcaption></figure>
 </div>
 
