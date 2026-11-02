@@ -176,4 +176,3 @@ latest_posts:
   <figure class="hm-tile"><img src="/assets/img/home/mit-cleanroom.jpg" alt="Reinraum MIT.nano" loading="lazy"><figcaption><strong>MIT.nano</strong>Mikrofertigung im Reinraum</figcaption></figure>
   <figure class="hm-tile hm-wide"><img src="/assets/img/home/award-us26.jpg" alt="Shell Eco-marathon United States 2026" loading="lazy"><figcaption><strong>Shell Eco-marathon US 2026</strong>Vehicle Design Award &amp; 2. Platz Data &amp; Telemetry</figcaption></figure>
 </div>
-
