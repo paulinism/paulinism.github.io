@@ -106,6 +106,28 @@ latest_posts:
   .hm-item ul li { margin: 0 0 .15rem; }
   .hm-item a.hm-more { font-size: .85rem; font-weight: 600; }
   @media (max-width: 560px) { .hm-item { grid-template-columns: 72px minmax(0, 1fr); gap: .7rem; padding: .7rem; } .hm-item img { width: 72px; height: 72px; } }
+
+  /* ---- Home: skills cards ---- */
+  .sk-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .9rem; margin: .4rem 0 1.2rem; }
+  .sk-card { border: 1px solid rgba(128,128,128,.3); border-radius: 12px; padding: .9rem 1rem; transition: border-color .15s ease, transform .15s ease; }
+  .sk-card:hover { border-color: var(--global-theme-color); transform: translateY(-2px); }
+  .sk-ico { display: inline-flex; align-items: center; justify-content: center; width: 2.2rem; height: 2.2rem; border-radius: 8px; background: rgba(128,128,128,.12); color: var(--global-theme-color); font-size: 1.05rem; margin-bottom: .45rem; }
+  .sk-card h3 { font-size: 1rem; font-weight: 700; margin: 0 0 .3rem; }
+  .sk-card p { font-size: .85rem; line-height: 1.45; opacity: .85; margin: 0 0 .5rem; }
+  @media (max-width: 860px) { .sk-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 560px) { .sk-grid { grid-template-columns: minmax(0, 1fr); } }
+  /* ---- Home: tech stack logos ---- */
+  .ts-group { margin: 0 0 1.1rem; }
+  .ts-group h3 { font-size: .95rem; font-weight: 700; margin: 0 0 .55rem; opacity: .9; }
+  .ts-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(104px, 1fr)); gap: .6rem; }
+  .ts-item { display: flex; flex-direction: column; align-items: center; gap: .4rem; border: 1px solid rgba(128,128,128,.3); border-radius: 10px; padding: .7rem .4rem .55rem; text-align: center; transition: border-color .15s ease, transform .15s ease; }
+  .ts-item:hover { border-color: var(--global-theme-color); transform: translateY(-2px); }
+  .ts-logo { display: flex; align-items: center; justify-content: center; width: 46px; height: 46px; border-radius: 10px; background: #fff; padding: 7px; box-sizing: border-box; }
+  .ts-logo img { width: 100%; height: 100%; object-fit: contain; display: block; }
+  .ts-logo i { font-size: 1.35rem; color: var(--global-theme-color); }
+  .ts-logo.ts-fa { background: rgba(128,128,128,.12); }
+  .ts-item span { font-size: .76rem; line-height: 1.2; }
+  @media (max-width: 480px) { .ts-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 </style>
 
 <section class="hero">
@@ -146,18 +168,59 @@ latest_posts:
   </div>
 </section>
 
-<div class="ab-bottom">
-<div class="ab-areas">
-  <div class="ab-area"><strong>Embedded &amp; Electronics</strong><span class="ab-tag">ESP32</span><span class="ab-tag">C/C++</span><span class="ab-tag">CAN</span><span class="ab-tag">Altium Designer</span><span class="ab-tag">PCB design</span><span class="ab-tag">Instrumentation</span></div>
-  <div class="ab-area"><strong>Control &amp; Simulation</strong><span class="ab-tag">MATLAB/Simulink</span><span class="ab-tag">Python</span><span class="ab-tag">Simscape</span><span class="ab-tag">PID</span><span class="ab-tag">HIL</span></div>
-  <div class="ab-area"><strong>Automation &amp; Robotics</strong><span class="ab-tag">Siemens TIA Portal</span><span class="ab-tag">Rockwell PLC/HMI</span><span class="ab-tag">UR cobots</span><span class="ab-tag">Process Simulate</span><span class="ab-tag">Cognex</span></div>
-  <div class="ab-area"><strong>Vision, Design &amp; Fabrication</strong><span class="ab-tag">OpenCV</span><span class="ab-tag">YOLO</span><span class="ab-tag">SolidWorks CAD/CAM</span><span class="ab-tag">NX</span><span class="ab-tag">Cleanroom (MIT.nano)</span></div>
+<h2 class="hm-h" id="skills">Skills</h2>
+<p class="hm-sub">What I work on — and the tools I use for it.</p>
+<div class="sk-grid">
+  <div class="sk-card"><span class="sk-ico"><i class="fa-solid fa-microchip"></i></span><h3>Embedded Systems &amp; Firmware</h3><p>ESP32 firmware in C/C++ for telemetry and robots: bus drivers, data logging and wireless links.</p><div><span class="ab-tag">ESP32</span><span class="ab-tag">C/C++</span><span class="ab-tag">CAN</span><span class="ab-tag">SPI · I2C · UART</span><span class="ab-tag">MQTT</span><span class="ab-tag">PlatformIO</span></div></div>
+  <div class="sk-card"><span class="sk-ico"><i class="fa-solid fa-bolt"></i></span><h3>PCB Design &amp; Electronics</h3><p>Schematic to bring-up in Altium: measurement chains, current sensing, multilayer boards and SMD/THT assembly.</p><div><span class="ab-tag">Altium Designer</span><span class="ab-tag">Multisim</span><span class="ab-tag">Op-amp circuits</span><span class="ab-tag">INA240</span><span class="ab-tag">Soldering</span><span class="ab-tag">Lab equipment</span></div></div>
+  <div class="sk-card"><span class="sk-ico"><i class="fa-solid fa-sliders"></i></span><h3>Control &amp; Simulation</h3><p>Model-based design: transfer functions, PID loops and model/hardware-in-the-loop testing.</p><div><span class="ab-tag">MATLAB</span><span class="ab-tag">Simulink</span><span class="ab-tag">Simscape</span><span class="ab-tag">PID</span><span class="ab-tag">MiL / HIL</span></div></div>
+  <div class="sk-card"><span class="sk-ico"><i class="fa-solid fa-industry"></i></span><h3>Industrial Automation</h3><p>PLC sequences, HMI/SCADA and virtual commissioning of a digital twin with cobots.</p><div><span class="ab-tag">TIA Portal</span><span class="ab-tag">S7-1500</span><span class="ab-tag">WinCC</span><span class="ab-tag">PLCSIM Adv.</span><span class="ab-tag">Process Simulate</span><span class="ab-tag">UR cobots</span></div></div>
+  <div class="sk-card"><span class="sk-ico"><i class="fa-solid fa-eye"></i></span><h3>Computer Vision &amp; Data</h3><p>Python vision pipelines, object detection, industrial inspection and data analysis.</p><div><span class="ab-tag">Python</span><span class="ab-tag">OpenCV</span><span class="ab-tag">YOLOv11</span><span class="ab-tag">Cognex In-Sight</span><span class="ab-tag">NumPy · Pandas</span><span class="ab-tag">Altair AI Studio</span></div></div>
+  <div class="sk-card"><span class="sk-ico"><i class="fa-solid fa-gears"></i></span><h3>Mechanical Design &amp; Fabrication</h3><p>CAD assemblies, motion and static studies, CAM and hands-on fabrication up to the cleanroom.</p><div><span class="ab-tag">SolidWorks (CSWA)</span><span class="ab-tag">Siemens NX</span><span class="ab-tag">CAM</span><span class="ab-tag">3D printing</span><span class="ab-tag">Turning · Milling</span><span class="ab-tag">Cleanroom</span></div></div>
 </div>
-
 <div class="ab-cta"><strong>Available from February/March 2027</strong> for a mandatory internship (Praktikum) in embedded systems, hardware or industrial automation.</div>
-</div>
 
-
+<h2 class="hm-h" id="tech-stack">Tech stack</h2>
+<p class="hm-sub">Software and languages I have used in projects, competitions and coursework.</p>
+<div class="ts-group"><h3>Design &amp; Simulation</h3><div class="ts-grid">
+  <div class="ts-item"><div class="ts-logo"><img src="/assets/img/logos/solidworks.svg" alt="SolidWorks" loading="lazy"></div><span>SolidWorks</span></div>
+  <div class="ts-item"><div class="ts-logo"><img src="/assets/img/logos/siemens.svg" alt="Siemens NX" loading="lazy"></div><span>Siemens NX</span></div>
+  <div class="ts-item"><div class="ts-logo"><img src="/assets/img/logos/fusion.svg" alt="Fusion CAM" loading="lazy"></div><span>Fusion CAM</span></div>
+  <div class="ts-item"><div class="ts-logo"><img src="/assets/img/logos/ansys.svg" alt="Ansys" loading="lazy"></div><span>Ansys</span></div>
+  <div class="ts-item"><div class="ts-logo"><img src="/assets/img/logos/matlab.svg" alt="MATLAB" loading="lazy"></div><span>MATLAB</span></div>
+  <div class="ts-item"><div class="ts-logo ts-fa"><i class="fa-solid fa-diagram-project"></i></div><span>Simulink</span></div>
+  <div class="ts-item"><div class="ts-logo ts-fa"><i class="fa-solid fa-microchip"></i></div><span>Altium Designer</span></div>
+  <div class="ts-item"><div class="ts-logo ts-fa"><i class="fa-solid fa-wave-square"></i></div><span>Multisim</span></div>
+  <div class="ts-item"><div class="ts-logo"><img src="/assets/img/logos/labview.svg" alt="LabVIEW" loading="lazy"></div><span>LabVIEW</span></div>
+</div></div>
+<div class="ts-group"><h3>Automation &amp; Robotics</h3><div class="ts-grid">
+  <div class="ts-item"><div class="ts-logo"><img src="/assets/img/logos/siemens.svg" alt="TIA Portal" loading="lazy"></div><span>TIA Portal</span></div>
+  <div class="ts-item"><div class="ts-logo"><img src="/assets/img/logos/siemens.svg" alt="Process Simulate" loading="lazy"></div><span>Process Simulate</span></div>
+  <div class="ts-item"><div class="ts-logo"><img src="/assets/img/logos/rockwell.svg" alt="Rockwell Studio 5000" loading="lazy"></div><span>Rockwell Studio 5000</span></div>
+  <div class="ts-item"><div class="ts-logo ts-fa"><i class="fa-solid fa-robot"></i></div><span>Universal Robots</span></div>
+  <div class="ts-item"><div class="ts-logo ts-fa"><i class="fa-solid fa-camera"></i></div><span>Cognex In-Sight</span></div>
+</div></div>
+<div class="ts-group"><h3>Programming &amp; Data</h3><div class="ts-grid">
+  <div class="ts-item"><div class="ts-logo"><img src="/assets/img/logos/python.svg" alt="Python" loading="lazy"></div><span>Python</span></div>
+  <div class="ts-item"><div class="ts-logo"><img src="/assets/img/logos/c.svg" alt="C" loading="lazy"></div><span>C</span></div>
+  <div class="ts-item"><div class="ts-logo"><img src="/assets/img/logos/cpp.svg" alt="C++" loading="lazy"></div><span>C++</span></div>
+  <div class="ts-item"><div class="ts-logo"><img src="/assets/img/logos/csharp.svg" alt="C#" loading="lazy"></div><span>C#</span></div>
+  <div class="ts-item"><div class="ts-logo"><img src="/assets/img/logos/numpy.svg" alt="NumPy" loading="lazy"></div><span>NumPy</span></div>
+  <div class="ts-item"><div class="ts-logo"><img src="/assets/img/logos/pandas.svg" alt="Pandas" loading="lazy"></div><span>Pandas</span></div>
+  <div class="ts-item"><div class="ts-logo"><img src="/assets/img/logos/opencv.svg" alt="OpenCV" loading="lazy"></div><span>OpenCV</span></div>
+  <div class="ts-item"><div class="ts-logo"><img src="/assets/img/logos/yolo.svg" alt="YOLO" loading="lazy"></div><span>YOLO</span></div>
+  <div class="ts-item"><div class="ts-logo"><img src="/assets/img/logos/jupyter.svg" alt="Jupyter" loading="lazy"></div><span>Jupyter</span></div>
+</div></div>
+<div class="ts-group"><h3>Embedded &amp; Tools</h3><div class="ts-grid">
+  <div class="ts-item"><div class="ts-logo"><img src="/assets/img/logos/espressif.svg" alt="ESP32" loading="lazy"></div><span>ESP32</span></div>
+  <div class="ts-item"><div class="ts-logo"><img src="/assets/img/logos/platformio.svg" alt="PlatformIO" loading="lazy"></div><span>PlatformIO</span></div>
+  <div class="ts-item"><div class="ts-logo"><img src="/assets/img/logos/arduino.svg" alt="Arduino" loading="lazy"></div><span>Arduino</span></div>
+  <div class="ts-item"><div class="ts-logo"><img src="/assets/img/logos/mqtt.svg" alt="MQTT" loading="lazy"></div><span>MQTT</span></div>
+  <div class="ts-item"><div class="ts-logo"><img src="/assets/img/logos/git.svg" alt="Git" loading="lazy"></div><span>Git</span></div>
+  <div class="ts-item"><div class="ts-logo"><img src="/assets/img/logos/github.svg" alt="GitHub" loading="lazy"></div><span>GitHub</span></div>
+  <div class="ts-item"><div class="ts-logo"><img src="/assets/img/logos/vscode.svg" alt="VS Code" loading="lazy"></div><span>VS Code</span></div>
+  <div class="ts-item"><div class="ts-logo"><img src="/assets/img/logos/latex.svg" alt="LaTeX" loading="lazy"></div><span>LaTeX</span></div>
+</div></div>
 <h2 class="hm-h" id="highlights">On track, in the lab, on stage</h2>
 <p class="hm-sub">A few moments behind the projects — competitions, cleanroom work and the hardware itself.</p>
 <div class="hm-gallery">
