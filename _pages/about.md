@@ -93,6 +93,16 @@ latest_posts:
   .hm-wide { grid-column: span 2; }
   @media (max-width: 860px) { .hm-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 150px; } }
   @media (max-width: 480px) { .hm-gallery { grid-auto-rows: 125px; } .hm-tile figcaption { font-size: .72rem; } }
+
+  /* ---- Home: skills cards ---- */
+  .sk-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .9rem; margin: .4rem 0 1.2rem; }
+  .sk-card { border: 1px solid rgba(128,128,128,.3); border-radius: 12px; padding: .9rem 1rem; transition: border-color .15s ease, transform .15s ease; }
+  .sk-card:hover { border-color: var(--global-theme-color); transform: translateY(-2px); }
+  .sk-ico { display: inline-flex; align-items: center; justify-content: center; width: 2.2rem; height: 2.2rem; border-radius: 8px; background: rgba(128,128,128,.12); color: var(--global-theme-color); font-size: 1.05rem; margin-bottom: .45rem; }
+  .sk-card h3 { font-size: 1rem; font-weight: 700; margin: 0 0 .3rem; }
+  .sk-card p { font-size: .85rem; line-height: 1.45; opacity: .85; margin: 0 0 .5rem; }
+  @media (max-width: 860px) { .sk-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 560px) { .sk-grid { grid-template-columns: minmax(0, 1fr); } }
 </style>
 
 <section class="hero">
