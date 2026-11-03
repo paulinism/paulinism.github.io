@@ -75,11 +75,6 @@ latest_posts:
   .ab-cv-menu { position: absolute; z-index: 20; top: calc(100% + 6px); left: 0; min-width: 100%; border: 1px solid var(--global-theme-color); border-radius: 8px; background: var(--global-bg-color); overflow: hidden; }
   .ab-cv-menu a { display: block; padding: .45rem .9rem; color: inherit !important; text-decoration: none !important; white-space: nowrap; font-size: .9rem; }
   .ab-cv-menu a:hover { background: rgba(128,128,128,.12); }
-
-  .ab-ct-menu { min-width: 250px; max-width: calc(100vw - 32px); }
-  .ab-ct-menu a { display: flex !important; align-items: center; gap: .6rem; }
-  .ab-ct-menu a i { width: 1.1rem; text-align: center; color: var(--global-theme-color); }
-  .ab-ct-menu a.ab-ct-all { border-top: 1px solid rgba(128,128,128,.25); font-weight: 600; }
   @media (max-width: 860px) { .hero-name { font-size: clamp(1.9rem, 9.4vw, 3.6rem); } .hero { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; } .hero-photo { order: -1; max-width: 300px; margin: 0 auto; } }
   .ab-bottom { display: grid; grid-template-columns: minmax(0, 2.1fr) minmax(0, 1fr); gap: 2.5rem; align-items: center; margin-bottom: 1.5rem; }
   .ab-bottom .ab-cta { margin: 0; padding: 1rem 1.1rem; font-size: 1.05rem; line-height: 1.5; border: 1px solid rgba(128,128,128,.3); border-left: 4px solid var(--global-theme-color); border-radius: 10px; }
@@ -123,16 +118,7 @@ latest_posts:
           <a href="/assets/pdf/CV_Paulina_DE.pdf?v=20261026" target="_blank" rel="noopener">Deutsch (PDF)</a>
         </div>
       </details>
-      <details class="ab-cv">
-        <summary class="ab-btn">Contact</summary>
-        <div class="ab-cv-menu ab-ct-menu">
-          <a href="mailto:pruizservin27@gmail.com"><i class="fa-solid fa-envelope"></i>pruizservin27@gmail.com</a>
-          <a href="tel:+4915233878708"><i class="fa-solid fa-phone"></i>+49 1523 3878708</a>
-          <a href="https://wa.me/4915233878708" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i>WhatsApp</a>
-          <a href="https://www.linkedin.com/in/pruizservin27/" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i>LinkedIn</a>
-          <a class="ab-ct-all" href="/contact/"><i class="fa-solid fa-arrow-right"></i>Contact page</a>
-        </div>
-      </details>
+      <a class="ab-btn" href="/contact/">Contact</a>
     </div>
 
   </div>
@@ -189,6 +175,7 @@ latest_posts:
   <figure class="hm-tile hm-wide"><img src="/assets/img/home/award-us26.jpg" alt="Shell Eco-marathon United States 2026 awards" loading="lazy"><figcaption><strong>Shell Eco-marathon US 2026</strong>Vehicle Design Award &amp; 2nd place Data &amp; Telemetry</figcaption></figure>
 </div>
 
-<div class="page-nav" style="display: flex; justify-content: flex-end; gap: 1rem; margin: 3rem 0 1rem">
-  <a class="btn btn-sm z-depth-0" role="button" href="{{ '/projects/' | relative_url }}">Next: Projects →</a>
+<div class="page-nav" style="display: flex; justify-content: space-between; gap: 1rem; margin: 3rem 0 1rem">
+  <a class="btn btn-sm z-depth-0" role="button" href="{{ '/contact/' | relative_url }}">← Contact</a>
+  <a class="btn btn-sm z-depth-0" role="button" href="{{ '/projects/' | relative_url }}">All projects →</a>
 </div>
