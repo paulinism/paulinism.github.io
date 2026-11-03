@@ -72,8 +72,8 @@ toc:
   </div>
   <div class="cv-dl">
     <p><strong>Full CV (PDF)</strong><br><span style="opacity:.8">Available from February/March 2027</span></p>
-    <a class="pc-btn primary" href="{{ '/assets/pdf/CV_Paulina_EN.pdf' | relative_url }}?v=20261103" target="_blank" rel="noopener"><i class="fa-solid fa-file-arrow-down"></i> CV (English)</a>
-    <a class="pc-btn" href="{{ '/assets/pdf/CV_Paulina_DE.pdf' | relative_url }}?v=20261103" target="_blank" rel="noopener"><i class="fa-solid fa-file-arrow-down"></i> Lebenslauf (Deutsch)</a>
+    <a class="pc-btn primary" href="{{ '/assets/pdf/CV_Paulina_EN.pdf' | relative_url }}?v=20261104" target="_blank" rel="noopener"><i class="fa-solid fa-file-arrow-down"></i> CV (English)</a>
+    <a class="pc-btn" href="{{ '/assets/pdf/CV_Paulina_DE.pdf' | relative_url }}?v=20261104" target="_blank" rel="noopener"><i class="fa-solid fa-file-arrow-down"></i> Lebenslauf (Deutsch)</a>
   </div>
 </div>
 <h2 class="pc-h cv-h"><i class="fa-solid fa-graduation-cap"></i> Education</h2>

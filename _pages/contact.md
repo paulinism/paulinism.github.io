@@ -45,8 +45,8 @@ nav_order: 6
     <img src="{{ '/assets/img/paulina-contact.jpg' | relative_url }}" alt="Paulina Lilian Ruíz Servín">
     <div class="ct-btns">
       <a class="pc-btn" href="https://maps.google.com/?q=Zittau,+Germany" target="_blank" rel="noopener"><i class="fa-solid fa-location-dot"></i> Zittau, Saxony · open to relocate</a>
-      <a class="pc-btn primary" href="{{ '/assets/pdf/CV_Paulina_EN.pdf' | relative_url }}?v=20261103" target="_blank" rel="noopener"><i class="fa-solid fa-file-arrow-down"></i> CV (English)</a>
-      <a class="pc-btn" href="{{ '/assets/pdf/CV_Paulina_DE.pdf' | relative_url }}?v=20261103" target="_blank" rel="noopener"><i class="fa-solid fa-file-arrow-down"></i> Lebenslauf (Deutsch)</a>
+      <a class="pc-btn primary" href="{{ '/assets/pdf/CV_Paulina_EN.pdf' | relative_url }}?v=20261104" target="_blank" rel="noopener"><i class="fa-solid fa-file-arrow-down"></i> CV (English)</a>
+      <a class="pc-btn" href="{{ '/assets/pdf/CV_Paulina_DE.pdf' | relative_url }}?v=20261104" target="_blank" rel="noopener"><i class="fa-solid fa-file-arrow-down"></i> Lebenslauf (Deutsch)</a>
     </div>
   </div>
   <div>
