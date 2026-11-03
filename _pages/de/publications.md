@@ -33,7 +33,7 @@ description: Konferenzbeitrag und technische Berichte.
 <div class="pc-card pub-feat">
   <img data-zoomable src="{{ 'assets/img/ecovolt-telemetry.jpg' | relative_url }}" alt="Telemetrie-Platine und Dashboard von EcoVolt CCM">
   <div class="pub-body">
-    <span class="pc-badge">IEEE SAIBOT 2026 · Eingereicht</span>
+    <span class="pc-badge">IEEE SAIBOT 2026 · Angenommen</span>
     <p class="pub-title">Real-Time Telemetry and Computational Intelligence Pipeline for Energy-Efficient Driving of an Electric Eco-Marathon Vehicle</p>
     <p class="pub-auth"><strong>P. L. Ruíz-Servín</strong>, J. D. González-Fernández, A. Flores-Mendoza, J. Izquierdo-Reyes</p>
     <p class="pub-venue">IEEE Latin American School on Computational Intelligence and Robotics (SAIBOT), 2026 — Erstautorin</p>
@@ -49,7 +49,7 @@ description: Konferenzbeitrag und technische Berichte.
                and Flores-Mendoza, Aar{\'o}n and Izquierdo-Reyes, Javier},
   booktitle = {IEEE Latin American School on Computational Intelligence and Robotics (SAIBOT)},
   year      = {2026},
-  note      = {Submitted}
+  note      = {Accepted}
 }</pre>
   </div>
 </div>

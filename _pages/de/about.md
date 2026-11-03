@@ -108,7 +108,7 @@ latest_posts:
   <div class="ab-stat"><span class="ab-big">🏆 1. &amp; 2. Platz</span><span class="ab-small">Data &amp; Telemetry Award, Shell Eco-marathon 2025 / 2026</span></div>
   <div class="ab-stat"><span class="ab-big">👥 Teamkapitänin</span><span class="ab-small">EcoVolt CCM (2025–26): Leitung von 30 Mitgliedern, Fahrzeug mit ca. 200 km/kWh bei ca. 28 km/h; Telemetrie-Platinen und CAN-Firmware entwickelt</span></div>
   <div class="ab-stat"><span class="ab-big">🔬 MIT.nano</span><span class="ab-small">Halbleiterfertigung im Reinraum</span></div>
-  <div class="ab-stat"><span class="ab-big">📄 IEEE-Paper</span><span class="ab-small">Erstautorin, SAIBOT 2026</span></div>
+  <div class="ab-stat"><span class="ab-big">📄 IEEE-Paper</span><span class="ab-small">Erstautorin, SAIBOT 2026 · angenommen</span></div>
 </div>
 
     <div class="ab-btns">
@@ -116,8 +116,8 @@ latest_posts:
       <details class="ab-cv">
         <summary class="ab-btn">Lebenslauf herunterladen</summary>
         <div class="ab-cv-menu">
-          <a href="/assets/pdf/CV_Paulina_DE.pdf?v=20261026" target="_blank" rel="noopener">Deutsch (PDF)</a>
-          <a href="/assets/pdf/CV_Paulina_EN.pdf?v=20261026" target="_blank" rel="noopener">English (PDF)</a>
+          <a href="/assets/pdf/CV_Paulina_DE.pdf?v=20261103" target="_blank" rel="noopener">Deutsch (PDF)</a>
+          <a href="/assets/pdf/CV_Paulina_EN.pdf?v=20261103" target="_blank" rel="noopener">English (PDF)</a>
         </div>
       </details>
       <a class="ab-btn" href="/de/contact/">Kontakt</a>

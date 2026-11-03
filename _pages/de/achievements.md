@@ -165,7 +165,7 @@ certificates:
 <h2 class="ach-h">Forschung &amp; Berichte</h2>
 <div class="ach-research">
   <div class="ach-res">
-    <strong>📄 IEEE SAIBOT 2026 — Erstautorin (eingereicht)</strong>
+    <strong>📄 IEEE SAIBOT 2026 — Erstautorin (angenommen)</strong>
     <p><em>Real-Time Telemetry and Computational Intelligence Pipeline for Energy-Efficient Driving of an Electric Eco-Marathon Vehicle</em></p>
     <p><a href="/de/publications/">Zu den Publikationen →</a></p>
   </div>

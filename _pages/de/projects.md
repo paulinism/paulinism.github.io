@@ -46,7 +46,7 @@ horizontal: false
 <a class="pc-card pj-feat" href="{{ '/de/projects/ecovolt-telemetry/' | relative_url }}">
   <img src="{{ '/assets/img/ecovolt-telemetry.jpg' | relative_url }}" alt="Plattform für Telemetrie &amp; Energieoptimierung">
   <div class="pj-body">
-    <div class="pj-badges"><span class="pc-badge">Highlight</span><span class="pc-badge">1. Platz 2025 · 2. Platz 2026 Data &amp; Telemetry Award</span><span class="pc-badge">IEEE-Paper eingereicht</span></div>
+    <div class="pj-badges"><span class="pc-badge">Highlight</span><span class="pc-badge">1. Platz 2025 · 2. Platz 2026 Data &amp; Telemetry Award</span><span class="pc-badge">IEEE-Paper angenommen</span></div>
     <h3 class="pj-title">Plattform für Telemetrie &amp; Energieoptimierung</h3>
     <p class="pj-txt"><strong>Platinenverantwortung &amp; Firmware</strong> — drei Generationen Telemetrie für ein Shell-Eco-marathon-Fahrzeug — 1. (2025) und 2. Platz (2026) beim Data &amp; Telemetry Award</p>
     <div class="pj-tags"><span class="pc-tag">Altium</span><span class="pc-tag">ESP32</span><span class="pc-tag">C++</span><span class="pc-tag">CAN</span><span class="pc-tag">MQTT</span><span class="pc-tag">Python</span></div>
