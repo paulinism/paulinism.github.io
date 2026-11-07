@@ -8,6 +8,8 @@
 
 [![Deploy site](https://github.com/paulinism/paulinism.github.io/actions/workflows/deploy.yml/badge.svg)](https://github.com/paulinism/paulinism.github.io/actions/workflows/deploy.yml)
 
+[![Portfolio home page — click to open](readme_preview/portfolio-home.jpg)](https://paulinism.github.io/)
+
 </div>
 
 Personal portfolio of **Paulina Lilian Ruíz Servín**, student in the German–Mexican **DHIK double degree**: B.Eng. Electrical Engineering at Hochschule Zittau/Görlitz and B.Sc. Mechatronics at Tecnológico de Monterrey (fully taught in English). The site documents projects in embedded systems, PCB design, control, computer vision and industrial automation. It also covers the work as Team Captain of the **EcoVolt CCM EV Racing Team** (Shell Eco-marathon) and a cleanroom program at **MIT.nano**. It supports applications for an internship in Germany from February/March 2027.
