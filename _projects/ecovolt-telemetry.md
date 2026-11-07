@@ -198,7 +198,7 @@ On track in Rio de Janeiro with the V3 system — one of the three sessions reco
 </div>
 
 <div class="tel-grid wide">
-  <figure class="tel-fig auto photo"><img data-zoomable src="{{ 'assets/img/tel-car-317-2026.jpg' | relative_url }}" width="1800" height="703" alt="Axolotl, EcoVolt CCM prototype, on a test track before Shell Eco-marathon Brazil 2026"><figcaption><strong>Axolotl</strong> · SEM Brazil 2026</figcaption></figure>
+  <figure class="tel-fig auto photo"><img data-zoomable src="{{ 'assets/img/tel-car-317-2026.jpg' | relative_url }}" width="1800" height="703" alt="Axolotl, EcoVolt CCM prototype, on a test track before Shell Eco-marathon Brazil 2026"><figcaption><strong>Axolotl</strong> · SEM United States and Brazil 2026</figcaption></figure>
 </div>
 
 **Simulator bench test**
