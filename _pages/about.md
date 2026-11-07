@@ -138,6 +138,9 @@ latest_posts:
   /* ---- Home: tools on featured project cards ---- */
   .fp-tags { display: flex; flex-wrap: wrap; gap: .3rem; margin-top: .65rem; }
   .fp-tag { font-size: .72rem; padding: .1rem .5rem; border-radius: 999px; border: 1px solid rgba(128,128,128,.35); background: rgba(128,128,128,.08); }
+
+  /* ---- Home: a little space before "See all projects" ---- */
+  #featured-projects + div + p { margin-top: 1.1rem; }
 </style>
 
 <section class="hero">

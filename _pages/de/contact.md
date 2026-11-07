@@ -20,7 +20,7 @@ description: Auf der Suche nach einem Pflichtpraktikum und einer Abschlussarbeit
   .cv-h { color: var(--global-theme-color); display: flex; align-items: center; gap: .6rem; padding-bottom: .4rem; border-bottom: 2px solid var(--global-theme-color); margin: 2.2rem 0 1rem; }
   .cv-h i { font-size: .8em; }
   .ct-grid { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.7fr); gap: 2rem; align-items: start; }
-  .ct-photo img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; object-position: center 22%; border-radius: 12px; border: 1px solid rgba(128,128,128,.3); display: block; }
+  .ct-photo img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; object-position: center; border-radius: 12px; border: 1px solid rgba(128,128,128,.3); display: block; }
   .ct-btns { display: flex; flex-direction: column; gap: .5rem; margin-top: .9rem; }
   .ct-btns .pc-btn { justify-content: center; }
   .ct-avail { border: 1px solid rgba(128,128,128,.3); border-left: 4px solid var(--global-theme-color); border-radius: 12px; padding: 1.1rem 1.2rem; }
@@ -41,7 +41,7 @@ description: Auf der Suche nach einem Pflichtpraktikum und einer Abschlussarbeit
 <p class="pg-lead">Offen für Praktika und Bachelorarbeiten in Deutschland. Am besten erreichen Sie mich per E-Mail.</p>
 <div class="ct-grid">
   <div class="ct-photo">
-    <img src="{{ '/assets/img/paulina-contact.jpg' | relative_url }}" alt="Paulina Lilian Ruíz Servín">
+    <img src="{{ '/assets/img/paulina-contact-square.jpg' | relative_url }}" alt="Paulina Lilian Ruíz Servín">
     <div class="ct-btns">
       <a class="pc-btn" href="https://maps.google.com/?q=Zittau,+Germany" target="_blank" rel="noopener"><i class="fa-solid fa-location-dot"></i> Zittau, Sachsen · umzugsbereit</a>
       <a class="pc-btn primary" href="{{ '/assets/pdf/CV_Paulina_DE.pdf' | relative_url }}?v=20261106" target="_blank" rel="noopener"><i class="fa-solid fa-file-arrow-down"></i> Lebenslauf (Deutsch)</a>

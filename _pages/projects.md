@@ -50,7 +50,7 @@ horizontal: false
     <div class="pj-badges"><span class="pc-badge">Featured</span><span class="pc-badge">1st 2025 · 2nd 2026 Data &amp; Telemetry Award</span><span class="pc-badge">IEEE paper accepted</span></div>
     <h3 class="pj-title">Telemetry &amp; Energy-Optimization Platform</h3>
     <p class="pj-txt"><strong>PCB lead &amp; firmware</strong> — three generations of telemetry for a Shell Eco-marathon car — 1st (2025) and 2nd (2026) Data &amp; Telemetry Award</p>
-    <div class="pj-tags"><span class="pc-tag">Altium</span><span class="pc-tag">ESP32</span><span class="pc-tag">C++</span><span class="pc-tag">CAN</span><span class="pc-tag">MQTT</span><span class="pc-tag">Python</span></div>
+    <div class="pj-tags"><span class="pc-tag">Altium</span><span class="pc-tag">ESP32</span><span class="pc-tag">C/C++</span><span class="pc-tag">CAN</span><span class="pc-tag">MQTT</span><span class="pc-tag">Python</span></div>
     <span class="pj-more">Read the project →</span>
   </div>
 </a>
@@ -85,7 +85,7 @@ horizontal: false
     <span class="pc-badge">Industry challenge with ORZA Tech</span>
     <h3 class="pj-title">Digital Twin of a Flexible CNC Manufacturing Cell</h3>
     <p class="pj-txt">Virtual CNC cell commissioned 100 % in software (S7-1500 PLC programming in TIA Portal, UR5 VRC, CAM and G-code, Cognex vision, SCADA/KPIs)</p>
-    <div class="pj-tags"><span class="pc-tag">TIA Portal</span><span class="pc-tag">S7-1500</span><span class="pc-tag">Process Simulate</span><span class="pc-tag">UR5</span><span class="pc-tag">Cognex</span></div>
+    <div class="pj-tags"><span class="pc-tag">TIA Portal</span><span class="pc-tag">S7-1500</span><span class="pc-tag">WinCC</span><span class="pc-tag">Process Simulate</span><span class="pc-tag">UR5</span><span class="pc-tag">Cognex</span></div>
     <span class="pj-more">Read the project →</span>
   </div>
 </a>
@@ -95,7 +95,7 @@ horizontal: false
     <span class="pc-badge">Firmware &amp; electronics lead</span>
     <h3 class="pj-title">Vision-Guided SCARA Pick-and-Place Robot (4 DoF)</h3>
     <p class="pj-txt">4-DOF SCARA with YOLOv11n vision (mAP 0.72), 5/6 picks at ~14 s/cycle, custom Altium PCB</p>
-    <div class="pj-tags"><span class="pc-tag">ESP32</span><span class="pc-tag">Altium</span><span class="pc-tag">YOLOv11n</span><span class="pc-tag">OpenCV</span><span class="pc-tag">MQTT</span></div>
+    <div class="pj-tags"><span class="pc-tag">ESP32</span><span class="pc-tag">Altium</span><span class="pc-tag">Python</span><span class="pc-tag">YOLOv11n</span><span class="pc-tag">OpenCV</span><span class="pc-tag">MQTT</span></div>
     <span class="pj-more">Read the project →</span>
   </div>
 </a>

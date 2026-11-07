@@ -10,7 +10,7 @@ img: assets/img/orza.png
 importance: 2
 category: Automatisierung
 featured: true
-tools: ["TIA Portal", "S7-1500", "Process Simulate", "UR5", "Cognex"]
+tools: ["TIA Portal", "S7-1500", "WinCC", "Process Simulate", "UR5", "Cognex"]
 ---
 
 <style>

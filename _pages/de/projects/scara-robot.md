@@ -10,7 +10,7 @@ img: assets/img/scara.jpg.jpg
 importance: 3
 category: Embedded, Bildverarbeitung
 featured: true
-tools: ["ESP32", "Altium", "YOLOv11n", "OpenCV", "MQTT"]
+tools: ["ESP32", "Altium", "Python", "YOLOv11n", "OpenCV", "MQTT"]
 ---
 
 <style>

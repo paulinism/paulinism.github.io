@@ -49,7 +49,7 @@ horizontal: false
     <div class="pj-badges"><span class="pc-badge">Highlight</span><span class="pc-badge">1. Platz 2025 · 2. Platz 2026 Data &amp; Telemetry Award</span><span class="pc-badge">IEEE-Paper angenommen</span></div>
     <h3 class="pj-title">Plattform für Telemetrie &amp; Energieoptimierung</h3>
     <p class="pj-txt"><strong>Platinenverantwortung &amp; Firmware</strong> — drei Generationen Telemetrie für ein Shell-Eco-marathon-Fahrzeug — 1. (2025) und 2. Platz (2026) beim Data &amp; Telemetry Award</p>
-    <div class="pj-tags"><span class="pc-tag">Altium</span><span class="pc-tag">ESP32</span><span class="pc-tag">C++</span><span class="pc-tag">CAN</span><span class="pc-tag">MQTT</span><span class="pc-tag">Python</span></div>
+    <div class="pj-tags"><span class="pc-tag">Altium</span><span class="pc-tag">ESP32</span><span class="pc-tag">C/C++</span><span class="pc-tag">CAN</span><span class="pc-tag">MQTT</span><span class="pc-tag">Python</span></div>
     <span class="pj-more">Zum Projekt →</span>
   </div>
 </a>
@@ -84,7 +84,7 @@ horizontal: false
     <span class="pc-badge">Industrie-Challenge mit ORZA Tech</span>
     <h3 class="pj-title">Digitaler Zwilling einer flexiblen CNC-Fertigungszelle</h3>
     <p class="pj-txt">Virtuelle CNC-Zelle zu 100 % in Software in Betrieb genommen (SPS-Programmierung S7-1500 in TIA Portal, UR5 VRC, CAM und G-Code, Cognex-Bildverarbeitung, SCADA/KPIs)</p>
-    <div class="pj-tags"><span class="pc-tag">TIA Portal</span><span class="pc-tag">S7-1500</span><span class="pc-tag">Process Simulate</span><span class="pc-tag">UR5</span><span class="pc-tag">Cognex</span></div>
+    <div class="pj-tags"><span class="pc-tag">TIA Portal</span><span class="pc-tag">S7-1500</span><span class="pc-tag">WinCC</span><span class="pc-tag">Process Simulate</span><span class="pc-tag">UR5</span><span class="pc-tag">Cognex</span></div>
     <span class="pj-more">Zum Projekt →</span>
   </div>
 </a>
@@ -94,7 +94,7 @@ horizontal: false
     <span class="pc-badge">Firmware &amp; Elektronik</span>
     <h3 class="pj-title">Kamerageführter SCARA-Roboter für Pick-and-Place (4 DoF)</h3>
     <p class="pj-txt">4-DOF-SCARA mit YOLOv11n-Bildverarbeitung (mAP 0,72), 5 von 6 Teilen bei ~14 s pro Zyklus, eigene Altium-Platine</p>
-    <div class="pj-tags"><span class="pc-tag">ESP32</span><span class="pc-tag">Altium</span><span class="pc-tag">YOLOv11n</span><span class="pc-tag">OpenCV</span><span class="pc-tag">MQTT</span></div>
+    <div class="pj-tags"><span class="pc-tag">ESP32</span><span class="pc-tag">Altium</span><span class="pc-tag">Python</span><span class="pc-tag">YOLOv11n</span><span class="pc-tag">OpenCV</span><span class="pc-tag">MQTT</span></div>
     <span class="pj-more">Zum Projekt →</span>
   </div>
 </a>
