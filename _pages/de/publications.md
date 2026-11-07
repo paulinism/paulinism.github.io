@@ -28,8 +28,17 @@ description: Konferenzbeitrag und technische Berichte.
   .rep-card .pub-body { padding: .9rem 1rem 1rem; }
   .rep-card .pub-title { font-size: 1.02rem; }
   @media (max-width: 760px) { .pub-feat, .rep-grid { grid-template-columns: minmax(0, 1fr); } .pub-feat img { min-height: 0; height: 200px; } }
+
+  /* ---- Page title and section headings matched to Projects/CV/Contact ---- */
+  .post > .post-header { display: none !important; }
+  .pg-title { font-size: clamp(2rem, 4.5vw, 3rem); font-weight: 800; letter-spacing: -0.02em; margin: 1rem 0 .3rem; }
+  .pg-lead { opacity: .85; margin: 0 0 1.2rem; max-width: 46rem; line-height: 1.6; }
+  .sec-h { display: flex; align-items: center; gap: .6rem; color: var(--global-theme-color) !important; font-size: 1.45rem; font-weight: 700; padding-bottom: .4rem; border-bottom: 2px solid var(--global-theme-color); margin: 2.2rem 0 1rem !important; }
+  .sec-h i { font-size: .8em; }
 </style>
-<h2 class="pc-h">Konferenzbeitrag</h2>
+<p class="pg-title">Publikationen</p>
+<p class="pg-lead">Konferenzbeitrag und technische Berichte aus Rennteam-, Robotik- und Automatisierungsprojekten.</p>
+<h2 class="pc-h sec-h"><i class="fa-solid fa-newspaper"></i> Konferenzbeitrag</h2>
 <div class="pc-card pub-feat">
   <img data-zoomable src="{{ 'assets/img/ecovolt-telemetry.jpg' | relative_url }}" alt="Telemetrie-Platine und Dashboard von EcoVolt CCM">
   <div class="pub-body">
@@ -53,7 +62,7 @@ description: Konferenzbeitrag und technische Berichte.
 }</pre>
   </div>
 </div>
-<h2 class="pc-h">Technische Berichte</h2>
+<h2 class="pc-h sec-h"><i class="fa-solid fa-file-lines"></i> Technische Berichte</h2>
 <div class="rep-grid">
   <div class="pc-card rep-card">
     <img data-zoomable src="{{ 'assets/img/mit-cover-wafer.jpg' | relative_url }}" alt="Prozessierter Wafer bei MIT.nano">

@@ -108,7 +108,16 @@ certificates:
     .ach-awards, .ach-research { grid-template-columns: minmax(0, 1fr); }
     .ach-certs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   }
+
+  /* ---- Page title and section headings matched to Projects/CV/Contact ---- */
+  .post > .post-header { display: none !important; }
+  .pg-title { font-size: clamp(2rem, 4.5vw, 3rem); font-weight: 800; letter-spacing: -0.02em; margin: 1rem 0 .3rem; }
+  .pg-lead { opacity: .85; margin: 0 0 1.2rem; max-width: 46rem; line-height: 1.6; }
+  .sec-h { display: flex; align-items: center; gap: .6rem; color: var(--global-theme-color) !important; font-size: 1.45rem; font-weight: 700; padding-bottom: .4rem; border-bottom: 2px solid var(--global-theme-color); margin: 2.2rem 0 1rem !important; }
+  .sec-h i { font-size: .8em; }
 </style>
+<p class="pg-title">Achievements</p>
+<p class="pg-lead">Awards, research and certifications from racing, cleanroom and automation work — each with the document behind it.</p>
 
 <div class="ach-kpis">
   <div class="ach-kpi"><b>3</b><span>international awards</span></div>
@@ -117,7 +126,7 @@ certificates:
   <div class="ach-kpi"><b>1</b><span>IEEE paper (first author)</span></div>
 </div>
 
-<h2 class="ach-h" id="awards">Awards</h2>
+<h2 class="ach-h sec-h" id="awards"><i class="fa-solid fa-trophy"></i> Awards</h2>
 <p class="ach-sub">EcoVolt CCM EV Racing Team (Escudería) — Team Captain &amp; Electronics Lead, 2023–2026</p>
 
 <div class="ach-awards">
@@ -163,7 +172,7 @@ certificates:
   </div>
 </div>
 
-<h2 class="ach-h">Research &amp; reports</h2>
+<h2 class="ach-h sec-h"><i class="fa-solid fa-file-lines"></i> Research &amp; reports</h2>
 <div class="ach-research">
   <div class="ach-res">
     <strong>📄 IEEE SAIBOT 2026 — first author (accepted)</strong>
@@ -177,7 +186,7 @@ certificates:
   </div>
 </div>
 
-<h2 class="ach-h" id="certifications">Certifications at a glance</h2>
+<h2 class="ach-h sec-h" id="certifications"><i class="fa-solid fa-certificate"></i> Certifications at a glance</h2>
 <div class="ach-certs">
   <div class="ach-cert"><div class="iss">Siemens</div><div class="nm">Process Simulate Standalone Associate</div><div class="dt">Jun 2026</div></div>
   <div class="ach-cert"><div class="iss">Dassault Systèmes</div><div class="nm">Certified SOLIDWORKS Associate (CSWA)</div><div class="dt">Aug 2026</div></div>
@@ -187,7 +196,7 @@ certificates:
   <div class="ach-cert"><div class="iss">Altium Education</div><div class="nm">PCB Basic Design</div><div class="dt">Feb 2026</div></div>
 </div>
 
-## All certificates & award documents
+<h2 class="sec-h" id="all-certificates--award-documents"><i class="fa-solid fa-folder-open"></i> All certificates &amp; award documents</h2>
 
 <!--- ### Certificate viewer --->
 <!--- Flip through my certificates and award documents, grouped by Electrical Engineering, Automation and Shell Eco-marathon, each in chronological order. --->

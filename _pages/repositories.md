@@ -23,7 +23,16 @@ nav_order: 4
   .repo-body ul { margin: .2rem 0 .4rem; padding-left: 1.1rem; font-size: .9rem; }
   .repo-body li { margin-bottom: .15rem; }
   @media (max-width: 760px) { .repo-grid { grid-template-columns: minmax(0, 1fr); } }
+
+  /* ---- Page title and section headings matched to Projects/CV/Contact ---- */
+  .post > .post-header { display: none !important; }
+  .pg-title { font-size: clamp(2rem, 4.5vw, 3rem); font-weight: 800; letter-spacing: -0.02em; margin: 1rem 0 .3rem; }
+  .pg-lead { opacity: .85; margin: 0 0 1.2rem; max-width: 46rem; line-height: 1.6; }
+  .sec-h { display: flex; align-items: center; gap: .6rem; color: var(--global-theme-color) !important; font-size: 1.45rem; font-weight: 700; padding-bottom: .4rem; border-bottom: 2px solid var(--global-theme-color); margin: 2.2rem 0 1rem !important; }
+  .sec-h i { font-size: .8em; }
 </style>
+<p class="pg-title">Repositories</p>
+<p class="pg-lead">Selected code behind my projects — embedded firmware, computer vision and automation.</p>
 <div class="repo-grid">
   <div class="pc-card repo-card">
     <img src="{{ 'assets/img/ecovolt-track.jpg' | relative_url }}" alt="EcoVolt CCM prototype on the track" style="object-position: center 80%">
