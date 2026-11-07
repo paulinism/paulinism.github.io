@@ -96,6 +96,23 @@ latest_posts:
   @media (max-width: 860px) { .hm-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 150px; } }
   @media (max-width: 480px) { .hm-gallery { grid-auto-rows: 125px; } .hm-tile figcaption { font-size: .72rem; } }
 
+
+  /* ---- Home: tech stack ---- */
+  .ts-wrap { margin: 2.6rem 0 1rem; }
+  .ts-title { text-align: center; font-size: 1.6rem; font-weight: 700; margin: 0 0 .35rem; }
+  .ts-lead { text-align: center; font-style: italic; opacity: .8; margin: 0 0 1.4rem; }
+  .ts-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+  .ts-card { border: 1px solid rgba(128,128,128,.3); border-radius: 12px; padding: 1.1rem .8rem 1rem; }
+  .ts-card h3 { text-align: center; font-size: 1.08rem; font-weight: 700; color: var(--global-theme-color); margin: 0 0 1rem; }
+  .ts-items { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.1rem .4rem; }
+  .ts-item { display: flex; flex-direction: column; align-items: center; gap: .45rem; text-align: center; }
+  .ts-logo { display: flex; align-items: center; justify-content: center; width: 52px; height: 52px; border-radius: 12px; background: #fff; padding: 8px; box-sizing: border-box; box-shadow: 0 1px 3px rgba(0,0,0,.12); transition: transform .15s ease; }
+  .ts-item:hover .ts-logo { transform: translateY(-2px); }
+  .ts-logo img { width: 100%; height: 100%; object-fit: contain; display: block; }
+  .ts-logo i { font-size: 1.6rem; }
+  .ts-item span { font-size: .8rem; line-height: 1.2; }
+  @media (max-width: 860px) { .ts-cards { grid-template-columns: minmax(0, 1fr); } .ts-items { grid-template-columns: repeat(5, minmax(0, 1fr)); } }
+  @media (max-width: 480px) { .ts-items { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 </style>
 
 <section class="hero">
@@ -147,6 +164,46 @@ latest_posts:
 </div>
 
 <div class="ab-cta"><strong>Verfügbar ab Februar/März 2027</strong> für ein Praktikum in Embedded Systems, Hardware oder industrieller Automatisierung.</div>
+</div>
+
+<div class="ts-wrap" id="tech-stack">
+<h2 class="ts-title">Tech-Stack</h2>
+<p class="ts-lead">Werkzeuge für Konstruktion, Simulation, Programmierung und Automatisierung, die ich in meiner Ingenieursarbeit einsetze.</p>
+<div class="ts-cards">
+  <div class="ts-card"><h3>Konstruktion &amp; Simulation</h3><div class="ts-items">
+    <div class="ts-item"><div class="ts-logo"><img src="/assets/img/logos/solidworks.svg" alt="SOLIDWORKS" loading="lazy"></div><span>SOLIDWORKS</span></div>
+    <div class="ts-item"><div class="ts-logo"><img src="/assets/img/logos/siemens.svg" alt="Siemens NX" loading="lazy"></div><span>Siemens NX</span></div>
+    <div class="ts-item"><div class="ts-logo"><i class="fa-solid fa-microchip" style="color: #A5915F"></i></div><span>Altium Designer</span></div>
+    <div class="ts-item"><div class="ts-logo"><img src="/assets/img/logos/fusion.svg" alt="Fusion CAM" loading="lazy"></div><span>Fusion CAM</span></div>
+    <div class="ts-item"><div class="ts-logo"><img src="/assets/img/logos/matlab.svg" alt="MATLAB" loading="lazy"></div><span>MATLAB</span></div>
+    <div class="ts-item"><div class="ts-logo"><i class="fa-solid fa-diagram-project" style="color: #0076A8"></i></div><span>Simulink</span></div>
+    <div class="ts-item"><div class="ts-logo"><img src="/assets/img/logos/ansys.svg" alt="Ansys" loading="lazy"></div><span>Ansys</span></div>
+    <div class="ts-item"><div class="ts-logo"><i class="fa-solid fa-wave-square" style="color: #2D6DB5"></i></div><span>Multisim</span></div>
+    <div class="ts-item"><div class="ts-logo"><img src="/assets/img/logos/siemens.svg" alt="Process Simulate" loading="lazy"></div><span>Process Simulate</span></div>
+  </div></div>
+  <div class="ts-card"><h3>Programmierung &amp; Automatisierung</h3><div class="ts-items">
+    <div class="ts-item"><div class="ts-logo"><img src="/assets/img/logos/python.svg" alt="Python" loading="lazy"></div><span>Python</span></div>
+    <div class="ts-item"><div class="ts-logo"><img src="/assets/img/logos/c.svg" alt="C" loading="lazy"></div><span>C</span></div>
+    <div class="ts-item"><div class="ts-logo"><img src="/assets/img/logos/cpp.svg" alt="C++" loading="lazy"></div><span>C++</span></div>
+    <div class="ts-item"><div class="ts-logo"><img src="/assets/img/logos/csharp.svg" alt="C#" loading="lazy"></div><span>C#</span></div>
+    <div class="ts-item"><div class="ts-logo"><img src="/assets/img/logos/labview.svg" alt="LabVIEW" loading="lazy"></div><span>LabVIEW</span></div>
+    <div class="ts-item"><div class="ts-logo"><img src="/assets/img/logos/siemens.svg" alt="TIA Portal" loading="lazy"></div><span>TIA Portal</span></div>
+    <div class="ts-item"><div class="ts-logo"><img src="/assets/img/logos/rockwell.svg" alt="Studio 5000" loading="lazy"></div><span>Studio 5000</span></div>
+    <div class="ts-item"><div class="ts-logo"><i class="fa-solid fa-robot" style="color: #00A0D2"></i></div><span>Universal Robots</span></div>
+    <div class="ts-item"><div class="ts-logo"><i class="fa-solid fa-camera" style="color: #E2231A"></i></div><span>Cognex In-Sight</span></div>
+  </div></div>
+  <div class="ts-card"><h3>Software &amp; Tools</h3><div class="ts-items">
+    <div class="ts-item"><div class="ts-logo"><i class="fa-solid fa-file-word" style="color: #2B579A"></i></div><span>Word</span></div>
+    <div class="ts-item"><div class="ts-logo"><i class="fa-solid fa-file-excel" style="color: #217346"></i></div><span>Excel</span></div>
+    <div class="ts-item"><div class="ts-logo"><i class="fa-solid fa-file-powerpoint" style="color: #D24726"></i></div><span>PowerPoint</span></div>
+    <div class="ts-item"><div class="ts-logo"><img src="/assets/img/logos/latex.svg" alt="LaTeX" loading="lazy"></div><span>LaTeX</span></div>
+    <div class="ts-item"><div class="ts-logo"><img src="/assets/img/logos/vscode.svg" alt="VS Code" loading="lazy"></div><span>VS Code</span></div>
+    <div class="ts-item"><div class="ts-logo"><img src="/assets/img/logos/github.svg" alt="GitHub" loading="lazy"></div><span>GitHub</span></div>
+    <div class="ts-item"><div class="ts-logo"><img src="/assets/img/logos/git.svg" alt="Git" loading="lazy"></div><span>Git</span></div>
+    <div class="ts-item"><div class="ts-logo"><img src="/assets/img/logos/platformio.svg" alt="PlatformIO" loading="lazy"></div><span>PlatformIO</span></div>
+    <div class="ts-item"><div class="ts-logo"><img src="/assets/img/logos/jupyter.svg" alt="Jupyter" loading="lazy"></div><span>Jupyter</span></div>
+  </div></div>
+</div>
 </div>
 
 ## Ausgewählte Projekte {#featured-projects}
