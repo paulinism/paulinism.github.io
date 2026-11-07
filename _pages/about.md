@@ -145,6 +145,11 @@ latest_posts:
   /* ---- Home: stat cards, option A ---- */
   .ab-stat .ab-ctx { display: block; font-size: .82rem; font-weight: 600; color: var(--global-theme-color); margin-top: .2rem; }
   .ab-stat .ab-small { margin-top: .1rem !important; }
+
+  /* ---- Home: section titles in the site's heading style ---- */
+  .hm-sec { display: flex; align-items: center; gap: .6rem; color: var(--global-theme-color) !important; font-size: 1.45rem !important; font-weight: 700 !important; text-align: left !important; padding-bottom: .4rem; border-bottom: 2px solid var(--global-theme-color); margin: 2.4rem 0 .8rem !important; }
+  .hm-sec i { font-size: .8em; }
+  .ts-lead, .hm-sub { text-align: left !important; font-style: normal !important; }
 </style>
 
 <section class="hero">
@@ -200,7 +205,7 @@ latest_posts:
 </div>
 
 <div class="ts-wrap" id="tech-stack">
-<h2 class="ts-title">Tech Stack</h2>
+<h2 class="ts-title hm-sec"><i class="fa-solid fa-screwdriver-wrench"></i> Tech Stack</h2>
 <p class="ts-lead">Design, simulation, programming and automation tools I use in my engineering work.</p>
 <div class="ts-cards">
   <div class="ts-card"><h3>Design &amp; Simulation</h3><div class="ts-items">
@@ -239,7 +244,7 @@ latest_posts:
 </div>
 </div>
 
-## Featured projects
+<h2 class="hm-sec" id="featured-projects"><i class="fa-solid fa-star"></i> Featured projects</h2>
 
 <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:1.5rem; margin-top:1.5rem;">
 {% assign featured = site.projects | where: "featured", true | sort: "importance" %}
@@ -259,7 +264,7 @@ latest_posts:
 
 [See all projects →](/projects/)
 
-<h2 class="hm-h" id="highlights">On track, in the lab, on stage</h2>
+<h2 class="hm-h hm-sec" id="highlights"><i class="fa-solid fa-camera"></i> On track, in the lab, on stage</h2>
 <p class="hm-sub">A few moments behind the projects — competitions, cleanroom work and the hardware itself.</p>
 <div class="hm-gallery">
   <a class="hm-tile hm-big" href="/projects/ecovolt-telemetry/"><img src="/assets/img/home/track.jpg" alt="EcoVolt CCM prototype on track" loading="lazy"><span class="hm-cap"><strong>EcoVolt CCM prototype</strong>Energy-efficient EV, ~200 km/kWh at ~28 km/h</span></a>

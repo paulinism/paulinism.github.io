@@ -147,6 +147,11 @@ latest_posts:
   /* ---- Home: stat cards, option A ---- */
   .ab-stat .ab-ctx { display: block; font-size: .82rem; font-weight: 600; color: var(--global-theme-color); margin-top: .2rem; }
   .ab-stat .ab-small { margin-top: .1rem !important; }
+
+  /* ---- Home: section titles in the site's heading style ---- */
+  .hm-sec { display: flex; align-items: center; gap: .6rem; color: var(--global-theme-color) !important; font-size: 1.45rem !important; font-weight: 700 !important; text-align: left !important; padding-bottom: .4rem; border-bottom: 2px solid var(--global-theme-color); margin: 2.4rem 0 .8rem !important; }
+  .hm-sec i { font-size: .8em; }
+  .ts-lead, .hm-sub { text-align: left !important; font-style: normal !important; }
 </style>
 
 <section class="hero">
@@ -202,7 +207,7 @@ latest_posts:
 </div>
 
 <div class="ts-wrap" id="tech-stack">
-<h2 class="ts-title">Tech-Stack</h2>
+<h2 class="ts-title hm-sec"><i class="fa-solid fa-screwdriver-wrench"></i> Tech-Stack</h2>
 <p class="ts-lead">Werkzeuge für Konstruktion, Simulation, Programmierung und Automatisierung, die ich in meiner Ingenieursarbeit einsetze.</p>
 <div class="ts-cards">
   <div class="ts-card"><h3>Konstruktion &amp; Simulation</h3><div class="ts-items">
@@ -241,7 +246,7 @@ latest_posts:
 </div>
 </div>
 
-## Ausgewählte Projekte {#featured-projects}
+<h2 class="hm-sec" id="featured-projects"><i class="fa-solid fa-star"></i> Ausgewählte Projekte</h2>
 
 <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:1.5rem; margin-top:1.5rem;">
 {% assign featured = site.pages | where: "de_project", true | where: "featured", true | sort: "importance" %}
@@ -261,7 +266,7 @@ latest_posts:
 
 [Alle Projekte ansehen →](/de/projects/)
 
-<h2 class="hm-h" id="highlights">Auf der Strecke, im Labor, auf der Bühne</h2>
+<h2 class="hm-h hm-sec" id="highlights"><i class="fa-solid fa-camera"></i> Auf der Strecke, im Labor, auf der Bühne</h2>
 <p class="hm-sub">Einige Momente hinter den Projekten — Wettbewerbe, Reinraumarbeit und die Hardware selbst.</p>
 <div class="hm-gallery">
   <a class="hm-tile hm-big" href="/de/projects/ecovolt-telemetry/"><img src="/assets/img/home/track.jpg" alt="Prototyp von EcoVolt CCM auf der Strecke" loading="lazy"><span class="hm-cap"><strong>Prototyp EcoVolt CCM</strong>Energieeffizientes E-Fahrzeug, ca. 200 km/kWh bei ca. 28 km/h</span></a>
