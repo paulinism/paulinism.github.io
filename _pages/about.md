@@ -209,7 +209,7 @@ latest_posts:
 <p class="ts-lead">Design, simulation, programming and automation tools I use in my engineering work.</p>
 <div class="ts-cards">
   <div class="ts-card"><h3>Design &amp; Simulation</h3><div class="ts-items">
-    <div class="ts-item"><div class="ts-logo"><img src="/assets/img/logos/solidworks.svg" alt="SOLIDWORKS" loading="lazy"></div><span>SOLIDWORKS</span></div>
+    <div class="ts-item"><div class="ts-logo"><img src="/assets/img/logos/solidworks.png" alt="SOLIDWORKS" loading="lazy"></div><span>SOLIDWORKS</span></div>
     <div class="ts-item"><div class="ts-logo"><img src="/assets/img/logos/nx.png" alt="Siemens NX" loading="lazy"></div><span>Siemens NX</span></div>
     <div class="ts-item"><div class="ts-logo"><img src="/assets/img/logos/altium.png" alt="Altium Designer" loading="lazy"></div><span>Altium Designer</span></div>
     <div class="ts-item"><div class="ts-logo"><img src="/assets/img/logos/fusion.svg" alt="Fusion CAM" loading="lazy"></div><span>Fusion CAM</span></div>
