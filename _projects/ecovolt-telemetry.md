@@ -136,7 +136,7 @@ An ESP32 on a breadboard with a Hall-effect current module, a voltage divider, G
 </div>
 
 <div class="tel-grid wide">
-  <figure class="tel-fig auto photo"><img data-zoomable src="{{ 'assets/img/tel-car-americas-2025.jpg' | relative_url }}" width="1800" height="703" alt="EcoVolt CCM prototype #314 on track at Shell Eco-marathon Americas 2025"><figcaption><strong>EcoVolt CCM prototype #314 · Shell Eco-marathon Americas 2025</strong> — the car that carried this first telemetry system.</figcaption></figure>
+  <figure class="tel-fig auto photo"><img data-zoomable src="{{ 'assets/img/tel-car-americas-2025.jpg' | relative_url }}" width="1800" height="703" alt="Xibalbá, EcoVolt CCM prototype, on track at Shell Eco-marathon Americas 2025"><figcaption><strong>Xibalbá</strong> · SEM Americas 2025</figcaption></figure>
 </div>
 
 **V1 — First custom board (Brazil 2025)**
@@ -152,6 +152,10 @@ I replaced the Hall module with my own shunt design: an INA240A1 across a 20 mΩ
   <figure class="tel-fig sq"><img data-zoomable src="{{ 'assets/img/tel-sch-brazil25.png' | relative_url }}" alt="Telemetry schematic, Brazil 2025"><figcaption>Brazil 2025 schematic: 20 mΩ shunt with INA240A1, 1 MΩ / 56 kΩ divider, MPU6050, NEO-6M and ESP32-C3 SuperMini.</figcaption></figure>
   <figure class="tel-fig sq"><img data-zoomable src="{{ 'assets/img/tel-pcb-brazil25-layout.jpg' | relative_url }}" alt="Brazil 2025 PCB layout in Altium"><figcaption>Brazil 2025 layout in Altium, with the shunt section (IN/OUT pads) on the right.</figcaption></figure>
   <figure class="tel-fig sq"><video src="{{ 'assets/img/tel-brazil-2025-track.mp4' | relative_url }}" autoplay loop muted playsinline controls></video><figcaption>Track as driver at Pier Mauá, Rio de Janeiro — Brazil 2025.</figcaption></figure>
+</div>
+
+<div class="tel-grid wide">
+  <figure class="tel-fig auto photo"><img data-zoomable src="{{ 'assets/img/tel-car-brazil-2025.jpg' | relative_url }}" width="1800" height="703" alt="Macuilli, EcoVolt CCM prototype, on track at Shell Eco-marathon Brazil 2025"><figcaption><strong>Macuilli</strong> · SEM Brazil 2025</figcaption></figure>
 </div>
 
 Between seasons we compared eight regression models in Altair AI Studio. With so little data no model was reliable (36–80 % relative error), but the variable ranking — speed as the dominant factor — pointed the next season toward speed strategy and earned an Honorable Mention in the Altair Global Student Contest 2025.
@@ -194,7 +198,7 @@ On track in Rio de Janeiro with the V3 system — one of the three sessions reco
 </div>
 
 <div class="tel-grid wide">
-  <figure class="tel-fig auto photo"><img data-zoomable src="{{ 'assets/img/tel-car-317-2026.jpg' | relative_url }}" width="1800" height="703" alt="EcoVolt CCM prototype #317 on a test track before Shell Eco-marathon Brazil 2026"><figcaption><strong>EcoVolt CCM prototype #317 · track test before Shell Eco-marathon Brazil 2026</strong> — the 2026 car, which carried the V3 system.</figcaption></figure>
+  <figure class="tel-fig auto photo"><img data-zoomable src="{{ 'assets/img/tel-car-317-2026.jpg' | relative_url }}" width="1800" height="703" alt="Axolotl, EcoVolt CCM prototype, on a test track before Shell Eco-marathon Brazil 2026"><figcaption><strong>Axolotl</strong> · SEM Brazil 2026</figcaption></figure>
 </div>
 
 **Simulator bench test**

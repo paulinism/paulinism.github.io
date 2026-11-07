@@ -137,7 +137,7 @@ Ein ESP32 auf einem Steckbrett mit Hall-Strommodul, Spannungsteiler, GPS und IMU
 </div>
 
 <div class="tel-grid wide">
-  <figure class="tel-fig auto photo"><img data-zoomable src="{{ 'assets/img/tel-car-americas-2025.jpg' | relative_url }}" width="1800" height="703" alt="Prototyp EcoVolt CCM #314 auf der Strecke beim Shell Eco-marathon Americas 2025"><figcaption><strong>Prototyp EcoVolt CCM #314 · Shell Eco-marathon Americas 2025</strong> — das Fahrzeug, in dem dieses erste Telemetriesystem lief.</figcaption></figure>
+  <figure class="tel-fig auto photo"><img data-zoomable src="{{ 'assets/img/tel-car-americas-2025.jpg' | relative_url }}" width="1800" height="703" alt="Xibalbá, Prototyp EcoVolt CCM, auf der Strecke beim Shell Eco-marathon Americas 2025"><figcaption><strong>Xibalbá</strong> · SEM Americas 2025</figcaption></figure>
 </div>
 
 **V1 — Erste eigene Platine (Brazil 2025)**
@@ -153,6 +153,10 @@ Ich habe das Hall-Modul durch einen eigenen Shunt-Entwurf ersetzt: ein INA240A1 
   <figure class="tel-fig sq"><img data-zoomable src="{{ 'assets/img/tel-sch-brazil25.png' | relative_url }}" alt="Telemetrie-Schaltplan, Brazil 2025"><figcaption>Schaltplan Brazil 2025: 20-mΩ-Shunt mit INA240A1, Spannungsteiler 1 MΩ / 56 kΩ, MPU6050, NEO-6M und ESP32-C3 SuperMini.</figcaption></figure>
   <figure class="tel-fig sq"><img data-zoomable src="{{ 'assets/img/tel-pcb-brazil25-layout.jpg' | relative_url }}" alt="Platinenlayout Brazil 2025 in Altium"><figcaption>Layout Brazil 2025 in Altium, rechts der Shunt-Bereich (IN/OUT-Pads).</figcaption></figure>
   <figure class="tel-fig sq"><video src="{{ 'assets/img/tel-brazil-2025-track.mp4' | relative_url }}" autoplay loop muted playsinline controls></video><figcaption>Als Fahrerin auf der Strecke am Pier Mauá, Rio de Janeiro — Brazil 2025.</figcaption></figure>
+</div>
+
+<div class="tel-grid wide">
+  <figure class="tel-fig auto photo"><img data-zoomable src="{{ 'assets/img/tel-car-brazil-2025.jpg' | relative_url }}" width="1800" height="703" alt="Macuilli, Prototyp EcoVolt CCM, auf der Strecke beim Shell Eco-marathon Brazil 2025"><figcaption><strong>Macuilli</strong> · SEM Brazil 2025</figcaption></figure>
 </div>
 
 Zwischen den Saisons haben wir acht Regressionsmodelle in Altair AI Studio verglichen. Bei so wenig Daten war kein Modell zuverlässig (36–80 % relativer Fehler), aber die Rangfolge der Variablen — Geschwindigkeit als dominierender Faktor — lenkte die nächste Saison auf eine Geschwindigkeitsstrategie und brachte eine Honorable Mention beim Altair Global Student Contest 2025.
@@ -195,7 +199,7 @@ Auf der Strecke in Rio de Janeiro mit dem System V3 — eine der drei Sitzungen,
 </div>
 
 <div class="tel-grid wide">
-  <figure class="tel-fig auto photo"><img data-zoomable src="{{ 'assets/img/tel-car-317-2026.jpg' | relative_url }}" width="1800" height="703" alt="Prototyp EcoVolt CCM #317 bei Testfahrten vor dem Shell Eco-marathon Brazil 2026"><figcaption><strong>Prototyp EcoVolt CCM #317 · Testfahrt vor dem Shell Eco-marathon Brazil 2026</strong> — das Fahrzeug der Saison 2026 mit dem V3-System.</figcaption></figure>
+  <figure class="tel-fig auto photo"><img data-zoomable src="{{ 'assets/img/tel-car-317-2026.jpg' | relative_url }}" width="1800" height="703" alt="Axolotl, Prototyp EcoVolt CCM, bei Testfahrten vor dem Shell Eco-marathon Brazil 2026"><figcaption><strong>Axolotl</strong> · SEM Brazil 2026</figcaption></figure>
 </div>
 
 **Simulator-Prüfstandstest**
