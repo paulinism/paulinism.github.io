@@ -223,7 +223,7 @@ latest_posts:
   </div></div>
   <div class="ts-card"><h3>Programmierung &amp; Automatisierung</h3><div class="ts-items">
     <div class="ts-item"><div class="ts-logo"><img src="/assets/img/logos/python.svg" alt="Python" loading="lazy"></div><span>Python</span></div>
-    <div class="ts-item"><div class="ts-logo"><img src="/assets/img/logos/c.svg" alt="C" loading="lazy"></div><span>C</span></div>
+    <div class="ts-item"><div class="ts-logo"><img src="/assets/img/logos/c.png" alt="C" loading="lazy"></div><span>C</span></div>
     <div class="ts-item"><div class="ts-logo"><img src="/assets/img/logos/cpp.svg" alt="C++" loading="lazy"></div><span>C++</span></div>
     <div class="ts-item"><div class="ts-logo"><img src="/assets/img/logos/csharp.svg" alt="C#" loading="lazy"></div><span>C#</span></div>
     <div class="ts-item"><div class="ts-logo"><img src="/assets/img/logos/labview.svg" alt="LabVIEW" loading="lazy"></div><span>LabVIEW</span></div>
@@ -233,15 +233,15 @@ latest_posts:
     <div class="ts-item"><div class="ts-logo"><img src="/assets/img/logos/cognex.png" alt="Cognex In-Sight" loading="lazy"></div><span>Cognex In-Sight</span></div>
   </div></div>
   <div class="ts-card"><h3>Software &amp; Tools</h3><div class="ts-items">
-    <div class="ts-item"><div class="ts-logo"><i class="fa-solid fa-file-word" style="color: #2B579A"></i></div><span>Word</span></div>
-    <div class="ts-item"><div class="ts-logo"><i class="fa-solid fa-file-excel" style="color: #217346"></i></div><span>Excel</span></div>
-    <div class="ts-item"><div class="ts-logo"><i class="fa-solid fa-file-powerpoint" style="color: #D24726"></i></div><span>PowerPoint</span></div>
+    <div class="ts-item"><div class="ts-logo"><img src="/assets/img/logos/word.png" alt="Word" loading="lazy"></div><span>Word</span></div>
+    <div class="ts-item"><div class="ts-logo"><img src="/assets/img/logos/excel.png" alt="Excel" loading="lazy"></div><span>Excel</span></div>
+    <div class="ts-item"><div class="ts-logo"><img src="/assets/img/logos/powerpoint.png" alt="PowerPoint" loading="lazy"></div><span>PowerPoint</span></div>
     <div class="ts-item"><div class="ts-logo"><img src="/assets/img/logos/latex.svg" alt="LaTeX" loading="lazy"></div><span>LaTeX</span></div>
     <div class="ts-item"><div class="ts-logo"><img src="/assets/img/logos/vscode.svg" alt="VS Code" loading="lazy"></div><span>VS Code</span></div>
     <div class="ts-item"><div class="ts-logo"><img src="/assets/img/logos/github.svg" alt="GitHub" loading="lazy"></div><span>GitHub</span></div>
     <div class="ts-item"><div class="ts-logo"><img src="/assets/img/logos/git.svg" alt="Git" loading="lazy"></div><span>Git</span></div>
     <div class="ts-item"><div class="ts-logo"><img src="/assets/img/logos/platformio.svg" alt="PlatformIO" loading="lazy"></div><span>PlatformIO</span></div>
-    <div class="ts-item"><div class="ts-logo"><img src="/assets/img/logos/jupyter.svg" alt="Jupyter" loading="lazy"></div><span>Jupyter</span></div>
+    <div class="ts-item"><div class="ts-logo"><img src="/assets/img/logos/jupyter.png" alt="Jupyter" loading="lazy"></div><span>Jupyter</span></div>
   </div></div>
 </div>
 </div>
