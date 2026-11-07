@@ -119,6 +119,13 @@ latest_posts:
   .sk-box h4 i { color: var(--global-theme-color); width: 1rem; text-align: center; }
   .sk-box .ab-tag { font-size: .74rem; padding: .1rem .5rem; margin: 0 .25rem .3rem 0; }
   @media (max-width: 560px) { .sk-boxes { grid-template-columns: minmax(0, 1fr); } }
+
+  /* ---- Home: availability above the skill boxes ---- */
+  .ab-bottom { display: block !important; }
+  .ab-bottom .ab-cta { margin: 0 0 1rem !important; max-width: none; }
+  .ab-bottom .sk-boxes { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  @media (max-width: 860px) { .ab-bottom .sk-boxes { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 560px) { .ab-bottom .sk-boxes { grid-template-columns: minmax(0, 1fr); } }
 </style>
 
 <section class="hero">
@@ -160,6 +167,8 @@ latest_posts:
 </section>
 
 <div class="ab-bottom">
+<div class="ab-cta"><strong>Available from February/March 2027</strong> for a mandatory internship (Praktikum) in embedded systems, hardware or industrial automation.</div>
+
 <div class="ab-areas sk-boxes">
   <div class="sk-box"><h4><i class="fa-solid fa-microchip"></i>Embedded &amp; Electronics</h4><span class="ab-tag">ESP32 firmware</span><span class="ab-tag">CAN</span><span class="ab-tag">SPI · I2C · UART</span><span class="ab-tag">MQTT</span><span class="ab-tag">Bluetooth</span><span class="ab-tag">Sensor integration</span></div>
   <div class="sk-box"><h4><i class="fa-solid fa-bolt"></i>PCB &amp; Measurement</h4><span class="ab-tag">Multilayer PCB design</span><span class="ab-tag">IPC-2221</span><span class="ab-tag">Op-amp signal chains</span><span class="ab-tag">Current sensing</span><span class="ab-tag">Component characterization</span><span class="ab-tag">SMD/THT soldering</span></div>
@@ -169,7 +178,6 @@ latest_posts:
   <div class="sk-box"><h4><i class="fa-solid fa-gears"></i>Design &amp; Fabrication</h4><span class="ab-tag">CAD assemblies</span><span class="ab-tag">Static &amp; motion analysis</span><span class="ab-tag">CAM / CNC</span><span class="ab-tag">3D printing</span><span class="ab-tag">Turning · Milling</span><span class="ab-tag">Cleanroom microfabrication</span></div>
 </div>
 
-<div class="ab-cta"><strong>Available from February/March 2027</strong> for a mandatory internship (Praktikum) in embedded systems, hardware or industrial automation.</div>
 </div>
 
 <div class="ts-wrap" id="tech-stack">
