@@ -36,24 +36,28 @@ nav_order: 3
   .pg-lead { opacity: .85; margin: 0 0 1.2rem; max-width: 46rem; line-height: 1.6; }
   .sec-h { display: flex; align-items: center; gap: .6rem; color: var(--global-theme-color) !important; font-size: 1.45rem; font-weight: 700; padding-bottom: .4rem; border-bottom: 2px solid var(--global-theme-color); margin: 2.2rem 0 1rem !important; }
   .sec-h i { font-size: .8em; }
-  .pub-team { display: grid; grid-template-columns: 200px minmax(0, 1fr); align-items: stretch; margin-top: 1rem; }
-  .pub-team img { width: 100%; height: 100%; min-height: 250px; object-fit: cover; object-position: center 20%; display: block; }
-  .pub-team .pub-body { align-self: center; }
-  .pub-team .pub-body p { margin: 0 0 .35rem; font-size: .92rem; line-height: 1.5; }
-  .pub-team .pt-k { font-size: .75rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--global-theme-color); }
-  @media (max-width: 640px) { .pub-team { grid-template-columns: minmax(0, 1fr); } .pub-team img { height: auto; min-height: 0; aspect-ratio: 4 / 3; object-position: center 15%; } }
+  @media (min-width: 761px) { .pub-feat.pub-has-cover { grid-template-columns: minmax(0, 1.25fr) minmax(0, 1.4fr); } }
+  .pub-feat .pub-cover { object-fit: contain; background: #0d0e12; }
+  @media (max-width: 760px) { .pub-feat .pub-cover { height: auto; aspect-ratio: 4 / 3; } }
+  .pub-authors { margin: .9rem 0 0; padding-top: .8rem; border-top: 1px solid rgba(128,128,128,.25); }
+  .pub-authors p { margin: 0 0 .3rem; font-size: .9rem; line-height: 1.5; }
+  .pub-authors .pt-k { font-size: .75rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--global-theme-color); margin-bottom: .25rem; }
 </style>
 <p class="pg-title">Publications</p>
 <p class="pg-lead">Conference paper and technical reports from racing, robotics and automation projects.</p>
 <h2 class="pc-h sec-h"><i class="fa-solid fa-newspaper"></i> Conference paper</h2>
-<div class="pc-card pub-feat">
-  <img data-zoomable src="{{ 'assets/img/ecovolt-telemetry.jpg' | relative_url }}" alt="EcoVolt CCM telemetry board and dashboard">
+<div class="pc-card pub-feat pub-has-cover">
+  <img class="pub-cover" data-zoomable src="{{ 'assets/img/paper-cover.jpg' | relative_url }}" width="1600" height="1200" alt="Paper cover: the three authors in EcoVolt CCM team shirts in front of the Run Intelligence telemetry dashboard">
   <div class="pub-body">
     <span class="pc-badge">IEEE SAIBOT 2026 · Accepted</span>
     <p class="pub-title">Real-Time Telemetry and Computational Intelligence Pipeline for Energy-Efficient Driving of an Electric Eco-Marathon Vehicle</p>
     <p class="pub-auth"><strong>P. L. Ruíz-Servín</strong>, J. D. González-Fernández, A. Flores-Mendoza, J. Izquierdo-Reyes</p>
     <p class="pub-venue">IEEE Latin American School on Computational Intelligence and Robotics (SAIBOT), 2026 — first author</p>
     <p class="pub-abs">Three generations of telemetry hardware for an electric Shell Eco-marathon prototype — current, voltage, GPS and motor data over CAN, logged to SD and streamed live — and a data pipeline that compares driving strategies, including a simulator bench test where constant throttle beat pulse-and-glide by 14 %.</p>
+    <div class="pub-authors">
+      <p class="pt-k">On the cover</p>
+      <p>From left: <strong>José Diego González-Fernández</strong>, <strong>Paulina L. Ruíz-Servín</strong> and <strong>Aarón Flores-Mendoza</strong>. Faculty advisor: Dr. Javier Izquierdo-Reyes.</p>
+    </div>
     <div class="pc-btns">
       <a class="pc-btn primary" href="{{ '/projects/ecovolt-telemetry/' | relative_url }}">Related project</a>
       <button class="pc-btn" type="button" onclick="this.closest('.pub-body').querySelector('.pub-bib').classList.toggle('open')">BibTeX</button>
@@ -67,14 +71,6 @@ nav_order: 3
   year      = {2026},
   note      = {Accepted}
 }</pre>
-  </div>
-</div>
-<div class="pc-card pub-team">
-  <img data-zoomable src="{{ 'assets/img/paper-authors.jpg' | relative_url }}" alt="Paper authors from the EcoVolt CCM team: José Diego González-Fernández, Paulina Ruíz-Servín and Aarón Flores-Mendoza">
-  <div class="pub-body">
-    <p class="pt-k">The authors</p>
-    <p>From left: <strong>José Diego González-Fernández</strong>, <strong>Paulina L. Ruíz-Servín</strong> (first author) and <strong>Aarón Flores-Mendoza</strong> — EcoVolt CCM team members who built and tested the telemetry pipeline described in the paper.</p>
-    <p style="opacity:.8">Faculty advisor: Dr. Javier Izquierdo-Reyes, Tecnológico de Monterrey.</p>
   </div>
 </div>
 <h2 class="pc-h sec-h"><i class="fa-solid fa-file-lines"></i> Technical reports</h2>
