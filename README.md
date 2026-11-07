@@ -68,13 +68,14 @@ Every page exists in English and German. A **EN | DE** switch in the navigation 
 
 - Redesigned overview page with a featured card, badges and tool tags per project.
 - Every project page follows the same structure: results first, challenge, my contribution, tools, results & lessons, evidence. Pages include "design at a glance" figures.
-- Click-to-zoom on all images (medium-zoom), plus "Back to projects" and previous/next navigation.
+- Click-to-zoom on all images (medium-zoom, opened images keep their real proportions), plus "Back to projects" and previous/next navigation.
+- The telemetry project shows each EcoVolt CCM car as a panoramic photo next to the telemetry generation it carried: **Xibalbá** (SEM Americas 2025), **Macuilli** (SEM Brazil 2025) and **Axolotl** (SEM United States and Brazil 2026).
 
 ### Achievements, Publications, Repositories, CV, Contact
 
 - All pages share the same large page title, short introduction and section-heading style.
 - **Achievements:** KPI strip, award cards with photos and prize, research summaries, certificates grouped by electrical engineering, automation and Shell Eco-marathon, and a book-style flippable certificate viewer.
-- **Publications:** conference paper card (IEEE SAIBOT 2026, accepted) with BibTeX, and technical reports.
+- **Publications:** conference paper card (IEEE SAIBOT 2026, accepted) with a custom cover showing the three student authors, an "On the cover" caption naming each of them and the faculty advisor, BibTeX, and technical reports.
 - **Repositories:** curated cards for `Ecovolt_telemetry_final` and `ScaraCV` with tags and links to the project pages.
 - **CV:** redesigned web CV (`_data/cv.yml`) and downloadable PDFs in `assets/pdf/` (`CV_Paulina_DE.pdf`, `CV_Paulina_EN.pdf`). Download links carry a `?v=` version so visitors always get the latest PDF.
 - **Contact:** icon rows for each channel, square profile photo and location button.
