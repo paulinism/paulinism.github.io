@@ -36,6 +36,11 @@ nav_order: 3
   .pg-lead { opacity: .85; margin: 0 0 1.2rem; max-width: 46rem; line-height: 1.6; }
   .sec-h { display: flex; align-items: center; gap: .6rem; color: var(--global-theme-color) !important; font-size: 1.45rem; font-weight: 700; padding-bottom: .4rem; border-bottom: 2px solid var(--global-theme-color); margin: 2.2rem 0 1rem !important; }
   .sec-h i { font-size: .8em; }
+  .pub-team { display: grid; grid-template-columns: 170px minmax(0, 1fr); align-items: center; margin-top: 1rem; }
+  .pub-team img { width: 100%; height: 100%; aspect-ratio: 4 / 5; object-fit: cover; display: block; }
+  .pub-team .pub-body p { margin: 0 0 .35rem; font-size: .92rem; line-height: 1.5; }
+  .pub-team .pt-k { font-size: .75rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--global-theme-color); }
+  @media (max-width: 560px) { .pub-team { grid-template-columns: 110px minmax(0, 1fr); } }
 </style>
 <p class="pg-title">Publications</p>
 <p class="pg-lead">Conference paper and technical reports from racing, robotics and automation projects.</p>
@@ -61,6 +66,14 @@ nav_order: 3
   year      = {2026},
   note      = {Accepted}
 }</pre>
+  </div>
+</div>
+<div class="pc-card pub-team">
+  <img data-zoomable src="{{ 'assets/img/paper-authors.jpg' | relative_url }}" alt="Paper authors from the EcoVolt CCM team: José Diego González-Fernández, Paulina Ruíz-Servín and Aarón Flores-Mendoza">
+  <div class="pub-body">
+    <p class="pt-k">The authors</p>
+    <p>From left: <strong>José Diego González-Fernández</strong>, <strong>Paulina L. Ruíz-Servín</strong> (first author) and <strong>Aarón Flores-Mendoza</strong> — EcoVolt CCM team members who built and tested the telemetry pipeline described in the paper.</p>
+    <p style="opacity:.8">Faculty advisor: Dr. Javier Izquierdo-Reyes, Tecnológico de Monterrey.</p>
   </div>
 </div>
 <h2 class="pc-h sec-h"><i class="fa-solid fa-file-lines"></i> Technical reports</h2>

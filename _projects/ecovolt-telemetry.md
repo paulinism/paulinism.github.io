@@ -135,6 +135,10 @@ An ESP32 on a breadboard with a Hall-effect current module, a voltage divider, G
   <figure class="tel-fig auto"><img data-zoomable src="{{ 'assets/img/tel-thingspeak-2025.jpg' | relative_url }}" alt="ThingSpeak current and voltage charts, 2025"><figcaption>Live data visualization in ThingSpeak during Shell Eco-marathon Americas 2025: motor current readings ranged from 14.5 to 17.6 A, with an approximately 15 A calibration offset. The voltage trace was accurate at 57.0 V, consistent with the battery's nominal operating voltage of approximately 60 V.</figcaption></figure>
 </div>
 
+<div class="tel-grid wide">
+  <figure class="tel-fig auto photo"><img data-zoomable src="{{ 'assets/img/tel-car-americas-2025.jpg' | relative_url }}" alt="EcoVolt CCM prototype #314 on track at Shell Eco-marathon Americas 2025"><figcaption><strong>EcoVolt CCM prototype #314 · Shell Eco-marathon Americas 2025</strong> — the car that carried this first telemetry system.</figcaption></figure>
+</div>
+
 **V1 — First custom board (Brazil 2025)**
 
 I replaced the Hall module with my own shunt design: an INA240A1 across a 20 mΩ shunt with an RC filter, from a hand-etched board to an Altium breakout and a fabricated PCB, on a single board with an ESP32-C3, GPS and IMU. The shunt voltage is only a few millivolts on a 48 V line, so the INA240 (gain 20 V/V) rejects the common mode and reads both draw and regeneration. Two problems appeared on track: the 20 mΩ shunt saturated the amplifier at the car's real current, and latency over a cellular hotspot left about one lap of usable data.
@@ -187,6 +191,10 @@ On track in Rio de Janeiro with the V3 system — one of the three sessions reco
 
 <div class="tel-grid single">
   <figure class="tel-fig tall"><video src="{{ 'assets/img/tel-brazil-2026-track.mp4' | relative_url }}" autoplay loop muted playsinline controls></video><figcaption>On track in Rio de Janeiro, Brazil 2026 — one of the three recorded sessions.</figcaption></figure>
+</div>
+
+<div class="tel-grid wide">
+  <figure class="tel-fig auto photo"><img data-zoomable src="{{ 'assets/img/tel-car-317-2026.jpg' | relative_url }}" alt="EcoVolt CCM prototype #317 on a test track before Shell Eco-marathon Brazil 2026"><figcaption><strong>EcoVolt CCM prototype #317 · track test before Shell Eco-marathon Brazil 2026</strong> — the 2026 car, which carried the V3 system.</figcaption></figure>
 </div>
 
 **Simulator bench test**

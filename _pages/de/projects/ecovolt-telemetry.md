@@ -136,6 +136,10 @@ Ein ESP32 auf einem Steckbrett mit Hall-Strommodul, Spannungsteiler, GPS und IMU
   <figure class="tel-fig auto"><img data-zoomable src="{{ 'assets/img/tel-thingspeak-2025.jpg' | relative_url }}" alt="ThingSpeak-Diagramme für Strom und Spannung, 2025"><figcaption>Live-Datenvisualisierung in ThingSpeak beim Shell Eco-marathon Americas 2025: Die Motorstromwerte lagen zwischen 14,5 und 17,6 A, mit einem Kalibrierfehler von etwa 15 A. Der Spannungsverlauf war mit 57,0 V korrekt und passt zur Nennbetriebsspannung der Batterie von etwa 60 V.</figcaption></figure>
 </div>
 
+<div class="tel-grid wide">
+  <figure class="tel-fig auto photo"><img data-zoomable src="{{ 'assets/img/tel-car-americas-2025.jpg' | relative_url }}" alt="Prototyp EcoVolt CCM #314 auf der Strecke beim Shell Eco-marathon Americas 2025"><figcaption><strong>Prototyp EcoVolt CCM #314 · Shell Eco-marathon Americas 2025</strong> — das Fahrzeug, in dem dieses erste Telemetriesystem lief.</figcaption></figure>
+</div>
+
 **V1 — Erste eigene Platine (Brazil 2025)**
 
 Ich habe das Hall-Modul durch einen eigenen Shunt-Entwurf ersetzt: ein INA240A1 an einem 20-mΩ-Shunt mit RC-Filter, von der selbst geätzten Platine über ein Altium-Modul bis zur gefertigten Leiterplatte, auf einer einzigen Platine mit ESP32-C3, GPS und IMU. Die Shunt-Spannung beträgt nur wenige Millivolt auf einer 48-V-Leitung; der INA240 (Verstärkung 20 V/V) unterdrückt daher die Gleichtaktspannung und misst sowohl Entnahme als auch Rekuperation. Auf der Strecke zeigten sich zwei Probleme: Der 20-mΩ-Shunt trieb den Verstärker beim realen Fahrzeugstrom in die Sättigung, und die Latenz über einen Mobilfunk-Hotspot ließ nur etwa eine Runde verwertbarer Daten übrig.
@@ -188,6 +192,10 @@ Auf der Strecke in Rio de Janeiro mit dem System V3 — eine der drei Sitzungen,
 
 <div class="tel-grid single">
   <figure class="tel-fig tall"><video src="{{ 'assets/img/tel-brazil-2026-track.mp4' | relative_url }}" autoplay loop muted playsinline controls></video><figcaption>Auf der Strecke in Rio de Janeiro, Brazil 2026 — eine der drei aufgezeichneten Sitzungen.</figcaption></figure>
+</div>
+
+<div class="tel-grid wide">
+  <figure class="tel-fig auto photo"><img data-zoomable src="{{ 'assets/img/tel-car-317-2026.jpg' | relative_url }}" alt="Prototyp EcoVolt CCM #317 bei Testfahrten vor dem Shell Eco-marathon Brazil 2026"><figcaption><strong>Prototyp EcoVolt CCM #317 · Testfahrt vor dem Shell Eco-marathon Brazil 2026</strong> — das Fahrzeug der Saison 2026 mit dem V3-System.</figcaption></figure>
 </div>
 
 **Simulator-Prüfstandstest**
