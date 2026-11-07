@@ -39,6 +39,8 @@ nav_order: 3
   @media (min-width: 761px) { .pub-feat.pub-has-cover { grid-template-columns: minmax(0, 1.25fr) minmax(0, 1.4fr); } }
   .pub-cover-fig { margin: 14px; align-self: center; }
   .pub-feat .pub-cover-fig img { width: 100%; height: auto; min-height: 0; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 10px; border: 1px solid rgba(128,128,128,.3); box-shadow: 0 4px 14px rgba(0,0,0,.18); }
+  .pub-cover-fig .pc-adv { display: block; margin-top: .2rem; opacity: .85; }
+  .pub-cover-fig .nw, .pub-cover-fig strong { white-space: nowrap; }
   .pub-cover-fig figcaption { margin-top: .7rem; font-size: .85rem; line-height: 1.5; opacity: .9; }
   .pub-cover-fig .pt-k { display: block; font-size: .72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--global-theme-color); margin-bottom: .15rem; }
   .medium-zoom-image--opened { object-fit: contain !important; background: transparent !important; }
@@ -51,7 +53,7 @@ nav_order: 3
 <div class="pc-card pub-feat pub-has-cover">
   <figure class="pub-cover-fig">
     <img class="pub-cover" data-zoomable src="{{ 'assets/img/paper-cover.jpg' | relative_url }}" width="1600" height="1200" alt="Paper cover: the three authors in EcoVolt CCM team shirts in front of the Run Intelligence telemetry dashboard">
-    <figcaption><span class="pt-k">On the cover</span> From left: <strong>José Diego González-Fernández</strong>, <strong>Paulina L. Ruíz-Servín</strong> and <strong>Aarón Flores-Mendoza</strong>. Faculty advisor: Dr. Javier Izquierdo-Reyes.</figcaption>
+    <figcaption><span class="pt-k">On the cover</span> From left: <strong>José Diego González-Fernández</strong>, <strong>Paulina L. Ruíz-Servín</strong> and <strong>Aarón Flores-Mendoza</strong>. <span class="pc-adv">Faculty advisor: <span class="nw">Dr. Javier Izquierdo-Reyes</span>.</span></figcaption>
   </figure>
   <div class="pub-body">
     <span class="pc-badge">IEEE SAIBOT 2026 · Accepted</span>
