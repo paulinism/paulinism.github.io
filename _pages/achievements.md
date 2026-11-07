@@ -115,6 +115,8 @@ certificates:
   .pg-lead { opacity: .85; margin: 0 0 1.2rem; max-width: 46rem; line-height: 1.6; }
   .sec-h { display: flex; align-items: center; gap: .6rem; color: var(--global-theme-color) !important; font-size: 1.45rem; font-weight: 700; padding-bottom: .4rem; border-bottom: 2px solid var(--global-theme-color); margin: 2.2rem 0 1rem !important; }
   .sec-h i { font-size: .8em; }
+  .medium-zoom-image--opened { object-fit: contain !important; background: transparent !important; }
+  .medium-zoom-overlay, .medium-zoom-image--opened { z-index: 1050; }
 </style>
 <p class="pg-title">Achievements</p>
 <p class="pg-lead">Awards, research and certifications from racing, cleanroom and automation work — each with the document behind it.</p>

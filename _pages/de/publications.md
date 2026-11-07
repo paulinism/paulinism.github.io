@@ -36,7 +36,9 @@ description: Konferenzbeitrag und technische Berichte.
   .sec-h { display: flex; align-items: center; gap: .6rem; color: var(--global-theme-color) !important; font-size: 1.45rem; font-weight: 700; padding-bottom: .4rem; border-bottom: 2px solid var(--global-theme-color); margin: 2.2rem 0 1rem !important; }
   .sec-h i { font-size: .8em; }
   @media (min-width: 761px) { .pub-feat.pub-has-cover { grid-template-columns: minmax(0, 1.25fr) minmax(0, 1.4fr); } }
-  .pub-feat .pub-cover { object-fit: contain; background: #0d0e12; }
+  .pub-feat .pub-cover { object-fit: cover; object-position: 47% center; background: #0d0e12; }
+  .medium-zoom-image--opened { object-fit: contain !important; background: transparent !important; }
+  .medium-zoom-overlay, .medium-zoom-image--opened { z-index: 1050; }
   @media (max-width: 760px) { .pub-feat .pub-cover { height: auto; aspect-ratio: 4 / 3; } }
   .pub-authors { margin: .9rem 0 0; padding-top: .8rem; border-top: 1px solid rgba(128,128,128,.25); }
   .pub-authors p { margin: 0 0 .3rem; font-size: .9rem; line-height: 1.5; }
