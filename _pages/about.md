@@ -141,6 +141,10 @@ latest_posts:
 
   /* ---- Home: a little space before "See all projects" ---- */
   #featured-projects + div + p { margin-top: 1.1rem; }
+
+  /* ---- Home: stat cards, option A ---- */
+  .ab-stat .ab-ctx { display: block; font-size: .82rem; font-weight: 600; color: var(--global-theme-color); margin-top: .2rem; }
+  .ab-stat .ab-small { margin-top: .1rem !important; }
 </style>
 
 <section class="hero">
@@ -150,10 +154,10 @@ latest_posts:
     <p class="ab-hook">I turn engineering concepts into working systems — from PCB and firmware to control, automation and testing.</p>
     <p>Mechatronics Engineering student in the German–Mexican DHIK double degree (<em>Tec de Monterrey</em> · <em>Hochschule Zittau/Görlitz</em>), based in Saxony. I led the 30-member <a href="https://www.instagram.com/ecovoltccm/">EcoVolt CCM</a> team at Shell Eco-marathon, built its telemetry, fabricated devices in the <a href="https://global.mit.edu/news-stories/nanolab-workshop-builds-student-skills-and-strengthens-international-ties/">MIT.nano cleanrooms</a> and developed vision-guided robots and digital twins.</p>
 <div class="ab-stats">
-  <div class="ab-stat"><span class="ab-big">🏆 1st &amp; 2nd place</span><span class="ab-small">Data &amp; Telemetry Award<br>Shell Eco-marathon 2025 / 2026</span></div>
-  <div class="ab-stat"><span class="ab-big">👥 Team Captain · EcoVolt CCM</span><span class="ab-small">2025–26 · Led a team of ~30<br>EV with ~200 km/kWh at ~28 km/h<br>Designed the telemetry PCBs and CAN firmware</span></div>
-  <div class="ab-stat"><span class="ab-big">🔬 MIT.nano</span><span class="ab-small">Cleanroom semiconductor fabrication</span></div>
-  <div class="ab-stat"><span class="ab-big">📄 IEEE paper</span><span class="ab-small">First author, SAIBOT 2026 · accepted</span></div>
+  <div class="ab-stat"><span class="ab-big">🏆 1st &amp; 2nd place</span><span class="ab-ctx">Data &amp; Telemetry Award</span><span class="ab-small">Shell Eco-marathon 2025 · 2026</span></div>
+  <div class="ab-stat"><span class="ab-big">👥 Team Captain</span><span class="ab-ctx">EcoVolt CCM · 2025–26</span><span class="ab-small">~30 members · EV with ~200 km/kWh at ~28 km/h</span></div>
+  <div class="ab-stat"><span class="ab-big">🔬 MIT.nano</span><span class="ab-ctx">Visiting student · 10/2025</span><span class="ab-small">Cleanroom semiconductor fabrication</span></div>
+  <div class="ab-stat"><span class="ab-big">📄 IEEE paper</span><span class="ab-ctx">SAIBOT 2026 · accepted</span><span class="ab-small">First author · telemetry &amp; energy optimization</span></div>
 </div>
 
     <div class="ab-btns">

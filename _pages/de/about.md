@@ -143,6 +143,10 @@ latest_posts:
 
   /* ---- Home: a little space before "See all projects" ---- */
   #featured-projects + div + p { margin-top: 1.1rem; }
+
+  /* ---- Home: stat cards, option A ---- */
+  .ab-stat .ab-ctx { display: block; font-size: .82rem; font-weight: 600; color: var(--global-theme-color); margin-top: .2rem; }
+  .ab-stat .ab-small { margin-top: .1rem !important; }
 </style>
 
 <section class="hero">
@@ -152,10 +156,10 @@ latest_posts:
     <p class="ab-hook">Ich mache aus technischen Konzepten funktionierende Systeme — von Platine und Firmware bis zu Regelung, Automatisierung und Test.</p>
     <p>Mechatronik-Studentin im deutsch-mexikanischen DHIK-Doppelabschluss (<em>Tec de Monterrey</em> · <em>Hochschule Zittau/Görlitz</em>), wohnhaft in Sachsen. Ich habe das 30-köpfige Team <a href="https://www.instagram.com/ecovoltccm/">EcoVolt CCM</a> beim Shell Eco-marathon geleitet, seine Telemetrie aufgebaut, in den <a href="https://global.mit.edu/news-stories/nanolab-workshop-builds-student-skills-and-strengthens-international-ties/">Reinräumen von MIT.nano</a> Bauelemente gefertigt und kamerageführte Roboter sowie digitale Zwillinge entwickelt.</p>
 <div class="ab-stats">
-  <div class="ab-stat"><span class="ab-big">🏆 1. &amp; 2. Platz</span><span class="ab-small">Data &amp; Telemetry Award<br>Shell Eco-marathon 2025 / 2026</span></div>
-  <div class="ab-stat"><span class="ab-big">👥 Teamkapitänin · EcoVolt CCM</span><span class="ab-small">2025–26 · Leitung von ca. 30 Mitgliedern<br>E-Fahrzeug mit ca. 200 km/kWh bei ca. 28 km/h<br>Telemetrie-Platinen und CAN-Firmware entwickelt</span></div>
-  <div class="ab-stat"><span class="ab-big">🔬 MIT.nano</span><span class="ab-small">Halbleiterfertigung im Reinraum</span></div>
-  <div class="ab-stat"><span class="ab-big">📄 IEEE-Paper</span><span class="ab-small">Erstautorin, SAIBOT 2026 · angenommen</span></div>
+  <div class="ab-stat"><span class="ab-big">🏆 1. &amp; 2. Platz</span><span class="ab-ctx">Data &amp; Telemetry Award</span><span class="ab-small">Shell Eco-marathon 2025 · 2026</span></div>
+  <div class="ab-stat"><span class="ab-big">👥 Teamkapitänin</span><span class="ab-ctx">EcoVolt CCM · 2025–26</span><span class="ab-small">ca. 30 Mitglieder · E-Fahrzeug mit ca. 200 km/kWh bei ca. 28 km/h</span></div>
+  <div class="ab-stat"><span class="ab-big">🔬 MIT.nano</span><span class="ab-ctx">Gaststudentin · 10/2025</span><span class="ab-small">Halbleiterfertigung im Reinraum</span></div>
+  <div class="ab-stat"><span class="ab-big">📄 IEEE-Paper</span><span class="ab-ctx">SAIBOT 2026 · angenommen</span><span class="ab-small">Erstautorin · Telemetrie &amp; Energieoptimierung</span></div>
 </div>
 
     <div class="ab-btns">
