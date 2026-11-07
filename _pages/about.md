@@ -111,6 +111,14 @@ latest_posts:
   .ts-item span { font-size: .8rem; line-height: 1.2; }
   @media (max-width: 860px) { .ts-cards { grid-template-columns: minmax(0, 1fr); } .ts-items { grid-template-columns: repeat(5, minmax(0, 1fr)); } }
   @media (max-width: 480px) { .ts-items { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+
+  /* ---- Home: compact skill boxes ---- */
+  .sk-boxes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .7rem; }
+  .sk-box { border: 1px solid rgba(128,128,128,.3); border-radius: 10px; padding: .65rem .75rem .55rem; }
+  .sk-box h4 { display: flex; align-items: center; gap: .45rem; font-size: .95rem; font-weight: 700; margin: 0 0 .45rem; }
+  .sk-box h4 i { color: var(--global-theme-color); width: 1rem; text-align: center; }
+  .sk-box .ab-tag { font-size: .74rem; padding: .1rem .5rem; margin: 0 .25rem .3rem 0; }
+  @media (max-width: 560px) { .sk-boxes { grid-template-columns: minmax(0, 1fr); } }
 </style>
 
 <section class="hero">
@@ -152,13 +160,13 @@ latest_posts:
 </section>
 
 <div class="ab-bottom">
-<div class="ab-areas">
-  <div class="ab-area"><strong>Embedded &amp; Electronics</strong><span class="ab-tag">ESP32</span><span class="ab-tag">C/C++</span><span class="ab-tag">CAN</span><span class="ab-tag">SPI · I2C · UART</span><span class="ab-tag">MQTT</span><span class="ab-tag">PlatformIO</span><span class="ab-tag">Git</span></div>
-  <div class="ab-area"><strong>PCB Design &amp; Measurement</strong><span class="ab-tag">Altium Designer</span><span class="ab-tag">PCB design</span><span class="ab-tag">Multisim</span><span class="ab-tag">Op-amp circuits</span><span class="ab-tag">Instrumentation</span><span class="ab-tag">Soldering (SMD/THT)</span><span class="ab-tag">LabVIEW</span></div>
-  <div class="ab-area"><strong>Control &amp; Simulation</strong><span class="ab-tag">MATLAB/Simulink</span><span class="ab-tag">Simscape</span><span class="ab-tag">Python</span><span class="ab-tag">PID</span><span class="ab-tag">Nonlinear control</span><span class="ab-tag">MiL / HIL</span></div>
-  <div class="ab-area"><strong>Automation &amp; Robotics</strong><span class="ab-tag">Siemens TIA Portal (S7-1500)</span><span class="ab-tag">WinCC</span><span class="ab-tag">PLCSIM Advanced</span><span class="ab-tag">Rockwell PLC/HMI</span><span class="ab-tag">UR cobots</span><span class="ab-tag">Process Simulate</span></div>
-  <div class="ab-area"><strong>Vision &amp; Data</strong><span class="ab-tag">Python</span><span class="ab-tag">OpenCV</span><span class="ab-tag">YOLO</span><span class="ab-tag">Cognex In-Sight</span><span class="ab-tag">NumPy</span><span class="ab-tag">Altair AI Studio</span></div>
-  <div class="ab-area"><strong>Design &amp; Fabrication</strong><span class="ab-tag">SolidWorks CAD/CAM</span><span class="ab-tag">NX</span><span class="ab-tag">3D printing</span><span class="ab-tag">Turning · Milling</span><span class="ab-tag">Cleanroom (MIT.nano)</span></div>
+<div class="ab-areas sk-boxes">
+  <div class="sk-box"><h4><i class="fa-solid fa-microchip"></i>Embedded &amp; Electronics</h4><span class="ab-tag">ESP32 firmware</span><span class="ab-tag">CAN</span><span class="ab-tag">SPI · I2C · UART</span><span class="ab-tag">MQTT</span><span class="ab-tag">Bluetooth</span><span class="ab-tag">Sensor integration</span></div>
+  <div class="sk-box"><h4><i class="fa-solid fa-bolt"></i>PCB &amp; Measurement</h4><span class="ab-tag">Multilayer PCB design</span><span class="ab-tag">IPC-2221</span><span class="ab-tag">Op-amp signal chains</span><span class="ab-tag">Current sensing</span><span class="ab-tag">Component characterization</span><span class="ab-tag">SMD/THT soldering</span></div>
+  <div class="sk-box"><h4><i class="fa-solid fa-sliders"></i>Control &amp; Simulation</h4><span class="ab-tag">PID</span><span class="ab-tag">Nonlinear control</span><span class="ab-tag">Transfer functions</span><span class="ab-tag">Model-based design</span><span class="ab-tag">MiL / HIL</span><span class="ab-tag">BLDC · DC · stepper</span></div>
+  <div class="sk-box"><h4><i class="fa-solid fa-industry"></i>Automation &amp; Robotics</h4><span class="ab-tag">PLC (S7-1500)</span><span class="ab-tag">Ladder logic</span><span class="ab-tag">HMI / SCADA</span><span class="ab-tag">Digital twin</span><span class="ab-tag">Virtual commissioning</span><span class="ab-tag">Cobots</span><span class="ab-tag">Modbus TCP</span></div>
+  <div class="sk-box"><h4><i class="fa-solid fa-eye"></i>Vision &amp; Data</h4><span class="ab-tag">OpenCV</span><span class="ab-tag">Object detection (YOLO)</span><span class="ab-tag">Camera calibration</span><span class="ab-tag">Industrial inspection</span><span class="ab-tag">NumPy</span><span class="ab-tag">Data analysis</span></div>
+  <div class="sk-box"><h4><i class="fa-solid fa-gears"></i>Design &amp; Fabrication</h4><span class="ab-tag">CAD assemblies</span><span class="ab-tag">Static &amp; motion analysis</span><span class="ab-tag">CAM / CNC</span><span class="ab-tag">3D printing</span><span class="ab-tag">Turning · Milling</span><span class="ab-tag">Cleanroom microfabrication</span></div>
 </div>
 
 <div class="ab-cta"><strong>Available from February/March 2027</strong> for a mandatory internship (Praktikum) in embedded systems, hardware or industrial automation.</div>
