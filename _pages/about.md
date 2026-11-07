@@ -115,7 +115,7 @@ latest_posts:
   /* ---- Home: compact skill boxes ---- */
   .sk-boxes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .7rem; }
   .sk-box { border: 1px solid rgba(128,128,128,.3); border-radius: 10px; padding: .65rem .75rem .55rem; }
-  .sk-box h4 { display: flex; align-items: center; gap: .45rem; font-size: .95rem; font-weight: 700; margin: 0 0 .45rem; }
+  .sk-box h4 { display: flex; align-items: center; gap: .45rem; font-size: .95rem; font-weight: 700; margin: 0 0 .45rem; color: var(--global-theme-color); }
   .sk-box h4 i { color: var(--global-theme-color); width: 1rem; text-align: center; }
   .sk-box .ab-tag { font-size: .74rem; padding: .1rem .5rem; margin: 0 .25rem .3rem 0; }
   @media (max-width: 560px) { .sk-boxes { grid-template-columns: minmax(0, 1fr); } }
