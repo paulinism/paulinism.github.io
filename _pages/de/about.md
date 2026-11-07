@@ -128,6 +128,14 @@ latest_posts:
   .ab-bottom .sk-boxes { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   @media (max-width: 860px) { .ab-bottom .sk-boxes { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
   @media (max-width: 560px) { .ab-bottom .sk-boxes { grid-template-columns: minmax(0, 1fr); } }
+
+  /* ---- Home: clickable gallery tiles ---- */
+  a.hm-tile { display: block; color: #fff; text-decoration: none; }
+  a.hm-tile:hover, a.hm-tile:focus { color: #fff; text-decoration: none; }
+  a.hm-tile:focus-visible { outline: 2px solid var(--global-theme-color); outline-offset: 2px; }
+  .hm-tile .hm-cap { position: absolute; left: 0; right: 0; bottom: 0; padding: 1.4rem .7rem .55rem; font-size: .8rem; line-height: 1.3; color: #fff; background: linear-gradient(transparent, rgba(0,0,0,.78)); }
+  .hm-tile .hm-cap strong { display: block; font-size: .86rem; color: #fff; }
+  @media (max-width: 480px) { .hm-tile .hm-cap { font-size: .72rem; } }
 </style>
 
 <section class="hero">
@@ -244,10 +252,10 @@ latest_posts:
 <h2 class="hm-h" id="highlights">Auf der Strecke, im Labor, auf der Bühne</h2>
 <p class="hm-sub">Einige Momente hinter den Projekten — Wettbewerbe, Reinraumarbeit und die Hardware selbst.</p>
 <div class="hm-gallery">
-  <figure class="hm-tile hm-big"><img src="/assets/img/home/track.jpg" alt="Prototyp von EcoVolt CCM auf der Strecke" loading="lazy"><figcaption><strong>Prototyp EcoVolt CCM</strong>Energieeffizientes E-Fahrzeug, ca. 200 km/kWh bei ca. 28 km/h</figcaption></figure>
-  <figure class="hm-tile"><img src="/assets/img/home/award-2025.jpg" alt="Data and Telemetry Award 2025" loading="lazy"><figcaption><strong>1. Platz 2025</strong>Data &amp; Telemetry Award</figcaption></figure>
-  <figure class="hm-tile"><img src="/assets/img/home/mit-cleanroom.jpg" alt="Reinraum MIT.nano" loading="lazy"><figcaption><strong>MIT.nano</strong>Mikrofertigung im Reinraum</figcaption></figure>
-  <figure class="hm-tile hm-wide"><img src="/assets/img/home/award-us26.jpg" alt="Shell Eco-marathon United States 2026" loading="lazy"><figcaption><strong>Shell Eco-marathon US 2026</strong>Vehicle Design Award &amp; 2. Platz Data &amp; Telemetry</figcaption></figure>
+  <a class="hm-tile hm-big" href="/de/projects/ecovolt-telemetry/"><img src="/assets/img/home/track.jpg" alt="Prototyp von EcoVolt CCM auf der Strecke" loading="lazy"><span class="hm-cap"><strong>Prototyp EcoVolt CCM</strong>Energieeffizientes E-Fahrzeug, ca. 200 km/kWh bei ca. 28 km/h</span></a>
+  <a class="hm-tile" href="/de/projects/mit-nano-fabrication/"><img src="/assets/img/home/mit-cleanroom.jpg" alt="Reinraum MIT.nano" loading="lazy"><span class="hm-cap"><strong>MIT.nano</strong>Mikrofertigung im Reinraum</span></a>
+  <a class="hm-tile" href="/de/projects/ecovolt-telemetry/"><img src="/assets/img/home/award-2025.jpg" alt="Data and Telemetry Award 2025" loading="lazy"><span class="hm-cap"><strong>1. Platz 2025</strong>Data &amp; Telemetry Award</span></a>
+  <a class="hm-tile hm-wide" href="/de/projects/ecovolt-telemetry/"><img src="/assets/img/home/award-us26.jpg" alt="Shell Eco-marathon United States 2026" loading="lazy"><span class="hm-cap"><strong>Shell Eco-marathon US 2026</strong>Vehicle Design Award &amp; 2. Platz Data &amp; Telemetry</span></a>
 </div>
 
 <div class="page-nav" style="display: flex; justify-content: space-between; gap: 1rem; margin: 3rem 0 1rem">
