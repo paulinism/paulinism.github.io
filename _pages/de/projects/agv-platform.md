@@ -10,6 +10,7 @@ img: assets/img/agv-cover-pair.jpg
 importance: 6
 category: Mechanik, Elektronik
 featured: true
+tools: ["SolidWorks", "NX", "3D-Druck", "Zerspanung", "Wägezelle"]
 ---
 
 <style>

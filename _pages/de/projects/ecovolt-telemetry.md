@@ -10,6 +10,7 @@ img: assets/img/ecovolt-telemetry.jpg
 importance: 1
 category: Platinen, Embedded, Elektronik
 featured: true
+tools: ["Altium", "ESP32", "C++", "CAN", "MQTT", "Python"]
 ---
 
 <style>

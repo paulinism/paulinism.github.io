@@ -136,6 +136,10 @@ latest_posts:
   .hm-tile .hm-cap { position: absolute; left: 0; right: 0; bottom: 0; padding: 1.4rem .7rem .55rem; font-size: .8rem; line-height: 1.3; color: #fff; background: linear-gradient(transparent, rgba(0,0,0,.78)); }
   .hm-tile .hm-cap strong { display: block; font-size: .86rem; color: #fff; }
   @media (max-width: 480px) { .hm-tile .hm-cap { font-size: .72rem; } }
+
+  /* ---- Home: tools on featured project cards ---- */
+  .fp-tags { display: flex; flex-wrap: wrap; gap: .3rem; margin-top: .65rem; }
+  .fp-tag { font-size: .72rem; padding: .1rem .5rem; border-radius: 999px; border: 1px solid rgba(128,128,128,.35); background: rgba(128,128,128,.08); }
 </style>
 
 <section class="hero">
@@ -146,7 +150,7 @@ latest_posts:
     <p>Mechatronik-Studentin im deutsch-mexikanischen DHIK-Doppelabschluss (<em>Tec de Monterrey</em> · <em>Hochschule Zittau/Görlitz</em>), wohnhaft in Sachsen. Ich habe das 30-köpfige Team <a href="https://www.instagram.com/ecovoltccm/">EcoVolt CCM</a> beim Shell Eco-marathon geleitet, seine Telemetrie aufgebaut, in den <a href="https://global.mit.edu/news-stories/nanolab-workshop-builds-student-skills-and-strengthens-international-ties/">Reinräumen von MIT.nano</a> Bauelemente gefertigt und kamerageführte Roboter sowie digitale Zwillinge entwickelt.</p>
 <div class="ab-stats">
   <div class="ab-stat"><span class="ab-big">🏆 1. &amp; 2. Platz</span><span class="ab-small">Data &amp; Telemetry Award<br>Shell Eco-marathon 2025 / 2026</span></div>
-  <div class="ab-stat"><span class="ab-big">👥 Teamkapitänin</span><span class="ab-small">EcoVolt CCM · 2025–26<br>Leitung von ca. 30 Mitgliedern · E-Fahrzeug mit ca. 200 km/kWh bei ca. 28 km/h<br>Telemetrie-Platinen und CAN-Firmware entwickelt</span></div>
+  <div class="ab-stat"><span class="ab-big">👥 Teamkapitänin · EcoVolt CCM</span><span class="ab-small">2025–26 · Leitung von ca. 30 Mitgliedern<br>E-Fahrzeug mit ca. 200 km/kWh bei ca. 28 km/h<br>Telemetrie-Platinen und CAN-Firmware entwickelt</span></div>
   <div class="ab-stat"><span class="ab-big">🔬 MIT.nano</span><span class="ab-small">Halbleiterfertigung im Reinraum</span></div>
   <div class="ab-stat"><span class="ab-big">📄 IEEE-Paper</span><span class="ab-small">Erstautorin, SAIBOT 2026 · angenommen</span></div>
 </div>
@@ -242,6 +246,7 @@ latest_posts:
     <div style="padding:1rem;">
       <h3 style="font-weight:bold; margin:0 0 0.5rem 0;">{{ project.title }}</h3>
       <p style="font-size:0.9rem; opacity:0.8; margin:0;">{{ project.description }}</p>
+      {% if project.tools %}<div class="fp-tags">{% for t in project.tools %}<span class="fp-tag">{{ t }}</span>{% endfor %}</div>{% endif %}
     </div>
   </a>
 {% endfor %}
@@ -255,7 +260,7 @@ latest_posts:
   <a class="hm-tile hm-big" href="/de/projects/ecovolt-telemetry/"><img src="/assets/img/home/track.jpg" alt="Prototyp von EcoVolt CCM auf der Strecke" loading="lazy"><span class="hm-cap"><strong>Prototyp EcoVolt CCM</strong>Energieeffizientes E-Fahrzeug, ca. 200 km/kWh bei ca. 28 km/h</span></a>
   <a class="hm-tile" href="/de/projects/mit-nano-fabrication/"><img src="/assets/img/home/mit-cleanroom.jpg" alt="Reinraum MIT.nano" loading="lazy"><span class="hm-cap"><strong>MIT.nano</strong>Mikrofertigung im Reinraum</span></a>
   <a class="hm-tile" href="/de/projects/ecovolt-telemetry/"><img src="/assets/img/home/award-2025.jpg" alt="Data and Telemetry Award 2025" loading="lazy"><span class="hm-cap"><strong>1. Platz 2025</strong>Data &amp; Telemetry Award</span></a>
-  <a class="hm-tile hm-wide" href="/de/projects/ecovolt-telemetry/"><img src="/assets/img/home/award-us26.jpg" alt="Shell Eco-marathon United States 2026" loading="lazy"><span class="hm-cap"><strong>Shell Eco-marathon US 2026</strong>Vehicle Design Award &amp; 2. Platz Data &amp; Telemetry</span></a>
+  <a class="hm-tile hm-wide" href="/de/projects/ecovolt-telemetry/#driver-ergonomics-vehicle-design-award"><img src="/assets/img/home/award-us26.jpg" alt="Shell Eco-marathon United States 2026" loading="lazy"><span class="hm-cap"><strong>Shell Eco-marathon US 2026</strong>Vehicle Design Award &amp; 2. Platz Data &amp; Telemetry</span></a>
 </div>
 
 <div class="page-nav" style="display: flex; justify-content: space-between; gap: 1rem; margin: 3rem 0 1rem">

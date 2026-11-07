@@ -10,6 +10,7 @@ img: assets/img/mit-cover-wafer.jpg
 importance: 4
 category: Fertigung, Elektronik
 featured: true
+tools: ["Fotolithografie", "PECVD/PVD", "Ätzen", "MEMS"]
 ---
 
 <style>

@@ -6,6 +6,7 @@ img: assets/img/agv-cover-pair.jpg
 importance: 6
 category: Mechanical, Electronics
 featured: true
+tools: ["SolidWorks", "NX", "3D printing", "Machining", "Load cell"]
 ---
 
 <style>

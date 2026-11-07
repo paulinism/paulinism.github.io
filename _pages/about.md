@@ -134,6 +134,10 @@ latest_posts:
   .hm-tile .hm-cap { position: absolute; left: 0; right: 0; bottom: 0; padding: 1.4rem .7rem .55rem; font-size: .8rem; line-height: 1.3; color: #fff; background: linear-gradient(transparent, rgba(0,0,0,.78)); }
   .hm-tile .hm-cap strong { display: block; font-size: .86rem; color: #fff; }
   @media (max-width: 480px) { .hm-tile .hm-cap { font-size: .72rem; } }
+
+  /* ---- Home: tools on featured project cards ---- */
+  .fp-tags { display: flex; flex-wrap: wrap; gap: .3rem; margin-top: .65rem; }
+  .fp-tag { font-size: .72rem; padding: .1rem .5rem; border-radius: 999px; border: 1px solid rgba(128,128,128,.35); background: rgba(128,128,128,.08); }
 </style>
 
 <section class="hero">
@@ -144,7 +148,7 @@ latest_posts:
     <p>Mechatronics Engineering student in the German–Mexican DHIK double degree (<em>Tec de Monterrey</em> · <em>Hochschule Zittau/Görlitz</em>), based in Saxony. I led the 30-member <a href="https://www.instagram.com/ecovoltccm/">EcoVolt CCM</a> team at Shell Eco-marathon, built its telemetry, fabricated devices in the <a href="https://global.mit.edu/news-stories/nanolab-workshop-builds-student-skills-and-strengthens-international-ties/">MIT.nano cleanrooms</a> and developed vision-guided robots and digital twins.</p>
 <div class="ab-stats">
   <div class="ab-stat"><span class="ab-big">🏆 1st &amp; 2nd place</span><span class="ab-small">Data &amp; Telemetry Award<br>Shell Eco-marathon 2025 / 2026</span></div>
-  <div class="ab-stat"><span class="ab-big">👥 Team Captain</span><span class="ab-small">EcoVolt CCM · 2025–26<br>Led a team of ~30 · EV with ~200 km/kWh at ~28 km/h<br>Designed the telemetry PCBs and CAN firmware</span></div>
+  <div class="ab-stat"><span class="ab-big">👥 Team Captain · EcoVolt CCM</span><span class="ab-small">2025–26 · Led a team of ~30<br>EV with ~200 km/kWh at ~28 km/h<br>Designed the telemetry PCBs and CAN firmware</span></div>
   <div class="ab-stat"><span class="ab-big">🔬 MIT.nano</span><span class="ab-small">Cleanroom semiconductor fabrication</span></div>
   <div class="ab-stat"><span class="ab-big">📄 IEEE paper</span><span class="ab-small">First author, SAIBOT 2026 · accepted</span></div>
 </div>
@@ -240,6 +244,7 @@ latest_posts:
     <div style="padding:1rem;">
       <h3 style="font-weight:bold; margin:0 0 0.5rem 0;">{{ project.title }}</h3>
       <p style="font-size:0.9rem; opacity:0.8; margin:0;">{{ project.description }}</p>
+      {% if project.tools %}<div class="fp-tags">{% for t in project.tools %}<span class="fp-tag">{{ t }}</span>{% endfor %}</div>{% endif %}
     </div>
   </a>
 {% endfor %}
@@ -253,7 +258,7 @@ latest_posts:
   <a class="hm-tile hm-big" href="/projects/ecovolt-telemetry/"><img src="/assets/img/home/track.jpg" alt="EcoVolt CCM prototype on track" loading="lazy"><span class="hm-cap"><strong>EcoVolt CCM prototype</strong>Energy-efficient EV, ~200 km/kWh at ~28 km/h</span></a>
   <a class="hm-tile" href="/projects/mit-nano-fabrication/"><img src="/assets/img/home/mit-cleanroom.jpg" alt="MIT.nano cleanroom" loading="lazy"><span class="hm-cap"><strong>MIT.nano</strong>Cleanroom microfabrication</span></a>
   <a class="hm-tile" href="/projects/ecovolt-telemetry/"><img src="/assets/img/home/award-2025.jpg" alt="Data and Telemetry Award 2025" loading="lazy"><span class="hm-cap"><strong>1st place 2025</strong>Data &amp; Telemetry Award</span></a>
-  <a class="hm-tile hm-wide" href="/projects/ecovolt-telemetry/"><img src="/assets/img/home/award-us26.jpg" alt="Shell Eco-marathon United States 2026 awards" loading="lazy"><span class="hm-cap"><strong>Shell Eco-marathon US 2026</strong>Vehicle Design Award &amp; 2nd place Data &amp; Telemetry</span></a>
+  <a class="hm-tile hm-wide" href="/projects/ecovolt-telemetry/#driver-ergonomics-vehicle-design-award"><img src="/assets/img/home/award-us26.jpg" alt="Shell Eco-marathon United States 2026 awards" loading="lazy"><span class="hm-cap"><strong>Shell Eco-marathon US 2026</strong>Vehicle Design Award &amp; 2nd place Data &amp; Telemetry</span></a>
 </div>
 
 <div class="page-nav" style="display: flex; justify-content: space-between; gap: 1rem; margin: 3rem 0 1rem">

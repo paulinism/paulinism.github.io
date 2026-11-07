@@ -7,6 +7,7 @@ importance: 1
 category: PCB, Embedded, Electronics
 featured: true
 hide_from_grid: true # shown in the "Professional & lab experience" section instead of the academic grid
+tools: ["Altium", "ESP32", "C++", "CAN", "MQTT", "Python"]
 ---
 
 <style>

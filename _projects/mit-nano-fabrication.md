@@ -7,6 +7,7 @@ importance: 4
 category: Fabrication, Electronics
 featured: true
 hide_from_grid: true # shown in the "Professional & lab experience" section instead of the academic grid
+tools: ["Photolithography", "PECVD/PVD", "Etching", "MEMS"]
 ---
 
 <style>

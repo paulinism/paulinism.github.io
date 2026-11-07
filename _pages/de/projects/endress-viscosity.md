@@ -10,6 +10,7 @@ img: assets/img/viscosity.jpg
 importance: 5
 category: Platinen, Embedded, Automatisierung
 featured: true
+tools: ["Altium", "OPV", "ESP32", "LabVIEW", "OpenPLC"]
 ---
 
 <style>

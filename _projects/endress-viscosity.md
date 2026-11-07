@@ -6,6 +6,7 @@ img: assets/img/viscosity.jpg
 importance: 5
 category: PCB, Embedded, Automation
 featured: true
+tools: ["Altium", "Op-amps", "ESP32", "LabVIEW", "OpenPLC"]
 ---
 
 <style>
