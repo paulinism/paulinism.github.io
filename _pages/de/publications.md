@@ -36,29 +36,28 @@ description: Konferenzbeitrag und technische Berichte.
   .sec-h { display: flex; align-items: center; gap: .6rem; color: var(--global-theme-color) !important; font-size: 1.45rem; font-weight: 700; padding-bottom: .4rem; border-bottom: 2px solid var(--global-theme-color); margin: 2.2rem 0 1rem !important; }
   .sec-h i { font-size: .8em; }
   @media (min-width: 761px) { .pub-feat.pub-has-cover { grid-template-columns: minmax(0, 1.25fr) minmax(0, 1.4fr); } }
-  .pub-feat .pub-cover { object-fit: cover; object-position: 47% center; background: #0d0e12; }
+  .pub-cover-fig { margin: 14px; align-self: center; }
+  .pub-feat .pub-cover-fig img { width: 100%; height: auto; min-height: 0; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 10px; border: 1px solid rgba(128,128,128,.3); box-shadow: 0 4px 14px rgba(0,0,0,.18); }
+  .pub-cover-fig figcaption { margin-top: .7rem; font-size: .85rem; line-height: 1.5; opacity: .9; }
+  .pub-cover-fig .pt-k { display: block; font-size: .72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--global-theme-color); margin-bottom: .15rem; }
   .medium-zoom-image--opened { object-fit: contain !important; background: transparent !important; }
   .medium-zoom-overlay, .medium-zoom-image--opened { z-index: 1050; }
-  @media (max-width: 760px) { .pub-feat .pub-cover { height: auto; aspect-ratio: 4 / 3; } }
-  .pub-authors { margin: .9rem 0 0; padding-top: .8rem; border-top: 1px solid rgba(128,128,128,.25); }
-  .pub-authors p { margin: 0 0 .3rem; font-size: .9rem; line-height: 1.5; }
-  .pub-authors .pt-k { font-size: .75rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--global-theme-color); margin-bottom: .25rem; }
+  @media (max-width: 760px) { .pub-cover-fig { margin: 12px 12px 0; } .pub-feat .pub-cover-fig img { height: auto; } }
 </style>
 <p class="pg-title">Publikationen</p>
 <p class="pg-lead">Konferenzbeitrag und technische Berichte aus Rennteam-, Robotik- und Automatisierungsprojekten.</p>
 <h2 class="pc-h sec-h"><i class="fa-solid fa-newspaper"></i> Konferenzbeitrag</h2>
 <div class="pc-card pub-feat pub-has-cover">
-  <img class="pub-cover" data-zoomable src="{{ 'assets/img/paper-cover.jpg' | relative_url }}" width="1600" height="1200" alt="Titelbild zum Paper: die drei Autoren in EcoVolt-CCM-Teamhemden vor dem Telemetrie-Dashboard Run Intelligence">
+  <figure class="pub-cover-fig">
+    <img class="pub-cover" data-zoomable src="{{ 'assets/img/paper-cover.jpg' | relative_url }}" width="1600" height="1200" alt="Titelbild zum Paper: die drei Autoren in EcoVolt-CCM-Teamhemden vor dem Telemetrie-Dashboard Run Intelligence">
+    <figcaption><span class="pt-k">Auf dem Titelbild</span> Von links: <strong>José Diego González-Fernández</strong>, <strong>Paulina L. Ruíz-Servín</strong> und <strong>Aarón Flores-Mendoza</strong>. Betreuer: Dr. Javier Izquierdo-Reyes.</figcaption>
+  </figure>
   <div class="pub-body">
     <span class="pc-badge">IEEE SAIBOT 2026 · Angenommen</span>
     <p class="pub-title">Real-Time Telemetry and Computational Intelligence Pipeline for Energy-Efficient Driving of an Electric Eco-Marathon Vehicle</p>
     <p class="pub-auth"><strong>P. L. Ruíz-Servín</strong>, J. D. González-Fernández, A. Flores-Mendoza, J. Izquierdo-Reyes</p>
     <p class="pub-venue">IEEE Latin American School on Computational Intelligence and Robotics (SAIBOT), 2026 — Erstautorin</p>
     <p class="pub-abs">Drei Generationen Telemetrie-Hardware für einen elektrischen Shell-Eco-marathon-Prototyp — Strom, Spannung, GPS und Motordaten über CAN, auf SD gespeichert und live übertragen — sowie eine Datenpipeline, die Fahrstrategien vergleicht, einschließlich eines Simulator-Prüfstandstests, bei dem konstantes Gasgeben Pulse-and-Glide um 14 % übertraf.</p>
-    <div class="pub-authors">
-      <p class="pt-k">Auf dem Titelbild</p>
-      <p>Von links: <strong>José Diego González-Fernández</strong>, <strong>Paulina L. Ruíz-Servín</strong> und <strong>Aarón Flores-Mendoza</strong>. Betreuer: Dr. Javier Izquierdo-Reyes.</p>
-    </div>
     <div class="pc-btns">
       <a class="pc-btn primary" href="{{ '/de/projects/ecovolt-telemetry/' | relative_url }}">Zugehöriges Projekt</a>
       <button class="pc-btn" type="button" onclick="this.closest('.pub-body').querySelector('.pub-bib').classList.toggle('open')">BibTeX</button>
