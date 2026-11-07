@@ -136,7 +136,7 @@ An ESP32 on a breadboard with a Hall-effect current module, a voltage divider, G
 </div>
 
 <div class="tel-grid wide">
-  <figure class="tel-fig auto photo"><img data-zoomable src="{{ 'assets/img/tel-car-americas-2025.jpg' | relative_url }}" alt="EcoVolt CCM prototype #314 on track at Shell Eco-marathon Americas 2025"><figcaption><strong>EcoVolt CCM prototype #314 · Shell Eco-marathon Americas 2025</strong> — the car that carried this first telemetry system.</figcaption></figure>
+  <figure class="tel-fig auto photo"><img data-zoomable src="{{ 'assets/img/tel-car-americas-2025.jpg' | relative_url }}" width="1800" height="703" alt="EcoVolt CCM prototype #314 on track at Shell Eco-marathon Americas 2025"><figcaption><strong>EcoVolt CCM prototype #314 · Shell Eco-marathon Americas 2025</strong> — the car that carried this first telemetry system.</figcaption></figure>
 </div>
 
 **V1 — First custom board (Brazil 2025)**
@@ -194,7 +194,7 @@ On track in Rio de Janeiro with the V3 system — one of the three sessions reco
 </div>
 
 <div class="tel-grid wide">
-  <figure class="tel-fig auto photo"><img data-zoomable src="{{ 'assets/img/tel-car-317-2026.jpg' | relative_url }}" alt="EcoVolt CCM prototype #317 on a test track before Shell Eco-marathon Brazil 2026"><figcaption><strong>EcoVolt CCM prototype #317 · track test before Shell Eco-marathon Brazil 2026</strong> — the 2026 car, which carried the V3 system.</figcaption></figure>
+  <figure class="tel-fig auto photo"><img data-zoomable src="{{ 'assets/img/tel-car-317-2026.jpg' | relative_url }}" width="1800" height="703" alt="EcoVolt CCM prototype #317 on a test track before Shell Eco-marathon Brazil 2026"><figcaption><strong>EcoVolt CCM prototype #317 · track test before Shell Eco-marathon Brazil 2026</strong> — the 2026 car, which carried the V3 system.</figcaption></figure>
 </div>
 
 **Simulator bench test**
@@ -235,6 +235,7 @@ I built a virtual driver model from my own body dimensions in Process Simulate b
 <style>
   .tel-grid.wide { grid-template-columns: minmax(0, 1000px); }
   .tel-grid.wide .tel-fig video, .tel-grid.wide .tel-fig img { height: auto; }
+  .tel-grid.wide .tel-fig img[width] { width: 100%; height: auto !important; max-height: none; aspect-ratio: 1800 / 703; object-fit: cover; }
   @media (min-width: 768px) {
     .tel-grid.tel-grid-ergo { align-items: stretch; grid-template-rows: 1fr 1fr; }
     .tel-grid.tel-grid-ergo .tel-fig:not(.tall-shot) { display: flex; flex-direction: column; }

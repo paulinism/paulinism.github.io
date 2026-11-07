@@ -137,7 +137,7 @@ Ein ESP32 auf einem Steckbrett mit Hall-Strommodul, Spannungsteiler, GPS und IMU
 </div>
 
 <div class="tel-grid wide">
-  <figure class="tel-fig auto photo"><img data-zoomable src="{{ 'assets/img/tel-car-americas-2025.jpg' | relative_url }}" alt="Prototyp EcoVolt CCM #314 auf der Strecke beim Shell Eco-marathon Americas 2025"><figcaption><strong>Prototyp EcoVolt CCM #314 · Shell Eco-marathon Americas 2025</strong> — das Fahrzeug, in dem dieses erste Telemetriesystem lief.</figcaption></figure>
+  <figure class="tel-fig auto photo"><img data-zoomable src="{{ 'assets/img/tel-car-americas-2025.jpg' | relative_url }}" width="1800" height="703" alt="Prototyp EcoVolt CCM #314 auf der Strecke beim Shell Eco-marathon Americas 2025"><figcaption><strong>Prototyp EcoVolt CCM #314 · Shell Eco-marathon Americas 2025</strong> — das Fahrzeug, in dem dieses erste Telemetriesystem lief.</figcaption></figure>
 </div>
 
 **V1 — Erste eigene Platine (Brazil 2025)**
@@ -195,7 +195,7 @@ Auf der Strecke in Rio de Janeiro mit dem System V3 — eine der drei Sitzungen,
 </div>
 
 <div class="tel-grid wide">
-  <figure class="tel-fig auto photo"><img data-zoomable src="{{ 'assets/img/tel-car-317-2026.jpg' | relative_url }}" alt="Prototyp EcoVolt CCM #317 bei Testfahrten vor dem Shell Eco-marathon Brazil 2026"><figcaption><strong>Prototyp EcoVolt CCM #317 · Testfahrt vor dem Shell Eco-marathon Brazil 2026</strong> — das Fahrzeug der Saison 2026 mit dem V3-System.</figcaption></figure>
+  <figure class="tel-fig auto photo"><img data-zoomable src="{{ 'assets/img/tel-car-317-2026.jpg' | relative_url }}" width="1800" height="703" alt="Prototyp EcoVolt CCM #317 bei Testfahrten vor dem Shell Eco-marathon Brazil 2026"><figcaption><strong>Prototyp EcoVolt CCM #317 · Testfahrt vor dem Shell Eco-marathon Brazil 2026</strong> — das Fahrzeug der Saison 2026 mit dem V3-System.</figcaption></figure>
 </div>
 
 **Simulator-Prüfstandstest**
@@ -236,6 +236,7 @@ Bevor die CAD-Arbeit begann, habe ich in Process Simulate ein virtuelles Fahrerm
 <style>
   .tel-grid.wide { grid-template-columns: minmax(0, 1000px); }
   .tel-grid.wide .tel-fig video, .tel-grid.wide .tel-fig img { height: auto; }
+  .tel-grid.wide .tel-fig img[width] { width: 100%; height: auto !important; max-height: none; aspect-ratio: 1800 / 703; object-fit: cover; }
   @media (min-width: 768px) {
     .tel-grid.tel-grid-ergo { align-items: stretch; grid-template-rows: 1fr 1fr; }
     .tel-grid.tel-grid-ergo .tel-fig:not(.tall-shot) { display: flex; flex-direction: column; }
