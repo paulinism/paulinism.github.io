@@ -200,7 +200,7 @@ latest_posts:
   <div class="sk-box"><h4><i class="fa-solid fa-bolt"></i>Platinen &amp; Messtechnik</h4><span class="ab-tag">Mehrlagen-Platinenentwurf</span><span class="ab-tag">IPC-2221</span><span class="ab-tag">OPV-Messketten</span><span class="ab-tag">Strommessung</span><span class="ab-tag">Bauteilcharakterisierung</span><span class="ab-tag">SMD/THT-Löten</span></div>
   <div class="sk-box"><h4><i class="fa-solid fa-sliders"></i>Regelung &amp; Simulation</h4><span class="ab-tag">PID</span><span class="ab-tag">Nichtlineare Regelung</span><span class="ab-tag">Übertragungsfunktionen</span><span class="ab-tag">Modellbasierte Entwicklung</span><span class="ab-tag">MiL / HiL</span><span class="ab-tag">BLDC · DC · Schrittmotor</span></div>
   <div class="sk-box"><h4><i class="fa-solid fa-industry"></i>Automatisierung &amp; Robotik</h4><span class="ab-tag">SPS (S7-1500)</span><span class="ab-tag">KOP</span><span class="ab-tag">HMI / SCADA</span><span class="ab-tag">Digitaler Zwilling</span><span class="ab-tag">Virtuelle Inbetriebnahme</span><span class="ab-tag">Cobots</span><span class="ab-tag">Modbus TCP</span></div>
-  <div class="sk-box"><h4><i class="fa-solid fa-eye"></i>Bildverarbeitung &amp; Daten</h4><span class="ab-tag">OpenCV</span><span class="ab-tag">Objekterkennung (YOLO)</span><span class="ab-tag">Kamerakalibrierung</span><span class="ab-tag">Industrielle Prüfung</span><span class="ab-tag">NumPy</span><span class="ab-tag">Datenanalyse</span></div>
+  <div class="sk-box"><h4><i class="fa-solid fa-eye"></i>Bildverarbeitung &amp; Daten</h4><span class="ab-tag">OpenCV</span><span class="ab-tag">Objekterkennung (YOLO)</span><span class="ab-tag">Kamerakalibrierung</span><span class="ab-tag">Industrielle Prüfung</span><span class="ab-tag">NumPy</span><span class="ab-tag">Pandas</span><span class="ab-tag">Datenanalyse</span></div>
   <div class="sk-box"><h4><i class="fa-solid fa-gears"></i>Konstruktion &amp; Fertigung</h4><span class="ab-tag">CAD-Baugruppen</span><span class="ab-tag">Festigkeits- &amp; Bewegungsanalyse</span><span class="ab-tag">CAM / CNC</span><span class="ab-tag">3D-Druck</span><span class="ab-tag">Drehen · Fräsen</span><span class="ab-tag">Reinraum-Mikrofertigung</span></div>
 </div>
 
@@ -212,14 +212,14 @@ latest_posts:
 <div class="ts-cards">
   <div class="ts-card"><h3>Konstruktion &amp; Simulation</h3><div class="ts-items">
     <div class="ts-item"><div class="ts-logo"><img src="/assets/img/logos/solidworks.svg" alt="SOLIDWORKS" loading="lazy"></div><span>SOLIDWORKS</span></div>
-    <div class="ts-item"><div class="ts-logo"><img src="/assets/img/logos/siemens.svg" alt="Siemens NX" loading="lazy"></div><span>Siemens NX</span></div>
-    <div class="ts-item"><div class="ts-logo"><i class="fa-solid fa-microchip" style="color: #A5915F"></i></div><span>Altium Designer</span></div>
+    <div class="ts-item"><div class="ts-logo"><img src="/assets/img/logos/nx.png" alt="Siemens NX" loading="lazy"></div><span>Siemens NX</span></div>
+    <div class="ts-item"><div class="ts-logo"><img src="/assets/img/logos/altium.png" alt="Altium Designer" loading="lazy"></div><span>Altium Designer</span></div>
     <div class="ts-item"><div class="ts-logo"><img src="/assets/img/logos/fusion.svg" alt="Fusion CAM" loading="lazy"></div><span>Fusion CAM</span></div>
     <div class="ts-item"><div class="ts-logo"><img src="/assets/img/logos/matlab.svg" alt="MATLAB" loading="lazy"></div><span>MATLAB</span></div>
-    <div class="ts-item"><div class="ts-logo"><i class="fa-solid fa-diagram-project" style="color: #0076A8"></i></div><span>Simulink</span></div>
+    <div class="ts-item"><div class="ts-logo"><img src="/assets/img/logos/simulink.png" alt="Simulink" loading="lazy"></div><span>Simulink</span></div>
     <div class="ts-item"><div class="ts-logo"><img src="/assets/img/logos/ansys.svg" alt="Ansys" loading="lazy"></div><span>Ansys</span></div>
-    <div class="ts-item"><div class="ts-logo"><i class="fa-solid fa-wave-square" style="color: #2D6DB5"></i></div><span>Multisim</span></div>
-    <div class="ts-item"><div class="ts-logo"><img src="/assets/img/logos/siemens.svg" alt="Process Simulate" loading="lazy"></div><span>Process Simulate</span></div>
+    <div class="ts-item"><div class="ts-logo"><img src="/assets/img/logos/multisim.png" alt="Multisim" loading="lazy"></div><span>Multisim</span></div>
+    <div class="ts-item"><div class="ts-logo"><img src="/assets/img/logos/processsimulate.png" alt="Process Simulate" loading="lazy"></div><span>Process Simulate</span></div>
   </div></div>
   <div class="ts-card"><h3>Programmierung &amp; Automatisierung</h3><div class="ts-items">
     <div class="ts-item"><div class="ts-logo"><img src="/assets/img/logos/python.svg" alt="Python" loading="lazy"></div><span>Python</span></div>
@@ -227,10 +227,10 @@ latest_posts:
     <div class="ts-item"><div class="ts-logo"><img src="/assets/img/logos/cpp.svg" alt="C++" loading="lazy"></div><span>C++</span></div>
     <div class="ts-item"><div class="ts-logo"><img src="/assets/img/logos/csharp.svg" alt="C#" loading="lazy"></div><span>C#</span></div>
     <div class="ts-item"><div class="ts-logo"><img src="/assets/img/logos/labview.svg" alt="LabVIEW" loading="lazy"></div><span>LabVIEW</span></div>
-    <div class="ts-item"><div class="ts-logo"><img src="/assets/img/logos/siemens.svg" alt="TIA Portal" loading="lazy"></div><span>TIA Portal</span></div>
+    <div class="ts-item"><div class="ts-logo"><img src="/assets/img/logos/tiaportal.png" alt="TIA Portal" loading="lazy"></div><span>TIA Portal</span></div>
     <div class="ts-item"><div class="ts-logo"><img src="/assets/img/logos/rockwell.svg" alt="Studio 5000" loading="lazy"></div><span>Studio 5000</span></div>
-    <div class="ts-item"><div class="ts-logo"><i class="fa-solid fa-robot" style="color: #00A0D2"></i></div><span>Universal Robots</span></div>
-    <div class="ts-item"><div class="ts-logo"><i class="fa-solid fa-camera" style="color: #E2231A"></i></div><span>Cognex In-Sight</span></div>
+    <div class="ts-item"><div class="ts-logo"><img src="/assets/img/logos/universalrobots.png" alt="Universal Robots" loading="lazy"></div><span>Universal Robots</span></div>
+    <div class="ts-item"><div class="ts-logo"><img src="/assets/img/logos/cognex.png" alt="Cognex In-Sight" loading="lazy"></div><span>Cognex In-Sight</span></div>
   </div></div>
   <div class="ts-card"><h3>Software &amp; Tools</h3><div class="ts-items">
     <div class="ts-item"><div class="ts-logo"><i class="fa-solid fa-file-word" style="color: #2B579A"></i></div><span>Word</span></div>
