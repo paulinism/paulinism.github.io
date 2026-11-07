@@ -199,7 +199,7 @@ Auf der Strecke in Rio de Janeiro mit dem System V3 — eine der drei Sitzungen,
 </div>
 
 <div class="tel-grid wide">
-  <figure class="tel-fig auto photo"><img data-zoomable src="{{ 'assets/img/tel-car-317-2026.jpg' | relative_url }}" width="1800" height="703" alt="Axolotl, Prototyp EcoVolt CCM, bei Testfahrten vor dem Shell Eco-marathon Brazil 2026"><figcaption><strong>Axolotl</strong> · SEM Brazil 2026</figcaption></figure>
+  <figure class="tel-fig auto photo"><img data-zoomable src="{{ 'assets/img/tel-car-317-2026.jpg' | relative_url }}" width="1800" height="703" alt="Axolotl, Prototyp EcoVolt CCM, bei Testfahrten vor dem Shell Eco-marathon Brazil 2026"><figcaption><strong>Axolotl</strong> · SEM United States und Brazil 2026</figcaption></figure>
 </div>
 
 **Simulator-Prüfstandstest**
