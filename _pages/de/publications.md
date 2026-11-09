@@ -62,6 +62,7 @@ description: Konferenzbeitrag und technische Berichte.
     <p class="pub-abs">Drei Generationen Telemetrie-Hardware für einen elektrischen Shell-Eco-marathon-Prototyp — Strom, Spannung, GPS und Motordaten über CAN, auf SD gespeichert und live übertragen — sowie eine Datenpipeline, die Fahrstrategien vergleicht, einschließlich eines Simulator-Prüfstandstests, bei dem konstantes Gasgeben Pulse-and-Glide um 14 % übertraf.</p>
     <div class="pc-btns">
       <a class="pc-btn primary" href="{{ '/de/projects/ecovolt-telemetry/' | relative_url }}">Zugehöriges Projekt</a>
+      <a class="pc-btn" href="https://www.schoolrobotics.org/simposiu" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i> Call for Papers</a>
       <button class="pc-btn" type="button" onclick="this.closest('.pub-body').querySelector('.pub-bib').classList.toggle('open')">BibTeX</button>
     </div>
 <pre class="pub-bib">@inproceedings{ruizservin2026saibot,

@@ -63,6 +63,7 @@ nav_order: 3
     <p class="pub-abs">Three generations of telemetry hardware for an electric Shell Eco-marathon prototype — current, voltage, GPS and motor data over CAN, logged to SD and streamed live — and a data pipeline that compares driving strategies, including a simulator bench test where constant throttle beat pulse-and-glide by 14 %.</p>
     <div class="pc-btns">
       <a class="pc-btn primary" href="{{ '/projects/ecovolt-telemetry/' | relative_url }}">Related project</a>
+      <a class="pc-btn" href="https://www.schoolrobotics.org/simposiu" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i> Call for papers</a>
       <button class="pc-btn" type="button" onclick="this.closest('.pub-body').querySelector('.pub-bib').classList.toggle('open')">BibTeX</button>
     </div>
 <pre class="pub-bib">@inproceedings{ruizservin2026saibot,
