@@ -170,8 +170,8 @@ latest_posts:
       <details class="ab-cv">
         <summary class="ab-btn">Download CV</summary>
         <div class="ab-cv-menu">
-          <a href="/assets/pdf/CV_Paulina_EN.pdf?v=20261106" target="_blank" rel="noopener">English (PDF)</a>
-          <a href="/assets/pdf/CV_Paulina_DE.pdf?v=20261106" target="_blank" rel="noopener">Deutsch (PDF)</a>
+          <a href="/assets/pdf/CV_Paulina_EN.pdf?v=20261109" target="_blank" rel="noopener">English (PDF)</a>
+          <a href="/assets/pdf/CV_Paulina_DE.pdf?v=20261109" target="_blank" rel="noopener">Deutsch (PDF)</a>
         </div>
       </details>
       <a class="ab-btn" href="/contact/">Contact</a>
