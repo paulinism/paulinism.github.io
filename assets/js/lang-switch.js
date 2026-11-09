@@ -1,5 +1,5 @@
-// DE | EN language switch for paulinism.github.io
-// English pages live at /..., their German versions at /de/...
+// EN | DE | ES language switch for paulinism.github.io
+// English pages live at /..., German versions at /de/..., Spanish versions at /es/...
 (function () {
   var DE_PAGES = [
     "/",
@@ -17,6 +17,17 @@
     "/projects/endress-viscosity/",
     "/projects/agv-platform/",
   ];
+  // Spanish pages that exist so far (others fall back to the English page)
+  var ES_PAGES = ["/"];
+  var NAV_ES = {
+    "/": "sobre mí",
+    "/projects/": "proyectos",
+    "/achievements/": "logros",
+    "/publications/": "publicaciones",
+    "/repositories/": "repositorios",
+    "/cv/": "CV",
+    "/contact/": "contacto",
+  };
   var NAV_DE = {
     "/": "über mich",
     "/projects/": "projekte",
@@ -30,12 +41,16 @@
   var path = location.pathname.replace(/index\.html$/, "");
   if (path.slice(-1) !== "/") path += "/";
   var isDe = /^\/de\//.test(path);
-  var enPath = isDe ? path.replace(/^\/de/, "") || "/" : path;
+  var isEs = /^\/es\//.test(path);
+  var enPath = isDe || isEs ? path.replace(/^\/(de|es)/, "") || "/" : path;
   var hasDe = DE_PAGES.indexOf(enPath) !== -1;
   var dePath = hasDe ? "/de" + enPath : "/de/";
+  var hasEs = ES_PAGES.indexOf(enPath) !== -1;
+  var esPath = hasEs ? "/es" + enPath : "/es/";
   var hash = location.hash || "";
 
   if (isDe) document.documentElement.setAttribute("lang", "de");
+  if (isEs) document.documentElement.setAttribute("lang", "es");
 
   var css =
     ".lang-switch{display:inline-flex;align-items:center;border:1px solid rgba(128,128,128,.4);border-radius:999px;padding:2px;gap:1px;font-weight:700;font-size:.72rem;line-height:1;white-space:nowrap}" +
@@ -55,20 +70,26 @@
     var sw = document.createElement("div");
     sw.className = "lang-switch" + (extra ? " " + extra : "");
     sw.setAttribute("role", "group");
-    sw.setAttribute("aria-label", isDe ? "Sprache" : "Language");
+    sw.setAttribute("aria-label", isDe ? "Sprache" : isEs ? "Idioma" : "Language");
     sw.innerHTML =
       '<a href="' +
       enPath +
       hash +
       '" hreflang="en" lang="en"' +
-      (!isDe ? ' class="on" aria-current="true"' : "") +
+      (!isDe && !isEs ? ' class="on" aria-current="true"' : "") +
       ">EN</a>" +
       '<a href="' +
       dePath +
       (hasDe ? hash : "") +
       '" hreflang="de" lang="de"' +
       (isDe ? ' class="on" aria-current="true"' : "") +
-      ">DE</a>";
+      ">DE</a>" +
+      '<a href="' +
+      esPath +
+      (hasEs ? hash : "") +
+      '" hreflang="es" lang="es"' +
+      (isEs ? ' class="on" aria-current="true"' : "") +
+      ">ES</a>";
     return sw;
   }
 
@@ -87,6 +108,32 @@
     }
     nav.appendChild(makeSwitch("mobile"));
 
+    // Contact note under the social icons
+    var note = document.querySelector(".contact-note");
+    if (note && (isDe || isEs)) note.textContent = isDe ? "Am besten erreichen Sie mich per E-Mail." : "La mejor forma de contactarme es por correo.";
+
+    if (isEs) {
+      // Spanish pages: translate the menu, point it to /es/ where a Spanish page exists
+      var elinks = document.querySelectorAll("#navbar .navbar-nav .nav-item > a.nav-link");
+      for (var e = 0; e < elinks.length; e++) {
+        var ea = elinks[e];
+        var eh = ea.getAttribute("href");
+        if (!NAV_ES[eh]) continue;
+        if (ES_PAGES.indexOf(eh) !== -1) ea.setAttribute("href", "/es" + eh);
+        var esr = ea.querySelector(".sr-only");
+        ea.textContent = NAV_ES[eh] + " ";
+        var eli = ea.parentNode;
+        var eact = eh === "/" ? enPath === "/" : enPath.indexOf(eh) === 0;
+        eli.classList.toggle("active", eact);
+        if (eact) {
+          var es = esr || document.createElement("span");
+          es.className = "sr-only";
+          es.textContent = "(actual)";
+          ea.appendChild(es);
+        }
+      }
+      return;
+    }
     if (!isDe) return;
     // German pages: LinkedIn links open the German profile
     var li2 = document.querySelectorAll('a[href*="linkedin.com/in/pruizservin27"]');
