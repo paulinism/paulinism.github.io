@@ -248,7 +248,7 @@ latest_posts:
 <h2 class="hm-sec" id="featured-projects"><i class="fa-solid fa-star"></i> Proyectos destacados</h2>
 
 <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:1.5rem; margin-top:1.5rem;">
-{% assign featured = site.pages | where: "es_project", true | where: "featured", true | sort: "importance" %}{% if featured.size == 0 %}{% assign featured = site.projects | where: "featured", true | sort: "importance" %}{% endif %}
+{% assign featured = site.pages | where: "es_project", true | where: "featured", true | sort: "importance" %}
 {% for project in featured %}
   <a href="{{ project.url | relative_url }}" style="display:block; border:1px solid currentColor; border-radius:8px; overflow:hidden; text-decoration:none;">
     {% if project.img %}
