@@ -17,8 +17,8 @@
     "/projects/endress-viscosity/",
     "/projects/agv-platform/",
   ];
-  // Spanish pages that exist so far (others fall back to the English page)
-  var ES_PAGES = ["/"];
+  // Spanish pages (same list as the German ones)
+  var ES_PAGES = DE_PAGES;
   var NAV_ES = {
     "/": "sobre mí",
     "/projects/": "proyectos",
