@@ -44,8 +44,8 @@ description: Busco prácticas profesionales obligatorias (Pflichtpraktikum) y un
     <img src="{{ '/assets/img/paulina-contact-square.jpg' | relative_url }}" alt="Paulina Lilian Ruíz Servín">
     <div class="ct-btns">
       <a class="pc-btn" href="https://maps.google.com/?q=Zittau,+Germany" target="_blank" rel="noopener"><i class="fa-solid fa-location-dot"></i> Zittau, Sajonia · disponible para reubicarme</a>
-      <a class="pc-btn primary" href="{{ '/assets/pdf/CV_Paulina_EN.pdf' | relative_url }}?v=20261106" target="_blank" rel="noopener"><i class="fa-solid fa-file-arrow-down"></i> CV (inglés)</a>
-      <a class="pc-btn" href="{{ '/assets/pdf/CV_Paulina_DE.pdf' | relative_url }}?v=20261106" target="_blank" rel="noopener"><i class="fa-solid fa-file-arrow-down"></i> Lebenslauf (alemán)</a>
+      <a class="pc-btn primary" href="{{ '/assets/pdf/CV_Paulina_EN.pdf' | relative_url }}?v=20261109" target="_blank" rel="noopener"><i class="fa-solid fa-file-arrow-down"></i> CV (inglés)</a>
+      <a class="pc-btn" href="{{ '/assets/pdf/CV_Paulina_DE.pdf' | relative_url }}?v=20261109" target="_blank" rel="noopener"><i class="fa-solid fa-file-arrow-down"></i> Lebenslauf (alemán)</a>
     </div>
   </div>
   <div>
