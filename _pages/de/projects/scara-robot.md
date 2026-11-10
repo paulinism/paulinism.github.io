@@ -89,6 +89,30 @@ Flache Teile mit unterschiedlicher Form, Farbe und Ausrichtung in einem Arbeitsr
 
 Teammitglieder haben die C++-Kinematik und die Firmware-Architektur auf dem ESP32, die HMI in MATLAB App Designer, das finale Simscape-Modell des SCARA und die mechanische Struktur erstellt.
 
+**Bildverarbeitung**
+
+Ein Smartphone 500 mm über dem Arbeitsraum mit senkrechter optischer Achse überträgt das Bild an den PC; ein Skript nimmt ein Einzelbild mit 1280 × 720 px auf. Vier ArUco-Marker an bekannten Ecken einer Fläche von 562 × 562 mm definieren eine Homografie von Bildpixeln in Robotermillimeter.
+
+<div class="sc-grid">
+  <figure class="sc-fig tall"><img data-zoomable src="{{ 'assets/img/scara-camera.jpg' | relative_url }}" alt="Kameraaufbau von oben"><figcaption>Kamera 500 mm über dem Arbeitsraum, mit den ArUco-Markern an den Ecken.</figcaption></figure>
+  <figure class="sc-fig"><img data-zoomable src="{{ 'assets/img/scara-cv-homography.jpg' | relative_url }}" alt="Für die Homografie erkannte ArUco-Marker"><figcaption>ArUco-Erkennung: Die Markermittelpunkte (rot) definieren die Homografie von Pixeln in Millimeter.</figcaption></figure>
+</div>
+
+Die klassische Pipeline erzeugt eine Kantenkarte (Gauß-Filter, Laplace, Otsu), segmentiert jede Farbe im HSV-Raum (Rot braucht zwei Farbtonbereiche, weil der Farbton zyklisch ist) und trennt sich berührende Teile mit einem Watershed-Verfahren. Die Formen werden über Solidität, Konvexitätsdefizit und Kreisförmigkeit klassifiziert: Das Kreuz wird zuerst erkannt, weil es das einzige nicht konvexe Teil ist, die übrigen entscheidet eine Abstimmung von `approxPolyDP` mit drei Toleranzen. Der Greifwinkel ergibt sich aus dem Rechteck minimaler Fläche, angepasst an die Symmetrie jeder Form, damit sich das Handgelenk so wenig wie möglich dreht, und jedes Teil wird per MQTT als `shape, colour, x, y, angle` veröffentlicht.
+
+<div class="sc-grid">
+  <figure class="sc-fig"><img data-zoomable src="{{ 'assets/img/scara-cv-detection.jpg' | relative_url }}" alt="Klassifizierte Formen im Arbeitsraum"><figcaption>Endgültige Erkennung: jedes Teil mit ID, Form und Farbe beschriftet.</figcaption></figure>
+  <figure class="sc-fig"><img data-zoomable src="{{ 'assets/img/scara-cv-grip.jpg' | relative_url }}" alt="Greifwinkel über dem Arbeitsraum"><figcaption>Für jedes Teil berechnete Greifwinkel, die seine Symmetrie nutzen, um den Weg des Handgelenks zu minimieren.</figcaption></figure>
+</div>
+
+Da HSV-Schwellwerte empfindlich auf Beleuchtung und ähnliche Farben reagieren, habe ich einen YOLOv11n-Detektor mit Bildern des realen Arbeitsraums trainiert (16 Klassen, Aufteilung 80/20, 50 Epochen). Die klassische Pipeline hat jedes Bild vorannotiert, sodass das Labeln etwa 30 Minuten statt 3–4 Stunden dauerte. Das Modell erreichte mAP@0,5 = 0,72; am schwächsten waren die Kreuze mit nur 62–94 Beispielen gegenüber 1.580 für das blaue Quadrat — die Klassenungleichheit, nicht das Modell, ist die wichtigste Grenze.
+
+<div class="sc-grid">
+  <figure class="sc-fig"><img data-zoomable src="{{ 'assets/img/scara-yolo-preannot.jpg' | relative_url }}" alt="Trainingsbild des Arbeitsraums"><figcaption>Trainingsbild aus dem realen Arbeitsraum, mit Teilen in unterschiedlichen Positionen, Ausrichtungen und Farben.</figcaption></figure>
+  <figure class="sc-fig"><img data-zoomable src="{{ 'assets/img/scara-yolo-loss.png' | relative_url }}" alt="Verlust- und mAP-Kurven von YOLOv11n"><figcaption>Trainings- und Validierungsverluste sowie mAP über 50 Epochen.</figcaption></figure>
+  <figure class="sc-fig"><img data-zoomable src="{{ 'assets/img/scara-yolo-confusion.png' | relative_url }}" alt="Normierte Konfusionsmatrix"><figcaption>Normierte Konfusionsmatrix: Grüne Teile werden am besten erkannt, Kreuze am schlechtesten.</figcaption></figure>
+</div>
+
 **Kinematik & Mechanik**
 
 Alle vier Gelenkachsen sind vertikal, daher lässt sich das Problem sauber aufteilen: Die ebene Position hängt nur von Schulter und Ellbogen ab, die Höhe nur von der Vertikalachse, und der Werkzeugwinkel ist die Summe der drei Drehungen. Die Vorwärtskinematik verkettet vier Denavit-Hartenberg-Transformationen; die inverse Kinematik nutzt den Kosinussatz für den Zweigelenkarm (L1 = 150 mm, L2 = 110 mm), liefert eine Lösung mit Ellbogen oben und eine mit Ellbogen unten und behält die, die der aktuellen Stellung am nächsten ist. Ein Ziel ist nur zwischen 50 und 250 mm von der Basis erreichbar.
@@ -112,30 +136,6 @@ Vor dem SCARA hat das Team andere Manipulatoren modelliert, um Bewegung und Rege
 <div class="sc-grid">
   <figure class="sc-fig"><img data-zoomable src="{{ 'assets/img/gantry-simscape-diagram.jpg' | relative_url }}" alt="Simscape-Multibody-Verbindungsdiagramm des Portalroboters"><figcaption>Simscape-Multibody-Verbindungsdiagramm: Portal- und Arm-Subsystem, die Bewegungsvorgaben und zum Vergleich dieselben PID-Regelkreise wie im analytischen Modell.</figcaption></figure>
   <figure class="sc-fig"><img data-zoomable src="{{ 'assets/img/gantry-simscape-outputs.jpg' | relative_url }}" alt="Simscape-Ausgaben: Winkel, Winkelgeschwindigkeit, Drehmoment und Stellgröße"><figcaption>Simscape-Ausgaben: Armwinkel θ gegenüber seinem Sollwert, Winkelgeschwindigkeit, Ausgangsdrehmoment und PID-Stellgröße. Die Stellgröße schwingt zu Beginn jedes Sprungs über und stellt sich dann ein.</figcaption></figure>
-</div>
-
-**Bildverarbeitung**
-
-Ein Smartphone 500 mm über dem Arbeitsraum mit senkrechter optischer Achse überträgt das Bild an den PC; ein Skript nimmt ein Einzelbild mit 1280 × 720 px auf. Vier ArUco-Marker an bekannten Ecken einer Fläche von 562 × 562 mm definieren eine Homografie von Bildpixeln in Robotermillimeter.
-
-<div class="sc-grid">
-  <figure class="sc-fig tall"><img data-zoomable src="{{ 'assets/img/scara-camera.jpg' | relative_url }}" alt="Kameraaufbau von oben"><figcaption>Kamera 500 mm über dem Arbeitsraum, mit den ArUco-Markern an den Ecken.</figcaption></figure>
-  <figure class="sc-fig"><img data-zoomable src="{{ 'assets/img/scara-cv-homography.jpg' | relative_url }}" alt="Für die Homografie erkannte ArUco-Marker"><figcaption>ArUco-Erkennung: Die Markermittelpunkte (rot) definieren die Homografie von Pixeln in Millimeter.</figcaption></figure>
-</div>
-
-Die klassische Pipeline erzeugt eine Kantenkarte (Gauß-Filter, Laplace, Otsu), segmentiert jede Farbe im HSV-Raum (Rot braucht zwei Farbtonbereiche, weil der Farbton zyklisch ist) und trennt sich berührende Teile mit einem Watershed-Verfahren. Die Formen werden über Solidität, Konvexitätsdefizit und Kreisförmigkeit klassifiziert: Das Kreuz wird zuerst erkannt, weil es das einzige nicht konvexe Teil ist, die übrigen entscheidet eine Abstimmung von `approxPolyDP` mit drei Toleranzen. Der Greifwinkel ergibt sich aus dem Rechteck minimaler Fläche, angepasst an die Symmetrie jeder Form, damit sich das Handgelenk so wenig wie möglich dreht, und jedes Teil wird per MQTT als `shape, colour, x, y, angle` veröffentlicht.
-
-<div class="sc-grid">
-  <figure class="sc-fig"><img data-zoomable src="{{ 'assets/img/scara-cv-detection.jpg' | relative_url }}" alt="Klassifizierte Formen im Arbeitsraum"><figcaption>Endgültige Erkennung: jedes Teil mit ID, Form und Farbe beschriftet.</figcaption></figure>
-  <figure class="sc-fig"><img data-zoomable src="{{ 'assets/img/scara-cv-grip.jpg' | relative_url }}" alt="Greifwinkel über dem Arbeitsraum"><figcaption>Für jedes Teil berechnete Greifwinkel, die seine Symmetrie nutzen, um den Weg des Handgelenks zu minimieren.</figcaption></figure>
-</div>
-
-Da HSV-Schwellwerte empfindlich auf Beleuchtung und ähnliche Farben reagieren, habe ich einen YOLOv11n-Detektor mit Bildern des realen Arbeitsraums trainiert (16 Klassen, Aufteilung 80/20, 50 Epochen). Die klassische Pipeline hat jedes Bild vorannotiert, sodass das Labeln etwa 30 Minuten statt 3–4 Stunden dauerte. Das Modell erreichte mAP@0,5 = 0,72; am schwächsten waren die Kreuze mit nur 62–94 Beispielen gegenüber 1.580 für das blaue Quadrat — die Klassenungleichheit, nicht das Modell, ist die wichtigste Grenze.
-
-<div class="sc-grid">
-  <figure class="sc-fig"><img data-zoomable src="{{ 'assets/img/scara-yolo-preannot.jpg' | relative_url }}" alt="Trainingsbild des Arbeitsraums"><figcaption>Trainingsbild aus dem realen Arbeitsraum, mit Teilen in unterschiedlichen Positionen, Ausrichtungen und Farben.</figcaption></figure>
-  <figure class="sc-fig"><img data-zoomable src="{{ 'assets/img/scara-yolo-loss.png' | relative_url }}" alt="Verlust- und mAP-Kurven von YOLOv11n"><figcaption>Trainings- und Validierungsverluste sowie mAP über 50 Epochen.</figcaption></figure>
-  <figure class="sc-fig"><img data-zoomable src="{{ 'assets/img/scara-yolo-confusion.png' | relative_url }}" alt="Normierte Konfusionsmatrix"><figcaption>Normierte Konfusionsmatrix: Grüne Teile werden am besten erkannt, Kreuze am schlechtesten.</figcaption></figure>
 </div>
 
 **Elektronik & Platine**

@@ -85,6 +85,30 @@ Identify, pick and place flat pieces that differ in shape, colour and orientatio
 
 Teammates built the C++ kinematics and firmware architecture on the ESP32, the MATLAB App Designer HMI, the final Simscape model of the SCARA and the mechanical structure.
 
+**Computer vision**
+
+A smartphone mounted 500 mm above the workspace, optical axis vertical, streams to the PC; a script captures one frame at 1280 × 720 px. Four ArUco markers at known corners of a 562 × 562 mm area define a homography from image pixels to robot millimetres.
+
+<div class="sc-grid">
+  <figure class="sc-fig tall"><img data-zoomable src="{{ 'assets/img/scara-camera.jpg' | relative_url }}" alt="Overhead camera setup"><figcaption>Overhead camera 500 mm above the workspace, with the ArUco markers at the corners.</figcaption></figure>
+  <figure class="sc-fig"><img data-zoomable src="{{ 'assets/img/scara-cv-homography.jpg' | relative_url }}" alt="ArUco markers detected for the homography"><figcaption>ArUco detection: the marker centroids (red) define the pixel-to-millimetre homography.</figcaption></figure>
+</div>
+
+The classical pipeline builds an edge map (Gaussian blur, Laplacian, Otsu), segments each colour in HSV (red needs two hue ranges because hue wraps around) and splits touching pieces with a watershed. Shapes are classified by solidity, convexity deficit and circularity: the cross is caught first because it is the only non-convex piece, and the others are decided by a vote of `approxPolyDP` at three tolerances. The grip angle comes from the minimum-area rectangle, adjusted to each shape's symmetry so the wrist turns as little as possible, and every piece is published over MQTT as `shape, colour, x, y, angle`.
+
+<div class="sc-grid">
+  <figure class="sc-fig"><img data-zoomable src="{{ 'assets/img/scara-cv-detection.jpg' | relative_url }}" alt="Classified shapes on the workspace"><figcaption>Final detection: each piece labelled with its ID, shape and colour.</figcaption></figure>
+  <figure class="sc-fig"><img data-zoomable src="{{ 'assets/img/scara-cv-grip.jpg' | relative_url }}" alt="Grip angles overlaid on the workspace"><figcaption>Grip angles computed for each piece, using its symmetry to minimise wrist travel.</figcaption></figure>
+</div>
+
+Because HSV thresholds are sensitive to lighting and to close colours, I trained a YOLOv11n detector on images of the real workspace (16 classes, 80/20 split, 50 epochs). The classical pipeline pre-annotated every image, so labelling took about 30 minutes instead of 3–4 hours. The model reached mAP@0.5 = 0.72; the weakest classes were the crosses, which had only 62–94 examples against 1,580 for the blue square — the class imbalance, not the model, is the main limit.
+
+<div class="sc-grid">
+  <figure class="sc-fig"><img data-zoomable src="{{ 'assets/img/scara-yolo-preannot.jpg' | relative_url }}" alt="Training image of the workspace"><figcaption>Training image captured on the real workspace, with pieces in varied positions, orientations and colours.</figcaption></figure>
+  <figure class="sc-fig"><img data-zoomable src="{{ 'assets/img/scara-yolo-loss.png' | relative_url }}" alt="YOLOv11n loss and mAP curves"><figcaption>Training and validation losses and mAP over 50 epochs.</figcaption></figure>
+  <figure class="sc-fig"><img data-zoomable src="{{ 'assets/img/scara-yolo-confusion.png' | relative_url }}" alt="Normalised confusion matrix"><figcaption>Normalised confusion matrix: green pieces are recognised best, crosses worst.</figcaption></figure>
+</div>
+
 **Kinematics & mechanism**
 
 All four joint axes are vertical, so the problem splits cleanly: the planar position depends only on the shoulder and elbow, the height only on the vertical stage, and the tool angle is the sum of the three rotations. Forward kinematics chain four Denavit–Hartenberg transforms; inverse kinematics use the law of cosines for the two-link arm (L1 = 150 mm, L2 = 110 mm), give an elbow-up and an elbow-down solution and keep the one closest to the current pose. A target is reachable only between 50 and 250 mm from the base.
@@ -108,30 +132,6 @@ Before the SCARA, the team modelled other manipulators to study motion and contr
 <div class="sc-grid">
   <figure class="sc-fig"><img data-zoomable src="{{ 'assets/img/gantry-simscape-diagram.jpg' | relative_url }}" alt="Simscape Multibody connection diagram for the gantry robot"><figcaption>Simscape Multibody connection diagram: the gantry and arm subsystems, the motion references, and the same PID loops as the analytical model for comparison.</figcaption></figure>
   <figure class="sc-fig"><img data-zoomable src="{{ 'assets/img/gantry-simscape-outputs.jpg' | relative_url }}" alt="Simscape outputs: angle, angular velocity, torque and control signal"><figcaption>Simscape outputs: arm angle θ against its reference, angular velocity, output torque and PID control signal. The control signal overshoots at the start of each step and then settles.</figcaption></figure>
-</div>
-
-**Computer vision**
-
-A smartphone mounted 500 mm above the workspace, optical axis vertical, streams to the PC; a script captures one frame at 1280 × 720 px. Four ArUco markers at known corners of a 562 × 562 mm area define a homography from image pixels to robot millimetres.
-
-<div class="sc-grid">
-  <figure class="sc-fig tall"><img data-zoomable src="{{ 'assets/img/scara-camera.jpg' | relative_url }}" alt="Overhead camera setup"><figcaption>Overhead camera 500 mm above the workspace, with the ArUco markers at the corners.</figcaption></figure>
-  <figure class="sc-fig"><img data-zoomable src="{{ 'assets/img/scara-cv-homography.jpg' | relative_url }}" alt="ArUco markers detected for the homography"><figcaption>ArUco detection: the marker centroids (red) define the pixel-to-millimetre homography.</figcaption></figure>
-</div>
-
-The classical pipeline builds an edge map (Gaussian blur, Laplacian, Otsu), segments each colour in HSV (red needs two hue ranges because hue wraps around) and splits touching pieces with a watershed. Shapes are classified by solidity, convexity deficit and circularity: the cross is caught first because it is the only non-convex piece, and the others are decided by a vote of `approxPolyDP` at three tolerances. The grip angle comes from the minimum-area rectangle, adjusted to each shape's symmetry so the wrist turns as little as possible, and every piece is published over MQTT as `shape, colour, x, y, angle`.
-
-<div class="sc-grid">
-  <figure class="sc-fig"><img data-zoomable src="{{ 'assets/img/scara-cv-detection.jpg' | relative_url }}" alt="Classified shapes on the workspace"><figcaption>Final detection: each piece labelled with its ID, shape and colour.</figcaption></figure>
-  <figure class="sc-fig"><img data-zoomable src="{{ 'assets/img/scara-cv-grip.jpg' | relative_url }}" alt="Grip angles overlaid on the workspace"><figcaption>Grip angles computed for each piece, using its symmetry to minimise wrist travel.</figcaption></figure>
-</div>
-
-Because HSV thresholds are sensitive to lighting and to close colours, I trained a YOLOv11n detector on images of the real workspace (16 classes, 80/20 split, 50 epochs). The classical pipeline pre-annotated every image, so labelling took about 30 minutes instead of 3–4 hours. The model reached mAP@0.5 = 0.72; the weakest classes were the crosses, which had only 62–94 examples against 1,580 for the blue square — the class imbalance, not the model, is the main limit.
-
-<div class="sc-grid">
-  <figure class="sc-fig"><img data-zoomable src="{{ 'assets/img/scara-yolo-preannot.jpg' | relative_url }}" alt="Training image of the workspace"><figcaption>Training image captured on the real workspace, with pieces in varied positions, orientations and colours.</figcaption></figure>
-  <figure class="sc-fig"><img data-zoomable src="{{ 'assets/img/scara-yolo-loss.png' | relative_url }}" alt="YOLOv11n loss and mAP curves"><figcaption>Training and validation losses and mAP over 50 epochs.</figcaption></figure>
-  <figure class="sc-fig"><img data-zoomable src="{{ 'assets/img/scara-yolo-confusion.png' | relative_url }}" alt="Normalised confusion matrix"><figcaption>Normalised confusion matrix: green pieces are recognised best, crosses worst.</figcaption></figure>
 </div>
 
 **Electronics & PCB**
