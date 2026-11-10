@@ -1,0 +1,181 @@
+<!DOCTYPE html> <html lang="es"> <head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <title> Microfabricación de semiconductores — MIT.nano | Paulina L. Ruíz Servín </title> <meta name="author" content="Paulina L. Ruíz Servín"> <meta name="description" content="Curso intensivo en el cuarto limpio de MIT.nano — celda solar con PCE de 15.87 % (Voc 0.60 V), cantilevers MEMS funcionales y mezclador microfluídico — una semana, Clase 100/1K/10K"> <meta name="keywords" content="Embedded Systems, PCB Design, Altium Designer, ESP32, FreeRTOS, PLC, TIA Portal, Digital Twin, Process Simulate, Mechatronics Engineering, Elektrotechnik, Shell Eco-marathon"> <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; media-src 'self' https:; frame-src 'self' https:; connect-src 'self' https:;"> <style>
+  :root {
+    --max-content-width: 930px;
+  }
+</style> <link rel="stylesheet" href="/assets/css/tailwind.css?v=50c64c15cbb9fd1ce6056fdb8bcb4b62"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css" integrity="sha256-MVopmdyC2tYTiJ8wlktf0uh0v4NgT+vNdyVFepi7Q0c=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.5/css/academicons.min.css" integrity="sha256-SzrCOBJbGVFMahewkgjwnApaV2+av1DwMAA+/QGLyZw=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/scholar-icons@1.0.3/css/scholar-icons.css" integrity="sha256-VY3hHVj/hNX3fYG6wtbA6TcKJQl7+FthzGSyIB64klY=" crossorigin="anonymous"> <link defer rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons&amp;display=swap"> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-github.css?v=591dab5a4e56573bf4ef7fd332894c99" media="" id="highlight_theme_light"> <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%F0%9F%91%A9%E2%80%8D%F0%9F%92%BB&lt;/text&gt;&lt;/svg&gt;"> <link rel="stylesheet" href="/assets/css/main.css?v=3116ba77db9ee1581d05bb3e86fbf7f1"> <link rel="canonical" href="https://paulinism.github.io/es/projects/mit-nano-fabrication/"> <script src="/assets/js/theme.js?v=5286c3e4c334d0ecb8fc0c40ff4fa7ec"></script> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-native.css?v=5847e5ed4a4568527aa6cfab446049ca" media="none" id="highlight_theme_dark"> <script>
+    initTheme();
+  </script> </head> <body class="fixed-top-nav "> <header> <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top" role="navigation"> <div class="container"> <a class="navbar-brand title font-weight-lighter" href="/"> <span class="font-weight-bold">Paulina</span> L. Ruíz Servín </a> <button class="navbar-toggler collapsed navbar-toggler-main" type="button" data-nav-toggle="navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar top-bar"></span> <span class="icon-bar middle-bar"></span> <span class="icon-bar bottom-bar"></span> </button> <div class="collapse navbar-collapse navbar-collapse-main" id="navbarNav"> <ul class="navbar-nav navbar-menu-list flex-nowrap"> <li class="nav-item "> <a class="nav-link" href="/">about </a> </li> <li class="nav-item active"> <a class="nav-link" href="/projects/">projects <span class="sr-only">(current)</span> </a> </li> <li class="nav-item "> <a class="nav-link" href="/achievements/">achievements </a> </li> <li class="nav-item "> <a class="nav-link" href="/publications/">publications </a> </li> <li class="nav-item "> <a class="nav-link" href="/repositories/">repositories </a> </li> <li class="nav-item "> <a class="nav-link" href="/cv/">CV </a> </li> <li class="nav-item "> <a class="nav-link" href="/contact/">contact </a> </li> <li class="nav-item"> <button id="search-toggle" type="button" title="Search" aria-label="Open search"> <span class="nav-link">ctrl k <i class="fa-solid fa-magnifying-glass"></i></span> </button> </li> <li class="toggle-container"> <button id="light-toggle" type="button" title="Change theme" aria-label="Change color theme"> <i class="fa-half-sun-moon" id="light-toggle-system"></i> <i class="fa-solid fa-moon" id="light-toggle-dark"></i> <i class="fa-solid fa-sun" id="light-toggle-light"></i> </button> </li> </ul> </div> </div> </nav> <progress id="progress" value="0"> <div class="progress-container"> <span class="progress-bar"></span> </div> </progress> </header> <div class="container mt-5" role="main"> <div class="post"> <header class="post-header"> <h1 class="post-title">Microfabricación de semiconductores — MIT.nano</h1> <p class="post-description">Curso intensivo en el cuarto limpio de MIT.nano — celda solar con PCE de 15.87 % (Voc 0.60 V), cantilevers MEMS funcionales y mezclador microfluídico — una semana, Clase 100/1K/10K</p> </header> <article> <style>
+  img[data-zoomable] { cursor: zoom-in; }
+  .medium-zoom-image--opened { object-fit: contain !important; background: transparent !important; }
+  .medium-zoom-overlay, .medium-zoom-image--opened { z-index: 1050; }
+</style> <style>
+  .mit-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin: 1rem 0 1.5rem; }
+  .mit-fig { margin: 0; border: 1px solid rgba(128, 128, 128, 0.25); border-radius: 12px; overflow: hidden; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08); }
+  .mit-fig img, .mit-fig video { display: block; width: 100%; height: 340px; object-fit: contain; background: rgba(128, 128, 128, 0.06); }
+  .mit-fig figcaption { padding: 0.6rem 0.9rem; font-size: 0.85rem; line-height: 1.4; opacity: 0.85; border-top: 1px solid rgba(128, 128, 128, 0.2); }
+  .mit-pair { display: grid; grid-template-columns: 1.78fr 1.25fr; gap: 1rem; margin: 1rem 0 1.5rem; align-items: start; }
+  .mit-pair .mit-fig img { height: auto; }
+  @media (max-width: 767px) { .mit-pair { grid-template-columns: minmax(0, 1fr); } }
+  </style> <p><strong>Tres dispositivos funcionales en una semana en MIT.nano (Cambridge, octubre de 2025): una celda solar de silicio con PCE de 15.87 % y Voc de 0.60 V, cantilevers MEMS que resistieron pruebas de fuerza–desplazamiento con una carga de 4 mg y un mezclador microfluídico de PDMS.</strong> Un curso intensivo en cuarto limpio del programa MIT–Tec de Monterrey, realizado en equipo de 2 en cuartos limpios Clase 100/1K/10K con equipo de protección y protocolos de seguridad completos.</p> <div class="mit-pair"> <figure class="mit-fig"><img data-zoomable="" src="/assets/img/mit-group-certificates.jpg" alt="Participantes del programa con sus certificados de MIT.nano"><figcaption>La generación MIT–Tec de Monterrey con nuestros certificados de MIT.nano, frente al laboratorio fab.nano.</figcaption></figure> <figure class="mit-fig"><img data-zoomable="" src="/assets/img/mit-group-cleanroom.jpg" alt="La generación con trajes de cuarto limpio"><figcaption>La generación con trajes de cuarto limpio antes de entrar al laboratorio.</figcaption></figure> </div> <style>
+  .dag-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.9rem; margin: 1rem 0 1.25rem; }
+  .dag-fig { margin: 0; border: 1px solid rgba(128,128,128,.25); border-radius: 10px; overflow: hidden; }
+  .dag-fig img { display: block; width: 100%; height: 190px; object-fit: contain; background: rgba(128,128,128,.06); }
+  .dag-fig figcaption { padding: .4rem .6rem; font-size: .78rem; line-height: 1.3; opacity: .85; border-top: 1px solid rgba(128,128,128,.2); }
+  .dag-table { width: 100%; border-collapse: collapse; font-size: .9rem; margin: .5rem 0 1rem; }
+  .dag-table th, .dag-table td { border: 1px solid rgba(128,128,128,.3); padding: .45rem .6rem; vertical-align: top; text-align: left; }
+  .dag-table th { background: rgba(128,128,128,.08); }
+  details.writeup { margin: 1.5rem 0; border: 1px solid rgba(128,128,128,.3); border-radius: 10px; padding: .6rem 1rem; }
+  details.writeup > summary { cursor: pointer; font-weight: 700; font-size: 1.05rem; margin-bottom: 1.25rem; }
+  details.writeup > summary + * { margin-top: 0.5rem; }
+</style> <h2 id="el-diseño-de-un-vistazo">El diseño de un vistazo</h2> <div class="dag-grid"> <figure class="dag-fig"><img data-zoomable="" src="/assets/img/mit-solar-cell-probe.jpg" alt="Celda solar bajo la punta de medición" loading="lazy"><figcaption>Celda solar bajo la punta de medición</figcaption></figure> <figure class="dag-fig"><img data-zoomable="" src="/assets/img/mit-iv-curve.jpg" alt="Curva IV: Voc 0.60 V, PCE 15.87 %" loading="lazy"><figcaption>Curva IV: Voc 0.60 V, PCE 15.87 %</figcaption></figure> <figure class="dag-fig"><img data-zoomable="" src="/assets/img/mit-bridge-test-a.jpg" alt="Prueba de fuerza en un puente MEMS" loading="lazy"><figcaption>Prueba de fuerza en un puente MEMS</figcaption></figure> <figure class="dag-fig"><img data-zoomable="" src="/assets/img/mit-coflow.jpg" alt="Coflujo laminar en el mezclador" loading="lazy"><figcaption>Coflujo laminar en el mezclador</figcaption></figure> </div> <p><strong>Decisiones de diseño, desde los fundamentos</strong></p> <table class="dag-table"> <tr> <th>Decisión</th> <th>Razonamiento de ingeniería</th> <th>Resultado</th> </tr> <tr> <td>Comparar recubrimientos antirreflejantes de SiN de 80 nm y 100 nm</td> <td>La reflexión es mínima cuando el recubrimiento mide alrededor de un cuarto de longitud de onda dentro de la película</td> <td>Mejor celda: PCE de 15.87 %, Voc de 0.60 V; la segunda oblea, con ~2 %, mostró la sensibilidad del proceso</td> </tr> <tr> <td>SiN de bajo esfuerzo para las vigas MEMS</td> <td>El esfuerzo residual dobla o rompe las vigas liberadas</td> <td>Todos los cantilevers resistieron la flexión; los puentes se recuperaron tras una carga de 4 mg</td> </tr> <tr> <td>Observar el mezclado a microescala</td> <td>Con número de Reynolds bajo el flujo es laminar, así que las corrientes avanzan lado a lado y solo se mezclan por difusión</td> <td>Se observó el coflujo; las partículas se atascaron en las paredes, donde la velocidad → 0</td> </tr> </table> <details class="writeup" open=""> <summary>Descripción técnica completa</summary> <p><strong>Reto</strong></p> <p>Llevar tres dispositivos por el ciclo completo de microfabricación en una semana: depósito de películas delgadas, transferencia de patrones, grabado y liberación, empaquetado y pruebas funcionales. Cada módulo requería elegir parámetros de proceso (receta, energía de exposición, espesor de película) y verificar el resultado a microescala antes de pasar al siguiente paso.</p> <p><strong>Mi aporte</strong></p> <ul> <li> <strong>Fabricación:</strong> realicé los pasos de depósito de películas delgadas, fotolitografía y grabado húmedo y seco en los tres módulos, en un equipo de dos personas</li> <li> <strong>Validación física y caracterización de todos los dispositivos:</strong> medí el espesor del recubrimiento por elipsometría, obtuve la curva IV de la celda solar con un simulador solar, probé las vigas MEMS en fuerza–desplazamiento e hice pruebas de flujo con partículas trazadoras en el mezclador microfluídico (detalles en cada módulo)</li> <li> <strong>Seguridad:</strong> trabajé con equipo de protección completo de cuarto limpio en los pasos con KOH y otros químicos peligrosos</li> <li> <strong>Informe:</strong> coescribí el informe técnico bajo la supervisión del Dr. Javier Izquierdo Reyes y el Dr. Arnoldo Salazar Soto</li> </ul> <p><strong>En el cuarto limpio</strong></p> <div class="mit-grid"> <figure class="mit-fig"><img data-zoomable="" src="/assets/img/mit-photolitho-track.jpg" alt="Línea de fotolitografía"><figcaption>Línea de fotolitografía (aplicación y revelado de resina) en el cuarto de luz amarilla.</figcaption></figure> <figure class="mit-fig"><img data-zoomable="" src="/assets/img/mit-asher.jpg" alt="Pantalla de control del plasma asher"><figcaption>Pantalla de control del plasma asher (receta ash thin, 250 °C, cerca de 1.2 Torr, flujo de O₂ y N₂).</figcaption></figure> <figure class="mit-fig"><img data-zoomable="" src="/assets/img/mit-wet-bench-acid.jpg" alt="Cargando un portaobleas en el Spin Rinse Dryer"><figcaption>Con equipo de protección contra ácidos: después de la limpieza con solución piraña, las obleas pasan al Spin Rinse Dryer (SRD).</figcaption></figure> </div> <p><strong>Módulo 1 · Celda solar</strong></p> <p><em>Proceso.</em> Deposité el recubrimiento antirreflejante de nitruro de silicio con dos espesores (80 nm y 100 nm, medidos por elipsometría) para compararlos. Definí los contactos frontales por fotolitografía y RIE, deposité Ti/Al por sputtering (50 nm / 1 µm), retiré el metal sobrante con grabado húmedo, corté las celdas y medí la curva IV.</p> <p><em>Lo que demostró.</em></p> <ul> <li>El mejor dispositivo (dedos de 30 µm, 25 líneas, paso de 160 µm) dio una curva IV clara de diodo bajo iluminación, con Voc = 0.60 V y una eficiencia de conversión de 15.87 % (factor de llenado de 47.25 %) según el software de barrido IV</li> <li>La segunda oblea falló y solo llegó a cerca de 2 % de eficiencia, lo que muestra qué tan sensible es el resultado a la calidad del recubrimiento y la metalización</li> </ul> <div class="mit-grid"> <figure class="mit-fig"><img data-zoomable="" src="/assets/img/mit-nitride-wafer.jpg" alt="Oblea recubierta de nitruro de silicio"><figcaption>Oblea recubierta con la capa antirreflejante de nitruro de silicio.</figcaption></figure> <figure class="mit-fig"><img data-zoomable="" src="/assets/img/mit-thickness-station.jpg" alt="Estación de medición de espesor de película"><figcaption>Medición del espesor de película del recubrimiento.</figcaption></figure> <figure class="mit-fig"><img data-zoomable="" src="/assets/img/mit-metallized-wafer.jpg" alt="Oblea con los patrones de contacto metálico"><figcaption>Oblea con los patrones de contacto frontal, con distintas densidades de dedos en las celdas.</figcaption></figure> <figure class="mit-fig"><video src="/assets/img/mit-wafer-cleaving.mp4" autoplay="" loop="" muted="" playsinline="" controls=""></video><figcaption>Corte de la oblea en celdas individuales.</figcaption></figure> <figure class="mit-fig"><img data-zoomable="" src="/assets/img/mit-solar-cell-probe.jpg" alt="Celda solar en la platina de medición"><figcaption>Una celda terminada, conectada para la medición IV.</figcaption></figure> <figure class="mit-fig"><img data-zoomable="" src="/assets/img/mit-iv-curve.jpg" alt="Barrido IV del mejor dispositivo"><figcaption>Barrido IV del mejor dispositivo bajo iluminación; el software indica PCE de 15.87 %, Voc de 0.60 V y FF de 47.25 %.</figcaption></figure> </div> <p><strong>Módulo 2 · Cantilevers y puentes MEMS</strong></p> <p><em>Proceso.</em> Deposité cerca de 1.2 µm de nitruro de silicio de bajo esfuerzo y frecuencia mixta después de una limpieza RCA. Fijé la exposición en cerca de 130 mJ/cm² para un ancho de viga de 15 µm. Estimé el punto final del grabado con SF₆ por interferencia, liberé las vigas en KOH y las probé en fuerza–desplazamiento.</p> <p><em>Lo que demostró.</em></p> <ul> <li>Los puentes llegaron al fondo de la cavidad con una carga de 4 mg y regresaron a su posición inicial</li> <li>Todos los cantilevers resistieron las pruebas de flexión sin romperse</li> <li>Un puente salió incompleto; se documentó como defecto de proceso</li> </ul> <div class="mit-grid"> <figure class="mit-fig"><img data-zoomable="" src="/assets/img/mit-profilometer-stage.jpg" alt="Equipo de prueba mecánica con la oblea con patrones"><figcaption>Equipo de prueba mecánica, que aplica fuerzas controladas a microescala, con la oblea en la platina.</figcaption></figure> <figure class="mit-fig"><img data-zoomable="" src="/assets/img/mit-profilometer-scan.jpg" alt="Gráfica de fuerza–desplazamiento de la prueba del puente"><figcaption>Gráfica de fuerza–desplazamiento de una prueba de 4 mg en un puente angosto: el puente baja hasta tocar el fondo de la cavidad y luego regresa a su posición inicial.</figcaption></figure> <figure class="mit-fig"><img data-zoomable="" src="/assets/img/mit-bridge-view.jpg" alt="Vista de cámara en tiempo real durante la prueba del puente"><figcaption>Vista de cámara en tiempo real del puente, con la punta del equipo colocada sobre él.</figcaption></figure> <figure class="mit-fig"><img data-zoomable="" src="/assets/img/mit-bridge-test-a.jpg" alt="Puente bien fabricado"><figcaption>Puente bien fabricado: una estructura continua de un lado a otro de la abertura.</figcaption></figure> <figure class="mit-fig"><img data-zoomable="" src="/assets/img/mit-bridge-test-b.jpg" alt="Puente defectuoso"><figcaption>Puente defectuoso: la estructura está incompleta, probablemente por variaciones del proceso durante la fabricación.</figcaption></figure> </div> <p><strong>Módulo 3 · Mezclador microfluídico</strong></p> <p><em>Proceso.</em> Hice un molde de SU-8 2025 de ~30 µm por centrifugado, vacié el PDMS, lo uní al vidrio con plasma de O₂ e hice pruebas de flujo con partículas trazadoras de 3 µm.</p> <p><em>Lo que demostró.</em></p> <ul> <li>Las dos corrientes avanzaron lado a lado en coflujo laminar, y las partículas trazadoras hicieron visibles remolinos locales</li> <li>Las partículas trazadoras se acumularon en las paredes, donde la velocidad del flujo es casi cero, hasta bloquear por completo el canal, un modo de falla real de los dispositivos microfluídicos</li> </ul> <div class="mit-grid"> <figure class="mit-fig"><img data-zoomable="" src="/assets/img/mit-su8-mold.jpg" alt="Oblea del molde de SU-8"><figcaption>Oblea del molde de SU-8 con los diseños de los canales del mezclador.</figcaption></figure> <figure class="mit-fig"><video src="/assets/img/mit-pdms-casting.mp4" autoplay="" loop="" muted="" playsinline="" controls=""></video><figcaption>Vaciado de PDMS sobre el molde de SU-8 para formar el dispositivo microfluídico.</figcaption></figure> <figure class="mit-fig"><img data-zoomable="" src="/assets/img/mit-flow-setup.jpg" alt="Montaje de la prueba de flujo microfluídico"><figcaption>Montaje de la prueba de flujo: estereomicroscopio, controlador de presión, mangueras y el dispositivo de PDMS sobre vidrio.</figcaption></figure> <figure class="mit-fig"><img data-zoomable="" src="/assets/img/mit-coflow.jpg" alt="Dos corrientes en coflujo laminar"><figcaption>Dos corrientes avanzando lado a lado en coflujo laminar en la unión de los canales.</figcaption></figure> <figure class="mit-fig"><img data-zoomable="" src="/assets/img/mit-particle-clog.jpg" alt="Partículas trazadoras acumuladas en la unión de los canales"><figcaption>Partículas trazadoras acumulándose en la unión de los canales hasta bloquear el canal.</figcaption></figure> </div> <p><strong>Herramientas y tecnologías</strong></p> <ul> <li> <strong>Depósito de nitruro de silicio (recetas de frecuencia mixta y alta frecuencia):</strong> recubrimiento antirreflejante y capa estructural</li> <li> <strong>Elipsometría:</strong> medición del espesor de película</li> <li> <strong>Fotolitografía (resina positiva con primer de HMDS; resina negativa SU-8):</strong> rejillas de contacto, geometría de las vigas, molde microfluídico</li> <li> <strong>RIE (SF₆) con punto final interferométrico:</strong> definición de patrones en nitruro de silicio</li> <li> <strong>Grabado húmedo (KOH, HF, grabador de aluminio):</strong> liberación de vigas, remoción de Ti y Al</li> <li> <strong>Sputtering (Ti/Al):</strong> metalización de la celda solar</li> <li> <strong>Litografía suave con PDMS y unión con plasma de O₂:</strong> dispositivo microfluídico</li> <li> <strong>Equipo de prueba de fuerza–desplazamiento, microscopio óptico, simulador solar con barrido IV:</strong> caracterización</li> </ul> <p><strong>Aprendizajes</strong></p> <ul> <li> <strong>Control de contaminación:</strong> una oblea se rompió durante el corte porque la estación de trabajo no estaba limpia. El control de contaminación aplica a cada paso, no solo al cuarto limpio.</li> <li> <strong>Modos de falla:</strong> el canal microfluídico se bloqueó porque las partículas trazadoras se juntaron en las paredes, así que las condiciones de prueba deben planearse con eso en mente.</li> </ul> </details> <p><strong>Contexto:</strong> MIT.nano, Cambridge, EE. UU. — curso intensivo de una semana en cuarto limpio, fabricación de semiconductores (oct. 2025). <strong>Stack:</strong> LPCVD/PECVD, fotolitografía, RIE/grabado húmedo con KOH, litografía suave con PDMS, protocolos de cuarto limpio (Clase 100/1K/10K)</p> <div class="back-to-projects" style="margin: 3rem 0 1rem; text-align: center"> <a class="btn btn-sm z-depth-0" role="button" href="/es/projects/#extracurricular">← Volver a proyectos</a> </div> </article> </div> </div> <footer class="fixed-bottom" role="contentinfo"> <div class="container mt-0"> © Copyright 2026 Paulina L. Ruíz Servín. <span class="footer-social" style="display:inline-flex;gap:.9rem;margin:0 .8rem 0 .5rem;vertical-align:middle"> <a href="mailto:pruizservin27@gmail.com" title="Email" style="color:var(--global-theme-color)"><i class="fa-solid fa-envelope"></i></a> <a href="https://www.linkedin.com/in/pruizservin27/" target="_blank" rel="noopener" title="LinkedIn" style="color:var(--global-theme-color)"><i class="fa-brands fa-linkedin"></i></a> <a href="https://github.com/paulinism" target="_blank" rel="noopener" title="GitHub" style="color:var(--global-theme-color)"><i class="fa-brands fa-github"></i></a> <a href="https://wa.me/4915233878708" target="_blank" rel="noopener" title="WhatsApp" style="color:var(--global-theme-color)"><i class="fa-brands fa-whatsapp"></i></a> </span> <script src="/assets/js/lang-switch.js"></script> </div> </footer> <script>
+  window.alFolio = {
+    compatBootstrap: false
+  };
+</script> <script src="/assets/js/nav-toggle.js?v=141bd79a73ebc0f0b6ea58e440ae79fc"></script> <script defer src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script> <script defer src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script> <script defer src="/assets/js/masonry.js?v=e49affc7bd2646f6acdad1dbe02c2359" type="text/javascript"></script> <script src="/assets/js/tooltips-setup.js?v=fe487e99db6c43751e6e7bdb2d6a0611"></script> <script src="/assets/js/no_defer.js?v=53b1b1a645525975c963ce8bf8bfefcf"></script> <script defer src="/assets/js/common.js?v=87baac90f765f2f3362dcf6aaf312a8a"></script> <script defer src="/assets/js/copy_code.js?v=c8a01c11a92744d44b093fc3bda915df" type="text/javascript"></script> <script defer src="/assets/js/jupyter_new_tab.js?v=896d254890d9b47f0281f63bfccf0dee"></script> <script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous"></script> <script defer src="/assets/al_img_tools/js/zoom.js"></script> <script defer src="/assets/js/progress-bar.js?v=499464c5c63ced6cf7ad62509f1e2610" type="text/javascript"></script> <script src="https://cdn.jsdelivr.net/npm/vanilla-back-to-top@7.2.1/dist/vanilla-back-to-top.min.js" integrity="sha256-uMJJ3EoTyfRBoTbR+lrfu1uRQ87RZG8AR3cVNuQVeFg=" crossorigin="anonymous"></script> <script>
+    addBackToTop();
+  </script> <script type="module" src="/assets/al_search/js/search/ninja-keys.min.js"></script> <ninja-keys hidebreadcrumbs noautoloadmdicons placeholder="Type to start searching"></ninja-keys> <script src="/assets/al_search/js/search-setup.js"></script> <script>
+// get the ninja-keys element
+const ninja = document.querySelector('ninja-keys');
+
+// add the home and posts menu items
+ninja.data = [{
+    id: "nav-about",
+    title: "about",
+    section: "Navigation",
+    handler: () => {
+      window.location.href = "/";
+    },
+  },{id: "nav-projects",
+          title: "projects",
+          description: "Academic and hands-on engineering work, plus professional/lab experience.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/projects/";
+          },
+        },{id: "nav-achievements",
+          title: "achievements",
+          description: "Awards, participations, co-authored papers, and certifications.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/achievements/";
+          },
+        },{id: "nav-publications",
+          title: "publications",
+          description: "Conference paper and technical reports.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/publications/";
+          },
+        },{id: "nav-repositories",
+          title: "repositories",
+          description: "Selected repositories.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/repositories/";
+          },
+        },{id: "nav-cv",
+          title: "CV",
+          description: "Curriculum Vitae of Paulina L. Ruíz Servín.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/cv/";
+          },
+        },{id: "nav-contact",
+          title: "contact",
+          description: "Currently looking for a Pflichtpraktikum &amp; Abschlussarbeit position.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/contact/";
+          },
+        },{id: "projects-scissor-lift-amp-agv-automated-material-handling-platform",
+          title: 'Scissor Lift &amp;amp; AGV — Automated Material Handling Platform',
+          description: "Mechanical design &amp; electronics lead — scissor lift (load-tested &gt;100 kg, 40 × 30 × 76 cm) with custom load-cell PCB (no HX711) and machined aluminum parts",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/agv-platform/";
+            },},{id: "projects-automated-ppe-amp-inventory-management-system",
+          title: 'Automated PPE &amp;amp; Inventory Management System',
+          description: "Solo project — QR tracking for Shell Eco-marathon paddock ops — customs-ready Excel export, under 80 ms QR reading, web dashboard with loan management",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/ecovolt-inventory/";
+            },},{id: "projects-telemetry-amp-energy-optimization-platform",
+          title: 'Telemetry &amp;amp; Energy-Optimization Platform',
+          description: "PCB lead &amp; firmware — three generations of telemetry for a Shell Eco-marathon car — 1st (2025) and 2nd (2026) Data &amp; Telemetry Award",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/ecovolt-telemetry/";
+            },},{id: "projects-automated-viscosity-measurement-system",
+          title: 'Automated Viscosity Measurement System',
+          description: "PCB &amp; embedded lead with Endress+Hauser — 400× gain signal chain separating 252 cP from 1676 cP; three Altium boards, two manufactured by JLCPCB",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/endress-viscosity/";
+            },},{id: "projects-semiconductor-microfabrication-mit-nano",
+          title: 'Semiconductor Microfabrication — MIT.nano',
+          description: "MIT.nano cleanroom intensive — solar cell PCE 15.87 % (Voc 0.60 V), functional MEMS cantilevers and microfluidic mixer — one week, Class 100/1K/10K",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/mit-nano-fabrication/";
+            },},{id: "projects-digital-twin-of-a-flexible-cnc-manufacturing-cell",
+          title: 'Digital Twin of a Flexible CNC Manufacturing Cell',
+          description: "Industry challenge with ORZA Tech — virtual CNC cell commissioned 100 % in software (S7-1500 PLC programming in TIA Portal, UR5 VRC, CAM and G-code, Cognex vision, SCADA/KPIs)",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/orza-digital-twin/";
+            },},{id: "projects-vision-guided-scara-pick-and-place-robot-4-dof",
+          title: 'Vision-Guided SCARA Pick-and-Place Robot (4 DoF)',
+          description: "Firmware &amp; electronics lead — 4-DOF SCARA with YOLOv11n vision (mAP 0.72), 5/6 picks at ~14 s/cycle, custom Altium PCB",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/scara-robot/";
+            },},{
+        id: 'social-email',
+        title: 'email',
+        section: 'Socials',
+        handler: () => {
+          window.open("mailto:%70%72%75%69%7A%73%65%72%76%69%6E%32%37@%67%6D%61%69%6C.%63%6F%6D", "_blank");
+        },
+      },{
+        id: 'social-linkedin',
+        title: 'LinkedIn',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://www.linkedin.com/in/pruizservin27", "_blank");
+        },
+      },{
+        id: 'social-github',
+        title: 'GitHub',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://github.com/paulinism", "_blank");
+        },
+      },{
+        id: 'social-whatsapp',
+        title: 'whatsapp',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://wa.me/4915233878708", "_blank");
+        },
+      },{
+      id: 'light-theme',
+      title: 'Change theme to light',
+      description: 'Change the theme of the site to Light',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("light");
+      },
+    },
+    {
+      id: 'dark-theme',
+      title: 'Change theme to dark',
+      description: 'Change the theme of the site to Dark',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("dark");
+      },
+    },
+    {
+      id: 'system-theme',
+      title: 'Use system default theme',
+      description: 'Change the theme of the site to System Default',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("system");
+      },
+    },];
+
+</script> <script src="/assets/al_search/js/shortcut-key.js"></script> </body> </html>

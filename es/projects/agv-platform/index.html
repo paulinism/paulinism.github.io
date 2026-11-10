@@ -1,0 +1,185 @@
+<!DOCTYPE html> <html lang="es"> <head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <title> Mesa de tijera y AGV — plataforma automatizada de manejo de materiales | Paulina L. Ruíz Servín </title> <meta name="author" content="Paulina L. Ruíz Servín"> <meta name="description" content="Líder de diseño mecánico y electrónica — mesa de tijera (probada con &gt;100 kg, 40 × 30 × 76 cm) con PCB propio para celda de carga (sin HX711) y piezas de aluminio maquinadas"> <meta name="keywords" content="Embedded Systems, PCB Design, Altium Designer, ESP32, FreeRTOS, PLC, TIA Portal, Digital Twin, Process Simulate, Mechatronics Engineering, Elektrotechnik, Shell Eco-marathon"> <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; media-src 'self' https:; frame-src 'self' https:; connect-src 'self' https:;"> <style>
+  :root {
+    --max-content-width: 930px;
+  }
+</style> <link rel="stylesheet" href="/assets/css/tailwind.css?v=50c64c15cbb9fd1ce6056fdb8bcb4b62"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css" integrity="sha256-MVopmdyC2tYTiJ8wlktf0uh0v4NgT+vNdyVFepi7Q0c=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.5/css/academicons.min.css" integrity="sha256-SzrCOBJbGVFMahewkgjwnApaV2+av1DwMAA+/QGLyZw=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/scholar-icons@1.0.3/css/scholar-icons.css" integrity="sha256-VY3hHVj/hNX3fYG6wtbA6TcKJQl7+FthzGSyIB64klY=" crossorigin="anonymous"> <link defer rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons&amp;display=swap"> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-github.css?v=591dab5a4e56573bf4ef7fd332894c99" media="" id="highlight_theme_light"> <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%F0%9F%91%A9%E2%80%8D%F0%9F%92%BB&lt;/text&gt;&lt;/svg&gt;"> <link rel="stylesheet" href="/assets/css/main.css?v=3116ba77db9ee1581d05bb3e86fbf7f1"> <link rel="canonical" href="https://paulinism.github.io/es/projects/agv-platform/"> <script src="/assets/js/theme.js?v=5286c3e4c334d0ecb8fc0c40ff4fa7ec"></script> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-native.css?v=5847e5ed4a4568527aa6cfab446049ca" media="none" id="highlight_theme_dark"> <script>
+    initTheme();
+  </script> </head> <body class="fixed-top-nav "> <header> <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top" role="navigation"> <div class="container"> <a class="navbar-brand title font-weight-lighter" href="/"> <span class="font-weight-bold">Paulina</span> L. Ruíz Servín </a> <button class="navbar-toggler collapsed navbar-toggler-main" type="button" data-nav-toggle="navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar top-bar"></span> <span class="icon-bar middle-bar"></span> <span class="icon-bar bottom-bar"></span> </button> <div class="collapse navbar-collapse navbar-collapse-main" id="navbarNav"> <ul class="navbar-nav navbar-menu-list flex-nowrap"> <li class="nav-item "> <a class="nav-link" href="/">about </a> </li> <li class="nav-item active"> <a class="nav-link" href="/projects/">projects <span class="sr-only">(current)</span> </a> </li> <li class="nav-item "> <a class="nav-link" href="/achievements/">achievements </a> </li> <li class="nav-item "> <a class="nav-link" href="/publications/">publications </a> </li> <li class="nav-item "> <a class="nav-link" href="/repositories/">repositories </a> </li> <li class="nav-item "> <a class="nav-link" href="/cv/">CV </a> </li> <li class="nav-item "> <a class="nav-link" href="/contact/">contact </a> </li> <li class="nav-item"> <button id="search-toggle" type="button" title="Search" aria-label="Open search"> <span class="nav-link">ctrl k <i class="fa-solid fa-magnifying-glass"></i></span> </button> </li> <li class="toggle-container"> <button id="light-toggle" type="button" title="Change theme" aria-label="Change color theme"> <i class="fa-half-sun-moon" id="light-toggle-system"></i> <i class="fa-solid fa-moon" id="light-toggle-dark"></i> <i class="fa-solid fa-sun" id="light-toggle-light"></i> </button> </li> </ul> </div> </div> </nav> <progress id="progress" value="0"> <div class="progress-container"> <span class="progress-bar"></span> </div> </progress> </header> <div class="container mt-5" role="main"> <div class="post"> <header class="post-header"> <h1 class="post-title">Mesa de tijera y AGV — plataforma automatizada de manejo de materiales</h1> <p class="post-description">Líder de diseño mecánico y electrónica — mesa de tijera (probada con &gt;100 kg, 40 × 30 × 76 cm) con PCB propio para celda de carga (sin HX711) y piezas de aluminio maquinadas</p> </header> <article> <style>
+  img[data-zoomable] { cursor: zoom-in; }
+  .medium-zoom-image--opened { object-fit: contain !important; background: transparent !important; }
+  .medium-zoom-overlay, .medium-zoom-image--opened { z-index: 1050; }
+</style> <style>
+  .agv-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; margin: 1.5rem 0; align-items: start; }
+  .agv-grid.single { grid-template-columns: minmax(0, 520px); justify-content: center; }
+  .agv-fig { margin: 0; border: 1px solid rgba(128, 128, 128, 0.25); border-radius: 12px; overflow: hidden; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08); }
+  .agv-fig img, .agv-fig video { display: block; width: 100%; height: 340px; object-fit: contain; background: rgba(128, 128, 128, 0.06); }
+  .agv-fig.photo img { object-fit: cover; }
+  .agv-fig.tall img { height: 400px; object-position: center 20%; }
+  .agv-fig.auto img { height: 300px; }
+  .agv-fig.auto video { height: auto; }
+  .agv-fig.clip video { height: 300px; }
+  .agv-fig.tall video { height: 400px; }
+  .agv-fig figcaption { padding: 0.6rem 0.9rem; font-size: 0.85rem; line-height: 1.4; opacity: 0.85; border-top: 1px solid rgba(128, 128, 128, 0.2); }
+</style> <p><strong>Mesa de tijera funcional (40 × 30 × 76 cm) probada con más de 100 kg, que cargó 7 kg en la demostración final — 40 % por encima del requisito de 5 kg — con un PCB propio de acondicionamiento para la celda de carga que lee 0–5 kg sin un HX711 comercial.</strong> Reto integrador de cuarto semestre (equipo de 5) en el Tec de Monterrey: del diseño y estudio de movimiento en SolidWorks al maquinado CNC, la soldadura y el control embebido.</p> <div class="agv-grid"> <figure class="agv-fig"><img data-zoomable="" src="/assets/img/agv-cover.jpg" alt="Ensamble en SolidWorks de la mesa de tijera con charola basculante"><figcaption>Ensamble completo en SolidWorks de la mesa de tijera y la charola basculante.</figcaption></figure> <figure class="agv-fig"><img data-zoomable="" src="/assets/img/agv-prototype.jpg" alt="Prototipo ensamblado con la mesa basculante y la leva impresa"><figcaption>Prototipo ensamblado: mesa basculante, leva impresa en ABS y motorreductor.</figcaption></figure> <figure class="agv-fig"><img data-zoomable="" src="/assets/img/agv-final-build.jpg" alt="Mesa final con báscula de celda de carga y electrónica sobre la charola"><figcaption>Versión final: báscula con celda de carga y electrónica sobre la charola, base soldada.</figcaption></figure> </div> <style>
+  .dag-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.9rem; margin: 1rem 0 1.25rem; }
+  .dag-fig { margin: 0; border: 1px solid rgba(128,128,128,.25); border-radius: 10px; overflow: hidden; }
+  .dag-fig img { display: block; width: 100%; height: 190px; object-fit: contain; background: rgba(128,128,128,.06); }
+  .dag-fig figcaption { padding: .4rem .6rem; font-size: .78rem; line-height: 1.3; opacity: .85; border-top: 1px solid rgba(128,128,128,.2); }
+  .dag-table { width: 100%; border-collapse: collapse; font-size: .9rem; margin: .5rem 0 1rem; }
+  .dag-table th, .dag-table td { border: 1px solid rgba(128,128,128,.3); padding: .45rem .6rem; vertical-align: top; text-align: left; }
+  .dag-table th { background: rgba(128,128,128,.08); }
+  details.writeup { margin: 1.5rem 0; border: 1px solid rgba(128,128,128,.3); border-radius: 10px; padding: .6rem 1rem; }
+  details.writeup > summary { cursor: pointer; font-weight: 700; font-size: 1.05rem; margin-bottom: 1.25rem; }
+  details.writeup > summary + * { margin-top: 0.5rem; }
+</style> <h2 id="el-diseño-de-un-vistazo">El diseño de un vistazo</h2> <div class="dag-grid"> <figure class="dag-fig"><img data-zoomable="" src="/assets/img/agv-loadcell-circuit.png" alt="Circuito amplificador de la celda de carga" loading="lazy"><figcaption>Circuito amplificador de la celda de carga</figcaption></figure> <figure class="dag-fig"><img data-zoomable="" src="/assets/img/agv-displacement.png" alt="Estudio estático: deflexión máx. del brazo 0.28 mm" loading="lazy"><figcaption>Estudio estático: deflexión máx. del brazo 0.28 mm</figcaption></figure> <figure class="dag-fig"><img data-zoomable="" src="/assets/img/agv-lathe-2.jpg" alt="Torneado del acoplamiento de aluminio" loading="lazy"><figcaption>Torneado del acoplamiento de aluminio</figcaption></figure> <figure class="dag-fig"><img data-zoomable="" src="/assets/img/agv-force-voltage.png" alt="Salida medida de la báscula: lineal de 0 a 5 kg" loading="lazy"><figcaption>Salida medida de la báscula: lineal de 0 a 5 kg</figcaption></figure> </div> <p><strong>Decisiones de diseño, desde los fundamentos</strong></p> <table class="dag-table"> <tr> <th>Decisión</th> <th>Razonamiento de ingeniería</th> <th>Resultado</th> </tr> <tr> <td>Base de tubo de acero, brazos de tijera de aluminio</td> <td>Rigidez donde se concentran las cargas y poca masa en movimiento en el mecanismo; verificado con un estudio estático antes de cortar metal</td> <td>La estructura soportó &gt;100 kg; carga de 7 kg frente a 5 kg requeridos</td> </tr> <tr> <td>Elevación con tornillo de potencia</td> <td>Un tornillo de potencia sostiene la carga sin energía; se probó primero con un taladro como actuador para separar la validación mecánica de la eléctrica</td> <td>Mecanismo de elevación validado con carga antes de integrar el motor</td> </tr> <tr> <td>Leva diseñada para ≥30° de inclinación</td> <td>Margen sobre el requisito de 25° para cubrir fricción y tolerancias</td> <td>Movimiento de descarga demostrado; la leva de ABS que se agrietó se resolvió con una flecha de aluminio apoyada en rodamiento</td> </tr> <tr> <td>Amplificador propio para la celda de carga (sin HX711)</td> <td>Un puente de Wheatstone solo entrega milivolts: una etapa diferencial + una no inversora y un pasa bajas RC lo llevan al rango del ADC de 3.3 V</td> <td>Lineal: 0–5 kg → 0–3 V</td> </tr> </table> <details class="writeup" open=""> <summary>Descripción técnica completa</summary> <p><strong>Reto</strong></p> <p>Construir una mesa de tijera que eleve, pese y descargue una carga de 1–5 kg, transportada entre estaciones por un AGV seguidor de línea. Dos restricciones definieron el diseño: la inclinación de descarga debía llegar a ≥25° y la celda de carga debía leerse sin un acondicionador comercial (no se permitía el HX711).</p> <p><strong>Mi aporte</strong></p> <ul> <li> <strong>Diseño mecánico:</strong> hice el ensamble completo de la mesa; remodelé, validé e imprimí en 3D la leva de volteo; realicé los estudios de movimiento del mecanismo</li> <li> <strong>Electrónica:</strong> hice el PCB de la cadena de medición de la celda de carga (puente de Wheatstone → amplificadores → filtro pasa bajas → ADC)</li> <li> <strong>Embebidos:</strong> propuse repartir el control entre tres ESP32; programé la pantalla LCD de 16×2; puse en marcha el accionamiento a pasos de la elevación</li> <li> <strong>Manufactura:</strong> torneé y fresé el acoplamiento del motor y la biela de aluminio</li> </ul> <div class="agv-grid"> <figure class="agv-fig photo tall"><img data-zoomable="" src="/assets/img/agv-lathe-2.jpg" alt="Paulina trabajando en el torno"><figcaption>Torneando una pieza, con el lector digital del torno.</figcaption></figure> <figure class="agv-fig clip tall"> <video src="/assets/img/agv-coupler.mp4" autoplay="" loop="" muted="" playsinline="" controls=""></video> <figcaption>Acoplamiento de aluminio maquinado, montado en el motor NEMA 17 de la elevación.</figcaption> </figure> </div> <p>Mis compañeros se encargaron del firmware de control del AGV y de la mesa, la calibración de la báscula y la soldadura de la base.</p> <p><strong>Diseño y simulación</strong></p> <p>Antes de construir, revisé el mecanismo en simulación: un estudio de movimiento en NX del mecanismo de tijera, una revisión de desplazamiento estático en un brazo y una animación en SolidWorks de la charola basculante accionada por la leva.</p> <div class="agv-grid"> <figure class="agv-fig clip"> <video src="/assets/img/agv-nx-motion.mp4" autoplay="" loop="" muted="" playsinline="" controls=""></video> <figcaption>Simulación de movimiento en Siemens NX del mecanismo de tijera (pivotes y correderas).</figcaption> </figure> <figure class="agv-fig auto"><img data-zoomable="" src="/assets/img/agv-displacement.png" alt="Gráfica de desplazamiento estático en SolidWorks de un brazo de la tijera"><figcaption>Estudio de movimiento en SolidWorks, desplazamiento estático de un brazo de la tijera: máximo de 0.28 mm en el extremo libre.</figcaption></figure> </div> <div class="agv-grid single"><figure class="agv-fig auto"> <video src="/assets/img/agv-cam-tilt.mp4" autoplay="" loop="" muted="" playsinline="" controls=""></video> <figcaption>Animación en SolidWorks de la charola basculante: la leva levanta un lado de la charola para descargar.</figcaption> </figure></div> <p><strong>Electrónica</strong></p> <p>El circuito de acondicionamiento de la celda de carga (amplificador diferencial, amplificador no inversor, pasa bajas RC) y la pantalla LCD de 16×2 puestos en marcha en protoboard con el ESP32.</p> <div class="agv-grid"> <figure class="agv-fig auto"><img data-zoomable="" src="/assets/img/agv-loadcell-circuit.png" alt="Circuito de acondicionamiento de la celda de carga"><figcaption>Cadena de acondicionamiento de la celda de carga: amplificador diferencial → amplificador no inversor → pasa bajas RC → ADC del ESP32 (retroalimentación de 102 kΩ, 1 µF).</figcaption></figure> <figure class="agv-fig clip"> <video src="/assets/img/agv-lcd.mp4" autoplay="" loop="" muted="" playsinline="" controls=""></video> <figcaption>Puesta en marcha de la LCD de 16×2 en protoboard con el ESP32.</figcaption> </figure> </div> <p><strong>Herramientas y tecnologías</strong></p> <ul> <li> <strong>SolidWorks:</strong> ensamble completo, modelado de la leva, estudio de movimiento</li> <li> <strong>Siemens NX:</strong> modelado paramétrico, simulación de movimiento</li> <li> <strong>ESP32 / ESP-IDF (C++):</strong> control de la LCD de 16×2, puesta en marcha del motor a pasos (NEMA 17, DRV8825)</li> <li> <strong>Acondicionamiento con amplificadores operacionales + PCB propio:</strong> cadena de medición de la celda de carga</li> <li> <strong>Impresión FDM (ABS):</strong> fabricación de la leva</li> <li> <strong>Torno, fresadora, machueleado:</strong> acoplamiento y biela de aluminio</li> <li> <strong>Estimación de costos:</strong> modelo de costo por operación con tarifas estimadas de máquina, además del cálculo de datos de corte</li> </ul> <p><strong>Resultados y aprendizajes</strong></p> <div class="agv-grid"> <figure class="agv-fig tall"> <video src="/assets/img/agv-lift-demo.mp4" autoplay="" loop="" muted="" playsinline="" controls="" style="height: 480px"></video> <figcaption>La mesa de tijera construida bajando durante las pruebas.</figcaption> </figure> <figure class="agv-fig tall"> <video src="/assets/img/agv-moving.mp4" autoplay="" loop="" muted="" playsinline="" controls="" style="height: 480px"></video> <figcaption>El AGV seguidor de línea avanzando sobre la pista de cinta negra.</figcaption> </figure> </div> <ul> <li> <strong>Estructura:</strong> la base soportó &gt;100 kg sin deformación visible — confirma la elección de materiales (base de tubo rectangular de acero bajo una tijera ligera de aluminio), con un gran margen sobre la carga de 5 kg</li> <li> <strong>Carga útil:</strong> la plataforma cargó 7 kg en la demostración final, 40 % por encima del requisito de 5 kg — el mecanismo de tijera y el tornillo de potencia funcionaron por encima de la especificación</li> <li> <strong>Dimensiones:</strong> la mesa final mide 40 × 30 × 76 cm, cumple con el tamaño mínimo y además incluye una plataforma basculante y una báscula</li> <li> <strong>Elevación:</strong> el mecanismo de tornillo de potencia se validó con carga usando un taladro como actuador rotativo antes de integrar el motor, separando la validación mecánica de la eléctrica</li> <li> <strong>Mecanismo de volteo:</strong> la leva se diseñó para ≥30° frente a un requisito de ≥25°; el movimiento de descarga se demostró en una prueba a tamaño real y en un prototipo a escala. Cuando la leva de ABS se agrietó en la flecha del motor, una flecha de aluminio apoyada en rodamiento del lado opuesto lo resolvió</li> <li> <strong>Báscula:</strong> la salida fue lineal de 0–5 kg a 0–3 V, medida en pasos de 1 kg, sin acondicionador comercial — se mantiene dentro del rango del ADC del ESP32, y pasar de protoboard a PCB eliminó cortos y conexiones flojas</li> <li> <strong>Resultado:</strong> no se completó la integración autónoma total — los drivers de los motores fallaron por un cortocircuito y un motor del AGV venía defectuoso</li> </ul> <h2 id="aprendizajes">Aprendizajes</h2> <ul> <li> <strong>El aislamiento eléctrico es una restricción de diseño, no un detalle de último momento:</strong> la falla del driver vino de un cortocircuito que no se detectó durante la integración. El aislamiento y los límites de corriente deben estar en la lista de verificación del diseño antes de hacer cualquier conector.</li> <li> <strong>Dimensionar actuadores con cálculos:</strong> el motor defectuoso del AGV se eligió por recomendación y no por un cálculo de torque y velocidad. Hacer las cuentas desde el inicio habría detectado el problema antes de la demostración.</li> <li> <strong>Primero validación mecánica, después eléctrica:</strong> separar la prueba del tornillo de potencia (con un taladro como actuador) de la integración del motor funcionó bien — encontró problemas mecánicos sin sumar riesgo eléctrico. Vale la pena mantener esa secuencia en cualquier proyecto futuro.</li> <li> <strong>Pasar de protoboard a PCB antes:</strong> la precisión de la báscula mejoró notablemente cuando el acondicionamiento pasó de protoboard a PCB. Hacerlo antes habría dejado más tiempo para la calibración.</li> </ul> <div class="agv-grid"> <figure class="agv-fig auto"><img data-zoomable="" src="/assets/img/agv-voltage-time.png" alt="Voltaje de salida de la báscula contra el tiempo en pasos de 1 kg"><figcaption>Salida de la báscula en el tiempo, cargada en pasos de 1 kg (voltaje en mV; la etiqueta del eje de la gráfica tiene un error).</figcaption></figure> <figure class="agv-fig auto"><img data-zoomable="" src="/assets/img/agv-force-voltage.png" alt="Fuerza contra voltaje de la báscula"><figcaption>Fuerza (N) contra voltaje (mV) para 1–5 kg: monótona y cercana a lineal.</figcaption></figure> </div> </details> <p><strong>Contexto:</strong> Tec de Monterrey, feb.–jun. 2025, reto integrador de 4.º semestre, equipo de 5. <strong>Resultado:</strong> mesa de tijera funcional, 40 × 30 × 76 cm, base probada con &gt;100 kg. <strong>Stack:</strong> SolidWorks, Siemens NX, ESP32/ESP-IDF, acondicionamiento con amplificadores operacionales, PCB propio, impresión FDM, torno/fresadora</p> <div class="back-to-projects" style="margin: 3rem 0 1rem; text-align: center"> <a class="btn btn-sm z-depth-0" role="button" href="/es/projects/#academic">← Volver a proyectos</a> </div> </article> </div> </div> <footer class="fixed-bottom" role="contentinfo"> <div class="container mt-0"> © Copyright 2026 Paulina L. Ruíz Servín. <span class="footer-social" style="display:inline-flex;gap:.9rem;margin:0 .8rem 0 .5rem;vertical-align:middle"> <a href="mailto:pruizservin27@gmail.com" title="Email" style="color:var(--global-theme-color)"><i class="fa-solid fa-envelope"></i></a> <a href="https://www.linkedin.com/in/pruizservin27/" target="_blank" rel="noopener" title="LinkedIn" style="color:var(--global-theme-color)"><i class="fa-brands fa-linkedin"></i></a> <a href="https://github.com/paulinism" target="_blank" rel="noopener" title="GitHub" style="color:var(--global-theme-color)"><i class="fa-brands fa-github"></i></a> <a href="https://wa.me/4915233878708" target="_blank" rel="noopener" title="WhatsApp" style="color:var(--global-theme-color)"><i class="fa-brands fa-whatsapp"></i></a> </span> <script src="/assets/js/lang-switch.js"></script> </div> </footer> <script>
+  window.alFolio = {
+    compatBootstrap: false
+  };
+</script> <script src="/assets/js/nav-toggle.js?v=141bd79a73ebc0f0b6ea58e440ae79fc"></script> <script defer src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script> <script defer src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script> <script defer src="/assets/js/masonry.js?v=e49affc7bd2646f6acdad1dbe02c2359" type="text/javascript"></script> <script src="/assets/js/tooltips-setup.js?v=fe487e99db6c43751e6e7bdb2d6a0611"></script> <script src="/assets/js/no_defer.js?v=53b1b1a645525975c963ce8bf8bfefcf"></script> <script defer src="/assets/js/common.js?v=87baac90f765f2f3362dcf6aaf312a8a"></script> <script defer src="/assets/js/copy_code.js?v=c8a01c11a92744d44b093fc3bda915df" type="text/javascript"></script> <script defer src="/assets/js/jupyter_new_tab.js?v=896d254890d9b47f0281f63bfccf0dee"></script> <script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous"></script> <script defer src="/assets/al_img_tools/js/zoom.js"></script> <script defer src="/assets/js/progress-bar.js?v=499464c5c63ced6cf7ad62509f1e2610" type="text/javascript"></script> <script src="https://cdn.jsdelivr.net/npm/vanilla-back-to-top@7.2.1/dist/vanilla-back-to-top.min.js" integrity="sha256-uMJJ3EoTyfRBoTbR+lrfu1uRQ87RZG8AR3cVNuQVeFg=" crossorigin="anonymous"></script> <script>
+    addBackToTop();
+  </script> <script type="module" src="/assets/al_search/js/search/ninja-keys.min.js"></script> <ninja-keys hidebreadcrumbs noautoloadmdicons placeholder="Type to start searching"></ninja-keys> <script src="/assets/al_search/js/search-setup.js"></script> <script>
+// get the ninja-keys element
+const ninja = document.querySelector('ninja-keys');
+
+// add the home and posts menu items
+ninja.data = [{
+    id: "nav-about",
+    title: "about",
+    section: "Navigation",
+    handler: () => {
+      window.location.href = "/";
+    },
+  },{id: "nav-projects",
+          title: "projects",
+          description: "Academic and hands-on engineering work, plus professional/lab experience.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/projects/";
+          },
+        },{id: "nav-achievements",
+          title: "achievements",
+          description: "Awards, participations, co-authored papers, and certifications.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/achievements/";
+          },
+        },{id: "nav-publications",
+          title: "publications",
+          description: "Conference paper and technical reports.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/publications/";
+          },
+        },{id: "nav-repositories",
+          title: "repositories",
+          description: "Selected repositories.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/repositories/";
+          },
+        },{id: "nav-cv",
+          title: "CV",
+          description: "Curriculum Vitae of Paulina L. Ruíz Servín.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/cv/";
+          },
+        },{id: "nav-contact",
+          title: "contact",
+          description: "Currently looking for a Pflichtpraktikum &amp; Abschlussarbeit position.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/contact/";
+          },
+        },{id: "projects-scissor-lift-amp-agv-automated-material-handling-platform",
+          title: 'Scissor Lift &amp;amp; AGV — Automated Material Handling Platform',
+          description: "Mechanical design &amp; electronics lead — scissor lift (load-tested &gt;100 kg, 40 × 30 × 76 cm) with custom load-cell PCB (no HX711) and machined aluminum parts",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/agv-platform/";
+            },},{id: "projects-automated-ppe-amp-inventory-management-system",
+          title: 'Automated PPE &amp;amp; Inventory Management System',
+          description: "Solo project — QR tracking for Shell Eco-marathon paddock ops — customs-ready Excel export, under 80 ms QR reading, web dashboard with loan management",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/ecovolt-inventory/";
+            },},{id: "projects-telemetry-amp-energy-optimization-platform",
+          title: 'Telemetry &amp;amp; Energy-Optimization Platform',
+          description: "PCB lead &amp; firmware — three generations of telemetry for a Shell Eco-marathon car — 1st (2025) and 2nd (2026) Data &amp; Telemetry Award",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/ecovolt-telemetry/";
+            },},{id: "projects-automated-viscosity-measurement-system",
+          title: 'Automated Viscosity Measurement System',
+          description: "PCB &amp; embedded lead with Endress+Hauser — 400× gain signal chain separating 252 cP from 1676 cP; three Altium boards, two manufactured by JLCPCB",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/endress-viscosity/";
+            },},{id: "projects-semiconductor-microfabrication-mit-nano",
+          title: 'Semiconductor Microfabrication — MIT.nano',
+          description: "MIT.nano cleanroom intensive — solar cell PCE 15.87 % (Voc 0.60 V), functional MEMS cantilevers and microfluidic mixer — one week, Class 100/1K/10K",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/mit-nano-fabrication/";
+            },},{id: "projects-digital-twin-of-a-flexible-cnc-manufacturing-cell",
+          title: 'Digital Twin of a Flexible CNC Manufacturing Cell',
+          description: "Industry challenge with ORZA Tech — virtual CNC cell commissioned 100 % in software (S7-1500 PLC programming in TIA Portal, UR5 VRC, CAM and G-code, Cognex vision, SCADA/KPIs)",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/orza-digital-twin/";
+            },},{id: "projects-vision-guided-scara-pick-and-place-robot-4-dof",
+          title: 'Vision-Guided SCARA Pick-and-Place Robot (4 DoF)',
+          description: "Firmware &amp; electronics lead — 4-DOF SCARA with YOLOv11n vision (mAP 0.72), 5/6 picks at ~14 s/cycle, custom Altium PCB",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/scara-robot/";
+            },},{
+        id: 'social-email',
+        title: 'email',
+        section: 'Socials',
+        handler: () => {
+          window.open("mailto:%70%72%75%69%7A%73%65%72%76%69%6E%32%37@%67%6D%61%69%6C.%63%6F%6D", "_blank");
+        },
+      },{
+        id: 'social-linkedin',
+        title: 'LinkedIn',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://www.linkedin.com/in/pruizservin27", "_blank");
+        },
+      },{
+        id: 'social-github',
+        title: 'GitHub',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://github.com/paulinism", "_blank");
+        },
+      },{
+        id: 'social-whatsapp',
+        title: 'whatsapp',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://wa.me/4915233878708", "_blank");
+        },
+      },{
+      id: 'light-theme',
+      title: 'Change theme to light',
+      description: 'Change the theme of the site to Light',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("light");
+      },
+    },
+    {
+      id: 'dark-theme',
+      title: 'Change theme to dark',
+      description: 'Change the theme of the site to Dark',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("dark");
+      },
+    },
+    {
+      id: 'system-theme',
+      title: 'Use system default theme',
+      description: 'Change the theme of the site to System Default',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("system");
+      },
+    },];
+
+</script> <script src="/assets/al_search/js/shortcut-key.js"></script> </body> </html>
