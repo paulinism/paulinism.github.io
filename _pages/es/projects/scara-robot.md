@@ -89,6 +89,30 @@ Identificar, tomar y colocar piezas planas que difieren en forma, color y orient
 
 Mis compañeros desarrollaron la cinemática en C++ y la arquitectura del firmware en el ESP32, la HMI en MATLAB App Designer, el modelo final del SCARA en Simscape y la estructura mecánica.
 
+**Visión por computadora**
+
+Un celular montado 500 mm sobre el espacio de trabajo, con el eje óptico vertical, transmite a la PC; un script captura un cuadro de 1280 × 720 px. Cuatro marcadores ArUco en esquinas conocidas de un área de 562 × 562 mm definen una homografía de píxeles de la imagen a milímetros del robot.
+
+<div class="sc-grid">
+  <figure class="sc-fig tall"><img data-zoomable src="{{ 'assets/img/scara-camera.jpg' | relative_url }}" alt="Montaje de la cámara cenital"><figcaption>Cámara cenital a 500 mm sobre el espacio de trabajo, con los marcadores ArUco en las esquinas.</figcaption></figure>
+  <figure class="sc-fig"><img data-zoomable src="{{ 'assets/img/scara-cv-homography.jpg' | relative_url }}" alt="Marcadores ArUco detectados para la homografía"><figcaption>Detección de ArUco: los centroides de los marcadores (rojo) definen la homografía de píxeles a milímetros.</figcaption></figure>
+</div>
+
+El pipeline clásico genera un mapa de bordes (desenfoque gaussiano, laplaciano, Otsu), segmenta cada color en HSV (el rojo necesita dos rangos de tono porque el tono da la vuelta) y separa las piezas que se tocan con watershed. Las formas se clasifican por solidez, déficit de convexidad y circularidad: la cruz se detecta primero porque es la única pieza no convexa, y las demás se deciden con una votación de `approxPolyDP` en tres tolerancias. El ángulo de agarre sale del rectángulo de área mínima, ajustado a la simetría de cada forma para que la muñeca gire lo menos posible, y cada pieza se publica por MQTT como `forma, color, x, y, ángulo`.
+
+<div class="sc-grid">
+  <figure class="sc-fig"><img data-zoomable src="{{ 'assets/img/scara-cv-detection.jpg' | relative_url }}" alt="Formas clasificadas en el espacio de trabajo"><figcaption>Detección final: cada pieza etiquetada con su ID, forma y color.</figcaption></figure>
+  <figure class="sc-fig"><img data-zoomable src="{{ 'assets/img/scara-cv-grip.jpg' | relative_url }}" alt="Ángulos de agarre sobre el espacio de trabajo"><figcaption>Ángulos de agarre calculados para cada pieza, usando su simetría para minimizar el giro de la muñeca.</figcaption></figure>
+</div>
+
+Como los umbrales HSV son sensibles a la iluminación y a colores parecidos, entrené un detector YOLOv11n con imágenes del espacio de trabajo real (16 clases, división 80/20, 50 épocas). El pipeline clásico preanotó todas las imágenes, así que el etiquetado tomó unos 30 minutos en vez de 3–4 horas. El modelo alcanzó mAP@0.5 = 0.72; las clases más débiles fueron las cruces, que tenían solo 62–94 ejemplos frente a 1,580 del cuadrado azul — el desbalance de clases, no el modelo, es el principal límite.
+
+<div class="sc-grid">
+  <figure class="sc-fig"><img data-zoomable src="{{ 'assets/img/scara-yolo-preannot.jpg' | relative_url }}" alt="Imagen de entrenamiento del espacio de trabajo"><figcaption>Imagen de entrenamiento capturada en el espacio de trabajo real, con piezas en distintas posiciones, orientaciones y colores.</figcaption></figure>
+  <figure class="sc-fig"><img data-zoomable src="{{ 'assets/img/scara-yolo-loss.png' | relative_url }}" alt="Curvas de pérdida y mAP de YOLOv11n"><figcaption>Pérdidas de entrenamiento y validación y mAP a lo largo de 50 épocas.</figcaption></figure>
+  <figure class="sc-fig"><img data-zoomable src="{{ 'assets/img/scara-yolo-confusion.png' | relative_url }}" alt="Matriz de confusión normalizada"><figcaption>Matriz de confusión normalizada: las piezas verdes se reconocen mejor, las cruces peor.</figcaption></figure>
+</div>
+
 **Cinemática y mecanismo**
 
 Los cuatro ejes de las articulaciones son verticales, así que el problema se separa limpiamente: la posición en el plano depende solo del hombro y el codo, la altura solo de la etapa vertical, y el ángulo de la herramienta es la suma de las tres rotaciones. La cinemática directa encadena cuatro transformaciones de Denavit–Hartenberg; la inversa usa la ley de cosenos para el brazo de dos eslabones (L1 = 150 mm, L2 = 110 mm), da una solución codo arriba y otra codo abajo y conserva la más cercana a la pose actual. Un objetivo solo es alcanzable entre 50 y 250 mm desde la base.
@@ -112,30 +136,6 @@ Antes del SCARA, el equipo modeló otros manipuladores para estudiar movimiento 
 <div class="sc-grid">
   <figure class="sc-fig"><img data-zoomable src="{{ 'assets/img/gantry-simscape-diagram.jpg' | relative_url }}" alt="Diagrama de conexiones en Simscape Multibody del robot gantry"><figcaption>Diagrama de conexiones en Simscape Multibody: los subsistemas del gantry y del brazo, las referencias de movimiento y los mismos lazos PID que el modelo analítico, para compararlos.</figcaption></figure>
   <figure class="sc-fig"><img data-zoomable src="{{ 'assets/img/gantry-simscape-outputs.jpg' | relative_url }}" alt="Salidas de Simscape: ángulo, velocidad angular, torque y señal de control"><figcaption>Salidas de Simscape: ángulo del brazo θ contra su referencia, velocidad angular, torque de salida y señal de control del PID. La señal de control tiene un sobrepaso al inicio de cada escalón y luego se estabiliza.</figcaption></figure>
-</div>
-
-**Visión por computadora**
-
-Un celular montado 500 mm sobre el espacio de trabajo, con el eje óptico vertical, transmite a la PC; un script captura un cuadro de 1280 × 720 px. Cuatro marcadores ArUco en esquinas conocidas de un área de 562 × 562 mm definen una homografía de píxeles de la imagen a milímetros del robot.
-
-<div class="sc-grid">
-  <figure class="sc-fig tall"><img data-zoomable src="{{ 'assets/img/scara-camera.jpg' | relative_url }}" alt="Montaje de la cámara cenital"><figcaption>Cámara cenital a 500 mm sobre el espacio de trabajo, con los marcadores ArUco en las esquinas.</figcaption></figure>
-  <figure class="sc-fig"><img data-zoomable src="{{ 'assets/img/scara-cv-homography.jpg' | relative_url }}" alt="Marcadores ArUco detectados para la homografía"><figcaption>Detección de ArUco: los centroides de los marcadores (rojo) definen la homografía de píxeles a milímetros.</figcaption></figure>
-</div>
-
-El pipeline clásico genera un mapa de bordes (desenfoque gaussiano, laplaciano, Otsu), segmenta cada color en HSV (el rojo necesita dos rangos de tono porque el tono da la vuelta) y separa las piezas que se tocan con watershed. Las formas se clasifican por solidez, déficit de convexidad y circularidad: la cruz se detecta primero porque es la única pieza no convexa, y las demás se deciden con una votación de `approxPolyDP` en tres tolerancias. El ángulo de agarre sale del rectángulo de área mínima, ajustado a la simetría de cada forma para que la muñeca gire lo menos posible, y cada pieza se publica por MQTT como `forma, color, x, y, ángulo`.
-
-<div class="sc-grid">
-  <figure class="sc-fig"><img data-zoomable src="{{ 'assets/img/scara-cv-detection.jpg' | relative_url }}" alt="Formas clasificadas en el espacio de trabajo"><figcaption>Detección final: cada pieza etiquetada con su ID, forma y color.</figcaption></figure>
-  <figure class="sc-fig"><img data-zoomable src="{{ 'assets/img/scara-cv-grip.jpg' | relative_url }}" alt="Ángulos de agarre sobre el espacio de trabajo"><figcaption>Ángulos de agarre calculados para cada pieza, usando su simetría para minimizar el giro de la muñeca.</figcaption></figure>
-</div>
-
-Como los umbrales HSV son sensibles a la iluminación y a colores parecidos, entrené un detector YOLOv11n con imágenes del espacio de trabajo real (16 clases, división 80/20, 50 épocas). El pipeline clásico preanotó todas las imágenes, así que el etiquetado tomó unos 30 minutos en vez de 3–4 horas. El modelo alcanzó mAP@0.5 = 0.72; las clases más débiles fueron las cruces, que tenían solo 62–94 ejemplos frente a 1,580 del cuadrado azul — el desbalance de clases, no el modelo, es el principal límite.
-
-<div class="sc-grid">
-  <figure class="sc-fig"><img data-zoomable src="{{ 'assets/img/scara-yolo-preannot.jpg' | relative_url }}" alt="Imagen de entrenamiento del espacio de trabajo"><figcaption>Imagen de entrenamiento capturada en el espacio de trabajo real, con piezas en distintas posiciones, orientaciones y colores.</figcaption></figure>
-  <figure class="sc-fig"><img data-zoomable src="{{ 'assets/img/scara-yolo-loss.png' | relative_url }}" alt="Curvas de pérdida y mAP de YOLOv11n"><figcaption>Pérdidas de entrenamiento y validación y mAP a lo largo de 50 épocas.</figcaption></figure>
-  <figure class="sc-fig"><img data-zoomable src="{{ 'assets/img/scara-yolo-confusion.png' | relative_url }}" alt="Matriz de confusión normalizada"><figcaption>Matriz de confusión normalizada: las piezas verdes se reconocen mejor, las cruces peor.</figcaption></figure>
 </div>
 
 **Electrónica y PCB**
