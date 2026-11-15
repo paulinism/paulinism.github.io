@@ -50,6 +50,12 @@ certificates:
   - file: cert-15.jpg
     group: "Automatización"
     caption: "Dassault Systèmes — Certified SOLIDWORKS Associate, CSWA (ago. 2026)"
+  - file: cert-15a.jpg
+    group: "Automatización"
+    caption: "Dassault Systèmes — SOLIDWORKS Additive Manufacturing Associate (nov. 2026)"
+  - file: cert-15b.jpg
+    group: "Automatización"
+    caption: "Dassault Systèmes — SOLIDWORKS Sustainability Associate (nov. 2026)"
   - file: cert-16.jpg
     group: "Shell Eco-marathon"
     caption: "Shell Eco-marathon Americas 2025 — Ganador, Data & Telemetry Award (abr. 2025)"
@@ -123,7 +129,7 @@ certificates:
 <div class="ach-kpis">
   <div class="ach-kpi"><b>3</b><span>premios internacionales</span></div>
   <div class="ach-kpi"><b>4</b><span>competencias Shell Eco-marathon</span></div>
-  <div class="ach-kpi"><b>12</b><span>certificaciones técnicas</span></div>
+  <div class="ach-kpi"><b>14</b><span>certificaciones técnicas</span></div>
   <div class="ach-kpi"><b>1</b><span>artículo IEEE (primera autora)</span></div>
 </div>
 
@@ -190,7 +196,7 @@ certificates:
 <h2 class="ach-h sec-h" id="certifications"><i class="fa-solid fa-certificate"></i> Certificaciones de un vistazo</h2>
 <div class="ach-certs">
   <div class="ach-cert"><div class="iss">Siemens</div><div class="nm">Process Simulate Standalone Associate</div><div class="dt">jun. 2026</div></div>
-  <div class="ach-cert"><div class="iss">Dassault Systèmes</div><div class="nm">Certified SOLIDWORKS Associate (CSWA)</div><div class="dt">ago. 2026</div></div>
+  <div class="ach-cert"><div class="iss">Dassault Systèmes</div><div class="nm">SOLIDWORKS Associate: CSWA, Additive Manufacturing, Sustainability</div><div class="dt">ago. – nov. 2026</div></div>
   <div class="ach-cert"><div class="iss">Universal Robots</div><div class="nm">Educational Robotics Core + e-Series Core, Pro &amp; Application Tracks</div><div class="dt">mar. – oct. 2026</div></div>
   <div class="ach-cert"><div class="iss">MiR Academy</div><div class="nm">Personnel Safety, Autonomous Navigation, Mission Programming</div><div class="dt">oct. 2026</div></div>
   <div class="ach-cert"><div class="iss">MathWorks</div><div class="nm">Simulink Onramp &amp; Simscape Onramp</div><div class="dt">oct. 2026</div></div>
@@ -223,7 +229,7 @@ Usa las flechas, el teclado (← →), desliza en el celular o toca una miniatur
   <p class="certbook-caption"></p>
   <div class="certbook-bar">
     <span class="certbook-count"></span>
-    <a class="btn btn-sm z-depth-0" href="{{ '/assets/pdf/Certificates_Paulina_Ruiz.pdf' | relative_url }}" target="_blank" rel="noopener">Abrir PDF completo</a>
+    <a class="btn btn-sm z-depth-0" href="{{ '/assets/pdf/Certificates_Paulina_Ruiz.pdf' | relative_url }}?v=20261115" target="_blank" rel="noopener">Abrir PDF completo</a>
   </div>
   <div class="certbook-thumbs">
     {% for c in page.certificates %}
