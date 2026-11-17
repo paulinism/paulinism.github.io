@@ -5,12 +5,12 @@ lang: es
 es_project: true
 ref: scara-robot
 title: Robot SCARA pick-and-place guiado por visión (4 GDL)
-description: Líder de firmware y electrónica — SCARA de 4 GDL con visión YOLOv11n (mAP 0.72), 5 de 6 piezas a ~14 s por ciclo, PCB propio en Altium
+description: Líder de firmware y electrónica — SCARA de 4 GDL con visión YOLOv11n (mAP 0.72), cinemática y PID en MATLAB/Simulink, 5 de 6 piezas a ~14 s por ciclo, PCB propio en Altium
 img: assets/img/scara.jpg.jpg
 importance: 3
 category: Embebidos, Visión por computadora
 featured: true
-tools: ["ESP32", "Altium", "Python", "YOLOv11n", "OpenCV", "MQTT"]
+tools: ["ESP32", "Altium", "Python", "YOLOv11n", "OpenCV", "MATLAB/Simulink", "Simscape", "MQTT"]
 ---
 
 <style>
@@ -84,7 +84,7 @@ Identificar, tomar y colocar piezas planas que difieren en forma, color y orient
 - **Coordenadas de píxel a robot:** la homografía con ArUco que convierte píxeles de la imagen en milímetros del robot
 - **Machine learning:** el flujo de trabajo de YOLOv11n: preanotación automática, división del dataset, entrenamiento y evaluación
 - **Diseño de PCB:** la placa de control de una capa en Altium Designer (ESP32, drivers de motores a pasos y DC, encoders, distribución de energía)
-- **Cinemática:** mi propia cinemática directa e inversa en MATLAB (cada integrante la derivó por separado)
+- **Cinemática y control:** mi propia cinemática directa e inversa en MATLAB (cada integrante la derivó por separado) y el control PID de las articulaciones en Simulink; con el equipo, los modelos del robot gantry en Simulink y Simscape Multibody
 - **Con el equipo:** prototipo en protoboard, selección de motores y drivers, y los sensores de homing — el interruptor de límite del eje Z y el AS5600 de la muñeca, validados contra ángulos de referencia conocidos; el enlace MQTT entre la computadora de visión, el broker y el ESP32; coautora de la hoja de datos del robot
 
 Mis compañeros desarrollaron la cinemática en C++ y la arquitectura del firmware en el ESP32, la HMI en MATLAB App Designer, el modelo final del SCARA en Simscape y la estructura mecánica.

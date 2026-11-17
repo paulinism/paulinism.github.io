@@ -93,8 +93,8 @@ horizontal: false
   <div class="pj-body">
     <span class="pc-badge">Líder de firmware y electrónica</span>
     <h3 class="pj-title">Robot SCARA pick-and-place guiado por visión (4 GDL)</h3>
-    <p class="pj-txt">SCARA de 4 GDL con visión YOLOv11n (mAP 0.72), 5 de 6 piezas a ~14 s por ciclo, PCB propio en Altium</p>
-    <div class="pj-tags"><span class="pc-tag">ESP32</span><span class="pc-tag">Altium</span><span class="pc-tag">Python</span><span class="pc-tag">YOLOv11n</span><span class="pc-tag">OpenCV</span><span class="pc-tag">MQTT</span></div>
+    <p class="pj-txt">SCARA de 4 GDL con visión YOLOv11n (mAP 0.72), cinemática y PID en MATLAB/Simulink, 5 de 6 piezas a ~14 s por ciclo, PCB propio en Altium</p>
+    <div class="pj-tags"><span class="pc-tag">ESP32</span><span class="pc-tag">Altium</span><span class="pc-tag">Python</span><span class="pc-tag">YOLOv11n</span><span class="pc-tag">OpenCV</span><span class="pc-tag">MATLAB/Simulink</span><span class="pc-tag">Simscape</span><span class="pc-tag">MQTT</span></div>
     <span class="pj-more">Ver el proyecto →</span>
   </div>
 </a>
