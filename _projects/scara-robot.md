@@ -1,12 +1,12 @@
 ---
 layout: page
 title: Vision-Guided SCARA Pick-and-Place Robot (4 DoF)
-description: Firmware & electronics lead — 4-DOF SCARA with YOLOv11n vision (mAP 0.72), 5/6 picks at ~14 s/cycle, custom Altium PCB
+description: Firmware & electronics lead — 4-DOF SCARA with YOLOv11n vision (mAP 0.72), kinematics & PID in MATLAB/Simulink, 5/6 picks at ~14 s/cycle, custom Altium PCB
 img: assets/img/scara.jpg.jpg
 importance: 3
 category: Embedded, Computer Vision
 featured: true
-tools: ["ESP32", "Altium", "Python", "YOLOv11n", "OpenCV", "MQTT"]
+tools: ["ESP32", "Altium", "Python", "YOLOv11n", "OpenCV", "MATLAB/Simulink", "Simscape", "MQTT"]
 ---
 
 <style>
@@ -80,7 +80,7 @@ Identify, pick and place flat pieces that differ in shape, colour and orientatio
 - **Pixel-to-robot coordinates:** the ArUco homography that converts image pixels into robot millimetres
 - **Machine learning:** the YOLOv11n workflow: automatic pre-annotation, dataset split, training and evaluation
 - **PCB design:** the single-layer control board in Altium Designer (ESP32, stepper and DC drivers, encoders, power distribution)
-- **Kinematics:** my own forward and inverse kinematics in MATLAB (each member derived them individually)
+- **Kinematics & control:** my own forward and inverse kinematics in MATLAB (each member derived them individually) and PID joint control in Simulink; with the team, Simulink and Simscape Multibody models of the gantry robot
 - **With the team:** breadboard prototype, motor and driver selection, and the homing sensors — the Z-axis limit switch and the AS5600 on the wrist, validated against known reference angles; the MQTT link between the vision host, the broker and the ESP32; co-author of the robot datasheet
 
 Teammates built the C++ kinematics and firmware architecture on the ESP32, the MATLAB App Designer HMI, the final Simscape model of the SCARA and the mechanical structure.

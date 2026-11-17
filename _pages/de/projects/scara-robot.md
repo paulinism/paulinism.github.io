@@ -5,12 +5,12 @@ lang: de
 de_project: true
 ref: scara-robot
 title: Kamerageführter SCARA-Roboter für Pick-and-Place (4 DoF)
-description: Firmware & Elektronik — 4-DOF-SCARA mit YOLOv11n-Bildverarbeitung (mAP 0,72), 5 von 6 Teilen bei ~14 s pro Zyklus, eigene Altium-Platine
+description: Firmware & Elektronik — 4-DOF-SCARA mit YOLOv11n-Bildverarbeitung (mAP 0,72), Kinematik & PID in MATLAB/Simulink, 5 von 6 Teilen bei ~14 s pro Zyklus, eigene Altium-Platine
 img: assets/img/scara.jpg.jpg
 importance: 3
 category: Embedded, Bildverarbeitung
 featured: true
-tools: ["ESP32", "Altium", "Python", "YOLOv11n", "OpenCV", "MQTT"]
+tools: ["ESP32", "Altium", "Python", "YOLOv11n", "OpenCV", "MATLAB/Simulink", "Simscape", "MQTT"]
 ---
 
 <style>
@@ -84,7 +84,7 @@ Flache Teile mit unterschiedlicher Form, Farbe und Ausrichtung in einem Arbeitsr
 - **Pixel- in Roboterkoordinaten:** die ArUco-Homografie, die Bildpixel in Robotermillimeter umrechnet
 - **Maschinelles Lernen:** der YOLOv11n-Ablauf: automatische Vorannotation, Aufteilung des Datensatzes, Training und Auswertung
 - **Platinenentwurf:** die einseitige Steuerplatine in Altium Designer (ESP32, Schrittmotor- und DC-Treiber, Encoder, Spannungsversorgung)
-- **Kinematik:** meine eigene Vorwärts- und inverse Kinematik in MATLAB (jedes Teammitglied hat sie einzeln hergeleitet)
+- **Kinematik & Regelung:** meine eigene Vorwärts- und inverse Kinematik in MATLAB (jedes Teammitglied hat sie einzeln hergeleitet) und PID-Gelenkregelung in Simulink; im Team Simulink- und Simscape-Multibody-Modelle des Portalroboters
 - **Im Team:** Steckbrett-Prototyp, Auswahl von Motoren und Treibern sowie die Referenzsensoren — Endschalter der Z-Achse und AS5600 am Handgelenk, gegen bekannte Referenzwinkel validiert; die MQTT-Verbindung zwischen Bildverarbeitungsrechner, Broker und ESP32; Mitautorin des Roboter-Datenblatts
 
 Teammitglieder haben die C++-Kinematik und die Firmware-Architektur auf dem ESP32, die HMI in MATLAB App Designer, das finale Simscape-Modell des SCARA und die mechanische Struktur erstellt.

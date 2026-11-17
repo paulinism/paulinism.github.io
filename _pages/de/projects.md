@@ -93,8 +93,8 @@ horizontal: false
   <div class="pj-body">
     <span class="pc-badge">Firmware &amp; Elektronik</span>
     <h3 class="pj-title">Kamerageführter SCARA-Roboter für Pick-and-Place (4 DoF)</h3>
-    <p class="pj-txt">4-DOF-SCARA mit YOLOv11n-Bildverarbeitung (mAP 0,72), 5 von 6 Teilen bei ~14 s pro Zyklus, eigene Altium-Platine</p>
-    <div class="pj-tags"><span class="pc-tag">ESP32</span><span class="pc-tag">Altium</span><span class="pc-tag">Python</span><span class="pc-tag">YOLOv11n</span><span class="pc-tag">OpenCV</span><span class="pc-tag">MQTT</span></div>
+    <p class="pj-txt">4-DOF-SCARA mit YOLOv11n-Bildverarbeitung (mAP 0,72), Kinematik &amp; PID in MATLAB/Simulink, 5 von 6 Teilen bei ~14 s pro Zyklus, eigene Altium-Platine</p>
+    <div class="pj-tags"><span class="pc-tag">ESP32</span><span class="pc-tag">Altium</span><span class="pc-tag">Python</span><span class="pc-tag">YOLOv11n</span><span class="pc-tag">OpenCV</span><span class="pc-tag">MATLAB/Simulink</span><span class="pc-tag">Simscape</span><span class="pc-tag">MQTT</span></div>
     <span class="pj-more">Zum Projekt →</span>
   </div>
 </a>

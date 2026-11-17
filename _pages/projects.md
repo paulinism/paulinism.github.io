@@ -94,8 +94,8 @@ horizontal: false
   <div class="pj-body">
     <span class="pc-badge">Firmware &amp; electronics lead</span>
     <h3 class="pj-title">Vision-Guided SCARA Pick-and-Place Robot (4 DoF)</h3>
-    <p class="pj-txt">4-DOF SCARA with YOLOv11n vision (mAP 0.72), 5/6 picks at ~14 s/cycle, custom Altium PCB</p>
-    <div class="pj-tags"><span class="pc-tag">ESP32</span><span class="pc-tag">Altium</span><span class="pc-tag">Python</span><span class="pc-tag">YOLOv11n</span><span class="pc-tag">OpenCV</span><span class="pc-tag">MQTT</span></div>
+    <p class="pj-txt">4-DOF SCARA with YOLOv11n vision (mAP 0.72), kinematics &amp; PID in MATLAB/Simulink, 5/6 picks at ~14 s/cycle, custom Altium PCB</p>
+    <div class="pj-tags"><span class="pc-tag">ESP32</span><span class="pc-tag">Altium</span><span class="pc-tag">Python</span><span class="pc-tag">YOLOv11n</span><span class="pc-tag">OpenCV</span><span class="pc-tag">MATLAB/Simulink</span><span class="pc-tag">Simscape</span><span class="pc-tag">MQTT</span></div>
     <span class="pj-more">Read the project →</span>
   </div>
 </a>
